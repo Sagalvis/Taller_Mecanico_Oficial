@@ -58,7 +58,7 @@ const Login = () => {
         if (response.data == "") {
           alert("el usuario no existe");
         } else {
-          window.location.href = "http://localhost:3000/";
+          window.location.href = "http://localhost:5173/";
         }
       })
       .catch((error) => {
