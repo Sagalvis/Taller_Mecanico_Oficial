@@ -1,6 +1,6 @@
-import Header from "../../Header/indexHeader"
+import Header from "../../../Header/indexHeader"
 import { ContainerServices } from "./styledService"
-import Footer from "../../Footer/indexFooter"
+import Footer from "../../../Footer/indexFooter"
 
 const Services = () => {
   return ( 

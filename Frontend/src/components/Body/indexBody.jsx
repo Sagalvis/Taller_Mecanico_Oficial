@@ -1,10 +1,11 @@
 import { ContainerBody } from "./styledBody";
 import { Routes, Route } from "react-router-dom";
-import Home from "../Pages/Home/indexHome";
-import We from "../Pages/We/indexWe"
-import Services from "../Pages/Service/indexService";
-import Products from "../Pages/Products/indexProducts";
-import Login from "../Pages/Login/indexLogin"
+import Home from "../Pages/Client/Home/indexHome";
+import We from "../Pages/Client/We/indexWe"
+import Services from "../Pages/Client/Service/indexService";
+import Vehicle from "../Pages/Client/Vehicle/indexVehicle"
+
+
 const Body = () => {
   return (
     <div>
@@ -12,9 +13,8 @@ const Body = () => {
         <Routes>
             <Route path = "*"       element = {<Home/>}     />
             <Route path = "/service/*" element = {<Services/>} />
-            <Route path = "/product/*" element = {<Products/>} />
             <Route path = "/nosotros/*"  element = {<We/>}  />
-            <Route path = "/login/*"   element = {<Login/>}    />
+            <Route path = "/vehicle/*" element = {<Vehicle/>} />
         </Routes>
       </ContainerBody>
     </div>

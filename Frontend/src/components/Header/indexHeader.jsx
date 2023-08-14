@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ContainerHeader, BoxMain, BgDiv, ContainerLogoName, ContainerNameLog, Name, ContainerNav } from "./styledHeader";
 import BurguerButtom from "./BurguerButton";
 import { Routes, Route } from "react-router-dom";
-import Layout from "../Routers/router";
+import Layout from "../Pages/Client/Routers/router";
 
 import NameLog from "./Img/Name.png"
 
