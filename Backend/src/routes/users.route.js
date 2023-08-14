@@ -8,7 +8,7 @@ router.get('/profile', userCrtl.getUsers)
 
 router.post('/profile', userCrtl.postUsers )
 
-router.post('/Login', userCrtl.Login )
+router.post('/login', userCrtl.Login )
 
 router.patch('/profile', userCrtl.updateUsers)
 
