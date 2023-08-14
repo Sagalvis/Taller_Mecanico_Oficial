@@ -32,6 +32,7 @@ export const FotterTitle = styled.h1`
   font-size: 120%;
   margin-top: 10px;
   margin-right: 20px;
+  font-family: sans-serif;
 
 `
 
@@ -56,6 +57,7 @@ export const Quote = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
+  
 `
 
 
@@ -169,7 +171,7 @@ export const ContainerDate = styled.div`
 
 `
 
-export const Date =styled.h1`
+export const Date = styled.h1`
   margin-left: 80px;
   color: #f1e1c8;
 `
@@ -197,6 +199,8 @@ export const Name = styled.h1`
   font-size: 12px;
 
 `
+
+
 
 
 
