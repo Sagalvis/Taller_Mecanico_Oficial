@@ -1,6 +1,6 @@
 import { ContainerWe } from "./styledWe"
-import Header from '../../Header/indexHeader'
-import Footer from "../../Footer/indexFooter"
+import Header from '../../../Header/indexHeader'
+import Footer from "../../../Footer/indexFooter"
 
 const  We = () => {
   return (

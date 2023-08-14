@@ -4,7 +4,8 @@ import styled from 'styled-components';
 export const ContainerHeader = styled.header`
   height: 35rem;
   width: 100%;
-  background-color: aliceblue;
+  background-color: #f0f8ff;
+  z-index: -10;
 `;
 export const ContainerLogoName = styled.div`
   width: auto;

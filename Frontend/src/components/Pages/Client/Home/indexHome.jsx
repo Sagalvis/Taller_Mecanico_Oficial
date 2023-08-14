@@ -1,7 +1,7 @@
 
-import Header from '../../Header/indexHeader'
+import Header from '../../../Header/indexHeader'
 import { ContainerHome } from "./styledHome"
-import Footer from '../../Footer/indexFooter'
+import Footer from '../../../Footer/indexFooter'
 
 const Home = () => {
   return (
