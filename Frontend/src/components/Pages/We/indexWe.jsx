@@ -1,17 +1,17 @@
-import { ContainerPerfil } from "./styledProfile"
+import { ContainerWe } from "./styledWe"
 import Header from '../../Header/indexHeader'
 import Footer from "../../Footer/indexFooter"
 
-const  Profile = () => {
+const  We = () => {
   return (
     <div>
       <Header></Header>
-      <ContainerPerfil>
-        <h1>Profile</h1>
-      </ContainerPerfil>
+      <ContainerWe>
+        <h1>Nosotros</h1>
+      </ContainerWe>
       <Footer/>
     </div>
   )
 }
 
-export default Profile
+export default We

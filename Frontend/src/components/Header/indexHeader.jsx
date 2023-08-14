@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import { ContainerHeader, BoxMain, BgDiv } from './styledHeader';
-import BurguerButtom from "./BurguerButton"
-import {Routes, Route } from "react-router-dom"
-import Layout from "../Routers/router"
+import { useState } from "react";
+import { ContainerHeader, BoxMain, BgDiv, ContainerLogoName, ContainerNameLog, Name, ContainerNav } from "./styledHeader";
+import BurguerButtom from "./BurguerButton";
+import { Routes, Route } from "react-router-dom";
+import Layout from "../Routers/router";
 
+import NameLog from "./Img/Name.png"
 
 const Header = () => {
-  const [clicked, setClicked ] = useState(false)
-  const handleClick = () =>{
+  const [clicked, setClicked] = useState(false);
+  const handleClick = () => {
     //cuando el valor esta true lo pasara a false
-    setClicked(!clicked)
-  }
-  return ( 
+    setClicked(!clicked);
+  };
+  return (
     <div>
-      
-        <ContainerHeader>
-          <BoxMain>
-            <h2>Logo</h2>
-            <div className={`links ${clicked ? 'active' : ''}`}>
+      <ContainerHeader>
+        <BoxMain>
+          <ContainerLogoName>
+            <ContainerNameLog>
+              <Name src={NameLog}/>
+            </ContainerNameLog>
+          </ContainerLogoName>
+          <ContainerNav>
+            <div className={`links ${clicked ? "active" : ""}`}>
               <Routes>
-                <Route path='/' element={<Layout/>}/>
+                <Route path="/" element={<Layout />} />
               </Routes>
             </div>
-            <div className='burguer'>
-          <BurguerButtom clicked={clicked} handleClick={handleClick}/>
-            </div>
-            <BgDiv className={`initial ${clicked ? 'active': ''}`}></BgDiv>
-          </BoxMain>
-        </ContainerHeader>
+          </ContainerNav>
+          <div className="burguer">
+            <BurguerButtom clicked={clicked} handleClick={handleClick} />
+          </div>
+          <BgDiv className={`initial ${clicked ? "active" : ""}`}></BgDiv>
+        </BoxMain>
+      </ContainerHeader>
     </div>
   );
-}
+};
 
 export default Header;

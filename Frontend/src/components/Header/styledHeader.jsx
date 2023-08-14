@@ -1,24 +1,35 @@
 import styled from 'styled-components';
-import fondoheader from "../../Img/fondeheader.jpg"
+
 
 export const ContainerHeader = styled.header`
-  background: #0f0f0f;
-  height: 100vh;
+  height: 35rem;
   width: 100%;
-  background-image: url(${fondoheader});
-  background-position: center ;
-  background-size: cover;
+  background-color: aliceblue;
 `;
-
-export const BoxMain = styled.div`
-  height:10vh;
+export const ContainerLogoName = styled.div`
+  width: auto;
+  height: 100%;
+  /* background-color: blue; */
+  display: flex;
+`;
+export const ContainerNameLog = styled.div`
+  /* background-color: black; */
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+`;
+export const Name = styled.img`
+  width: 500px;
+  height: 250px;
+  cursor: pointer;
+  
+`;
+export const BoxMain = styled.nav`
+  height:11vh;
   width: 100%;
-  box-shadow:10px 10px 10px rgba(128, 128, 128, 0.524);
-    color: #ffffff;
-  h2{
-    color: #fbfbfb;
-    font-weight: 400;
-  }
+  background-color: #000000db;
+  box-shadow:10px 10px 10px rgba(0, 0, 0, 0.524);
   span{
     font-weight:bold
   }
@@ -27,9 +38,7 @@ export const BoxMain = styled.div`
   align-items:center;
   justify-content: space-between;
   a{
-    color: #000000;
     text-decoration: none;
-    margin-right: 1rem;
   }
   .links{
     position:absolute;
@@ -39,20 +48,10 @@ export const BoxMain = styled.div`
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    transition: all .5s ease
-    a{
-      color: #ffffff;
-      font-size: 2rem;
-      display: block;
-    }
+    transition: all .5s ease;
     @media  (min-width: 850px){
       position: initial;
       margin: 0;
-      a{
-        font-size: 1rem;
-        color: white;
-        display: inline;
-      }
     }
   }
   .links.active{
@@ -66,7 +65,7 @@ export const BoxMain = styled.div`
     right: 0;
     text-align: center;
     a{
-      color:#f5f2f2;
+      color:#000000;
     }
   }
   .burguer{
@@ -76,7 +75,13 @@ export const BoxMain = styled.div`
     }
   }
 `;
-
+export const ContainerNav = styled.div`
+  height: 100%;
+  width: 650px;
+  display: flex;
+  align-items: center;
+  
+`
 export const BgDiv = styled.div`
   position: absolute;
   background-color: #222;
