@@ -3,7 +3,7 @@ import { ContainerMain } from './styled';
 import Admin from "./Admin/indexDashboard"
 import Client from "./Client/indexClientes"
 import Service from "./ServiceAdvisor/indexAdvisor"
-import Inventory from './InventoryControl/indexInventory';
+import Inventory from '.git /InventoryControl/indexInventory';
 
 
 const Main = () => {
