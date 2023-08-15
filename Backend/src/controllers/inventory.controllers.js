@@ -23,8 +23,8 @@ export const postInventory = async (req, res) => {
   
   export const getInventory = async (req, res) => {
     try {
-      const [rows] = await pool.query("SELECT * FROM inventary ");
-      res.send(rows);
+      const [rows] = await pool.query("SELECT * FROM inventory ");
+      res.json(rows);
     } catch (error) {
       return res.status(404).json({
         message: "Not found",

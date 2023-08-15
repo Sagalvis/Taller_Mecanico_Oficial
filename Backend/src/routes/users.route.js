@@ -18,7 +18,7 @@ router.delete('/profile', userCrtl.deleteUsers)
 
 router.get('/inventory', userCrtl1.getInventory)
 router.post('/inventory', userCrtl1.postInventory)
-router.patch('/inventory', userCrtl1.updateInventory)
-router.delete('/inventory', userCrtl1.deleteInventory)
+router.patch('/inventory/:id', userCrtl1.updateInventory)
+router.delete('/inventory/:id', userCrtl1.deleteInventory)
 
 export default router;
