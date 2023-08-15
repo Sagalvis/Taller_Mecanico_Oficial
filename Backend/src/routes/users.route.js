@@ -1,18 +1,29 @@
 import { Router } from "express";
 import * as userCrtl from "../controllers/users.controllers.js";
+import * as userCrtl1 from "../controllers/employees.controllers.js";
 
 
 const router = Router()
 
-router.get('/profile', userCrtl.getUsers)
+//rutas de clientes
+router.get('/profile', userCrtl.getCustomer);
 
-router.post('/profile', userCrtl.postUsers )
+router.post('/profile' , userCrtl.createCustomer);
 
-router.post('login/*', userCrtl.Login )
+router.patch('/profile', userCrtl.updateCustomer);
 
-router.patch('/profile', userCrtl.updateUsers)
+router.delete('/profile', userCrtl.deleteCustomer);
 
 
-router.delete('/profile', userCrtl.deleteUsers)
+
+//rutas de empleados
+
+router.post('/employee', userCrtl1.CreateEmployes );
+
+router.post('/employee/login', userCrtl1.LoginEmployes );
+
+router.patch('/employee',userCrtl1.UpdateEmployes);
+
+router.delete('/employee', userCrtl1.DeleteEmployes);
 
 export default router;
