@@ -49,7 +49,7 @@ export const postInventory = async (req, res) => {
     try {
       const [rows] = await pool.query('DELETE FROM inventory WHERE id_inventory = ?', [req.params.id]);
       if (rows.affectedRows <= 0) return res.status(404).json({
-        message: "date_match not found."
+        message: "inventory not found."
     });
     res.json(result);
     } catch (error) {
