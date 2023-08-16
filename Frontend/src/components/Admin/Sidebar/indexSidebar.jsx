@@ -1,11 +1,19 @@
-import { ContainerLogoName, SidebarContainer } from "./styledSidebar";
+import { ContainerLogoName, ContainerSearch, Search, SidebarContainer } from "./styledSidebar";
 
 const Sidebard = () => {
   return ( 
     <SidebarContainer>
         <ContainerLogoName>
-          
+          <h1>
+            aqui va el logo
+          </h1>
         </ContainerLogoName>
+
+        <ContainerSearch>
+          <Search>
+            
+          </Search>
+        </ContainerSearch>
     </SidebarContainer>
   );
 }
