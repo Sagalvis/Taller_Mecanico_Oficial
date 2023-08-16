@@ -6,8 +6,8 @@ import { pool } from "../dbconfig.js";
 export const LoginEmployes = async (req, res) => {
   try {
     const { mail, password } = req.body;
-    const [rows] = await pool.query("SELECT mail, password FROM employed WHERE mail = ? and password = ? ", [ mail, password ]);
-    res.send(rows);
+    const [rows] = await pool.query("SELECT * FROM employed WHERE mail = ? and password = ? ", [ mail, password ]);
+    res.send(rows[0]);
   } catch (error) {
     return res.status(404).json({
       message: "Not found",
