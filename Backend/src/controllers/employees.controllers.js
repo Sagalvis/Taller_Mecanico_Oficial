@@ -20,11 +20,11 @@ export const CreateEmployes = async (req, res) => {
   try {
     const { num_employed, name_employed, imgEmployed, rol, mail, password } = req.body;
     const [rows] = await pool.query(
-      "INSERT INTO profile (num_employed, name_employed, imgEmployed, rol, mail, password) VALUES(?,?,?,?,?)",
+      "INSERT INTO employed (num_employed, name_employed, imgEmployed, rol, mail, password) VALUES(?,?,?,?,?,?)",
       [num_employed, name_employed, imgEmployed, rol, mail, password ]
     );
     res.send({
-      num_employed: rows.insertId, 
+      num_employed, 
       name_employed, 
       imgEmployed, 
       rol, 
@@ -42,16 +42,16 @@ export const CreateEmployes = async (req, res) => {
 export const UpdateEmployes = async (req, res) => {
  try {
   const { num_employed } = req.params;
-  const {  name_employed, imgEmployed, rol,mail, password} = req.body;
+  const {  name_employed, imgEmployed, rol, mail, password} = req.body;
 
   const [result] = await pool.query(
-    "UPDATE employed SET  name_employed = IFNULL(?, name_employed), imgEmployed = IFNULL(?, imgEmployed),rol = IFNULL(?, rol) mail = IFNULL(?, mail), password = IFNULL(?, password) WHERE num_employed = ?", [ name_employed, imgEmployed, rol,mail, password, num_employed]
+    "UPDATE employed SET  name_employed = IFNULL(?, name_employed), imgEmployed = IFNULL(?, imgEmployed),rol = IFNULL(?, rol), mail = IFNULL(?, mail), password = IFNULL(?, password) WHERE num_employed = ?", [ name_employed, imgEmployed, rol, mail, password, num_employed]
   );
 
   if (result.affectedRows === 0)
    return res.status(404).json({ message: "Employee not found"})
 
-   const [rows] = await pool.query('SELECT * FROM employed WHERE num_employed = ?', [
+   const [rows] = await pool.query('SELECT * FROM employed', [
     num_employed,
    ]);
    res.json(rows[0]) 
@@ -64,7 +64,7 @@ export const UpdateEmployes = async (req, res) => {
 export const DeleteEmployes = async (req, res) => {
   try {
     const { num_employed } = req.params;
-    const [rows] = await pool.query("DELETE FROM employes WHERE num_employes = ?", [num_employed]);
+    const [rows] = await pool.query("DELETE FROM employed WHERE num_employed = ?", [num_employed]);
     
     if (rows.affectedRows <= 0){
       return res.status(404).json({message:"Employee not found"})
