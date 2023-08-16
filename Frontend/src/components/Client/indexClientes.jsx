@@ -1,8 +1,12 @@
+import Navbar from "./Navbar";
+import Slider from "./Slider";
+
 const Client = () => {
   return ( 
-    <div>
-      <h1>clientes</h1>
-    </div>
+    <>
+    <Navbar />
+    <Slider />
+    </>
   );
 }
 
