@@ -22,7 +22,7 @@ export const SlideImg = styled.img`
   transition: .3s ease all;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.781);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.555);
 `;
 
 export const Controls = styled.div`

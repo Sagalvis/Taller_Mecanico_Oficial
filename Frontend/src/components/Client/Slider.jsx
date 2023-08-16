@@ -64,9 +64,9 @@ function Slider() {
       next();
     }, 10000);
 
-    // slideshow.current.addEventListener('mouseenter', () => {
-    //   clearInterval(intervalT);
-    // });
+    slideshow.current.addEventListener('mouseenter', () => {
+      clearInterval(intervalT);
+    });
   }, []);
 
   return (

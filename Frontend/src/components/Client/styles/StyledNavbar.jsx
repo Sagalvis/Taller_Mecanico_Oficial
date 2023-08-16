@@ -10,6 +10,7 @@ export const NavbarContent = styled.div`
   top: 20px;
   left: 50%;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25);
+  z-index: 1;
 `;
 
 export const NavLogo = styled.div`
