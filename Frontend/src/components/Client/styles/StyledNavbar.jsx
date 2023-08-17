@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const NavbarContent = styled.div`
-background-color: transparent;
+background-color: #00000028;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -18,7 +18,7 @@ background-color: transparent;
 `;
 
 export const NavLogo = styled.div`
-  color: #222; // #.222
+  color: #eee; // #.222
   font-weight: 900;
   font-size: 2rem;
   cursor: pointer;

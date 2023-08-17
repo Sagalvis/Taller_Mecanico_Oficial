@@ -16,14 +16,14 @@ import herramientas from '../../../src/assets/slider/herramientas.jpg';
 import ArrowLeft from "../../assets/svg/ARROW-LEFT.svg";
 import ArrowRight from "../../assets/svg/ARROW-RIGHT.svg";
 
-function Slider() {
+function Slider({imgslider}) {
   const slideshow = useRef(null);
 
   const next = () => {
     if (slideshow.current.children.length > 0) {
       const firstElement = slideshow.current.children[0];
 
-      slideshow.current.style.transition = `800ms ease-out all`;
+      slideshow.current.style.transition = `700ms ease-out all`;
 
       const slideSize = slideshow.current.children[0].offsetWidth;
 
@@ -53,7 +53,7 @@ function Slider() {
       slideshow.current.style.transform = `translateX(-${slideSize}px)`;
 
       setTimeout(() => {
-        slideshow.current.style.transition = '800ms ease-out all';
+        slideshow.current.style.transition = '700ms ease-out all';
         slideshow.current.style.transform = `translateX(0)`;
       }, 30);
     }
