@@ -7,6 +7,7 @@ import paint from '../../assets/slider/pintura.jpg'
 import electric from '../../assets/slider/electrico.jpg'
 import aire from '../../assets/slider/aire_acondicionado.png'
 import lamina from '../../assets/slider/lamina.jpg'
+import Footer from "./Footer";
 
 
 
@@ -38,6 +39,7 @@ const Client = () => {
     type='Aire acondicionado'
     />
     </ContainService>
+    <Footer />
     </>
   );
 }
