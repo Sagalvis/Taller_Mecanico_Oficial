@@ -29,10 +29,13 @@ export const LogoName = styled.div`
 `;
 
 export const ContainerSearch = styled.div`
-  
+  background-color: #ff0000;
+  margin-top: 5px;
+  width: 100%;
+
 `
 export const Search = styled.div`
-      background: ${({ theme }) => theme.bgAlpha};
+    background: ${({ theme }) => theme.bgAlpha};
     border: 1px solid ${({ theme }) => theme.bg3};
     border-radius: ${v.borderRadius};
     input {
@@ -44,16 +47,22 @@ export const Search = styled.div`
         outline: none;
         border: none;
         color: inherit;
-        background: transparent;
     }
     display: flex;
 `;
 
-export const SSearchIcon = styled.button`
+export const SearchIcon = styled.button`
     padding: calc(${v.mdSpacing} - 2px) ${v.mdSpacing};
     display: flex;
     cursor: pointer;
 
+`;
+
+export const DividerSidebar = styled.div`
+    height: 1px;
+    width: 100%;
+    background: ${({ theme }) => theme.bg3};
+    margin: ${v.lgSpacing} 0;
 `;
 /* Final contenedor logo y nombre */
 
