@@ -1,16 +1,33 @@
 import styled from 'styled-components';
 import {Link} from "react-router-dom"
-import { v } from '../styles/Variables';
+import { btnReset, v } from '../styles/Variables';
 
 
 /* SideBar Init */
 export const SidebarContainer = styled.div`
-  width: ${v.sidebarWidth};
+  width: ${({ $isopen }) => (!$isopen ? `auto` : v.sidebarWidth)};
   background: ${({theme}) => theme.bg};
   height: 100vh;
   padding: ${v.lgSpacing};
   position: relative;
 
+`;
+
+export const SidebarButton = styled.button`
+    ${btnReset};
+    position: absolute;
+    top: ${v.xxlSpacing};
+    right: ${({ isopen }) => (isopen ? `-16px` : `-40px`)};
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.bg};
+    box-shadow: 0 0 4px ${({ theme }) => theme.bg3}, 0 0 7px ${({ theme }) => theme.bg};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: ${({ isopen }) => (!isopen ? `rotate(180deg)` : `initial`)};
 `;
 
 /* Inicio contenedor logo y nombre  */
@@ -67,24 +84,45 @@ export const DividerSidebar = styled.div`
 /* Final contenedor logo y nombre */
 
 /* Inicio contenedor Navbar Sidebar */
-export const SidebarMenu = styled.ul`
 
+
+export const LinkContainer = styled.div`
+  background: ${({ theme, isActive }) => (!isActive ? `transparent` : theme.bg3)};
+  border-radius: ${v.borderRadius};
+  margin: 8px 0;
+
+  :hover {
+    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.bg3};
+  }
 `;
 
-export const LinkContainer = styled.li`
-
-`;
 
 export const NavLink = styled(Link)`
-
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  font-size: 16px;
+  padding: calc(${v.smSpacing} - 2px) 0;
 `; 
+
+export const LinkIcon = styled.div`
+  padding: ${v.smSpacing} ${v.mdSpacing};
+  display: flex;
+`;
+
+export const LinkLabel = styled.span`
+  display: block;
+  flex: 1;
+  margin-left: ${v.smSpacing};
+`;
 
 export const Navbar1 = [
   {
     id:"1",
     label:"Home",
     icon: <i className="fa-solid fa-house"></i>,
-    to:"*"
+    to:"/admin/home"
   },
   {
     id:"2",
@@ -96,19 +134,19 @@ export const Navbar1 = [
     id:"3",
     label:"Clientes",
     icon: <i className="fa-solid fa-user"></i>,
-    to:"/admin/clientes"
+    to:"/admin/client"
   },
   {
     id:"4",
     label:"Vehiculos",
     icon: <i className="fa-solid fa-car"></i>,
-    to:"/admin/vehiculos"
+    to:"/admin/vehicles"
   },
   {
     id:"5",
     label:"Employees",
     icon: <i className="fa-solid fa-users"></i>,
-    to:"/admin/productos"
+    to:"/admin/employees"
   },
   {
     id:"6",
