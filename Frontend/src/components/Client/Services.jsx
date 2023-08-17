@@ -5,7 +5,7 @@ function Services({img, type}) {
   return (
     <>
     <Service>
-      <ServiceImg src="" alt="image"/>
+      <ServiceImg src={img} alt="image"/>
       <ServiceType>
         {type}
       </ServiceType>

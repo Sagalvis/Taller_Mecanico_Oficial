@@ -1,20 +1,24 @@
 import styled from 'styled-components';
 
 export const NavbarContent = styled.div`
-  background-color: #fff;
+background-color: transparent;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+  /* padding: 0 30px; */
+  /* box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25); */
   width: 100%;
-  height: 8.68vh;
-  top: 20px;
-  left: 50%;
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25);
+  height: 80px;
+  /* border-radius: 13px; */
+  position: fixed;
+  /* top: 20px; */
+  /* left: 50%;
+  transform: translate(-50%); */
   z-index: 1;
 `;
 
 export const NavLogo = styled.div`
-  color: #222;
+  color: #222; // #.222
   font-weight: 900;
   font-size: 2rem;
   cursor: pointer;
@@ -32,7 +36,7 @@ export const NavMenuUl = styled.ul`
 
   .nav-links {
     text-decoration: none;
-    color: #222;
+    color: #eee; // #.222
     font-size: 1.2rem;
     font-weight: 600;
     padding: 0.7rem 1rem;
@@ -44,8 +48,8 @@ export const NavMenuUl = styled.ul`
   }
 
   .nav-links:hover {
-    background-color: #000;
-    color: #fff;
+    background-color: #eee;
+    color: #222;
     border-radius: 5px;
     transition: all 0.2s ease-in-out;
   }
@@ -55,7 +59,7 @@ export const NavMenuUl = styled.ul`
   }
 
   @media (max-width: 850px) {   // responsive menu
-    background-color: #fff;
+    background-color: #eee; //#.fff;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -94,7 +98,7 @@ export const Button = styled.button`
 
   &:hover {
     background-color: #222;
-    color: #fff;
+    color: #eee;
     border-radius: 5px;
     transition: all 0.2s ease-in-out;
   }

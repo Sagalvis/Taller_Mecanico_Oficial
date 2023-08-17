@@ -16,7 +16,10 @@ export const Service = styled.div`
 `;
 
 export const ServiceImg = styled.img`
-  
+  object-fit: cover;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
 `;
 
 export const ServiceType = styled.p`

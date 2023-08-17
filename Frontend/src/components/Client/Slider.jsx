@@ -62,7 +62,7 @@ function Slider() {
   useEffect( () =>{
     const intervalT = setInterval(() => {
       next();
-    }, 10000);
+    }, 10000000);
 
     slideshow.current.addEventListener('mouseenter', () => {
       clearInterval(intervalT);

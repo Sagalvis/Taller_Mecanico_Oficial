@@ -2,6 +2,14 @@ import Navbar from "./Navbar";
 import Services from "./Services";
 import Slider from "./Slider";
 import { ContainService } from "./styles/StyledIndex";
+import mecGeneral from '../../assets/slider/mecanica-general.jpg'
+import paint from '../../assets/slider/pintura.jpg'
+import electric from '../../assets/slider/electrico.jpg'
+import aire from '../../assets/slider/aire_acondicionado.png'
+import lamina from '../../assets/slider/lamina.jpg'
+
+
+
 
 const Client = () => {
   return ( 
@@ -10,23 +18,23 @@ const Client = () => {
     <Slider />
     <ContainService>
     <Services
-    img=''
+    img={mecGeneral}
     type='Mecanica General'
     />
     <Services
-    img=''
+    img={paint}
     type='Pintura'
     />
     <Services
-    img=''
+    img={lamina}
     type='Lamina'
     />
     <Services
-    img=''
-    type='Electricidas'
+    img={electric}
+    type='Electricidad'
     />
     <Services
-    img=''
+    img={aire}
     type='Aire acondicionado'
     />
     </ContainService>
