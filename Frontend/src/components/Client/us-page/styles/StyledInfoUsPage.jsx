@@ -9,22 +9,22 @@ export const Aquih1 = styled.h1`
 `;
 
 export const Segundocontenedor = styled.div`
-  margin: 4rem 6rem;
+  margin: 4rem 2rem;
   display: flex;
   justify-content: space-around;
-`;
-
-export const Rever = styled.div`
   
 `;
 
 export const Contenedortext = styled.div`
-  width: 45%;
+  width: 40%;
   text-align: start;
   font-size: 1.1rem;
 `;
 
 export const Aquih2 = styled.h2`
+font-size: 2.2rem;
+font-weight: 400;
+letter-spacing: 1px;
   padding-bottom: 1rem;
 `;
 
@@ -38,7 +38,8 @@ export const Contenedorimg = styled.div`
   width: 50%;
   display: flex;
   justify-content: space-between;
-  /* z-index: -99; */
+  z-index: 1;
+  
 `;
 
 export const Aquimg = styled.img`

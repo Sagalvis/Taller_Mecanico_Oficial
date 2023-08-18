@@ -8,7 +8,7 @@ import electric from "../../assets/slider/electrico.jpg";
 import aire from "../../assets/slider/aire_acondicionado.png";
 import lamina from "../../assets/slider/lamina.jpg";
 import Footer from "./Footer";
-import { Aquih1, Containabout, Rever } from "./us-page/styles/StyledInfoUsPage";
+import { Aquih1, Containabout } from "./us-page/styles/StyledInfoUsPage";
 import InfoUsPage from "./us-page/InfoUsPage";
 import mision from "../../assets/slider/mision.jpg";
 import vision from "../../assets/slider/mision.jpg";
@@ -27,7 +27,7 @@ const Client = () => {
         <Services img={aire} type="Aire acondicionado" />
       </ContainService>
 
-      <Containabout>
+      <Containabout >
         <Aquih1>Acerca de nosotros</Aquih1>
       </Containabout>
 
@@ -36,10 +36,10 @@ const Client = () => {
         text="Nuestra misión es proporcionar a nuestros clientes servicios de reparación mecánica automotriz excepcionales que garanticen la seguridad, confiabilidad y rendimiento óptimo de sus vehículos. Nos esforzamos por ofrecer diagnósticos precisos, soluciones efectivas y un servicio personalizado que exceda las expectativas de nuestros clientes. Buscamos mantenernos a la vanguardia de las últimas tecnologías y técnicas en la industria para brindar soluciones innovadoras y de alta calidad que prolonguen la vida útil de los vehículos de nuestros clientes."
         img1={mision}
         img2={vision}
-      />
+        />
 
       <InfoUsPage
-        title="Mision"
+        title="Vision"
         text="Nuestra misión es proporcionar a nuestros clientes servicios de reparación mecánica automotriz excepcionales que garanticen la seguridad, confiabilidad y rendimiento óptimo de sus vehículos. Nos esforzamos por ofrecer diagnósticos precisos, soluciones efectivas y un servicio personalizado que exceda las expectativas de nuestros clientes. Buscamos mantenernos a la vanguardia de las últimas tecnologías y técnicas en la industria para brindar soluciones innovadoras y de alta calidad que prolonguen la vida útil de los vehículos de nuestros clientes."
         img1={mision}
         img2={vision}
