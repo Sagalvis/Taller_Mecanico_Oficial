@@ -1,24 +1,12 @@
-import { useState } from "react";
+/* import { useState } from "react"; */
 import {
-  ContainerSignInSignUp,
-  ContainerLogin,
-  ContainerSignUp,
-  FormSignUpIn,
-  InputSignUpIn,
-  TitleSignUpIn,
-  ContainerSignIn,
-  ButtonSignUpIn,
-  ForgotSignIn,
-  ContainerOverLay,
-  OverLay,
-  Paragraph,
-  ButtonGhost,
-  LeftOver,
-  RightOver,
-  BoxInput,
+  ContainerButtonLogin,
+  FormBox,
+  InputBox,
+  LoginButton,
+  Section,
 } from "./styledLogin";
 /* import Axios from "axios"; */
-
 
 const Login = () => {
   /* const [signIn, toggle] = useState("true");
@@ -30,7 +18,7 @@ const Login = () => {
   const [repassword, setRepassword] = useState("");
   const [phone, setPhone] = useState(""); */
 
-/*   const add = (evt) => {
+  /*   const add = (evt) => {
     if (password !== repassword) {
       alert("Las contraseñas no coinciden");
       evt.preventDefault();
@@ -46,7 +34,7 @@ const Login = () => {
     }
   }; */
 
-/*   const getprofile = (evt) => {
+  /*   const getprofile = (evt) => {
     evt.preventDefault();
     Axios.post("http://localhost:3005/login", {
       email: email,
@@ -67,9 +55,24 @@ const Login = () => {
   }; */
 
   return (
-    <ContainerLogin>
-      
-    </ContainerLogin>
+    <Section>
+      <FormBox>
+          <h2>LOGIN</h2>
+          <InputBox>
+            <i className="fa-solid fa-envelope"></i>
+            <input type="email" required />
+            <label>Email</label>
+          </InputBox>
+          <InputBox>
+            <i className="fa-solid fa-lock"></i>
+            <input type="password" required />
+            <label>Password</label>
+          </InputBox>
+          <ContainerButtonLogin>
+            <LoginButton>Sign In</LoginButton>
+          </ContainerButtonLogin>
+      </FormBox>
+    </Section>
   );
 };
 
