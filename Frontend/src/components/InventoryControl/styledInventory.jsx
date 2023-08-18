@@ -17,7 +17,7 @@ export const ContainerVistas = styled.div`
 
 export const Tarjetas = styled.div`
   width: 80%;
-  height: 20%;
+  height: 30%;
   border: solid black 1px;
 `;
 
