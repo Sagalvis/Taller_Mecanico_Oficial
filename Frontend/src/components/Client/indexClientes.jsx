@@ -8,7 +8,7 @@ import electric from "../../assets/slider/electrico.jpg";
 import aire from "../../assets/slider/aire_acondicionado.png";
 import lamina from "../../assets/slider/lamina.jpg";
 import Footer from "./Footer";
-import { Aquih1, Containabout, Rever } from "./us-page/styles/StyledInfoUsPage";
+import { Aquih1, Containabout } from "./us-page/styles/StyledInfoUsPage";
 import InfoUsPage from "./us-page/InfoUsPage";
 import mision from "../../assets/slider/mision.jpg";
 import vision from "../../assets/slider/mision.jpg";
