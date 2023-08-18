@@ -23,7 +23,7 @@ const Client = () => {
         <Aquih1>Servicios</Aquih1>
       </Containabout>
 
-      <ContainService>
+      <ContainService id = "Servicios">
         <Services img={mecGeneral} type="Mecanica General" />
         <Services img={paint} type="Pintura" />
         <Services img={lamina} type="Lamina" />
@@ -31,7 +31,7 @@ const Client = () => {
         <Services img={aire} type="Aire acondicionado" />
       </ContainService>
 
-      <Containabout >
+      <Containabout id = "Nosotros" >
         <Aquih1>Acerca de nosotros</Aquih1>
       </Containabout>
 
