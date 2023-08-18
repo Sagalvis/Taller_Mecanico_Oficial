@@ -1,6 +1,6 @@
 import { Router } from "express";
 import * as userCrtl from "../controllers/users.controllers.js";
-import * as userCrtl1 from "../controllers/inventory.controllers.js"
+import * as userCrtl2 from "../controllers/inventory.controllers.js"
 
 const router = Router()
 
@@ -16,9 +16,9 @@ router.delete('/profile', userCrtl.deleteUsers)
 
 //----------------------- inventory routers ------------------------------------
 
-router.get('/inventory', userCrtl1.getInventory)
-router.post('/inventory', userCrtl1.postInventory)
-router.patch('/inventory/:id', userCrtl1.updateInventory)
-router.delete('/inventory/:id', userCrtl1.deleteInventory)
+router.get('/inventory/:id', userCrtl2.getInventory)
+router.post('/inventory', userCrtl2.postInventory)
+router.patch('/inventory/:id', userCrtl2.updateInventory)
+router.delete('/inventory/:id', userCrtl2.deleteInventory)
 
 export default router;

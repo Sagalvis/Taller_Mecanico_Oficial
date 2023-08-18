@@ -3,13 +3,14 @@ import { pool } from "../dbconfig.js";
 
 export const postInventory = async (req, res) => {
     try {
-      const { name_product, quantity, price } = req.body;
+      const { id_product, name_product, quantity, price } = req.body;
       const [rows] = await pool.query(
-        "INSERT INTO inventory (name_product, quantity, price) VALUES(?,?,?)",
-        [name_product, quantity, price]
+        "INSERT INTO inventory (id_product, name_product, quantity, price) VALUES(?,?,?,?)",
+        [id_product, name_product, quantity, price]
       );
       res.send({
         id_inventory: rows.insertId,
+        id_product,
         name_product,
         quantity,
         price
@@ -23,7 +24,7 @@ export const postInventory = async (req, res) => {
   
   export const getInventory = async (req, res) => {
     try {
-      const [rows] = await pool.query("SELECT * FROM inventory ");
+      const [rows] = await pool.query("SELECT name_product, quantity, price FROM inventory where id_inventory = ?", [req.params.id]);
       res.json(rows);
     } catch (error) {
       return res.status(404).json({
@@ -36,7 +37,7 @@ export const postInventory = async (req, res) => {
     try {
       const { id } = req.params;
       const { name_product, quantity, price } = req.body;
-      const [rows] = await pool.query("UPDATE inventory SET name_product = IFNULL(?, name_product), quantity = IFNULL(?, quantity), price = IFNULL(?,price) ",[name_product, quantity, price, id]);
+      const [rows] = await pool.query("UPDATE inventory SET id_product = IFNULL(?, id_product), name_product = IFNULL(?, name_product), quantity = IFNULL(?, quantity), price = IFNULL(?,price) ",[name_product, quantity, price, id]);
       res.json(rows[0]);
     } catch (error) {
       return res.send(404).json({
@@ -58,3 +59,4 @@ export const postInventory = async (req, res) => {
       });
     }
   };
+
