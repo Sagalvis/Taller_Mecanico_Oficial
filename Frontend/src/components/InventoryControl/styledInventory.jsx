@@ -37,7 +37,8 @@ export const Th = styled.th`
 `;
 
 export const Tbody = styled.tbody``;
+
 export const Td = styled.td`
-  text-align: ${(props) => (props.alignCenter ? "center" : "start")};
-  width: ${(props)=> (props.width ? props.width : "auto")};
+  text-align: "center" ;
+  width: "auto";
 `;

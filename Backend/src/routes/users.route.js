@@ -16,7 +16,7 @@ router.delete('/profile', userCrtl.deleteUsers)
 
 //----------------------- inventory routers ------------------------------------
 
-router.get('/inventory/:id', userCrtl2.getInventory)
+router.get('/inventory', userCrtl2.getInventory)
 router.post('/inventory', userCrtl2.postInventory)
 router.patch('/inventory/:id', userCrtl2.updateInventory)
 router.delete('/inventory/:id', userCrtl2.deleteInventory)

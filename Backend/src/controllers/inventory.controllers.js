@@ -24,7 +24,7 @@ export const postInventory = async (req, res) => {
   
   export const getInventory = async (req, res) => {
     try {
-      const [rows] = await pool.query("SELECT name_product, quantity, price FROM inventory where id_inventory = ?", [req.params.id]);
+      const [rows] = await pool.query("SELECT name_product, quantity, price FROM inventory");
       res.json(rows);
     } catch (error) {
       return res.status(404).json({

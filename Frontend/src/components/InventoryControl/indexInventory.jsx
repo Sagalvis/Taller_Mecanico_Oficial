@@ -5,24 +5,29 @@ import { useState, useEffect } from "react";
 
 
 
-const Inventory = ({ invent }) => {
-  const [name_product, useName_product] = useState('')
-  const [quantity, useQuantity] = useState('')
-  const [price, usePrice] = useState('')
-  const [count, useCount] = useState(0)
+const Inventory = () => {
+  const [inventory, setInventory] = useState([]);
+  const [onEdit, setonEdit] = useState(null)
+  const [count, useCount] = useState(0);
 
-  Axios.get("http://localhost:3005/inventory")
+  const getInventory = async () => {
+    try {
+      const res = await Axios.get("http://localhost:3005/inventory")
+      setInventory(res.data.sort((a,b)=>(a.name_product > b.name_product ? 1 : -1)))
+      console.log(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
+  useEffect(()=>{
+    getInventory()
+  }, [setInventory]);
+  
+  const handleEdit = (item) => {
+    setonEdit(item)
+  }
 
-
-
-
-
-  const actualizarCantidad = () => {
-   Axios.patch("http://localhost:3005/inventory",{
-    quantity: count 
-   })
- }
   return (
 
     <ContainerPrincipal>
@@ -35,9 +40,19 @@ const Inventory = ({ invent }) => {
                 <Th>Nombre Producto</Th>
                 <Th>Cantidad</Th>
                 <Th>Precio</Th>
+                
               </Tr>
             </Thead>
             
+            <Tbody>
+              {inventory.map((item, i)=>(
+                <Tr key={i}>
+                  <Td>{item.name_product}</Td>
+                  <Td>{item.quantity}</Td>
+                  <Td>{item.price}</Td>
+                </Tr>
+              ))}
+            </Tbody>
           </Table>
 
         </Tarjetas>
