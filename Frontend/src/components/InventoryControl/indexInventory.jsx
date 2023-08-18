@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 
 const Inventory = () => {
   const [inventory, setInventory] = useState([]);
-  const [onEdit, setonEdit] = useState(null)
   const [count, useCount] = useState(0);
 
   const getInventory = async () => {
@@ -33,6 +32,7 @@ const Inventory = () => {
     <ContainerPrincipal>
       <h1>Inventory Control</h1>
       <ContainerVistas>
+        <Form/>
         <Tarjetas>
           <Table>
             <Thead>
