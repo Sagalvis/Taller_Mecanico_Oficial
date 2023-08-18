@@ -5,7 +5,8 @@ export const Containabout = styled.div`
 `;
 
 export const Aquih1 = styled.h1`
-  font-size: 3rem;
+  font-size: 2.7rem;
+  letter-spacing: 1px;
 `;
 
 export const Segundocontenedor = styled.div`
