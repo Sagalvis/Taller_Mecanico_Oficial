@@ -1,35 +1,29 @@
 import styled from 'styled-components';
 
-export const InfoContainer = styled.div`
-  display: flex;
-  justify-content: center;
+export const Divabout = styled.div`
   /* background-color: green; */
-  width: 100%;
-`;
-
-
-export const TitleText = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 1rem 6rem;
   text-align: center;
-  background-color: #fafafa;
-  border-radius: .3rem;
-  width: 50%;
-  padding: 1.5rem;
-  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.155);
+  margin: 2rem 6rem;
 `;
 
-export const Title = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+export const Abouth1 = styled.h1`
+  font-size: 3rem;
 `;
 
-export const Text = styled.p`
+export const ContentText = styled.div`
   display: flex;
-  text-align: justify;
-  /* font-size: 1.1rem; */
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+`;
+
+export const Text = styled.div`
+`;
+
+export const Texth2 = styled.h2`
+  
+`;
+
+export const Textp = styled.p`
+  
 `;

@@ -1,15 +1,19 @@
-import {  InfoContainer, Text, Title, TitleText } from "./styles/StyledInfoUsPage";
+import { Abouth1, ContentText, Divabout, Text, Texth2, Textp } from "./styles/StyledInfoUsPage";
 
 
-function InfoUsPage({title, text}) {
+function InfoUsPage({title, text, about}) {
   return (
     <>
-    <InfoContainer>
-      <TitleText>
-        <Title>{title}</Title>
-        <Text>{text}</Text>
-      </TitleText>      
-    </InfoContainer>
+    <Divabout>
+      <Abouth1>{about}</Abouth1>
+
+      <ContentText>
+        <Text>
+          <Texth2>{title}</Texth2>
+          <Textp>{text}</Textp>
+        </Text>
+      </ContentText>
+    </Divabout>
     </>
   )
 }
