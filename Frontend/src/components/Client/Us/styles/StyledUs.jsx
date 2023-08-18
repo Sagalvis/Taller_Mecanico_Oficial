@@ -13,7 +13,7 @@ export const ContainerTitle = styled.div`
 export const Title = styled.h1`
  display:flex;
  justify-content: center;
- padding: 15px
+ padding: 15px;
 `;
 
 export const ContainerText = styled.div`
@@ -22,11 +22,11 @@ export const ContainerText = styled.div`
 `;
 export const Text = styled.p`
   margin-left: 40px;
-  margin-right: 40px
+  margin-right: 40px;
   
 `;
 
 export const List = styled.p`
-box-shadow: 4px 4px 51px 4px rgba(0,0,0,0.48);
+ box-shadow: 4px 4px 51px 4px rgba(0,0,0,0.48);
 `;
 
