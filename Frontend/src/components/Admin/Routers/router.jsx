@@ -4,6 +4,7 @@ import Products from "../Pages/Productos";
 import Client from "../../Client/indexClientes";
 import Employees from "../Pages/Employees";
 import Vehicles from "../Pages/Vehicles";
+import ServiceAdmin from "../Pages/Service";
 const Router = () => {
   return ( 
     <Routes>
@@ -12,6 +13,7 @@ const Router = () => {
       <Route path="/client" element={<Client/>}/>
       <Route path="/employees" element={<Employees/>}/>
       <Route path="/vehicles" element={<Vehicles/>}/>
+      <Route path="/service" element= {<ServiceAdmin/>}/>
     </Routes>
   );
 }

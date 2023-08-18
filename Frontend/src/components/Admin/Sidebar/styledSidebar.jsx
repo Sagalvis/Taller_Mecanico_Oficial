@@ -17,7 +17,7 @@ export const SidebarButton = styled.button`
     ${btnReset};
     position: absolute;
     top: ${v.xxlSpacing};
-    right: ${({ isopen }) => (isopen ? `-16px` : `-40px`)};
+    right: ${({ $isopen }) => ($isopen ? `-16px` : `-40px`)};
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -27,7 +27,7 @@ export const SidebarButton = styled.button`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transform: ${({ isopen }) => (!isopen ? `rotate(180deg)` : `initial`)};
+    transform: ${({ $isopen }) => (!$isopen ? `rotate(180deg)` : `initial`)};
 `;
 
 /* Inicio contenedor logo y nombre  */
@@ -87,7 +87,7 @@ export const DividerSidebar = styled.div`
 
 
 export const LinkContainer = styled.div`
-  background: ${({ theme, isActive }) => (!isActive ? `transparent` : theme.bg3)};
+  background: ${({ theme, $isactive }) => (!$isactive ? `transparent` : theme.bg3)};
   border-radius: ${v.borderRadius};
   margin: 8px 0;
 
@@ -150,15 +150,15 @@ export const Navbar1 = [
   },
   {
     id:"6",
-    label:"Home",
-    icon: <i className="fa-solid fa-user"></i>,
-    to:"/admin/productos"
+    label:"Service",
+    icon: <i className="fa-solid fa-briefcase"></i>,
+    to:"/admin/service"
   },
   {
     id:"7",
-    label:"Home",
+    label:"Undefine",
     icon: <i className="fa-solid fa-user"></i>,
-    to:"/admin/productos"
+    to:"/admin/undefine"
   }
 ];
 

@@ -16,9 +16,9 @@ const Sidebard = () => {
     }
 };
   return ( 
-    <SidebarContainer isopen={sidebarOpen}>
+    <SidebarContainer $isopen={sidebarOpen}>
       <>
-        <SidebarButton  isopen={sidebarOpen} onClick={() => setSidebarOpen((p) => !p)}>
+        <SidebarButton  $isopen={sidebarOpen} onClick={() => setSidebarOpen((p) => !p)}>
           <AiOutlineLeft />
         </SidebarButton>
       </>
@@ -34,12 +34,12 @@ const Sidebard = () => {
         </ContainerSearch>
         <DividerSidebar/>
         {Navbar1.map(({id, label, icon, to}) => (
-          <LinkContainer key={id} isActive={pathname === to}>
+          <LinkContainer key={id} $isactive={pathname === to}>
           <NavLink to= {to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
             <LinkIcon>{icon}</LinkIcon>
             {sidebarOpen && (
                 <>
-                  <LinkLabel>${label}</LinkLabel>
+                  <LinkLabel>{label}</LinkLabel>
                 </>
             )}
           </NavLink>
@@ -47,7 +47,7 @@ const Sidebard = () => {
         ))}
         <DividerSidebar/>
         {Navbar2.map(({id, label, icon, to}) => (
-          <LinkContainer key={id} isActive={pathname === to}>
+          <LinkContainer key={id} $isactive={pathname === to}>
           <NavLink to= {to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
             <LinkIcon>{icon}</LinkIcon>
             {sidebarOpen && (
