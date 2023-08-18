@@ -19,6 +19,10 @@ const Client = () => {
       <Navbar />
       <Slider />
 
+      <Containabout style={{paddingTop: '2.2rem'}}>
+        <Aquih1>Servicios</Aquih1>
+      </Containabout>
+
       <ContainService>
         <Services img={mecGeneral} type="Mecanica General" />
         <Services img={paint} type="Pintura" />
