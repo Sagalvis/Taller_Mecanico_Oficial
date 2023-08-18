@@ -9,6 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { MenuOptions } from "./archive/MenuOptions";
 import { useState } from "react";
+import logo from '../../assets/slider/LOGO-PAGE.png'
 
 function Navbar() {
   const [click, setClick] = useState();
@@ -19,7 +20,7 @@ function Navbar() {
   return (
     <>
       <NavbarContent>
-        <NavLogo>Transformers</NavLogo>
+        <NavLogo src={logo} alt="image-logo"/>
 
         <MenuIcons onClick={ () => ChangeClick()}>
           <i className="fas fa-bars"></i>
