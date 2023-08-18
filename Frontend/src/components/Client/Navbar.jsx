@@ -2,12 +2,9 @@ import {
   Button,
   MenuIcons,
   NavLogo,
-  NavMenuLi,
   NavMenuUl,
   NavbarContent,
 } from "./styles/StyledNavbar";
-import { Link } from "react-router-dom";
-import { MenuOptions } from "./archive/MenuOptions";
 import { useState } from "react";
 import logo from '../../assets/slider/LOGO-PAGE.png'
 
@@ -25,15 +22,7 @@ function Navbar() {
           <i className="fas fa-bars"></i>
         </MenuIcons>
         <NavMenuUl click={click}>
-          {MenuOptions.map((item, i) => {
-            return (
-              <NavMenuLi key={i}>
-                <Link className={item.class} to={item.path}>
-                  <i className={item.icon}></i>{item.title}
-                </Link>
-              </NavMenuLi>
-            );
-          })}
+
         </NavMenuUl>
         {MenuOptions.find((item) => item.id === 7) && (
           <NavMenuLi style={{listStyle:"none"}}>
