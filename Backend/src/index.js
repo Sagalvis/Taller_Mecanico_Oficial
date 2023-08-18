@@ -3,15 +3,14 @@ import express from "express";
 import router from "./routes/users.route.js";
 import cors from "cors"
 
-
-
-
 const app = express();
 
 app.use(express.json());
 /* inicial backend */
 app.use(cors());
+
 //app.use(bodyParser.json());
+
 //final backend
 
 app.listen(3005, () =>{
