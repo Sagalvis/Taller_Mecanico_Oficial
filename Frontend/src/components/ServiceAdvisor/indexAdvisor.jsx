@@ -1,9 +1,16 @@
+import Navbar from "../Client/Navbar";
+import Slider from "../Client/Slider";
+import Footer from "../Client/Footer";
+
 const Advisor = () => {
-  return ( 
+  return (
     <div>
-      <h1>Service Advisor</h1>
+      <Navbar />
+      <Slider />
+      <></>
+      <Footer />
     </div>
   );
-}
+};
 
 export default Advisor;
