@@ -1,6 +1,7 @@
 import { Contact, FootAnchor, FootSchedule, Footbutton, FooterContain, Footext, Footform, Footh3, Footinput, FootlinksContain, } from './styles/StyledFooter'
 
-function Footer({title, anchors}) {
+
+function Footer() {
   return (
     <>
     <FooterContain>
