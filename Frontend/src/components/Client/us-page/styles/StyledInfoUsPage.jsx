@@ -39,7 +39,7 @@ export const Contenedorimg = styled.div`
   width: 50%;
   display: flex;
   justify-content: space-between;
-  z-index: 1;
+  /* z-index: 1; */
   
 `;
 
