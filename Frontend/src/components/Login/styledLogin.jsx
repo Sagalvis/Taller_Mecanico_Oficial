@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import imagen from "../../../Img/fondobody.avif"
+/* import imagen from "../../../Img/fondobody.avif" */
 
 export const ContainerLogin = styled.div`
   height: 100vh;
   width: 100%;
-  background-image: url(${imagen});
+  background-color: #5a5a5a;
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;

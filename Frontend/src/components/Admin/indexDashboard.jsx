@@ -11,7 +11,6 @@ export const ThemeContext = React.createContext(null);
 const Dashboard = () => {
   const [theme, setTheme] = useState("light");
   const themeStyle  = theme === 'light' ? lightTheme : darkTheme;
-
   return (
     <ThemeContext.Provider value={{setTheme,theme }}>
       <ThemeProvider theme={themeStyle} >

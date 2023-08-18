@@ -122,7 +122,7 @@ export const Navbar1 = [
     id:"1",
     label:"Home",
     icon: <i className="fa-solid fa-house"></i>,
-    to:"/admin/home"
+    to:"/admin"
   },
   {
     id:"2",
@@ -167,7 +167,7 @@ export const Navbar2 = [
     id: "1",
     label: "Logout",
     icon: <i className="fa-solid fa-right-from-bracket"></i>,
-    to:"/admin/login"
+    to:"/login"
   }
 ]
 /* Final contenedor Navbar Sidebar */

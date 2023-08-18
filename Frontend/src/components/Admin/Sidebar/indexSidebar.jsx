@@ -27,7 +27,7 @@ const Sidebard = () => {
         <ContainerSearch style={!sidebarOpen ? { width: `fit-content` } : {}} onClick={searchClickHandler}>
           <Search >
             <SearchIcon>
-              s
+            <i className="fa-solid fa-magnifying-glass"></i>
             </SearchIcon>
             <input ref={searchRef} placeholder="Aqui va el buscador" style={!sidebarOpen ? { width: 0, padding: 0 } : {}}/>
           </Search>
