@@ -17,11 +17,14 @@ background-color: #00000090;
   z-index: 1;
 `;
 
-export const NavLogo = styled.div`
+export const NavLogo = styled.img`
   color: #eee; // #.222
   font-weight: 900;
-  font-size: 2rem;
+  /* font-size: 2rem; */
+  width: 18%;
   cursor: pointer;
+  /* font-family: ;  */
+  
 `;
 
 export const MenuIcons = styled.div`

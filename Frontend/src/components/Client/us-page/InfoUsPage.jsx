@@ -1,21 +1,28 @@
-import { Abouth1, ContentText, Divabout, Text, Texth2, Textp } from "./styles/StyledInfoUsPage";
+import {
+  Aqui2p,
+  Aquih2,
+  Aquimg,
+  Contenedorimg,
+  Contenedortext,
+  Segundocontenedor,
+} from "./styles/StyledInfoUsPage";
 
-
-function InfoUsPage({title, text, about}) {
+function InfoUsPage({ title, text, img1, img2 }) {
   return (
     <>
-    <Divabout>
-      <Abouth1>{about}</Abouth1>
+        <Segundocontenedor>
+          <Contenedortext>
+            <Aquih2>{title}</Aquih2>
+            <Aqui2p>{text}</Aqui2p>
+          </Contenedortext>
 
-      <ContentText>
-        <Text>
-          <Texth2>{title}</Texth2>
-          <Textp>{text}</Textp>
-        </Text>
-      </ContentText>
-    </Divabout>
+          <Contenedorimg>
+            <Aquimg src={img1} alt="img" />
+            <Aquimg src={img2} alt="img" />
+          </Contenedorimg>
+        </Segundocontenedor>
     </>
-  )
+  );
 }
 
 export default InfoUsPage;
