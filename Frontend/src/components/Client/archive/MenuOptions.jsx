@@ -44,7 +44,7 @@ export const MenuOptions = [
   {
     id:7,
     title: 'Employed',
-    path: '/login',
+    path: '/employes/login',
     class: 'nav-links-mobile'
   },
 ];
