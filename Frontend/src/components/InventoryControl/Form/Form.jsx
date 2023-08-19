@@ -1,10 +1,10 @@
-import { useRef, useState } from "react"
+import { /* useRef, */ useState } from "react"
 import Axios from "axios"
 import { FormContainer, Input, InputArea, Button } from "./StyledForm"
 
 export const Form = () => {
-    const ref = useRef();
-    const [onEdit, setonEdit] = useState(null);
+    /* const ref = useRef();
+    const [onEdit, setonEdit] = useState(null); */
 
     const [id_product, setidProduct] = useState("")
     const [name_product, setnameProduct] = useState("")

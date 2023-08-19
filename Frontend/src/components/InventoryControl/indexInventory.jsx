@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 const Inventory = () => {
   const [inventory, setInventory] = useState([]);
-  const [count, useCount] = useState(0);
+  /* const [count, useCount] = useState(0); */
 
   const getInventory = async () => {
     try {
@@ -23,9 +23,9 @@ const Inventory = () => {
     getInventory()
   }, [setInventory]);
   
-  const handleEdit = (item) => {
+  /* const handleEdit = (item) => {
     setonEdit(item)
-  }
+  } */
 
   return (
 
