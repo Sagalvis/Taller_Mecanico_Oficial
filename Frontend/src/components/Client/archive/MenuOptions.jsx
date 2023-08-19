@@ -37,7 +37,7 @@ export const MenuOptions = [
   },
   {
     title: 'Sign Up',
-    path: '/signup',
+    path: '/employee/login',
     class: 'nav-links-mobile'
   },
 ];

@@ -18,7 +18,7 @@ const Main = () => {
               <Route path='/admin/*' element = {<Dashboard/>}/>
               <Route path='/service/*' element = {<Service/>} />
               <Route path='/inventory/*' element = {<Inventory/>} />
-              <Route path='/login' element = {<Login/>} />
+              <Route path='/employee/login' element = {<Login/>} />
               <Route path='/register' element = {<Register/>}/> 
             </Routes>
           </BrowserRouter>
