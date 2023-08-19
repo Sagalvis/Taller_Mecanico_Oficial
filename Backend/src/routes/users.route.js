@@ -21,4 +21,5 @@ router.post('/inventory', userCrtl2.postInventory)
 router.patch('/inventory/:id', userCrtl2.updateInventory)
 router.delete('/inventory/:id', userCrtl2.deleteInventory)
 
+
 export default router;
