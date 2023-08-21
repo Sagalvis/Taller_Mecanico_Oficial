@@ -5,10 +5,13 @@ import { btnReset, v } from '../styles/Variables';
 
 /* SideBar Init */
 export const SidebarContainer = styled.div`
-  width: ${({ $isopen }) => (!$isopen ? `auto` : v.sidebarWidth)};
-  background: ${({theme}) => theme.bg};
+  width: ${({ $isopen }) => (!$isopen ? `auto` : `350px`)};
+  background: white;
   height: 100vh;
-  padding: ${v.lgSpacing};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   position: relative;
 
 `;
@@ -21,40 +24,44 @@ export const SidebarButton = styled.button`
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: ${({ theme }) => theme.bg};
+    background: black;
     box-shadow: 0 0 4px ${({ theme }) => theme.bg3}, 0 0 7px ${({ theme }) => theme.bg};
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
     cursor: pointer;
     transform: ${({ $isopen }) => (!$isopen ? `rotate(180deg)` : `initial`)};
 `;
 
 /* Inicio contenedor logo y nombre  */
 export const ContainerLogoName = styled.div`
-  background-color: #b6dfdf;
+  width: 90%;
+  height: 70px;
+  display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
 `;
 
-export const Logo = styled.a`
-
+export const Logo1 = styled.img`
+  height: auto;
+  width: 100%;
 `;
 
-export const LogoName = styled.div`
-
+export const Logo2 = styled.img`
+  height: auto;
+  width: 50px;
 `;
+/* Final contenedor logo y nombre */
 
 export const ContainerSearch = styled.div`
-  background-color: #ff0000;
   margin-top: 5px;
-  width: 100%;
+  width: 90%;
 
 `
 export const Search = styled.div`
     background: ${({ theme }) => theme.bgAlpha};
-    border: 1px solid ${({ theme }) => theme.bg3};
-    border-radius: ${v.borderRadius};
     input {
         padding: 0 ${v.smSpacing};
         font-family: inherit;
@@ -62,16 +69,20 @@ export const Search = styled.div`
         font-size: 16px;
         width: 100%;
         outline: none;
-        border: none;
+        border: 1px solid black;
         color: inherit;
     }
     display: flex;
 `;
 
 export const SearchIcon = styled.button`
-    padding: calc(${v.mdSpacing} - 2px) ${v.mdSpacing};
-    display: flex;
-    cursor: pointer;
+  width: 50px;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 
 `;
 
@@ -79,21 +90,19 @@ export const DividerSidebar = styled.div`
     height: 1px;
     width: 100%;
     background: ${({ theme }) => theme.bg3};
-    margin: ${v.lgSpacing} 0;
 `;
-/* Final contenedor logo y nombre */
+
 
 /* Inicio contenedor Navbar Sidebar */
 
 
 export const LinkContainer = styled.div`
+  width: 90%;
   background: ${({ theme, $isactive }) => (!$isactive ? `transparent` : theme.bg3)};
   border-radius: ${v.borderRadius};
   margin: 8px 0;
-
-  :hover {
-    box-shadow: inset 0 0 0 1px ${({ theme }) => theme.bg3};
-  }
+  
+  
 `;
 
 
@@ -101,7 +110,7 @@ export const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: inherit;
+  color: black;
   font-size: 16px;
   padding: calc(${v.smSpacing} - 2px) 0;
 `; 
@@ -115,6 +124,7 @@ export const LinkLabel = styled.span`
   display: block;
   flex: 1;
   margin-left: ${v.smSpacing};
+  color: #000000;
 `;
 
 export const Navbar1 = [
