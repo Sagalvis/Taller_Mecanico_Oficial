@@ -22,9 +22,9 @@ import {
 } from "./styledSidebar";
 import { AiOutlineLeft } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
-import logo from "../../../assets/slider/LOGO-PAGE.png";
-import logo2 from "../../../assets/slider/LOGO-SIDEBAR.png";
+import LogoCarro from "../../../assets/svg/transforCars(carro).svg"
 import perfil1 from "../../../assets/img/Perfil.png";
+import Logodash from "../../../assets/svg/transforCars.svg"
 const Sidebard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const { pathname } = useLocation();
@@ -37,9 +37,9 @@ const Sidebard = () => {
   };
   const LogosFuntion = () => {
     if (!sidebarOpen) {
-      return <Logo2 src={logo2} alt="logo2" />;
+      return <Logo2 src={LogoCarro} alt="logo2" style={{width:"120px"}} />;
     } else {
-      return <Logo1 src={logo} alt="logo1" />;
+      return <Logo1 src={Logodash} alt="logo1" />;
     }
   };
   const SearchFuntion = () => {

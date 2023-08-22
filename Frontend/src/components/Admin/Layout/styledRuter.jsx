@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../styles/Theme";
 
 export const ContainerLayout = styled.div`
     height: 100%;
@@ -11,4 +12,5 @@ export const ContainerPages = styled.div`
     height: 100vh;
     display: flex;
     justify-content: center;
+    background-color: ${colors.primary};
 `;

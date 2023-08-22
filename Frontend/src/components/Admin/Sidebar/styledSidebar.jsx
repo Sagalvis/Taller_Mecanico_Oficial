@@ -4,7 +4,7 @@ import {colors} from "../styles/Theme.jsx"
 
 /* SideBar Init */
 export const SidebarContainer = styled.div`
-  width: ${({ $isopen }) => (!$isopen ? `100px` : `350px`)};
+  width: ${({ $isopen }) => (!$isopen ? `150px` : `350px`)};
   background: ${colors.sd};
   height: 100vh;
   display: flex;
