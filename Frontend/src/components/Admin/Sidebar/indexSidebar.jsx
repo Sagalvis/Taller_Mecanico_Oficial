@@ -1,4 +1,3 @@
-
 import { useRef, useState } from "react";
 import { ContainerLogoName, ContainerSearch, DividerSidebar, LinkContainer, LinkIcon, LinkLabel, NavLink, Navbar1, Navbar2, Search, SearchIcon, SidebarButton, SidebarContainer } from "./styledSidebar";
 import { AiOutlineLeft} from "react-icons/ai"
