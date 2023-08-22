@@ -1,10 +1,9 @@
 import express from "express";
 // import bodyParser from "body-parser";
-import router from "./routes/users.route.js";
+import router from "./routes/customer.route.js";
+import router1 from "./routes/employed.route.js";
+import router2 from "./routes/inventory.route.js";
 import cors from "cors"
-
-
-
 
 const app = express();
 
@@ -13,6 +12,7 @@ app.use(express.json());
 app.use(cors());
 //app.use(bodyParser.json());
 //final backend
+app.use(router, router1, router2)
 
 app.listen(3005, () =>{
   console.log(`estoy corriendo en el puerto 3005`)
@@ -20,4 +20,3 @@ app.listen(3005, () =>{
 
 
 
-app.use(router)
