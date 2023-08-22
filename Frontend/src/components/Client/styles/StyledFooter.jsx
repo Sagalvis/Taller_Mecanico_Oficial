@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  height: 22vh;
   justify-content: space-around;
   align-items: flex-start;
   padding: 20px;
@@ -9,18 +10,19 @@ export const Container = styled.div`
 `;
 
 export const TextAbout = styled.div`
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
   width: 35%;
 `;
 
 export const ThisH2 = styled.h2`
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 1rem;
 `;
 
 export const ThisP = styled.p`
-  font-size: 14px;
+  font-size: 1rem;
   margin-bottom: 10px;
 `;
 
@@ -58,7 +60,8 @@ export const ThisAnch = styled.a`
 `;
 
 export const Help = styled.div`
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ThisUl = styled.ul`
@@ -68,11 +71,14 @@ export const ThisUl = styled.ul`
 `;
 
 export const AboutUs = styled.div`
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Contact = styled.div`
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 1px;
 `;
 
 export const UlInfo = styled.ul`
@@ -94,7 +100,7 @@ export const ThisLiInfo = styled.li`
 
 export const ThisPContact = styled.p`
   list-style-type: none;
-  
+  margin: .4rem;
 `;
 
 export const ThisAnchCont = styled.a`
