@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(cors());
 //app.use(bodyParser.json());
 //final backend
+app.use(router)
 
 app.listen(3005, () =>{
   console.log(`estoy corriendo en el puerto 3005`)
@@ -20,4 +21,3 @@ app.listen(3005, () =>{
 
 
 
-app.use(router)

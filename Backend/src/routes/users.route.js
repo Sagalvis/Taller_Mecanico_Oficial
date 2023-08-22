@@ -21,7 +21,7 @@ router.patch('/inventory/:id', userCrtl2.updateInventory)
 router.delete('/inventory/:id', userCrtl2.deleteInventory)
 
 //------------------rutas de empleados---------------------------------------------------
-router.get('/employed', userCrtl3.getEmployes)
+router.get('/traeremployed', userCrtl3.getEmployes)
 router.post('/employed', userCrtl3.CreateEmployes );
 router.post('/employed/login', userCrtl3.LoginEmployes );
 router.patch('/employed/:num_employed',userCrtl3.UpdateEmployes);

@@ -1,14 +1,14 @@
 import { ContainerPrincipal, ContainerVistas, Tarjetas,Table,Th,Thead,Tr,Tbody,Td } from "./styledInventory"
 import Axios from "axios";
-import { Form } from "./Form/Form";
+/* import { Form } from "./Form/Form"; */
 import { useState, useEffect } from "react";
 
 
 
 const Inventory = () => {
   const [inventory, setInventory] = useState([]);
-  const [onEdit, setonEdit] = useState(null)
-  const [count, useCount] = useState(0);
+  /* const [onEdit, setonEdit] = useState(null)
+  const [count, useCount] = useState(0); */
 
   const getInventory = async () => {
     try {
@@ -24,9 +24,9 @@ const Inventory = () => {
     getInventory()
   }, [setInventory]);
   
-  const handleEdit = (item) => {
+  /* const handleEdit = (item) => {
     setonEdit(item)
-  }
+  } */
 
   return (
 
