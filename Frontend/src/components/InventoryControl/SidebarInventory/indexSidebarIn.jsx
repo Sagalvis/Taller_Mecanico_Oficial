@@ -76,7 +76,7 @@ const SidebardInv = () => {
             <ImgP src={perfil1} alt="perfil" />
           </Perfil>
           <NameP>Inventary</NameP>
-          <NameP>Roy Andrade Polo Martinez</NameP>
+          <NameP>Roy Jose Polo Martinez</NameP>
         </>
       );
     }
