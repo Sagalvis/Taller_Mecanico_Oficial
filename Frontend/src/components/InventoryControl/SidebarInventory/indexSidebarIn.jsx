@@ -19,13 +19,13 @@ import {
   SearchIcon,
   SidebarButton,
   SidebarContainer,
-} from "./styledSidebar";
+} from "./styledSidebarIn";
 import { AiOutlineLeft } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
 import logo from "../../../assets/slider/LOGO-PAGE.png";
 import logo2 from "../../../assets/slider/LOGO-SIDEBAR.png";
 import perfil1 from "../../../assets/img/Perfil.png";
-const Sidebard = () => {
+const SidebardInv = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const { pathname } = useLocation();
   const searchClickHandler = () => {
@@ -75,8 +75,8 @@ const Sidebard = () => {
           <Perfil>
             <ImgP src={perfil1} alt="perfil" />
           </Perfil>
-          <NameP> Admin</NameP>
-          <NameP>Sergio Andrés Galvis Smith</NameP>
+          <NameP>Inventary</NameP>
+          <NameP>Roy Jose Polo Martinez</NameP>
         </>
       );
     }
@@ -138,4 +138,4 @@ const Sidebard = () => {
   );
 };
 
-export default Sidebard;
+export default SidebardInv;

@@ -1,12 +1,15 @@
 import Layout from "./Layout/Layout";
 import Router from "./Routers/router";
+import { ContainerDasboard } from "./styledDashboard";
 
 const Dashboard = () => {
   return (
     <div>
-      <Layout>
-        <Router />
-      </Layout>
+      <ContainerDasboard>
+        <Layout>
+          <Router />
+        </Layout>
+      </ContainerDasboard>
     </div>
   );
 };
