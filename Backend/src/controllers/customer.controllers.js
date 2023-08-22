@@ -74,6 +74,3 @@ export const deleteUsers = async (req, res) => {
     });
   }
 };
-
-
-
