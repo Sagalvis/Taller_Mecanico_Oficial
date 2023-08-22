@@ -6,4 +6,10 @@ export const ContainerHome = styled.div`
   background-color: blue;
 `;
 
+export const Header = styled.div`
+  width: 100%;
+  height: 10px;
+  background-color: white;
+  border-radius: 15px;
+`
 

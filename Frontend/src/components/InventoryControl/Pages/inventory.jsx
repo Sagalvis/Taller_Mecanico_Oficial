@@ -26,7 +26,6 @@ const Inventory = () => {
   /* const handleEdit = (item) => {
     setonEdit(item)
   } */
-
   return (
 
     <ContainerPrincipal>

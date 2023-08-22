@@ -7,7 +7,7 @@ export const ContainerPrincipal = styled.div`
 
 export const ContainerVistas = styled.div`
   width: 50%;
-  height: 50%;
+  height: 95vh;
   border: solid black 1px;
   display: flex;
   align-items: center;
@@ -17,8 +17,9 @@ export const ContainerVistas = styled.div`
 
 export const Tarjetas = styled.div`
   width: 80%;
-  height: 30%;
+  height: 100%;
   border: solid black 1px;
+  overflow-x: hidden;
 `;
 
 export const Table = styled.table`
@@ -36,7 +37,9 @@ export const Th = styled.th`
   border-bottom: inset;
 `;
 
-export const Tbody = styled.tbody``;
+export const Tbody = styled.tbody`
+
+`;
 
 export const Td = styled.td`
   text-align: center;
