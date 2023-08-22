@@ -6,44 +6,47 @@ export const ContainerPrincipal = styled.div`
 `;
 
 export const ContainerVistas = styled.div`
-  width: 50%;
+  width: 100%;
   height: 95vh;
   border: solid black 1px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: space-around;
 `;
 
 
 export const Tarjetas = styled.div`
   width: 80%;
-  height: 100%;
-  border: solid black 1px;
-  overflow-x: hidden;
-`;
-
-export const Table = styled.table`
-  width: 100%;
-  height: 100%;
-  word-break: break-all;
-`;
-
-export const Thead = styled.thead``;
-
-export const Tr = styled.tr``;
-
-export const Th = styled.th`
-  text-align: start;
-  border-bottom: inset;
-`;
-
-export const Tbody = styled.tbody`
-
-`;
-
-export const Td = styled.td`
-  text-align: center;
-  width: 100px;
   height: 100px;
-  background-color: gray;
+  border: solid black 1px;
+    display: flex;
+    justify-content: space-between;
 `;
+
+export const Containerinfo = styled.div`
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  
+`;
+
+export const IdProduct = styled.div`
+
+`;
+export const NameProduct = styled.div`
+
+`;
+export const Quantity = styled.div`
+
+`;
+export const Price = styled.div`
+`;
+
+export const Icon = styled.i`
+  cursor: pointer;
+`
+
+

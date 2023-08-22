@@ -35,9 +35,9 @@ export const postInventory = async (req, res) => {
   
   export const updateInventory = async (req, res) => {
     try {
-      const { id } = req.params;
+      const { id_product } = req.params;
       const { name_product, quantity, price } = req.body;
-      const [rows] = await pool.query("UPDATE inventory SET id_product = IFNULL(?, id_product), name_product = IFNULL(?, name_product), quantity = IFNULL(?, quantity), price = IFNULL(?,price) ",[name_product, quantity, price, id]);
+      const [rows] = await pool.query("UPDATE inventory SET id_product = IFNULL(?, id_product), name_product = IFNULL(?, name_product), quantity = IFNULL(?, quantity), price = IFNULL(?,price) ",[id_product, name_product, quantity, price]);
       res.json(rows[0]);
     } catch (error) {
       return res.send(404).json({
