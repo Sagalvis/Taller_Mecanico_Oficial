@@ -1,12 +1,13 @@
-/* import { useState } from "react"; */
+import { useState } from "react"; 
 import {
   ContainerButtonLogin,
   FormBox,
   InputBox,
   LoginButton,
   Section,
+  Message
 } from "./styledLogin";
-/* import Axios from "axios"; */
+import Axios from "axios"; 
 
 const Login = () => {
   /* const [signIn, toggle] = useState("true");
@@ -54,22 +55,51 @@ const Login = () => {
       });
   }; */
 
+  const [mail, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+
+  const Log = async(evt) =>{
+    evt.preventDefault()
+    setError(null);
+    if (mail && password) {
+     await Axios.post("http://localhost:3005/employed/login", {
+        mail: mail,
+        password: password,
+      }).then((response) => {
+          console.log(response.data);
+          if (response.data == "" ) {
+            alert("el usuario no existe");
+          } else {
+            window.location.href = "http://localhost:5173/admin";
+          }
+        })
+      .catch((error) => {
+          console.error(error);
+          alert("Error en la solicitud");
+        });
+    } else {
+      setError(" Usuario y/o contraseña no ingresados porfavor ingrese los campos requeridos");
+    }
+  }
+
   return (
     <Section>
       <FormBox>
           <h2>LOGIN</h2>
+          <Message className ="message">{error}</Message>
           <InputBox>
             <i className="fa-solid fa-envelope"></i>
-            <input type="email" required />
+            <input type="email" onChange={e =>setEmail(e.target.value)} required />
             <label>Email</label>
           </InputBox>
           <InputBox>
             <i className="fa-solid fa-lock"></i>
-            <input type="password" required />
+            <input type="password" onChange={e =>setPassword(e.target.value)} required />
             <label>Password</label>
           </InputBox>
           <ContainerButtonLogin>
-            <LoginButton>Sign In</LoginButton>
+            <LoginButton onClick={Log}>Sign In</LoginButton>
           </ContainerButtonLogin>
       </FormBox>
     </Section>
