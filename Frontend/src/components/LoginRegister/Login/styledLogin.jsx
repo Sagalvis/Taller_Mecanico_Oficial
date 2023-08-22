@@ -32,6 +32,7 @@ export const FormBox = styled.div`
     font-size: 2em;
     color: white;
     text-align: center;
+    margin-bottom:1px
   }
 `;
 
@@ -99,7 +100,13 @@ export const LoginButton = styled.button`
 
 `;
 
-
+export const Message = styled.div`
+   width: 80%;
+   height: 0.5;
+   color: #ff2600;
+   font-size: 1rem;
+   text-align: center;
+`
 
 
 

@@ -1,7 +1,9 @@
 import { Router } from "express";
 import * as userCrtl from "../controllers/users.controllers.js";
 import * as userCrtl2 from "../controllers/inventory.controllers.js"
-import * as userCrtl3 from "../controllers/"
+
+import * as userCrtl3 from "../controllers/employees.controllers.js"
+
 const router = Router()
 
 //---------------------user routes------------------------------//
@@ -18,8 +20,7 @@ router.post('/inventory', userCrtl2.postInventory)
 router.patch('/inventory/:id', userCrtl2.updateInventory)
 router.delete('/inventory/:id', userCrtl2.deleteInventory)
 
-//------------------------employed routes----------------------------------------//
-
+//------------------rutas de empleados---------------------------------------------------
 router.get('/employed', userCrtl3.getEmployes)
 router.post('/employed', userCrtl3.CreateEmployes );
 router.post('/employed/login', userCrtl3.LoginEmployes );

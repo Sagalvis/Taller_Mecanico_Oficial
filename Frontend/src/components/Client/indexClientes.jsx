@@ -19,7 +19,11 @@ const Client = () => {
       <Navbar />
       <Slider />
 
-      <ContainService>
+      <Containabout style={{paddingTop: '2.2rem'}}>
+        <Aquih1>Servicios</Aquih1>
+      </Containabout>
+
+      <ContainService id = "Servicios">
         <Services img={mecGeneral} type="Mecanica General" />
         <Services img={paint} type="Pintura" />
         <Services img={lamina} type="Lamina" />
@@ -27,7 +31,7 @@ const Client = () => {
         <Services img={aire} type="Aire acondicionado" />
       </ContainService>
 
-      <Containabout>
+      <Containabout id = "Nosotros" >
         <Aquih1>Acerca de nosotros</Aquih1>
       </Containabout>
 
@@ -36,10 +40,10 @@ const Client = () => {
         text="Nuestra misión es proporcionar a nuestros clientes servicios de reparación mecánica automotriz excepcionales que garanticen la seguridad, confiabilidad y rendimiento óptimo de sus vehículos. Nos esforzamos por ofrecer diagnósticos precisos, soluciones efectivas y un servicio personalizado que exceda las expectativas de nuestros clientes. Buscamos mantenernos a la vanguardia de las últimas tecnologías y técnicas en la industria para brindar soluciones innovadoras y de alta calidad que prolonguen la vida útil de los vehículos de nuestros clientes."
         img1={mision}
         img2={vision}
-      />
+        />
 
       <InfoUsPage
-        title="Mision"
+        title="Vision"
         text="Nuestra misión es proporcionar a nuestros clientes servicios de reparación mecánica automotriz excepcionales que garanticen la seguridad, confiabilidad y rendimiento óptimo de sus vehículos. Nos esforzamos por ofrecer diagnósticos precisos, soluciones efectivas y un servicio personalizado que exceda las expectativas de nuestros clientes. Buscamos mantenernos a la vanguardia de las últimas tecnologías y técnicas en la industria para brindar soluciones innovadoras y de alta calidad que prolonguen la vida útil de los vehículos de nuestros clientes."
         img1={mision}
         img2={vision}

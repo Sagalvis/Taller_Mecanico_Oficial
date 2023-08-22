@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme} from "./styles/Theme";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import Layout from "./Layout/Layout";
-import Router from "./Routers/Router";
+import Router from "./Routers/router";
 
 
 export const ThemeContext = React.createContext(null);
