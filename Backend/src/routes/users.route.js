@@ -24,10 +24,10 @@ router.patch('/inventory/:id', userCrtl2.updateInventory)
 router.delete('/inventory/:id', userCrtl2.deleteInventory)
 
 //------------------rutas de empleados---------------------------------------------------
-router.get('/employee', userCrtl3.getEmployes)
-router.post('/employee', userCrtl3.CreateEmployes );
-router.post('/employee/login', userCrtl3.LoginEmployes );
-router.patch('/employee/:num_employed',userCrtl3.UpdateEmployes);
-router.delete('/employee/:num_employed', userCrtl3.DeleteEmployes);
+router.get('/employed', userCrtl3.getEmployes)
+router.post('/employed', userCrtl3.CreateEmployes );
+router.post('/employed/login', userCrtl3.LoginEmployes );
+router.patch('/employed/:num_employed',userCrtl3.UpdateEmployes);
+router.delete('/employed/:num_employed', userCrtl3.DeleteEmployes);
 
 export default router;

@@ -5,6 +5,7 @@ import {
   InputBox,
   LoginButton,
   Section,
+  Message
 } from "./styledLogin";
 import Axios from "axios"; 
 
@@ -56,17 +57,18 @@ const Login = () => {
 
   const [mail, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
   const Log = async(evt) =>{
     evt.preventDefault()
+    setError(null);
     if (mail && password) {
-      Axios.post("http://localhost:5173/login", {
+     await Axios.post("http://localhost:3005/employed/login", {
         mail: mail,
         password: password,
-      })
-      .then((response) => {
+      }).then((response) => {
           console.log(response.data);
-          if (response.data == "") {
+          if (response.data == "" ) {
             alert("el usuario no existe");
           } else {
             window.location.href = "http://localhost:5173/admin";
@@ -76,6 +78,8 @@ const Login = () => {
           console.error(error);
           alert("Error en la solicitud");
         });
+    } else {
+      setError(" Usuario y/o contraseña no ingresados porfavor ingrese los campos requeridos");
     }
   }
 
@@ -83,6 +87,7 @@ const Login = () => {
     <Section>
       <FormBox>
           <h2>LOGIN</h2>
+          <Message className ="message">{error}</Message>
           <InputBox>
             <i className="fa-solid fa-envelope"></i>
             <input type="email" onChange={e =>setEmail(e.target.value)} required />

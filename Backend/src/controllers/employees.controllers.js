@@ -15,6 +15,7 @@ export const getEmployes = async (req, res) => {
 export const LoginEmployes = async (req, res) => {
   try {
     const { mail, password } = req.body;
+    console.log(req.body);
     const [rows] = await pool.query("SELECT * FROM employed WHERE mail = ? and password = ? ", [ mail, password ]);
     res.send(rows[0]);
   } catch (error) {
