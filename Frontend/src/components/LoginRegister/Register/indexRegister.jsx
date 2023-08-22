@@ -17,10 +17,12 @@ const Register = () => {
   const [password, setpassword] = useState('')
   const [numEmployed, setnumEmployed] = useState('')
 
-  const add = (event) => {
+  const add = async (event) => {
+    if (name === '' || lastname === '' || phone === '' || rol === '' || mail  === ''|| password === ''){
+      alert('Todos los campos son obligatorios')
     event.preventDefault();
-    if (name && lastname && phone && rol && mail && password) {
-      Axios.post("http://localhost:3005/employed", {
+    }else{
+       await Axios.post("http://localhost:3005/employed", {
         num_employed: numEmployed,
         name_employed: name,
         lastname_employed: lastname,
@@ -28,7 +30,11 @@ const Register = () => {
         rol: rol,
         mail: mail,
         password: password
-      });
+      }).then(response => {
+        console.log(response.data)
+        alert("usuario registrado exitosamente");
+        window.location.reload('http://localhost:5173/employes/register');
+      })
       
     }
   };
