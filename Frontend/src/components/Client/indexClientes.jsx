@@ -12,6 +12,7 @@ import { Aquih1, Containabout } from "./us-page/styles/StyledInfoUsPage";
 import InfoUsPage, { InfoUsPage2 } from "./us-page/InfoUsPage";
 import mision from "../../assets/slider/mision.jpg";
 import vision from "../../assets/slider/mision.jpg";
+import { useRef } from "react";
 
 const Client = () => {
   // funcion scroll

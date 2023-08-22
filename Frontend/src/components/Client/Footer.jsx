@@ -25,7 +25,7 @@ function Footer() {
         <Stayinput>
           <Footh5>Stay up to date</Footh5>
           <Input placeholder="Correo electronico"/>
-          <Button><i class="fa-solid fa-arrow-right"></i></Button>
+          <Button><i className="fa-solid fa-arrow-right"></i></Button>
         </Stayinput>
       </Firstbox>
       <Reserved>
