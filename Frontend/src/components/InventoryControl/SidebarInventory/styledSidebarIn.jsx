@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {Link} from "react-router-dom"
-import {colors} from "../styles/Theme.jsx"
+import {colors} from "../../Admin/styles/Theme"
 
 /* SideBar Init */
 export const SidebarContainer = styled.div`
@@ -160,46 +160,10 @@ export const LinkLabel = styled.div`
 export const Navbar1 = [
   {
     id:"1",
-    label:"Home",
-    icon: <i className="fa-solid fa-house"></i>,
-    to:"/admin"
-  },
-  {
-    id:"2",
     label:"Productos",
     icon: <i className="fa-solid fa-store"></i>,
-    to:"/admin/productos"
+    to:"/inventory"
   },
-  {
-    id:"3",
-    label:"Clientes",
-    icon: <i className="fa-solid fa-user"></i>,
-    to:"/admin/client"
-  },
-  {
-    id:"4",
-    label:"Vehiculos",
-    icon: <i className="fa-solid fa-car"></i>,
-    to:"/admin/vehicles"
-  },
-  {
-    id:"5",
-    label:"Employees",
-    icon: <i className="fa-solid fa-users"></i>,
-    to:"/admin/employees"
-  },
-  {
-    id:"6",
-    label:"Service",
-    icon: <i className="fa-solid fa-briefcase"></i>,
-    to:"/admin/service"
-  },
-  {
-    id:"7",
-    label:"Undefine",
-    icon: <i className="fa-solid fa-user"></i>,
-    to:"/admin/undefine"
-  }
 ];
 
 export const Navbar2 = [
@@ -207,7 +171,7 @@ export const Navbar2 = [
     id: "1",
     label: "Logout",
     icon: <i className="fa-solid fa-right-from-bracket"></i>,
-    to:"/employes/login"
+    to:"/employed/login"
   }
 ]
 /* Final contenedor Navbar Sidebar */

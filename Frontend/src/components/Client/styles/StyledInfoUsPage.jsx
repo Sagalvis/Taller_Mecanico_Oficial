@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const Containabout = styled.div`
-  text-align: center;
-`;
-
 export const Aquih1 = styled.h1`
   font-size: 2.7rem;
   letter-spacing: 1px;
@@ -30,7 +26,13 @@ letter-spacing: 1px;
 `;
 
 export const Aqui2p = styled.p`
-  
+`;
+
+export const AquiPAbout = styled.p`
+  width: 70%;
+  padding: 0 5rem;
+  font-size: 1.3rem;
+  font-weight: 300;
 `;
 
 export const Contenedorimg = styled.div`

@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../Pages/Home"
 import Products from "../Pages/Productos";
-import Client from "../../Client/indexClientes";
+import Client from "../Pages/Client";
 import Employees from "../Pages/Employees";
 import Vehicles from "../Pages/Vehicles";
 import ServiceAdmin from "../Pages/Service";

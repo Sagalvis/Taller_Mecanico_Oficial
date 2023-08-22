@@ -12,7 +12,6 @@ const Main = () => {
   return ( 
     <div>
         <ContainerMain>
-          
             <Routes>
               <Route path='*' element = {<Client/>}/>
               <Route path='/admin/*' element = {<Dashboard/>}/>
