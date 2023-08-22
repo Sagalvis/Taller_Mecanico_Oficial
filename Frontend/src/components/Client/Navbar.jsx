@@ -8,7 +8,7 @@ import {
 } from "./styles/StyledNavbar";
 import {  MenuOptions} from "./archive/MenuOptions"
 import { useState } from "react";
-import logo from '../../assets/slider/LOGO-PAGE.png'
+import logo from '../../assets/svg/transforCars-01.svg'
 import {Link} from "react-router-dom"
 
 function Navbar() {
