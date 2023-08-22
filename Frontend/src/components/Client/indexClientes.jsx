@@ -14,12 +14,27 @@ import mision from "../../assets/slider/mision.jpg";
 import vision from "../../assets/slider/mision.jpg";
 
 const Client = () => {
+  // funcion scroll
+  const elementRefs = {
+    aboutus: useRef(null),
+    services: useRef(null),
+    // Agrega más referencias según tus necesidades
+  };
+
+  const scrollToElement = (elementId) => {
+    if (elementRefs[elementId].current) {
+      elementRefs[elementId].current.scrollIntoView({
+        behavior: "smooth", // Opcional: para un desplazamiento suave
+      });
+    }
+  };
+
   return (
     <>
       <Navbar />
       <Slider />
 
-      <Containabout style={{paddingTop: '2.2rem'}}>
+      <Containabout ref={elementRefs.aboutus}>
         <Aquih1>Servicios</Aquih1>
       </Containabout>
 
@@ -31,7 +46,7 @@ const Client = () => {
         <Services img={aire} type="Aire acondicionado" />
       </ContainService>
 
-      <Containabout >
+      <Containabout ref={elementRefs.services}>
         <Aquih1>Acerca de nosotros</Aquih1>
       </Containabout>
 
@@ -40,7 +55,7 @@ const Client = () => {
         text="Nuestra misión es proporcionar a nuestros clientes servicios de reparación mecánica automotriz excepcionales que garanticen la seguridad, confiabilidad y rendimiento óptimo de sus vehículos. Nos esforzamos por ofrecer diagnósticos precisos, soluciones efectivas y un servicio personalizado que exceda las expectativas de nuestros clientes. Buscamos mantenernos a la vanguardia de las últimas tecnologías y técnicas en la industria para brindar soluciones innovadoras y de alta calidad que prolonguen la vida útil de los vehículos de nuestros clientes."
         img1={mision}
         img2={vision}
-        />
+      />
 
       <InfoUsPage2
         title="Vision"
@@ -48,7 +63,7 @@ const Client = () => {
         img1={mision}
         img2={vision}
       />
-      
+
       <Footer />
     </>
   );

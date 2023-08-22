@@ -1,4 +1,4 @@
-import { About, Firstbox, Footh5, Footli, Footul, Fotcontain, FtAnchor, Help, Logo, Reserved, Stayinput } from "./styles/StyledFooter";
+import { About, Button, Firstbox, Footh5, Footli, Footp, Footul, Fotcontain, FtAnchor, Help, Input, Logo, Reserved, Stayinput } from "./styles/StyledFooter";
 
 
 function Footer() {
@@ -24,10 +24,12 @@ function Footer() {
         </About>
         <Stayinput>
           <Footh5>Stay up to date</Footh5>
+          <Input placeholder="Correo electronico"/>
+          <Button><i class="fa-solid fa-arrow-right"></i></Button>
         </Stayinput>
       </Firstbox>
       <Reserved>
-        <></>
+        <Footp>&copy; 2023</Footp>
       </Reserved>
     </Fotcontain>
     </>

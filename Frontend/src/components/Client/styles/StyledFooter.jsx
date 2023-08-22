@@ -14,13 +14,15 @@ export const Firstbox = styled.div`
 `;
 
 export const Logo = styled.img`
-  background-color: red;
+  background-color: blue;
   width: 25%;
   height: 30vh;
 `;
 
 export const Help = styled.div`
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
   width: 25%;
   height: 30vh;
 `;
@@ -42,19 +44,29 @@ export const FtAnchor = styled.a`
 `;
 
 export const About = styled.div`
-  background-color: red;
+  background-color: orange;
   width: 25%;
   height: 30vh;
 `;
 
 export const Stayinput = styled.div`
-  background-color: red;
+  background-color: salmon;
   width: 25%;
   height: 30vh;
 `;
 
+export const Input = styled.input`
+  
+`;
+
+export const Button = styled.button`
+  
+`;
 export const Reserved = styled.div`
   background-color: #f5f;
   width: 100%;
+`;
 
+export const Footp = styled.p`
+  
 `;
