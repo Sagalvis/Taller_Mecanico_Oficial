@@ -1,31 +1,29 @@
 import styled from 'styled-components';
 import {Link} from "react-router-dom"
-import { btnReset, v } from '../styles/Variables';
-
+import {colors} from "../styles/Theme.jsx"
 
 /* SideBar Init */
 export const SidebarContainer = styled.div`
   width: ${({ $isopen }) => (!$isopen ? `auto` : `350px`)};
-  background: white;
+  background: ${colors.sd};
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   position: relative;
-
+  box-shadow: 0 0 7px 2px gray;
 `;
 
 export const SidebarButton = styled.button`
-    ${btnReset};
+    
     position: absolute;
-    top: ${v.xxlSpacing};
-    right: ${({ $isopen }) => ($isopen ? `-16px` : `-40px`)};
+    top: ${({ $isopen }) => ($isopen ? `80px` : `87px`)};
+    right: ${({ $isopen }) => ($isopen ? `-16px` : `-16px`)};
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: black;
-    box-shadow: 0 0 4px ${({ theme }) => theme.bg3}, 0 0 7px ${({ theme }) => theme.bg};
+    background: ${colors.ic};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,19 +49,43 @@ export const Logo1 = styled.img`
 
 export const Logo2 = styled.img`
   height: auto;
-  width: 50px;
+  width: 100px;
 `;
 /* Final contenedor logo y nombre */
 
-export const ContainerSearch = styled.div`
-  margin-top: 5px;
+/* Inicio contenedor Search y Perfil Sidebar */
+export const ContainerPerfilName = styled.div`
   width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
-`
+export const Perfil = styled.div`
+  background-color: blue;
+  width: 100px;
+  height: 94px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const ImgP = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+`;
+export const NameP = styled.h3`
+  margin: 0;
+`;
+export const ContainerSearch = styled.div`
+  width: 90%;
+  margin: 0;
+`;
 export const Search = styled.div`
-    background: ${({ theme }) => theme.bgAlpha};
     input {
-        padding: 0 ${v.smSpacing};
         font-family: inherit;
         letter-spacing: inherit;
         font-size: 16px;
@@ -76,55 +98,63 @@ export const Search = styled.div`
 `;
 
 export const SearchIcon = styled.button`
+  border: 1px solid black;
   width: 50px;
+  padding: 0;
   height: 40px;
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
 `;
+/* Final contenedor Search y Perfil Sidebar */
 
 export const DividerSidebar = styled.div`
     height: 1px;
     width: 100%;
-    background: ${({ theme }) => theme.bg3};
+    background: ${colors.dv};
 `;
 
-
 /* Inicio contenedor Navbar Sidebar */
-
-
 export const LinkContainer = styled.div`
   width: 90%;
-  background: ${({ theme, $isactive }) => (!$isactive ? `transparent` : theme.bg3)};
-  border-radius: ${v.borderRadius};
-  margin: 8px 0;
-  
-  
+  height: 5%;
+  background: ${({ $isactive }) => (!$isactive ? `transparent` : `${colors.to}`)};
+  border-radius: 10px;
+  display:flex;
+  :hover{
+    background:${({$isactive})=>($isactive?`${colors.to}`:`${colors.dv}`)};
+    border-radius: 10px;
+  }
 `;
 
 
 export const NavLink = styled(Link)`
   display: flex;
   align-items: center;
+  height: 100%;
+  width: 100%;
   text-decoration: none;
-  color: black;
   font-size: 16px;
-  padding: calc(${v.smSpacing} - 2px) 0;
 `; 
 
 export const LinkIcon = styled.div`
-  padding: ${v.smSpacing} ${v.mdSpacing};
+  width: 50px;
+  height: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  color:${colors.ic};
 `;
 
-export const LinkLabel = styled.span`
-  display: block;
-  flex: 1;
-  margin-left: ${v.smSpacing};
-  color: #000000;
+export const LinkLabel = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  color:${colors.text};
 `;
 
 export const Navbar1 = [
@@ -177,7 +207,7 @@ export const Navbar2 = [
     id: "1",
     label: "Logout",
     icon: <i className="fa-solid fa-right-from-bracket"></i>,
-    to:"/login"
+    to:"/employes/login"
   }
 ]
 /* Final contenedor Navbar Sidebar */

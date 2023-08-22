@@ -1,12 +1,85 @@
-import { ContainerHome } from "./Styles/styledHome";
+import { CardsHeader, CardsMain, ContainerHome, CustomerCards, CustomerName, CustomerNumber } from "./Styles/styledHome";
 
 const Home = () => {
   return ( 
     <div>
       <ContainerHome>
-        <h1>Home</h1>
+        <CardsHeader>
+          <h1>mensaje bienvenida (hora actual)</h1>
+        </CardsHeader>
+        <CardsMain>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+        </CardsMain>
+        <CardsMain>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+        </CardsMain>
+        <CardsMain>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+        </CardsMain>
+        <CardsMain>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+          <CustomerCards>
+            <CustomerName>Clientes</CustomerName>
+            <CustomerNumber>100</CustomerNumber>
+          </CustomerCards>
+        </CardsMain>
       </ContainerHome>
-      
     </div>
   );
 }
