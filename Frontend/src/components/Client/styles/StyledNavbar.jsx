@@ -18,10 +18,10 @@ export const NavbarContent = styled.div`
 `;
 
 export const NavLogo = styled.img`
-  color: #eee; // #.222
+  /* color: #eee; // #.222 */
   font-weight: 900;
   /* font-size: 2rem; */
-  width: 18%;
+  width: 12%;
   cursor: pointer;
   /* font-family: ;  */
   
