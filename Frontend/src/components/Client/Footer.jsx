@@ -1,37 +1,55 @@
-import { About, Button, Firstbox, Footh5, Footli, Footp, Footul, Fotcontain, FtAnchor, Help, Input, Logo, Reserved, Stayinput } from "./styles/StyledFooter";
+import { AboutUs, Contact, Container, Copy, CopyP, Help, TextAbout, ThisAnch, ThisAnchCont, ThisH2, ThisLi, ThisLiInfo, ThisP, ThisPContact, ThisUl, UlInfo, UlMedia } from "./styles/StyledFooter";
 
 
-function Footer() {
+function Footer({titleCompany, textCompany, titleHelp, titleAbout, titleContact, Copyright}) {
   return (
     <>
-    <Fotcontain>
-      <Firstbox>
-        <Logo src="" alt="image"/>
-        <Help>
-          <Footh5>Ayuda</Footh5>
-          <Footul>
-            <Footli>
-              <FtAnchor href="/">PQR</FtAnchor>
-              <FtAnchor href="/">Atencion</FtAnchor>
-              <FtAnchor href="/">Contacta</FtAnchor>
-            </Footli>
-          </Footul>
-        </Help>
-        <About>
-          <Footh5>Acerca de nosotros</Footh5>
-          <FtAnchor href="/">About Spec</FtAnchor>
-          <FtAnchor href="/">Careers</FtAnchor>
-        </About>
-        <Stayinput>
-          <Footh5>Stay up to date</Footh5>
-          <Input placeholder="Correo electronico"/>
-          <Button><i className="fa-solid fa-arrow-right"></i></Button>
-        </Stayinput>
-      </Firstbox>
-      <Reserved>
-        <Footp>&copy; 2023</Footp>
-      </Reserved>
-    </Fotcontain>
+    <Container>
+      <TextAbout>
+        <ThisH2>{titleCompany}</ThisH2>
+      <ThisP>{textCompany}</ThisP>
+      <UlMedia>
+        <ThisLi><ThisAnch href="#"><i className="fa-brands fa-facebook-f"></i></ThisAnch></ThisLi>
+        <ThisLi><ThisAnch href="#"><i className="fa-brands fa-x-twitter"></i></ThisAnch></ThisLi>
+        <ThisLi><ThisAnch href="#"><i className="fa-brands fa-instagram"></i></ThisAnch></ThisLi>
+      </UlMedia>
+      </TextAbout>
+
+      <Help>
+        <ThisH2>{titleHelp}</ThisH2>
+        <ThisUl>
+          <ThisLi><ThisAnch href="#">Contact</ThisAnch></ThisLi>
+          <ThisLi><ThisAnch href="#">FAQ</ThisAnch></ThisLi>
+          <ThisLi><ThisAnch href="#">Legal and Privacy</ThisAnch></ThisLi>
+        </ThisUl>
+      </Help>
+
+      <AboutUs>
+        <ThisH2>{titleAbout}</ThisH2>
+        <ThisUl>
+          <ThisLi><ThisAnch href="#">About specs</ThisAnch></ThisLi>
+          <ThisLi><ThisAnch href="#">Carers</ThisAnch></ThisLi>
+        </ThisUl>
+      </AboutUs>
+
+      <Contact>
+        <ThisH2>{titleContact}</ThisH2>
+        <UlInfo>
+          <ThisLiInfo>
+            <span><i className="fa-solid fa-phone"></i></span><ThisPContact><ThisAnchCont href="tel:+573045264366">+57 304 526 4366</ThisAnchCont></ThisPContact>
+          </ThisLiInfo>
+          
+          <ThisLiInfo>
+            <span><i className="fa-solid fa-envelope"></i></span>
+            <ThisPContact>
+              <ThisAnchCont href="mailto:transforcar@mailto.com">transforcars@mailto.com</ThisAnchCont></ThisPContact>
+          </ThisLiInfo>
+        </UlInfo>
+      </Contact>
+      </Container>
+    <Copy>
+      <CopyP>{Copyright}</CopyP>
+    </Copy>
     </>
   )
 }
