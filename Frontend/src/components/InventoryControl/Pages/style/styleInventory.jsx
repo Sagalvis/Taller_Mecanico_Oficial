@@ -39,6 +39,8 @@ export const Th = styled.th`
 export const Tbody = styled.tbody``;
 
 export const Td = styled.td`
-  text-align: "center" ;
-  width: "auto";
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  background-color: gray;
 `;

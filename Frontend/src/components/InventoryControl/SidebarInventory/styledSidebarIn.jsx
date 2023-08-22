@@ -162,7 +162,7 @@ export const Navbar1 = [
     id:"1",
     label:"Productos",
     icon: <i className="fa-solid fa-store"></i>,
-    to:"/inventory/products"
+    to:"/inventory"
   },
 ];
 

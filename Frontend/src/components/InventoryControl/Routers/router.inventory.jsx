@@ -4,7 +4,7 @@ import Inventory from "../Pages/inventory"
 const RouterInventory = () => {
   return ( 
     <Routes>
-      <Route path="/products" element = {<Inventory/>}/> 
+      <Route path="*" element = {<Inventory/>}/> 
     </Routes>
   );
 }
