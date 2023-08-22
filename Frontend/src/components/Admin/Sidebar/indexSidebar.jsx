@@ -26,7 +26,7 @@ import logo from "../../../assets/slider/LOGO-PAGE.png";
 import logo2 from "../../../assets/slider/LOGO-SIDEBAR.png";
 import perfil1 from "../../../assets/img/Perfil.png";
 const Sidebard = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const { pathname } = useLocation();
   const searchClickHandler = () => {
     if (!sidebarOpen) {

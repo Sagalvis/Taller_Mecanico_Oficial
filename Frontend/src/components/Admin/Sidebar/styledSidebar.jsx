@@ -18,7 +18,7 @@ export const SidebarContainer = styled.div`
 export const SidebarButton = styled.button`
     
     position: absolute;
-    top: ${({ $isopen }) => ($isopen ? `80px` : `87px`)};
+    top: ${({ $isopen }) => ($isopen ? `88px` : `95px`)};
     right: ${({ $isopen }) => ($isopen ? `-16px` : `-16px`)};
     width: 32px;
     height: 32px;
