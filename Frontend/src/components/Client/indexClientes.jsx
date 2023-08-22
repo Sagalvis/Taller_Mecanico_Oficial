@@ -65,7 +65,13 @@ const Client = () => {
         img2={vision}
       />
 
-      <Footer />
+      <Footer 
+      titleCompany='About Company'
+      textCompany='En Transfor CARS, somos un equipo de expertos en mecánica automotriz con años de experiencia. Ofrecemos servicios de alta calidad y soluciones confiables para mantener tu vehículo en óptimas condiciones. Nuestro objetivo es brindar un servicio excepcional, utilizando equipos de última generación y proporcionando asesoramiento personalizado. Confía en nosotros para el cuidado y reparación de tu vehículo. ¡Contáctanos hoy mismo!.'
+      titleHelp='Help and advice'
+      titleAbout='About us'
+      titleContact='Contact Us'
+      Copyright='Copyright &copy 2023 Tranfor CARS. All Rights'/>
     </>
   );
 };
