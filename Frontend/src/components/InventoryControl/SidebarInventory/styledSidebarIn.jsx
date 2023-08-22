@@ -171,7 +171,7 @@ export const Navbar2 = [
     id: "1",
     label: "Logout",
     icon: <i className="fa-solid fa-right-from-bracket"></i>,
-    to:"/employed/login"
+    to:"/employes/login"
   }
 ]
 /* Final contenedor Navbar Sidebar */
