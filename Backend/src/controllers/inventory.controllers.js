@@ -24,7 +24,7 @@ export const postInventory = async (req, res) => {
   
   export const getInventory = async (req, res) => {
     try {
-      const [rows] = await pool.query("SELECT name_product, quantity, price FROM inventory");
+      const [rows] = await pool.query("SELECT * FROM inventory");
       res.json(rows);
     } catch (error) {
       return res.status(404).json({
@@ -48,7 +48,7 @@ export const postInventory = async (req, res) => {
   
   export const deleteInventory = async (req, res) => {
     try {
-      const [rows] = await pool.query('DELETE FROM inventory WHERE id_inventory = ?', [req.params.id]);
+      const [rows] = await pool.query('DELETE FROM inventory WHERE id_product = ?', [req.params.id_product]);
       if (rows.affectedRows <= 0) return res.status(404).json({
         message: "inventory not found."
     });
