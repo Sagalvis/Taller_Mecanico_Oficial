@@ -11,7 +11,7 @@ function Footer({titleCompany, textCompany, titleHelp, titleAbout, titleContact,
       <UlMedia>
         <ThisLi><ThisAnch href="#"><i className="fa-brands fa-facebook-f"></i></ThisAnch></ThisLi>
         <ThisLi><ThisAnch href="#"><i className="fa-brands fa-x-twitter"></i></ThisAnch></ThisLi>
-        <ThisLi><ThisAnch href="#"><i className="fa-brands fa-instagram"></i></ThisAnch></ThisLi>
+        <ThisLi><ThisAnch href="#" target="_blank"><i className="fa-brands fa-instagram"></i></ThisAnch></ThisLi>
       </UlMedia>
       </TextAbout>
 

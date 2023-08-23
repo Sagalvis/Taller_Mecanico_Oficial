@@ -22,8 +22,6 @@ import {
 } from "./styledSidebarIn";
 import { AiOutlineLeft } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
-import logo from "../../../assets/slider/LOGO-PAGE.png";
-import logo2 from "../../../assets/slider/LOGO-SIDEBAR.png";
 import perfil1 from "../../../assets/img/Perfil.png";
 const SidebardInv = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);

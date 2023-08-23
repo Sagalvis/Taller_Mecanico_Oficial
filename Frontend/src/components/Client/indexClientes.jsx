@@ -12,7 +12,9 @@ import Footer from "./Footer";
 import { AquiPAbout, Aquih1 } from "./styles/StyledInfoUsPage";
 import InfoUsPage, { InfoUsPage2 } from "./InfoUs";
 import mision from "../../assets/slider/mision.jpg";
-import vision from "../../assets/slider/mision.jpg";
+import mision2 from "../../assets/slider/mision2.jpg";
+import vision from "../../assets/slider/vision.jpg";
+import vision2 from "../../assets/slider/vision2.jpg";
 import { useRef } from "react";
 
 const HomeClient = () => {
@@ -82,19 +84,19 @@ const HomeClient = () => {
         title="Mision"
         text="Nuestra misión es proporcionar a nuestros clientes servicios de reparación mecánica automotriz excepcionales que garanticen la seguridad, confiabilidad y rendimiento óptimo de sus vehículos. Nos esforzamos por ofrecer diagnósticos precisos, soluciones efectivas y un servicio personalizado que exceda las expectativas de nuestros clientes. Buscamos mantenernos a la vanguardia de las últimas tecnologías y técnicas en la industria para brindar soluciones innovadoras y de alta calidad que prolonguen la vida útil de los vehículos de nuestros clientes."
         img1={mision}
-        img2={vision}
+        img2={mision2}
       />
 
       <InfoUsPage2
         title="Vision"
         text="Nuestra misión es proporcionar a nuestros clientes servicios de reparación mecánica automotriz excepcionales que garanticen la seguridad, confiabilidad y rendimiento óptimo de sus vehículos. Nos esforzamos por ofrecer diagnósticos precisos, soluciones efectivas y un servicio personalizado que exceda las expectativas de nuestros clientes. Buscamos mantenernos a la vanguardia de las últimas tecnologías y técnicas en la industria para brindar soluciones innovadoras y de alta calidad que prolonguen la vida útil de los vehículos de nuestros clientes."
-        img1={mision}
-        img2={vision}
+        img1={vision}
+        img2={vision2}
       />
 
       <Footer
         titleCompany="About Company"
-        textCompany="En Transfor CARS, somos un equipo apasionado de expertos en mecánica automotriz. Con años de experiencia en el sector, nos enorgullece ofrecer servicios de alta calidad y soluciones confiables para mantener tu vehículo en óptimas condiciones..."
+        textCompany="En Transfor CARS, somos un equipo apasionado de expertos en mecánica automotriz.Con años de experiencia en el sector, nos enorgullece ofrecer servicios de alta calidad y soluciones confiables para mantener tu vehículo en óptimas condiciones..."
         titleHelp="Help and advice"
         titleAbout="About us"
         titleContact="Contact Us"
