@@ -49,6 +49,8 @@ function Schedule() {
           <Input 
           type='tel'
           required
+          onInput={(evt) => acceptNum(evt)}
+          maxLength={10}
           autoComplete='off'
           placeholder='Telefono'/>
 
@@ -64,7 +66,7 @@ function Schedule() {
             <option value="Servicio6">Otro</option>
           </select>
         </Form>
-        <Button>Agendar</Button>
+        <Button type='Submit'>Agendar</Button>
       </InfoForm>
 
     </ContainRoute>
