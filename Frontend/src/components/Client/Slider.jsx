@@ -16,7 +16,7 @@ import herramientas from '../../../src/assets/slider/herramientas.jpg';
 import ArrowLeft from "../../assets/svg/ARROW-LEFT.svg";
 import ArrowRight from "../../assets/svg/ARROW-RIGHT.svg";
 
-function Slider({imgslider}) {
+function Slider() {
   const slideshow = useRef(null);
 
   const next = () => {
