@@ -25,11 +25,9 @@ function Schedule() {
           autoComplete='off'
           placeholder='Nombre completo'/>
 
-          <Input 
-          type='date'
-          required
-          autoComplete='off'
-          placeholder='Fecha'/>
+          <Input
+          style={{color: 'green'}}
+          type='date'/>
 
           <Input 
           type='email'
