@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const NavbarContent = styled.div`
-  background-color: #000000;
+  background-color: #111111b2;
   display: flex;
   justify-content: space-around;
   align-items: center;
   /* padding: 0 30px; */
   /* box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.386); */
   width: 100%;
-  height: 80px;
+  height: 8.66vh;
   /* border-radius: 13px; */
   position: fixed;
   /* top: 20px; */
