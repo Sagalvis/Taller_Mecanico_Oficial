@@ -1,16 +1,11 @@
-import Navbar from "../Client/Navbar";
-import Slider from "../Client/Slider";
-import Footer from "../Client/Footer";
 
-const Advisor = () => {
+
+const ServiceAdvisor = () => {
   return (
     <div>
-      <Navbar />
-      <Slider />
-      <></>
-      <Footer />
+      <h1>hola mundo</h1>
     </div>
   );
 };
 
-export default Advisor;
+export default ServiceAdvisor;

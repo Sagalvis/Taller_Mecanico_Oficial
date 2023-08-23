@@ -24,21 +24,21 @@ export const MenuOptions = [
     id:4,
     title: 'Contacto',
     icon: 'fa-solid fa-phone',
-    path: '/home/contact',
+    path: '/contact',
     class: 'nav-links'
   },
   {
     id:5,
     title: 'Mi Vehiculo',
     icon: 'fa-solid fa-car',
-    path: '/home/vehicle',
+    path: '/vehicle',
     class: 'nav-links'
   },
   {
     id:6,
     title: 'Agenda tu cita',
     icon: 'fa-solid fa-address-book',
-    path: '/home/cita',
+    path: '/cita',
     class: 'nav-links'
   },
   {

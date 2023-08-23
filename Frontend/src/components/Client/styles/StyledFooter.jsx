@@ -50,12 +50,12 @@ export const ThisLi = styled.li`
   justify-content: center;
   line-height: 16px;
   vertical-align: middle;
-  color: #000;
+  color: #111;
 }
 `;
 
 export const ThisAnch = styled.a`
-  color: #000;
+  color: #111;
   text-decoration: none;
 `;
 
@@ -95,7 +95,7 @@ export const UlInfo = styled.ul`
 export const ThisLiInfo = styled.li`
   display: flex;
   list-style-type: none;
-  color: #000;
+  color: #111;
 `;
 
 export const ThisPContact = styled.p`
@@ -106,7 +106,7 @@ export const ThisPContact = styled.p`
 export const ThisAnchCont = styled.a`
   list-style-type: none;
   text-decoration: none;
-  color: #000;
+  color: #111;
   
 `;
 
@@ -115,7 +115,7 @@ export const Copy = styled.div`
   text-align: center;
   justify-content: center;
   height: 5vh;
-  background-color: #222;
+  background-color: #111;
   color: #ddd;
 `;
 

@@ -1,20 +1,21 @@
 import styled from 'styled-components';
 
 export const NavbarContent = styled.div`
-  background-color: #00000090;
+  background-color: #222;
   display: flex;
   justify-content: space-around;
   align-items: center;
   /* padding: 0 30px; */
   /* box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.386); */
   width: 100%;
-  height: 80px;
+  height: 8.66vh;
   /* border-radius: 13px; */
-  position: fixed;
+  /* position: fixed; */
   /* top: 20px; */
   /* left: 50%;
   transform: translate(-50%); */
-  z-index: 1;
+  /* z-index: 1; */
+  
 `;
 
 export const NavLogo = styled.img`
