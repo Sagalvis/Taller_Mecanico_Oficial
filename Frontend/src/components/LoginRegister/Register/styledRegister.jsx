@@ -73,15 +73,6 @@ export const InputBox = styled.div`
     font-size: 1.2em;
     top: 20px;
   }
-  .select{
-    width: 100%;
-    height: 50px;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    color: white;
-  }
 `;
 
 export const ContainerButtonLogin = styled.div`
@@ -104,7 +95,6 @@ export const LoginButton = styled.button`
   font-size: 23px;
   font-weight: 600;
   cursor: pointer;
-
 `;
 
 

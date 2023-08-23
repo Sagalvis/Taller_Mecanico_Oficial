@@ -66,7 +66,6 @@ return (
         </InputBox>
         <InputBox>
           <i className="fa-solid fa-users-gear"></i>
-          <select name="" id=""></select>
           <input type="text" required onChange={e => setrol(e.target.value)}/>
           <label>Rol</label>
         </InputBox>
