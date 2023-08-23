@@ -17,6 +17,7 @@ const Register = () => {
   const [password, setpassword] = useState('')
   const [numEmployed, setnumEmployed] = useState('')
 
+  
   const add = async (event) => {
     if (name === '' || lastname === '' || phone === '' || rol === '' || mail  === ''|| password === ''){
       alert('Todos los campos son obligatorios')
