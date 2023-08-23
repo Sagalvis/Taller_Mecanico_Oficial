@@ -22,7 +22,7 @@ const Register = () => {
       alert('Todos los campos son obligatorios')
     event.preventDefault();
     }else{
-       await Axios.post("http://localhost:3005/employed", {
+        await Axios.post("http://localhost:3005/employed", {
         num_employed: numEmployed,
         name_employed: name,
         lastname_employed: lastname,
