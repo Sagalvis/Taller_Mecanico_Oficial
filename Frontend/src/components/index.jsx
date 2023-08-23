@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { ContainerMain } from './styled';
 import Dashboard from "./Admin/indexDashboard"
-import Client from "./Client/indexClientes"
+import HomeClient from "./Client/index"
 import Inventory from './InventoryControl/indexInventory';
 import Login from './LoginRegister/Login/indexLogin';
 import Register from './LoginRegister/Register/indexRegister';
@@ -13,7 +13,7 @@ const Main = () => {
     <div>
         <ContainerMain>
             <Routes>
-              <Route path='*' element = {<Client/>}/>
+              <Route path='*' element = {<HomeClient/>}/>
               <Route path='/admin/*' element = {<Dashboard/>}/>
               <Route path='/inventory/*' element = {<Inventory/>} />
               <Route path='/advisor/*' element={<ServiceAdvisor/>}/>

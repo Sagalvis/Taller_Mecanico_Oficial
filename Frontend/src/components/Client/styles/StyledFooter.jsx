@@ -115,7 +115,7 @@ export const Copy = styled.div`
   text-align: center;
   justify-content: center;
   height: 5vh;
-  background-color: #222;
+  background-color: #000000;
   color: #ddd;
 `;
 
