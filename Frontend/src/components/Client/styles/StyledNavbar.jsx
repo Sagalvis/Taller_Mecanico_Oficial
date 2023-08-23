@@ -15,6 +15,7 @@ export const NavbarContent = styled.div`
   /* left: 50%;
   transform: translate(-50%); */
   z-index: 1;
+  
 `;
 
 export const NavLogo = styled.img`
