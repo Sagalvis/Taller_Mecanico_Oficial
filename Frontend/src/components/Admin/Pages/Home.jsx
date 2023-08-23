@@ -41,19 +41,21 @@ const Home = () => {
       </Header>
     );
   };
-
-/*  const AccountantQueries = () => {
+/* 
+  const AccountantQueries = () => {
+    const [results, setResults] = useState([]);
+  
     useEffect(() => {
       const queries = [
-        '/api/consultas1',
-        '/api/consultas2',
-        '/api/consultas3',
+        'http://localhost:3005/customer/count',
+        'http://localhost:3005/product/count',
+        'http://localhost:3005/vehicle/count',
       ];
   
       queries.forEach((consulta) => {
         axios.get(consulta)
           .then(res => {
-            console.log(res.data);
+            setResults(prevResults => [prevResults, res.data['COUNT(*)']]);
           })
           .catch(err => {
             console.error("Error al obtener datos", err);
@@ -61,8 +63,15 @@ const Home = () => {
       });
     }, []);
   
-    return null; 
+    return (
+      <CardsContainer>
+        {results.map((result, index) => (
+          <Cards key={index}>Resultado de la consulta: {result}</Cards>
+        ))}
+      </CardsContainer>
+    );
   }; */
+  
   
   return (
     <ContainerHome>
@@ -70,7 +79,7 @@ const Home = () => {
         <Reloj />
       </ContainerHeader>
       <ContainerCards>
-        <CardsContainer>
+      <CardsContainer>
           <Cards></Cards>
           <Cards></Cards>
           <Cards></Cards>
