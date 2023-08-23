@@ -31,20 +31,17 @@ export const Form = () => {
     return (
         <FormContainer >
             <InputArea>
-                <label>ID Producto</label>
-                <Input name="nombre" onChange={e => setidProduct(e.target.value)} />
+                
+                <Input name="nombre" onChange={e => setidProduct(e.target.value)} placeholder="ID Producto" />
             </InputArea>
             <InputArea>
-                <label>Nombre Producto</label>
-                <Input name="nombre" onChange={e => setnameProduct(e.target.value)} />
+                <Input name="nombre" onChange={e => setnameProduct(e.target.value)} placeholder="Nombre producto"/>
             </InputArea>
             <InputArea>
-                <label>Cantidad Producto</label>
-                <Input name="cantidad" onChange={e => setQuantity(e.target.value)} />
+                <Input name="cantidad" onChange={e => setQuantity(e.target.value)} placeholder="Cantidad producto" />
             </InputArea>
             <InputArea>
-                <label>Precio Producto</label>
-                <Input name="precio" onChange={e => setPrice(e.target.value)} />
+                <Input name="precio" onChange={e => setPrice(e.target.value)} placeholder="Precio producto" />
             </InputArea>
             <Button type="submit" onClick={handleSubmit}>Enviar</Button>
         </FormContainer>
