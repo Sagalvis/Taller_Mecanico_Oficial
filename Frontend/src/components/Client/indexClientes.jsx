@@ -22,14 +22,14 @@ const Client = () => {
     services: useRef(null),
     // Agrega más referencias según tus necesidades
   };
-
+/* 
   const scrollToElement = (elementId) => {
     if (elementRefs[elementId].current) {
       elementRefs[elementId].current.scrollIntoView({
         behavior: "smooth", // Opcional: para un desplazamiento suave
       });
     }
-  };
+  }; */
 
   return (
     <>
