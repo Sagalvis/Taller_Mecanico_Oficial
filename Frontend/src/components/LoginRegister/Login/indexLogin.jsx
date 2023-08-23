@@ -10,79 +10,48 @@ import {
 import Axios from "axios"; 
 
 const Login = () => {
-  /* const [signIn, toggle] = useState("true");
-
-  const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repassword, setRepassword] = useState("");
-  const [phone, setPhone] = useState(""); */
-
-  /*   const add = (evt) => {
-    if (password !== repassword) {
-      alert("Las contraseñas no coinciden");
-      evt.preventDefault();
-    } else if (name && lastname && email && password && repassword && phone) {
-      Axios.post("http://localhost:3005/profile", {
-        name: name,
-        lastname: lastname,
-        email: email,
-        password: password,
-        repassword: repassword,
-        phone: phone,
-      });
-    }
-  }; */
-
-  /*   const getprofile = (evt) => {
-    evt.preventDefault();
-    Axios.post("http://localhost:3005/login", {
-      email: email,
-      password: password,
-    })
-      .then((response) => {
-        console.log(response.data);
-        if (response.data == "") {
-          alert("el usuario no existe");
-        } else {
-          window.location.href = "http://localhost:5173/admin";
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        alert("Error en la solicitud");
-      });
-  }; */
-
   const [mail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const Log = async(evt) =>{
-    evt.preventDefault()
+  const Log = async (evt) => {
+    evt.preventDefault();
     setError(null);
     if (mail && password) {
-     await Axios.post("http://localhost:3005/employed/login", {
-        mail: mail,
-        password: password,
-      }).then((response) => {
-          console.log(response.data);
-          if (response.data == "" ) {
-            alert("el usuario no existe");
-          } else {
-            window.location.href = "http://localhost:5173/admin";
+      try {
+        const response = await Axios.post("http://localhost:3005/employed/login", {
+          mail: mail,
+          password: password,
+        }).then(response => {       
+        const user = response.data;
+         console.log(user);
+        if (!user) {
+          alert("El usuario no existe");
+         } else {
+         const { rol } = user;         
+          switch (rol) {
+            case "caja":
+              window.location.href = "http://localhost:5173/advisor";
+              break;
+            case "administrador":
+              window.location.href = "http://localhost:5173/admin";
+              break;
+            case "logistica":
+              window.location.href = "http://localhost:5173/inventory";
+              break;
+            default:
+              alert("Rol no reconocido");
           }
+        }
         })
-      .catch((error) => {
-          console.error(error);
-          alert("Error en la solicitud");
-        });
+      } catch (error) {
+        console.error(error);
+        alert("Usuario y/o contraseña no validos");
+      }
     } else {
-      setError(" Usuario y/o contraseña no ingresados porfavor ingrese los campos requeridos");
+      setError("Usuario y/o contraseña no ingresados, por favor ingrese los campos requeridos");
     }
   }
-
   return (
     <Section>
       <FormBox>
