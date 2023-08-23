@@ -3,15 +3,34 @@ import { ContainerHeader, ContainerHome, CustomerCards, Header} from "./Styles/s
 import axios from "axios"
 
 const Home = () => {
-  const [time, setTime] = useState(new Date());
+  const Reloj = () => {
+    const [time, setTime] = useState(new Date());
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setTime(new Date());
+      }, 1000);
+  
+      return () => clearInterval(interval);
+    }, []);
+  
+    let mensaje = '';
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
+    const hora = time.getHours();
+    if (hora < 12) {
+      mensaje = 'Good Morning, Sergio Galvis';
+    } else if (hora < "18:00:00 ") {
+      mensaje = 'Good , Sergio Galvis';
+    } else {
+      mensaje = 'Good Evening, Sergio Galvis';
+    }
+  
+    return (
+        <Header><h1>{mensaje}</h1><h1>{time.toLocaleTimeString()}</h1></Header>
+    );
+  };
 
-    return () => clearInterval(interval);
-  }, []);
+
   
   const [count, setCount] = useState("")
 
@@ -23,7 +42,7 @@ const Home = () => {
   return ( 
       <ContainerHome>
         <ContainerHeader>
-          <Header><h1>Good Morning, Sergio Galvis</h1> <h1>{time.toLocaleTimeString()}</h1></Header>
+          <Reloj/>
         </ContainerHeader>
         <CustomerCards>
             {Customers}

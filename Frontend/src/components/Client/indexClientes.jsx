@@ -17,21 +17,21 @@ import vision from "../../assets/slider/vision.jpg";
 import vision2 from "../../assets/slider/vision2.jpg";
 import { useRef } from "react";
 
-const Client = () => {
+const HomeClient = () => {
   // funcion scroll
   const elementRefs = {
     aboutus: useRef(null),
     services: useRef(null),
     // Agrega más referencias según tus necesidades
   };
-
-  // const scrollToElement = (elementId) => {
-  //   if (elementRefs[elementId].current) {
-  //     elementRefs[elementId].current.scrollIntoView({
-  //       behavior: "smooth", // Opcional: para un desplazamiento suave
-  //     });
-  //   }
-  // };
+/* 
+  const scrollToElement = (elementId) => {
+    if (elementRefs[elementId].current) {
+      elementRefs[elementId].current.scrollIntoView({
+        behavior: "smooth", // Opcional: para un desplazamiento suave
+      });
+    }
+  }; */
 
   return (
     <>
@@ -106,4 +106,4 @@ const Client = () => {
   );
 };
 
-export default Client;
+export default HomeClient;
