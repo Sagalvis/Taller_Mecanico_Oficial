@@ -15,7 +15,7 @@ import mision from "../../assets/slider/mision.jpg";
 import vision from "../../assets/slider/mision.jpg";
 import { useRef } from "react";
 
-const Client = () => {
+const HomeClient = () => {
   // funcion scroll
   const elementRefs = {
     aboutus: useRef(null),
@@ -104,4 +104,4 @@ const Client = () => {
   );
 };
 
-export default Client;
+export default HomeClient;
