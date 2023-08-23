@@ -4,7 +4,7 @@ import {
   Button,
   ContainFooter,
   ContainInp,
-  ContainVehicle,
+  ContainRoute,
   Infovehiculo,
   Input,
   Label,
@@ -22,7 +22,7 @@ const Vehicle = () => {
   return (
     <>
       <Navbar />
-      <ContainVehicle>
+      <ContainRoute>
         <Infovehiculo>
           <TitleDocument>
             <TitleH5>Ingrese por favor el Número de Documento</TitleH5>
@@ -44,7 +44,7 @@ const Vehicle = () => {
           </ContainInp>
             <Button>Buscar</Button>
         </Infovehiculo>
-      </ContainVehicle>
+      </ContainRoute>
 
       <ContainFooter>
         <Footer
