@@ -4,7 +4,7 @@ import * as userCrtl from "../controllers/customer.controllers.js";
 const router = Router()
 
 router.get('/customer', userCrtl.getUsers)
-router.get('/customer/count', userCrtl.CountUser)
+
 
 router.post('/customer', userCrtl.postUsers )
 

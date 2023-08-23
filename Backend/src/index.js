@@ -1,8 +1,8 @@
 import express from "express";
 // import bodyParser from "body-parser";
-import router from "./routes/customer.route.js";
-import router1 from "./routes/employed.route.js";
-import router2 from "./routes/inventory.route.js";
+import router from "./routes/customer.routes.js";
+import router1 from "./routes/employed.routes.js";
+import router2 from "./routes/inventory.routes.js";
 import cors from "cors"
 
 const app = express();
