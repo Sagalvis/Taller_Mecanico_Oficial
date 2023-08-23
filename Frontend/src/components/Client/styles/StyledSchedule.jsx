@@ -1,48 +1,43 @@
 import styled from 'styled-components';
 
-export const ContainRoute = styled.div`
-  /* background-color: green; */
-  min-height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Infovehiculo = styled.div`
+export const InfoForm = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: space-around;
   background-color: #eee;
-  width: 30%;
-  height: 15vh;
+  width: 25%;
+  height: 45vh;
   padding: .5rem;
   border-radius: 5px;
   box-shadow: 9px 17px 22px -24px rgba(0,0,0,0.79);
 `;
 
-export const TitleDocument = styled.div`
-  text-align: center;
+export const AgendaTitle = styled.h1`
+  
 `;
 
-export const TitleH5 = styled.h5`
-`;
-
-export const ContainInp = styled.div`
+export const Form = styled.form`
   display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Label = styled.label`
-  font-size: .9rem;
+  flex-direction: column;
+  gap: .5rem;
 `;
 
 export const Input = styled.input`
-  margin-left: 5px;
-  outline: none;
-  padding: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+
+  &:focus {
+    outline: none;
+    border-color: #2222222b;
+    box-shadow: 0 0 5px #2222222b;
+  }
+  &::placeholder {
+    font-size: .9rem;
+    font-family: 'Outfit', sans-serif;
+  }
 `;
 
 export const Button = styled.button`
@@ -68,8 +63,4 @@ export const Button = styled.button`
   &:active {
     transform: translateY(1px);
   }
-`;
-
-export const ContainFooter = styled.div`
-
 `;
