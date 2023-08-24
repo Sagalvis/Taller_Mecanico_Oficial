@@ -1,12 +1,14 @@
-import { ContainerPrincipal, ContainerVistas, Containerinfo, Icon, IdProduct, NameProduct, Price, Quantity, Tarjetas } from "./style/styleInventory"
+import { ContainerForm, ContainerPrincipal, ContainerVistas,  Containerinfo, HeaderContainerInv, HeaderInventory, Icon, IdProduct, NameProduct, Price, Quantity, Tarjetas } from "./style/styleInventory"
 import Axios from "axios";
 import { Form } from "../Form/Form";
 import { useState, useEffect } from "react";
-
-
-
+import { createPortal } from 'react-dom';
+import ContenedorModal from './ContModal';
 const Inventory = () => {
+
   const [inventory, setInventory] = useState([]);
+  const [modalState , setModal] =useState(false);
+  
   /* const [count, useCount] = useState(0); */
 
   const getInventory = async () => {
@@ -21,12 +23,10 @@ const Inventory = () => {
   };
 
   
-
-
-
-  const UpdateInventory = async () => {
+  const DeleteInventory = async (item) => {
     try {
-      const res = await Axios.patch("http://localhost:3005/inventory/:id_product")
+      const res = await Axios.delete(`http://localhost:3005/inventory/${item.id_product}`)
+      
       console.log(res)
     } catch (error) {
       console.log(error)
@@ -39,17 +39,22 @@ const Inventory = () => {
   }, [setInventory]);
   
   /* const handleEdit = (item) => {
-    setonEdit(item)
+    setSelectedItem(item)
   } */
   return (
 
     <ContainerPrincipal>
-      <h1>Inventory Control</h1>
-      <ContainerVistas>
+      <HeaderContainerInv>
+        <HeaderInventory><h1>Inventory </h1></HeaderInventory>
+      </HeaderContainerInv>
+      <ContainerForm>
         <Form/>
-
+      </ContainerForm>
+      <ContainerVistas>
           {inventory.map((item, i)=>(
+            
             <Tarjetas key={i}>
+              
               <Containerinfo>
                 <IdProduct>Id Producto</IdProduct>
                 <IdProduct>{item.id_product}</IdProduct>
@@ -66,15 +71,24 @@ const Inventory = () => {
                 <Price>Precio</Price>
                 <Price>{item.price}</Price>
               </Containerinfo >
-              <Containerinfo><Icon className="fa-solid fa-pen" onClick={UpdateInventory}></Icon><Icon className="fa-solid fa-trash"></Icon></Containerinfo>
+              <Containerinfo><Icon className="fa-solid fa-pen" onClick={() => setModal(true)} ></Icon><Icon className="fa-solid fa-trash" onClick={() => DeleteInventory(item)}></Icon></Containerinfo>
+              
               </Tarjetas>
+              
           ))}
-        
+        {modalState && createPortal(
+        <ContenedorModal onClose={()=> setModal(false)}/>,
+        document.body
+      )}
       </ContainerVistas>
+      
     </ContainerPrincipal>
 
-
+          
   );
+
 }
+            
 
 export default Inventory;
+/* () =>setModal(true) */
