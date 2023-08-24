@@ -22,14 +22,20 @@ export default function ContenedorModal({ onClose }) {
         }
     };
     const Update = (item) => {
-        Axios.patch(`http://localhost:3005/inventory/${item.id_product}`, {
-            name_product: name_product,
-            quantity: quantity,
-            price: price
-        }).then((response) => {
-            console.log(response.data);
-            
+        if(name_product){
+            Axios.patch(`http://localhost:3005/inventory/${item.id_product}`, {
+            name_product: name_product
         })
+        }else if(quantity){
+            Axios.patch(`http://localhost:3005/inventory/${item.id_product}`, {
+            quantity: quantity
+        })
+        }else if(price){
+            Axios.patch(`http://localhost:3005/inventory/${item.id_product}`, {
+            price: price
+        })
+        }
+        
     }
     useEffect(()=>{
         getInventory()
