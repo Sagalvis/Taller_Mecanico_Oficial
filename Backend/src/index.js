@@ -18,6 +18,3 @@ app.use(router, router1, router2, router3)
 app.listen(3005, () =>{
   console.log(`estoy corriendo en el puerto 3005`)
 });
-
-
-
