@@ -1,5 +1,5 @@
 import { pool } from "../dbconfig.js";
-
+import bcrypt from "bcrypt"
 
 export const getEmployes = async (req, res) => {
   try {
@@ -35,9 +35,11 @@ export const LoginEmployes = async (req, res) => {
 export const CreateEmployes = async (req, res) => {
   try {
     const { num_employed, name_employed,lastname_employed, imgEmployed, mail, password, phone, id_rol } = req.body;
+    const salRound = 10;
+    const hashPassword = await bcrypt.hash(password,salRound)
     const [rows] = await pool.query(
       "INSERT INTO employed (num_employed, name_employed, lastname_employed, imgEmployed, mail, password, phone, id_rol) values(?,?,?,?,?,?,?,?)",
-      [num_employed, name_employed,lastname_employed, imgEmployed, mail, password, phone, id_rol]
+      [num_employed, name_employed,lastname_employed, imgEmployed, mail, hashPassword, phone, id_rol]
     );
     res.send(({
       num_employed, 
