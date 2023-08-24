@@ -1,5 +1,5 @@
 import { pool } from "../dbconfig.js";
-
+import bcrypt from "bcrypt"
 
 export const getEmployes = async (req, res) => {
   try {
@@ -15,8 +15,9 @@ export const getEmployes = async (req, res) => {
 export const LoginEmployes = async (req, res) => {
   try {
     const { mail, password } = req.body;
+    let compare = bcrypt.compareSync(password, password)
     console.log(req.body);
-    const [rows] = await pool.query("SELECT * FROM employed WHERE mail = ? and password = ? ", [ mail, password ]);
+    const [rows] = await pool.query("SELECT * FROM employed WHERE mail = ? and password = ? ", [ mail, compare ]);
     if(rows.length === 0) {
       return res.status(404).json({
         message: "Not found",
@@ -35,9 +36,10 @@ export const LoginEmployes = async (req, res) => {
 export const CreateEmployes = async (req, res) => {
   try {
     const { num_employed, name_employed,lastname_employed, imgEmployed, mail, password, phone, id_rol } = req.body;
+    const hashPassword = await bcrypt.hash(password,10)
     const [rows] = await pool.query(
       "INSERT INTO employed (num_employed, name_employed, lastname_employed, imgEmployed, mail, password, phone, id_rol) values(?,?,?,?,?,?,?,?)",
-      [num_employed, name_employed,lastname_employed, imgEmployed, mail, password, phone, id_rol]
+      [num_employed, name_employed,lastname_employed, imgEmployed, mail, hashPassword, phone, id_rol]
     );
     res.send(({
       num_employed, 
