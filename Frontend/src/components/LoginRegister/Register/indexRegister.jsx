@@ -12,25 +12,25 @@ const Register = () => {
   const [name, setname] = useState('')
   const [lastname, setlastname] = useState('')
   const [phone, setphone] = useState('')
-  const [rol, setrol] = useState('')
+  const [idRol, setIdRol] = useState('')
   const [mail, setmail] = useState('')
   const [password, setpassword] = useState('')
   const [numEmployed, setnumEmployed] = useState('')
 
-  
+
   const add = async (event) => {
-    if (name === '' || lastname === '' || phone === '' || rol === '' || mail  === ''|| password === ''){
-      alert('Todos los campos son obligatorios')
-    event.preventDefault();
+    if (numEmployed === '' || name === '' || lastname === '' || phone === '' || mail  === ''|| password === '' || idRol === ''){
+     alert('Todos los campos son obligatorios')
+     event.preventDefault();
     }else{
         await Axios.post("http://localhost:3005/employed", {
         num_employed: numEmployed,
         name_employed: name,
         lastname_employed: lastname,
-        phone: phone,
-        rol: rol,
         mail: mail,
-        password: password
+        password: password,
+        phone: phone,
+        id_rol: idRol
       }).then(response => {
         console.log(response.data)
         alert("usuario registrado exitosamente");
@@ -65,11 +65,6 @@ return (
           <label>Phone</label>
         </InputBox>
         <InputBox>
-          <i className="fa-solid fa-users-gear"></i>
-          <input type="text" required onChange={e => setrol(e.target.value)}/>
-          <label>Rol</label>
-        </InputBox>
-        <InputBox>
           <i className="fa-solid fa-envelope"></i>
           <input type="email" required onChange={e => setmail(e.target.value)} />
           <label>Email</label>
@@ -78,6 +73,11 @@ return (
           <i className="fa-solid fa-lock"></i>
           <input type="password" required onChange={e => setpassword(e.target.value)} />
           <label>Password</label>
+        </InputBox>
+        <InputBox>
+          <i className="fa-solid fa-users-gear"></i>
+          <input type="text" required onChange={e => setIdRol(e.target.value)}/>
+          <label>Id_Rol</label>
         </InputBox>
         <ContainerButtonLogin>
           <LoginButton onClick={add}>Sign Up</LoginButton>

@@ -17,10 +17,16 @@ export const LoginEmployes = async (req, res) => {
     const { mail, password } = req.body;
     console.log(req.body);
     const [rows] = await pool.query("SELECT * FROM employed WHERE mail = ? and password = ? ", [ mail, password ]);
-    res.send(rows[0]);
+    if(rows.length === 0) {
+      return res.status(404).json({
+        message: "Not found",
+      });
+    }
+    const user = rows[0];
+    res.send( user );
   } catch (error) {
-    return res.status(404).json({
-      message: "Not found",
+    return res.status(500).json({
+      message: "Internal server error",
     });
   }
 };
@@ -28,12 +34,12 @@ export const LoginEmployes = async (req, res) => {
 
 export const CreateEmployes = async (req, res) => {
   try {
-    const { num_employed, name_employed,lastname_employed, imgEmployed,mail, password, phone, id_rol } = req.body;
-
-    const salround = 10
-    const hashPassword = await bcrypt.hash(password, salround);
-    const [rows] = await pool.query("INSERT INTO employed (num_employed, name_employed, lastname_employed, imgEmployed, mail, password, phone,id_rol) values(?,?,?,?,?,?,?,?)",
-      [num_employed, name_employed,lastname_employed, imgEmployed,mail, hashPassword,phone,id_rol]
+    const { num_employed, name_employed,lastname_employed, imgEmployed, mail, password, phone, id_rol } = req.body;
+    const salRound = 10;
+    const hashPassword = await bcrypt.hash(password,salRound)
+    const [rows] = await pool.query(
+      "INSERT INTO employed (num_employed, name_employed, lastname_employed, imgEmployed, mail, password, phone, id_rol) values(?,?,?,?,?,?,?,?)",
+      [num_employed, name_employed,lastname_employed, imgEmployed, mail, hashPassword, phone, id_rol]
     );
     res.send(({
       num_employed, 
@@ -42,7 +48,7 @@ export const CreateEmployes = async (req, res) => {
       imgEmployed,  
       mail, 
       password,
-      phone,
+      phone, 
       id_rol
     }));
   } catch (error) {

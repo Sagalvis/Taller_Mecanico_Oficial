@@ -1,4 +1,4 @@
-import { ContainerPrincipal, ContainerVistas, Containerinfo, Icon, IdProduct, NameProduct, Price, Quantity, Tarjetas } from "./style/styleInventory"
+import { ContainerForm, ContainerPrincipal, ContainerVistas,  Containerinfo, HeaderContainerInv, HeaderInventory, Icon, IdProduct, NameProduct, Price, Quantity, Tarjetas } from "./style/styleInventory"
 import Axios from "axios";
 import { Form } from "../Form/Form";
 import { useState, useEffect } from "react";
@@ -44,10 +44,13 @@ const Inventory = () => {
   return (
 
     <ContainerPrincipal>
-      <h1>Inventory Control</h1>
-      <ContainerVistas>
+      <HeaderContainerInv>
+        <HeaderInventory><h1>Inventory </h1></HeaderInventory>
+      </HeaderContainerInv>
+      <ContainerForm>
         <Form/>
-
+      </ContainerForm>
+      <ContainerVistas>
           {inventory.map((item, i)=>(
             
             <Tarjetas key={i}>
