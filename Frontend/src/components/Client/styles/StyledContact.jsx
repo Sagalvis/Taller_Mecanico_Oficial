@@ -18,7 +18,7 @@ export const Contacts = styled.div`
   box-shadow: 9px 17px 22px -24px rgba(0,0,0,0.79);
   padding: .5rem;
   border-radius: 4px;
-  width: 70%;
+  width: 55%;
   height: 80vh;
   overflow: hidden;
 `;
@@ -30,11 +30,12 @@ export const ContainForm = styled.div`
 `;
 
 export const Title = styled.div`
-  margin: 0 0 4rem 0;
+  margin: 0 0 3rem 0;
 `;
 
 export const TitleH2 = styled.h2`
   font-size: 1.9rem;
+  margin-bottom: .7rem;
 `;
 
 export const TitleP = styled.p`
@@ -51,7 +52,7 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  width: 90%;
+  width: 95%;
   padding: 12px;
   border: none;
   border-radius: 4px;
@@ -73,8 +74,7 @@ export const Input = styled.input`
   `;
 
 export const TextArea = styled.textarea`
-  width: 90%;
-  width: 90%;
+  width: 95%;
   padding: 12px;
   margin: 0 0 1.5rem 0;
   border: none;
@@ -147,28 +147,46 @@ export const Wall = styled.img`
 `;
 
 export const ContainInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   position: absolute;
   font-size: 2rem;
   left: 50%;
+  /* top: 50%; */
   translate: -50%;
 `;
 
 export const Icon = styled.div`
   display: flex;
-  margin-top: 10px;
+  margin-top: 1.3rem;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  .fa-location-dot {
+    color: #f75645
+  }
+  .fa-envelope {
+    color: #222 //ecb604
+  }
+  .fa-phone-volume {
+    color: #222 //ecb604
+  }
+  .fa-clock {
+    color: #222 //ecb604
+  }
 `;
 
 export const TextTitle = styled.h5`
   display: flex;
+  color: #111;
   justify-content: center;
   font-family: 'Outfit', sans-serif;
   `;
 
 export const ContainText = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
 `;
 
