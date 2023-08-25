@@ -31,16 +31,23 @@ const Login = () => {
           if (!user) {
             alert("El usuario no existe");
           } else {
-            const { rol } = user;
+            const {id_rol: rol} = user;
+            console.log(rol);
             switch (rol) {
-              case "caja":
+              case 1 :
                 window.location.href = "http://localhost:5173/advisor";
                 break;
-              case "administrador":
+              case 2 :
                 window.location.href = "http://localhost:5173/admin";
                 break;
-              case "logistica":
+              case 3:
                 window.location.href = "http://localhost:5173/inventory";
+                break;
+              case 4:
+                window.location.href = "http://localhost:5173/inventory";
+                break;
+              case 5:
+                window.location.href = "http://localhost:5173/admin";
                 break;
               default:
                 alert("Rol no reconocido");

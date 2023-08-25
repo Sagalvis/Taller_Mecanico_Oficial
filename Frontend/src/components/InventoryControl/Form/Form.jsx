@@ -31,7 +31,6 @@ export const Form = () => {
     return (
         <FormContainer >
             <InputArea>
-                
                 <Input name="nombre" onChange={e => setidProduct(e.target.value)} placeholder="ID Producto" />
             </InputArea>
             <InputArea>
