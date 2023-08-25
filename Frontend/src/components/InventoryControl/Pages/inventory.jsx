@@ -74,7 +74,7 @@ const Inventory = () => {
 
   
   const SelectInput = () => {
-    const options = [
+    let options = [
       { value: "option1", label: "Llantas" },
       { value: "option2", label: "Tuercas" },
       { value: "option3", label: "Opción 3" },
