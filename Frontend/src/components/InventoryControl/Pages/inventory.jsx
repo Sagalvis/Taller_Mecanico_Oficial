@@ -122,7 +122,7 @@ const Inventory = () => {
 
               <Quantity>{item.quantity}</Quantity>
               
-              <Price>{item.price}</Price>
+              <Price>$ {item.price}</Price>
               <IconAction>
                 <Icon className="fa-solid fa-pen" onClick={() => DeleteInventory(item)}></Icon>
                 <Icon className="fa-solid fa-trash" onClick={() => DeleteInventory(item)}></Icon>
