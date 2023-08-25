@@ -22,10 +22,11 @@ const [onEdit, setonEdit] = useState(null); */
     const [name_product, setnameProduct] = useState("");
     const [quantity, setQuantity] = useState("");
     const [price, setPrice] = useState("");
+    const [id_prodtype, setId_prodtype] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if ((!id_product, !name_product, !quantity, !price)) {
+        if ((!id_product, !name_product, !quantity, !price, !id_prodtype)) {
         console.log("datos no validos");
         } else {
         Axios.post("http://localhost:3005/inventory", {
@@ -33,6 +34,8 @@ const [onEdit, setonEdit] = useState(null); */
             name_product: name_product,
             quantity: quantity,
             price: price,
+            id_prodtype: id_prodtype
+
         }).then((response) => {
             console.log(response.data);
         });
@@ -76,6 +79,13 @@ const [onEdit, setonEdit] = useState(null); */
                 name="precio"
                 onChange={(e) => setPrice(e.target.value)}
                 placeholder="Precio producto"
+            />
+            </InputArea>
+            <InputArea>
+            <Input
+                name="id_prodtype"
+                onChange={(e) => setId_prodtype(e.target.value)}
+                placeholder="Id producto"
             />
             </InputArea>
         </InputContainerForm>

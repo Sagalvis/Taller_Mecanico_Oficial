@@ -124,7 +124,6 @@ const Inventory = () => {
           {/* <FormCreate/> */}
           <TitleHeader>Productos</TitleHeader>
           <ButtonForm onClick={()=> setStateModal(!stateModal)}>Crear Nuevo Producto</ButtonForm>
-          
           <SelectInput />
           <FormCreate estado={stateModal} cambiarEstdo={setStateModal} />
           <SearchContainerInventory>
