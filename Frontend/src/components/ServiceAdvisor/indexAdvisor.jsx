@@ -1,9 +1,9 @@
-
+import FormCreate from "../InventoryControl/Archive/CreateModal";
 
 const ServiceAdvisor = () => {
   return (
     <div>
-      <h1>hola mundo</h1>
+      <FormCreate/>
     </div>
   );
 };

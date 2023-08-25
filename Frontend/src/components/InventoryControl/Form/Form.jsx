@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Axios from "axios"
-import { FormContainer, Input, InputArea, Button } from "./StyledForm"
+import { FormContainer, Input, InputArea, Button, InputContainerForm } from "./StyledForm"
+import SendButtonComponent from "../Archive/styles/styledCreate";
 
 export const Form = () => {
     /* const ref = useRef();
@@ -30,6 +31,7 @@ export const Form = () => {
 
     return (
         <FormContainer >
+            <InputContainerForm>
             <InputArea>
                 <Input name="nombre" onChange={e => setidProduct(e.target.value)} placeholder="ID Producto" />
             </InputArea>
@@ -42,6 +44,8 @@ export const Form = () => {
             <InputArea>
                 <Input name="precio" onChange={e => setPrice(e.target.value)} placeholder="Precio producto" />
             </InputArea>
+            </InputContainerForm>
+            <SendButtonComponent/>
             <Button type="submit" onClick={handleSubmit}>Enviar</Button>
         </FormContainer>
     );

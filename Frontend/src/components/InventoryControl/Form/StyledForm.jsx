@@ -7,15 +7,18 @@ export const FormContainer = styled.form`
     align-items: center;
     justify-content: space-around;
     gap: 10px;
-    flex-wrap: wrap;
-    box-shadow: 0px 0px 5px #ccc;
     border-radius: 5px;
     background-color: white;
-`;
-
-export const InputArea = styled.div`
-    display: flex;
     flex-direction: column;
+`;
+export const InputContainerForm = styled.div`
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+`
+export const InputArea = styled.div`
+    
 `;
 
 export const Input = styled.input`
@@ -36,7 +39,7 @@ export const Button = styled.button`
     cursor: pointer;
     border-radius: 5px;
     border: none;
-    height: 42px;
+    height: 40px;
     color: white;
     background-color: #2c73d2;
 `;
