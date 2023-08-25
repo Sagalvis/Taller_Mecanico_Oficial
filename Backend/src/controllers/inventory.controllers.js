@@ -3,17 +3,18 @@ import { pool } from "../dbconfig.js";
 
 export const postInventory = async (req, res) => {
     try {
-      const { id_product, name_product, quantity, price } = req.body;
+      const { id_product, name_product, quantity, price, id_prodtype } = req.body;
       const [rows] = await pool.query(
-        "INSERT INTO inventory (id_product, name_product, quantity, price) VALUES(?,?,?,?)",
-        [id_product, name_product, quantity, price]
+        "INSERT INTO inventory (id_product, name_product, quantity, price, id_prodtype) VALUES(?,?,?,?,?)",
+        [id_product, name_product, quantity, price, id_prodtype]
       );
       res.send({
         id_inventory: rows.insertId,
         id_product,
         name_product,
         quantity,
-        price
+        price,
+        id_prodtype
       });
     } catch (error) {
       return res.status(401).json({
@@ -59,4 +60,15 @@ export const postInventory = async (req, res) => {
       });
     }
   };
+
+  export const getProduct = async (req, res) => {
+    try {
+      const [row] = await pool.query('SELECT * FROM product_type')
+      res.json(row)
+    } catch (error) {
+      return res.status(404).json({       
+        message: "Register in database was not found",
+      });
+    }
+  }
 

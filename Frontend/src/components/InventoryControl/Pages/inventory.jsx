@@ -35,6 +35,7 @@ const Inventory = () => {
   const [inventory, setInventory] = useState([]);
   const [modalState, setModal] = useState(false);
 
+
   /* const [count, useCount] = useState(0); */
 
   const getInventory = async () => {
@@ -69,6 +70,7 @@ const Inventory = () => {
     setSelectedItem(item)
   } */
 
+  
   const SelectInput = () => {
     const options = [
       { value: "option1", label: "Llantas" },
@@ -141,12 +143,8 @@ const Inventory = () => {
               <IdProduct>{item.id_product}</IdProduct>
               <NameProduct>{item.name_product} </NameProduct>
               <Quantity>{item.quantity}</Quantity>
-<<<<<<< HEAD
               
               <Price>$ {item.price}</Price>
-=======
-              <Price>{item.price}</Price>
->>>>>>> 80d37d80ee6cf6c617a4dacfdae9a5a37b051bdd
               <IconAction>
                 <Icon
                   className="fa-solid fa-pen"
