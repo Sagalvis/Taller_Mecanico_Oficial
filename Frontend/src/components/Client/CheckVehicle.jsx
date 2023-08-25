@@ -14,10 +14,12 @@ import {
   Tr,
 } from "./styles/StyledCheckVehicle";
 import ThisLogoCheck from "../../assets/svg/logoCheckVehicle.svg";
+import Navbar from "./Navbar";
 
 function CheckVehicle() {
   return (
     <>
+    <Navbar />
       <ContainerCheck>
         <LogoCheck>
           <Logo src={ThisLogoCheck} alt="image" />

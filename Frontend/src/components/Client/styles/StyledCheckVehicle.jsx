@@ -4,7 +4,7 @@ export const ContainerCheck = styled.div`
   display: flex; 
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 91vh;
   justify-content: center;
   align-items: center;
   gap: 2rem;
@@ -59,6 +59,7 @@ export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   text-align: center;
+  box-shadow: 9px 17px 22px -24px rgba(0,0,0,0.79);
 `;
 
 export const Thead = styled.thead`
