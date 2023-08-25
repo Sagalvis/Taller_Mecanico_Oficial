@@ -15,7 +15,7 @@ export default function ContenedorModal({ onClose }) {
     const getInventory = async () => {
         try {
             const res = await Axios.get("http://localhost:3005/inventory")
-            setInventory(res.data.sort((a,b) => (a.name_product.toLowerCase() > b.name_product.toLowerCase() ? 1 : -1)))
+            setInventory(res.data)
          /*  console.log(res.data) */
         } catch (error) {
             console.log(error)
