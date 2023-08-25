@@ -7,13 +7,12 @@ export const Service = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #f5f4f4; //f5f4f4
-  width: 20%;
-  height: 28vh;
+  width: 95%;
+  height: 23vh;
   margin: 1.5rem .5rem;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25);
   border-radius: 4px;
   cursor: pointer;
-  
 `;
 
 export const ServiceImg = styled.img`
@@ -24,9 +23,8 @@ export const ServiceImg = styled.img`
 `;
 
 export const ServiceType = styled.p`
-  font-size: 1rem;
+  font-size: .9rem;
   margin: .3rem;
   font-weight: 500;
-  letter-spacing: 1px;
   text-transform: uppercase;
 `;

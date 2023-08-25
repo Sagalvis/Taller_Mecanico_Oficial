@@ -15,8 +15,16 @@ import mision from "../../assets/slider/mision.jpg";
 import mision2 from "../../assets/slider/mision2.jpg";
 import vision from "../../assets/slider/vision.jpg";
 import vision2 from "../../assets/slider/vision2.jpg";
+import { useNavigate } from "react-router-dom";
 
 const HomeClient = () => {
+
+  const navigate = useNavigate();
+
+  const handleClick = (route) => {
+    navigate(route);
+  };
+
   return (
     <>
       <Navbar />
@@ -27,18 +35,31 @@ const HomeClient = () => {
       </ContainSer> */}
 
       <ContainService>
+        <div className="services" onClick={() => handleClick('/paint')}>
         <Services img={paint}
-        type="servicio de pintura" />
+        type="servicio de pintura"/>
+        </div>
+
+        <div className="services" onClick={() => handleClick('/laminate')}>
         <Services img={lamina}
         type="servicio de laminacion" />
+        </div>
+        <div className="services" onClick={() => handleClick('/electric')}>
         <Services img={electric}
         type="servicio electrico" />
+        </div>
+        <div className="services" onClick={() => handleClick('/air-conditioning')}>
         <Services img={aire}
         type="servicio de aire acondicionado" />
+        </div>
+        <div className="services" onClick={() => handleClick('/general')}>
         <Services img={mecGeneral}
         type="Mecanica General" />
+        </div>
+        <div className="services" onClick={() => handleClick('/cita')}>
         <Services img={otro}
         type="Otro" />
+        </div>
       </ContainService>
 
       <Containabout>

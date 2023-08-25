@@ -2,9 +2,14 @@ import styled from 'styled-components';
 
 export const ContainService = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  /* flex-direction: row; */
   justify-content: center;
-  /* width: 100%; */
+  width: 100%;
+  
+  .services {
+    width: 100%;
+  }
 `;
 
 // export const ContainSer = styled.div`

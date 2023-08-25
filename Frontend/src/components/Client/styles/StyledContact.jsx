@@ -136,6 +136,7 @@ export const InfoContact = styled.div`
 export const WallContact = styled.div`
   width: 100%;
   height: 100%;
+  box-shadow: 9px 17px 22px -24px rgba(0,0,0,0.79);
 `;
 
 export const Wall = styled.img`
@@ -144,6 +145,7 @@ export const Wall = styled.img`
   height: 100%;
   opacity: 0.5;
   object-fit: cover;
+  
 `;
 
 export const ContainInfo = styled.div`
