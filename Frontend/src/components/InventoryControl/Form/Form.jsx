@@ -85,7 +85,7 @@ const [onEdit, setonEdit] = useState(null); */
             <Input
                 name="id_prodtype"
                 onChange={(e) => setId_prodtype(e.target.value)}
-                placeholder="Id producto"
+                placeholder="id tipo producto"
             />
             </InputArea>
         </InputContainerForm>
