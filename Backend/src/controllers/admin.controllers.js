@@ -2,7 +2,7 @@ import { pool } from "../dbconfig.js";
 
 export const CountUser = async (req, res) => {
   try {
-    const [row] = await pool.query("SELECT COUNT(*) FROM customer")
+    const [row] = await pool.query("SELECT * FROM customer")
     res.send(row)
   } catch (error) {
     return res.status(404).json({

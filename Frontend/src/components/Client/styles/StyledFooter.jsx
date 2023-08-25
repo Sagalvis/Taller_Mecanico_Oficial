@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  height: 22vh;
+  height: 21.7vh;
   justify-content: space-around;
   align-items: flex-start;
   padding: 20px;

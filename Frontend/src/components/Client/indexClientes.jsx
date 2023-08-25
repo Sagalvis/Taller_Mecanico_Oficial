@@ -1,7 +1,7 @@
 import Navbar from "./Navbar";
 import Services from "./Services";
 import Slider from "./Slider";
-import { ContainSer, ContainService, Containabout } from "./styles/StyledIndex";
+import { ContainService, Containabout } from "./styles/StyledIndex";
 import mecGeneral from "../../assets/slider/mecanica-general.jpg";
 import paint from "../../assets/slider/pintura.jpg";
 import electric from "../../assets/slider/electrico.jpg";
@@ -15,49 +15,33 @@ import mision from "../../assets/slider/mision.jpg";
 import mision2 from "../../assets/slider/mision2.jpg";
 import vision from "../../assets/slider/vision.jpg";
 import vision2 from "../../assets/slider/vision2.jpg";
-import { useRef } from "react";
 
 const HomeClient = () => {
-  // funcion scroll
-  const elementRefs = {
-    aboutus: useRef(null),
-    services: useRef(null),
-    // Agrega más referencias según tus necesidades
-  };
-/* 
-  const scrollToElement = (elementId) => {
-    if (elementRefs[elementId].current) {
-      elementRefs[elementId].current.scrollIntoView({
-        behavior: "smooth", // Opcional: para un desplazamiento suave
-      });
-    }
-  }; */
-
   return (
     <>
       <Navbar />
       <Slider />
-
-      <ContainSer ref={elementRefs.aboutus}>
+{/* 
+      <ContainSer>
         <Aquih1>Servicios</Aquih1>
-      </ContainSer>
+      </ContainSer> */}
 
-      <ContainService id="Servicios">
+      <ContainService>
         <Services img={paint}
-        type="Pintura" />
+        type="servicio de pintura" />
         <Services img={lamina}
-        type="Lamina" />
+        type="servicio de laminacion" />
         <Services img={electric}
-        type="Electrico" />
+        type="servicio electrico" />
         <Services img={aire}
-        type="Aire acondicionado" />
+        type="servicio de aire acondicionado" />
         <Services img={mecGeneral}
         type="Mecanica General" />
         <Services img={otro}
         type="Otro" />
       </ContainService>
 
-      <Containabout ref={elementRefs.services}>
+      <Containabout>
         <Aquih1>Acerca de nosotros</Aquih1>
         <AquiPAbout>
           Nuestro objetivo es brindar un servicio excepcional a nuestros

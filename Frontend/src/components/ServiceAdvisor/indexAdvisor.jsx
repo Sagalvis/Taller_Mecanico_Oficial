@@ -1,9 +1,8 @@
 
-
 const ServiceAdvisor = () => {
   return (
     <div>
-      <h1>hola mundo</h1>
+      <h1>advisor</h1>
     </div>
   );
 };

@@ -5,6 +5,8 @@ const RouterInventory = () => {
   return ( 
     <Routes>
       <Route path="*" element = {<Inventory/>}/> 
+      
+
     </Routes>
   );
 }

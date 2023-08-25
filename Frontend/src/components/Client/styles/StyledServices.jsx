@@ -6,12 +6,12 @@ export const Service = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f5f4f4;
-  width: 25%;
-  height: 30vh;
-  margin: 2rem .2rem;
+  background-color: #f5f4f4; //f5f4f4
+  width: 20%;
+  height: 28vh;
+  margin: 1.5rem .5rem;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25);
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
   
 `;
