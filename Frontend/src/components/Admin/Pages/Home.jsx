@@ -40,19 +40,42 @@ const Home = () => {
       </Header>
     );
   };
-  const [contador, setContador] = useState("");
-  const fetchData = async () => {
+  const [contador1, setContador1] = useState("");
+  const [contador2, setContador2] = useState("");
+  const [contador3, setContador3] = useState("");
+  const [contador4, setContador4] = useState("");
+  const fetchData1 = async () => {
     try {
       const response = await Axios.get("http://localhost:3005/customer/count");
-      setContador(response.data);
-      console.log(response.data);
+      setContador1(response.data);
     } catch (error) {
       console.log(error);
     }
+    try {
+      const response2 = await Axios.get("http://localhost:3005/employed/count");
+      setContador2(response2.data);
+    } catch (error) {
+      console.log(error);
+    }
+    try {
+      const response3 = await Axios.get("http://localhost:3005/product/count");
+      setContador3(response3.data);
+    } catch (error) {
+      console.log(error);
+    }
+
+    try {
+      const response4= await Axios.get("http://localhost:3005/vehicle/count");
+      setContador4(response4.data);
+    } catch (error) {
+      console.log(error);
+    }
+      
+      
   };
 
   useEffect(() => {
-    fetchData();
+    fetchData1();
   }, []);
 
   
@@ -64,7 +87,10 @@ const Home = () => {
       </ContainerHeader>
       <ContainerCards>
         <CardsContainer>
-          <Cards>{contador.length}</Cards>
+          <Cards>{contador1.length}</Cards>
+          <Cards>{contador2.length}</Cards>
+          <Cards>{contador3.length}</Cards>
+          <Cards>{contador4.length}</Cards>
         </CardsContainer>
       </ContainerCards>
     </ContainerHome>

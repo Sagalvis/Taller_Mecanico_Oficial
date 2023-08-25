@@ -40,6 +40,7 @@ export const Cards = styled.div`
   width: 370px;
   height: 220px;
   border-radius: 15px;
+  color: black;
   background-color: white;
 `;
 
