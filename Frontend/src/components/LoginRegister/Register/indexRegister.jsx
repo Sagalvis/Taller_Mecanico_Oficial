@@ -20,8 +20,8 @@ const Register = () => {
 
   const add = async (event) => {
     if (numEmployed === '' || name === '' || lastname === '' || phone === '' || mail  === ''|| password === '' || idRol === ''){
-     alert('Todos los campos son obligatorios')
-     event.preventDefault();
+      alert('Todos los campos son obligatorios')
+      event.preventDefault();
     }else{
         await Axios.post("http://localhost:3005/employed", {
         num_employed: numEmployed,
