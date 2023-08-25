@@ -54,7 +54,9 @@ export default function ContenedorModal({ onClose }) {
                     </InputArea><InputArea>
                         <label>Precio Producto</label>
                         <Input name="precio" onChange={e => setPrice(e.target.value)} />
-                    </InputArea><Button type="submit" onClick={() => Update(item)}>Actualizar</Button><i className="fa-solid fa-xmark" onClick={onClose}></i></>
+                    </InputArea>
+                    
+                    <Button type="submit" onClick={() => Update(item)}>Actualizar</Button><i className="fa-solid fa-xmark" onClick={onClose}></i></>
         ))}
     </FormContainer>
     );

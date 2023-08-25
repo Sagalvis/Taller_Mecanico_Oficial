@@ -26,10 +26,12 @@ import {
   SearchInventory,
 } from "./style/styleInventory";
 import Axios from "axios";
-import { Form } from "../Form/Form";
+
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import ContenedorModal from "./ContModal";
+import ContenedorModal from "../Archive/ContModal";
+import FormCreate from "../Archive/CreateModal";
+/* import FormCreate from "../Archive/CreateModal"; */
 
 const Inventory = () => {
   const [inventory, setInventory] = useState([]);
@@ -110,6 +112,8 @@ const Inventory = () => {
     );
   };
 
+  const [stateModal, setStateModal] = useState(false);
+
   return (
     <ContainerPrincipal>
       <HeaderContainerInv>
@@ -117,9 +121,12 @@ const Inventory = () => {
       </HeaderContainerInv>
       <ContainerInventory2>
         <HeaderInventory2>
+          {/* <FormCreate/> */}
           <TitleHeader>Productos</TitleHeader>
-          <ButtonForm>Crear Nuevo Producto</ButtonForm>
+          <ButtonForm onClick={()=> setStateModal(!stateModal)}>Crear Nuevo Producto</ButtonForm>
+          
           <SelectInput />
+          <FormCreate estado={stateModal} cambiarEstdo={setStateModal} />
           <SearchContainerInventory>
             <Icon
               style={{ margin: 0 }}
