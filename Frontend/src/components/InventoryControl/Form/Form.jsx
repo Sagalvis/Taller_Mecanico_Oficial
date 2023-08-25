@@ -1,15 +1,15 @@
 import { useState } from "react";
 import Axios from "axios";
 import {
-  FormContainer,
-  Input,
-  InputArea,
-  Button,
-  InputContainerForm,
-  SuccessMessageContainer,
-  SuccessMessage,
-  LoadingBar,
-  ProgressBar,
+    FormContainer,
+    Input,
+    InputArea,
+    Button,
+    InputContainerForm,
+    SuccessMessageContainer,
+    SuccessMessage,
+    LoadingBar,
+    ProgressBar,
 } from "./StyledForm";
 
 export const Form = () => {
@@ -85,7 +85,7 @@ const [onEdit, setonEdit] = useState(null); */
             <Input
                 name="id_prodtype"
                 onChange={(e) => setId_prodtype(e.target.value)}
-                placeholder="Id producto"
+                placeholder="id tipo producto"
             />
             </InputArea>
         </InputContainerForm>
