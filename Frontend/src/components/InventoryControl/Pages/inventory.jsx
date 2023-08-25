@@ -30,6 +30,7 @@ import Axios from "axios";
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import ContenedorModal from "../Archive/ContModal";
+import FormCreate from "../Archive/CreateModal";
 /* import FormCreate from "../Archive/CreateModal"; */
 
 const Inventory = () => {
@@ -109,6 +110,8 @@ const Inventory = () => {
     );
   };
 
+  const [stateModal, setStateModal] = useState(false);
+
   return (
     <ContainerPrincipal>
       <HeaderContainerInv>
@@ -118,8 +121,10 @@ const Inventory = () => {
         <HeaderInventory2>
           {/* <FormCreate/> */}
           <TitleHeader>Productos</TitleHeader>
-          <ButtonForm>Crear Nuevo Producto</ButtonForm>
+          <ButtonForm onClick={()=> setStateModal(!stateModal)}>Crear Nuevo Producto</ButtonForm>
+          
           <SelectInput />
+          <FormCreate estado={stateModal} cambiarEstdo={setStateModal} />
           <SearchContainerInventory>
             <Icon
               style={{ margin: 0 }}
