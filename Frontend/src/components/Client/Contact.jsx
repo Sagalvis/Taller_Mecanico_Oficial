@@ -21,7 +21,7 @@ import {
 } from "./styles/StyledContact";
 import wallc from "../../assets/img/CONTACT-WALL.jpg";
 
-const Vehicle = () => {
+const Contact = () => {
   function acceptNum(evt) {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
@@ -77,9 +77,34 @@ const Vehicle = () => {
               <Icon>
                 <i className="fa-solid fa-location-dot"></i>
               </Icon>
-                <TextTitle>Direccion Postal</TextTitle>
+                <TextTitle>Dirección Postal</TextTitle>
                 <ContainText>
-                  <Parraf>Cali - Barranquilla - Medellin - Bogota - Cartagena - Santa Marta</Parraf>
+                  <Parraf>Cali - Barranquilla - Medellín - Bogota - Cartagena - Santa Marta - Bucaramanga</Parraf>
+                </ContainText>
+
+                <Icon>
+                <i className="fa-solid fa-envelope"></i>
+              </Icon>
+                <TextTitle>Email</TextTitle>
+                <ContainText>
+                  <Parraf>dev.beecodes@gmail.com</Parraf>
+                  <Parraf>transforcars@mailto.com</Parraf>
+                </ContainText>
+                <Icon>
+                <i class="fa-solid fa-phone-volume"></i>
+              </Icon>
+                <TextTitle>Teléfono</TextTitle>
+                <ContainText>
+                  <Parraf>+57 304 526 4366</Parraf>
+                </ContainText>
+                <Icon>
+                <i className="fa-regular fa-clock"></i>
+              </Icon>
+                <TextTitle>Horarios de Atención</TextTitle>
+                <ContainText>
+                  <Parraf>Lunes - Viernes: 8:00 AM - 5:00 PM</Parraf>
+                  <Parraf>Sabado: 9:00 AM - 3:00 PM</Parraf>
+                  <Parraf>Domingo: Solo atención online</Parraf>
                 </ContainText>
             </ContainInfo>
           </InfoContact>
@@ -89,4 +114,4 @@ const Vehicle = () => {
   );
 };
 
-export default Vehicle;
+export default Contact;
