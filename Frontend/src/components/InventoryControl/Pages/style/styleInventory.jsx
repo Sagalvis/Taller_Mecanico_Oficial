@@ -1,4 +1,7 @@
+
 import styled from "styled-components";
+import Select from "react-select"
+
 
 export const ContainerPrincipal = styled.div`
   width: 97%;
@@ -21,6 +24,7 @@ export const HeaderInventory = styled.div`
   border-radius: 15px;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 `;
 export const ContainerVistas = styled.div`
   width: 100%;
@@ -48,11 +52,11 @@ export const ContainerInventory2 = styled.div`
 export const HeaderInventory2 = styled.div`
     width: 100%;
   height: 100%;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 15px;
   display: flex;
   justify-content: space-evenly;
-  margin: 0%;
+  margin: 0;
   align-items: center;
 `;
 
@@ -60,6 +64,7 @@ export const TitleHeader = styled.div`
   font-family: 'Outfit', sans-serif;
   font-size: 50px;
   font-weight: bold;
+  color: black;
 `;
 
 export const ButtonForm = styled.button`
@@ -80,26 +85,35 @@ export const ButtonForm = styled.button`
 
 `;
 
-export const SelectOption = styled.select`
-    width: 15%;
-  height: 40%;
+export const SelectOption = styled(Select)`
+  border: none;
+  border-bottom: 1px solid black;
   outline: none;
-  border-radius: 15px;
-  padding: .4%;
+  width: 15%;
+  height: 35%;
+  margin: 0;
 `
 export const Option = styled.option`
-  
+
 `
 
-export const SearchContainer = styled.div`
+export const SearchContainerInventory = styled.div`
   width: 30%;
   height: 40%;
   border: 1px solid black;
   border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: .3%;
 `;
 
 export const SearchInventory = styled.input`
-
+  width: 94%;
+  border-radius: 15px;
+  height: 90%;
+  outline: none;
+  border: none;
 `
 export const Tarjetas = styled.div`
   width: 100%;
@@ -147,6 +161,15 @@ export const TitleNameProduct = styled.div`
   align-items: center;
   border-right: 1px solid #b6b6b6;
 `;
+
+export const TitleTypeProduct = styled.div`
+  height: 100%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #b6b6b6;
+`
 export const TitleQuantity = styled.div`
   height: 100%;
   width: 30%;
@@ -188,6 +211,14 @@ export const NameProduct = styled.div`
   border-right: 1px solid #b6b6b6;
 `;
 
+export const TypeProduct = styled.div`
+  height: 100%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #b6b6b6;
+`
 export const Quantity = styled.div`
   height: 100%;
   width: 30%;
@@ -216,4 +247,5 @@ export const IconAction = styled.div`
 export const Icon = styled.div`
   cursor: pointer;
   margin-right: 20px;
+  color: black;
 `;
