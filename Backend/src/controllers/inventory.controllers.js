@@ -54,7 +54,7 @@ export const postInventory = async (req, res) => {
     });
     res.json(result);
     } catch (error) {
-      return res.status(404).json({
+      return res.status(404).json({       
         message: "Register in database was not delete",
       });
     }

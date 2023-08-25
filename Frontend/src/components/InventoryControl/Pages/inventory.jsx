@@ -3,7 +3,8 @@ import Axios from "axios";
 import { Form } from "../Form/Form";
 import { useState, useEffect } from "react";
 import { createPortal } from 'react-dom';
-import ContenedorModal from './ContModal';
+import ContenedorModal from './prueba';
+
 const Inventory = () => {
 
   const [inventory, setInventory] = useState([]);
