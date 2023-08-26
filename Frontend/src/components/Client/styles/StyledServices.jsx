@@ -11,8 +11,12 @@ export const Service = styled.div`
   height: 23vh;
   margin: 1.5rem .5rem;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25);
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 export const ServiceImg = styled.img`
@@ -20,6 +24,7 @@ export const ServiceImg = styled.img`
   overflow: hidden;
   width: 100%;
   height: 100%;
+  border-radius: 10px;
 `;
 
 export const ServiceType = styled.p`

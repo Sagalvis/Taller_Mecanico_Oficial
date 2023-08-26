@@ -3,12 +3,18 @@ import styled from 'styled-components';
 export const ContainService = styled.div`
   display: flex;
   /* flex-wrap: wrap; */
-  /* flex-direction: row; */
+  flex-direction: row;
   justify-content: center;
+  /* background-color: green; */
+  align-items: center;
   width: 100%;
+  height: 28vh;
+  flex-wrap: wrap;
   
   .services {
-    width: 100%;
+    width: 16%;
+    /* height: 28vh; */
+    display: flex;
   }
 `;
 
