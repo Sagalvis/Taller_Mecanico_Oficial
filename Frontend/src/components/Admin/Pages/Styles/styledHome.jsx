@@ -35,6 +35,7 @@ export const CardsContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  background-color:red;
 `;
 export const Cards = styled.div`
   width: 370px;
@@ -44,9 +45,7 @@ export const Cards = styled.div`
   background-color: white;
 `;
 
-export const Cards2 = styled.div`
-  width: 370px;
-  height: 300px;
+export const CardsConten = styled.div`
   border-radius: 15px;
   background-color: white;
 `;
