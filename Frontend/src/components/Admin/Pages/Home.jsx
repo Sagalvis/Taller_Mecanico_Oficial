@@ -6,11 +6,18 @@ import {
   Header,
   CardsContainer,
   ContainerCards,
+  CardsConten,
 } from "./Styles/styledHome";
-import Axios from "axios"
-
+import Axios from "axios";
 
 const Home = () => {
+  const [contadores, setContadores] = useState({
+    contador1: "",
+    contador2: "",
+    contador3: "",
+    contador4: "",
+  });
+
   const Reloj = () => {
     const [time, setTime] = useState(new Date());
 
@@ -26,11 +33,11 @@ const Home = () => {
 
     const hora = time.getHours();
     if (hora < 12) {
-      mensaje = "Good Morning, Sergio Galvis";
+      mensaje = "Buenos días, Sergio Galvis";
     } else if (hora < 15) {
-      mensaje = "Good Afternoon, Sergio Galvis";
+      mensaje = "Buenas tardes, Sergio Galvis";
     } else {
-      mensaje = "Good Evening, Sergio Galvis";
+      mensaje = "Buenas noches, Sergio Galvis";
     }
 
     return (
@@ -40,45 +47,30 @@ const Home = () => {
       </Header>
     );
   };
-  const [contador1, setContador1] = useState("");
-  const [contador2, setContador2] = useState("");
-  const [contador3, setContador3] = useState("");
-  const [contador4, setContador4] = useState("");
+
   const fetchData1 = async () => {
     try {
       const response = await Axios.get("http://localhost:3005/customer/count");
-      setContador1(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-    try {
       const response2 = await Axios.get("http://localhost:3005/employed/count");
-      setContador2(response2.data);
-    } catch (error) {
-      console.log(error);
-    }
-    try {
       const response3 = await Axios.get("http://localhost:3005/product/count");
-      setContador3(response3.data);
-    } catch (error) {
-      console.log(error);
-    }
+      const response4 = await Axios.get("http://localhost:3005/vehicle/count");
 
-    try {
-      const response4= await Axios.get("http://localhost:3005/vehicle/count");
-      setContador4(response4.data);
+      setContadores({
+        contador1: response.data,
+        contador2: response2.data,
+        contador3: response3.data,
+        contador4: response4.data,
+      });
     } catch (error) {
       console.log(error);
     }
-      
-      
   };
 
   useEffect(() => {
     fetchData1();
   }, []);
 
-  
+  const TitleCards = ["Clientes", "Empleados", "Productos", "Vehiculos"];
 
   return (
     <ContainerHome>
@@ -87,10 +79,23 @@ const Home = () => {
       </ContainerHeader>
       <ContainerCards>
         <CardsContainer>
-          <Cards>{contador1.length}</Cards>
-          <Cards>{contador2.length}</Cards>
-          <Cards>{contador3.length}</Cards>
-          <Cards>{contador4.length}</Cards>
+          {TitleCards.map((index) => (
+            <Cards key={index}>
+              <CardsConten>{index}</CardsConten>
+              {Object.values(contadores).map((contador, index) => (
+            <CardsConten key={index}>{contador.length}</CardsConten>
+          ))}
+            </Cards>
+          ))}
+          
+        </CardsContainer>
+        <CardsContainer>
+          {Object.values(contadores).map((contador, index) => (
+            <Cards key={index}>
+              <CardsConten></CardsConten>
+              {contador.length}
+            </Cards>
+          ))}
         </CardsContainer>
       </ContainerCards>
     </ContainerHome>
