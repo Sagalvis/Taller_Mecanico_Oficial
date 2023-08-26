@@ -11,10 +11,10 @@ import lamina from "../../assets/slider/lamina.jpg";
 import Footer from "./Footer";
 import { AquiPAbout, Aquih1 } from "./styles/StyledInfoUsPage";
 import InfoUsPage, { InfoUsPage2 } from "./InfoUs";
-import mision from "../../assets/slider/mision.jpg";
-import mision2 from "../../assets/slider/mision2.jpg";
-import vision from "../../assets/slider/vision.jpg";
-import vision2 from "../../assets/slider/vision2.jpg";
+import mision from "../../assets/imgaboutus/mision1-01.jpg";
+import mision2 from "../../assets/imgaboutus/mision2-01.jpg";
+import vision from "../../assets/imgaboutus/vision1-01.jpg";
+import vision2 from "../../assets/imgaboutus/vision2-01.jpg";
 import { useNavigate } from "react-router-dom";
 
 const HomeClient = () => {

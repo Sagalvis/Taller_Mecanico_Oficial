@@ -48,7 +48,7 @@ export const Contenedorimg = styled.div`
 export const Aquimg = styled.img`
   width: 49%;
   height: 300px;
-  object-fit: cover;
+  /* object-fit: cover; */
   border-radius: 6px;
   box-shadow: -1px 1px 62px -18px rgba(0, 0, 0, 0.19);
   &:nth-child(2) {
