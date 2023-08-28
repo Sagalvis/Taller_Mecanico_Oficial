@@ -1,50 +1,33 @@
 /* eslint-disable react/prop-types */
+import { FormContainer, Input, InputArea, Button, InputContainerForm } from "../Form/StyledForm";
+import { useState } from "react";
+
 import Axios from "axios";
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import {
-  Button,
-  FormContainer,
-  Input,
-  InputArea,
-  InputContainerForm,
-} from "../Form/StyledForm";
 
-export default function ContenedorModal({ estado2, cambiarEstdo2 }) {
-  const [inventory, setInventory] = useState([]);
-  const getInventory = async () => {
-    try {
-      const res = await Axios.get("http://localhost:3005/inventory");
-      setInventory(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const Update = async (id, updatedItem) => {
-    try {
-      await Axios.patch(`http://localhost:3005/inventory/${id}`, updatedItem);
-      // Actualizar el estado local después de la actualización exitosa
-      setInventory((prevInventory) =>
-        prevInventory.map((prevItem) => {
-          if (prevItem.id_product === id) {
-            return {
-              ...prevItem,
-              ...updatedItem,
-            };
-          }
-          return prevItem;
-        })
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  useEffect(() => {
-    getInventory();
-  }, []);
+export default function ContenedorModal() {
+  
+/*
+    const [inventory, setInventory] = useState([]);
+     const getInventory = async () => {
+        try {
+            const res = await Axios.get("http://localhost:3005/inventory")
+            setInventory(res.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }; */
+    const Update = async (item) => {
+        try {
+          await Axios.patch(`http://localhost:3005/inventory/${item.id_product}`);
+          
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
-  return (
+  /* return (
     <>
       {inventory.map((item) => (
         <ItemForm
@@ -56,7 +39,7 @@ export default function ContenedorModal({ estado2, cambiarEstdo2 }) {
         />
       ))}
     </>
-  );
+  ); */
 }
 
 function ItemForm({ estado2, cambiarEstdo2, item, Update }) {
