@@ -14,6 +14,25 @@ const FormularioVehiculo = () => {
   const handleTipoVehiculoChange = (e) => {
     setTipoVehiculo(e.target.value);
   };
+  const add = async (evt) => {
+    if(tipoVehiculo === ''|| placa ==='' || tarjetaPropiedad === '' || marca === '' || modelo === '' || cilindraje === '' || tipoCombustible === '' || color === '' || tipoCarroceria === ''){
+    alert('Todos los campos son obligatorios');
+    evt.preventDefault();
+    }
+    else {
+      await axios.post('http://localhost:3005//registervehicle/register'),{
+        vehicle_type: tipoVehiculo,
+        matricula: placa,
+        tarjetaPropiedad: tarjetaPropiedad,
+        marca: marca,
+        modelo: modelo,
+        cilindraje: cilindraje,
+        id_combustible: tipoCombustible,
+        color: color,
+        id_carroceria: tipoCarroceria
+      }
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
