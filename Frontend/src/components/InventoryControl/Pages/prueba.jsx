@@ -26,7 +26,7 @@ export default function ContenedorModal({ onClose }) {
             await Axios.patch(`http://localhost:3005/inventory/${itemId}`, {
                 [field]: value
             });
-            // Actualizar el estado local después de la actualización exitosa
+            // Actualizar el estado local después de la actualización exitosa 
             setInventory(prevInventory =>
                 prevInventory.map(item => {
                     if (item.id_product === itemId) {

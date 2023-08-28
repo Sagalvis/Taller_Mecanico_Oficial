@@ -23,7 +23,8 @@
     "react-select": "^5.7.4",
     "reactjs-popup": "^2.0.5",
     "rsuite": "^5.38.0",
-    "styled-components": "^6.0.5"
+    "styled-components": "^6.0.5",
+    "use-history": "^1.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -34,6 +35,6 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "vite": "^4.4.5"
+    "vite": "^4.4.9"
   }
 }
