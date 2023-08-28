@@ -95,7 +95,7 @@ const [onEdit, setonEdit] = useState(null); */
         {isSuccess ? (
             <SuccessMessageContainer>
             <SuccessMessage>
-                <h3>Creado con exito</h3>
+                <h3>Successfully created</h3>
             </SuccessMessage>
             </SuccessMessageContainer>
         ) : (
