@@ -10,7 +10,6 @@ export const ContainerPrincipal = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: red;
 `;
 
 export const HeaderContainerInv = styled.div`
