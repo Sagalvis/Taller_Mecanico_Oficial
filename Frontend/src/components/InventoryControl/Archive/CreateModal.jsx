@@ -24,7 +24,7 @@ const FormCreate = ({ estado, cambiarEstdo }) => {
 
 export default FormCreate;
 
-const OverLay = styled.div`
+export const OverLay = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
