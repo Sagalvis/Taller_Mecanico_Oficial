@@ -13,9 +13,9 @@ import Axios from "axios";
 const Home = () => {
   const [contadores, setContadores] = useState({
     contador1: "",
-    contador2: "",
-    contador3: "",
-    contador4: "",
+    contador2: "22",
+    contador3: "444",
+    contador4: "4444",
   });
 
   const Reloj = () => {
@@ -25,16 +25,14 @@ const Home = () => {
       const interval = setInterval(() => {
         setTime(new Date());
       }, 1000);
-
       return () => clearInterval(interval);
     }, []);
 
     let mensaje = "";
-
     const hora = time.getHours();
     if (hora < 12) {
       mensaje = "Buenos días, Sergio Galvis";
-    } else if (hora < 15) {
+    } else if (hora < 18) {
       mensaje = "Buenas tardes, Sergio Galvis";
     } else {
       mensaje = "Buenas noches, Sergio Galvis";
@@ -79,21 +77,15 @@ const Home = () => {
       </ContainerHeader>
       <ContainerCards>
         <CardsContainer>
-          {TitleCards.map((index) => (
-            <Cards key={index}>
-              <CardsConten>{index}</CardsConten>
-              {Object.values(contadores).map((contador, index) => (
-            <CardsConten key={index}>{contador.length}</CardsConten>
-          ))}
+            <Cards >
             </Cards>
-          ))}
-          
         </CardsContainer>
         <CardsContainer>
-          {Object.values(contadores).map((contador, index) => (
+          {TitleCards.map((title, index) => (
             <Cards key={index}>
-              <CardsConten></CardsConten>
-              {contador.length}
+              {Object.values(contadores).map((contador, index) => (
+                <CardsConten key={index}>{title}{contador.length}</CardsConten>
+              ))}
             </Cards>
           ))}
         </CardsContainer>
