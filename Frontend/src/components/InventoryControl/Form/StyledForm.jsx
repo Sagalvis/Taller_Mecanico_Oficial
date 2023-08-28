@@ -1,9 +1,9 @@
 import styled, {keyframes} from "styled-components";
 
 export const FormContainer = styled.form`
-    width: 700px;
-    min-height: 200px;
-    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
     align-items: center;
     justify-content: space-around;
     gap: 10px;
