@@ -8,10 +8,10 @@ import {
 } from "./styles/StyledSlider";
 import { useRef, useEffect } from "react";
 // services imports
-import revision from "../../../src/assets/slider/revision-motor.jpg";
-import aceite from "../../../src/assets/slider/aceite.jpg";
-import llantas from "../../../src/assets/slider/cambio-llantas.jpg";
-import herramientas from '../../../src/assets/slider/herramientas.jpg';
+import revision from "../../../src/assets/slider/slider1-01.png";
+import aceite from "../../../src/assets/slider/slider2-01.png";
+import llantas from "../../../src/assets/slider/slider3-01.png";
+import herramientas from '../../../src/assets/slider/slider4-01.png';
 // buttons imports
 import ArrowLeft from "../../assets/svg/ARROW-LEFT.svg";
 import ArrowRight from "../../assets/svg/ARROW-RIGHT.svg";

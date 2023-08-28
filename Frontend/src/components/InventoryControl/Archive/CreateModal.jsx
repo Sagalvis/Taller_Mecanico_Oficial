@@ -37,7 +37,7 @@ export const OverLay = styled.div`
   padding: 40px;
 `;
 
-const ContainerModalCreate = styled.div`
+export const ContainerModalCreate = styled.div`
   width: 700px;
   min-height: 200px;
   background-color: white;
