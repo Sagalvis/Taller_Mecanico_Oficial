@@ -87,10 +87,6 @@ const Inventory = () => {
       value: i, 
       label: item.product_type, 
     }));
-    if(options.id_product == inventory.id_product){
-      console.log("son iguales")
-    }
-    
     return <SelectOption options={options} />;
   };
 
@@ -133,7 +129,6 @@ const Inventory = () => {
       </HeaderContainerInv>
       <ContainerInventory2>
         <HeaderInventory2>
-          {/* <FormCreate/> */}
           <TitleHeader>Productos</TitleHeader>
           <ButtonForm onClick={()=> setStateModal(!stateModal)}>Crear Nuevo Producto</ButtonForm>
           <SelectInput />
@@ -164,10 +159,11 @@ const Inventory = () => {
               
               <Price>$ {item.price}</Price>
               <IconAction>
-                <Icon
+              <Icon
                   className="fa-solid fa-pen"
-                  onClick={() => DeleteInventory(item)}
+                  onClick={() => setModal(!modalState) }
                 ></Icon>
+                <ContenedorModal estado2={modalState} cambiarEstdo2={setModal} item/>
                 <Icon
                   className="fa-solid fa-trash"
                   onClick={() => DeleteInventory(item)}
@@ -175,6 +171,7 @@ const Inventory = () => {
               </IconAction>
 
               {/* <Containerinfo></Containerinfo> */}
+              <ContenedorModal estado2={modalState} cambiarEstdo2={setModal} />
             </Tarjetas>
           ))}
           {modalState &&

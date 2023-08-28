@@ -6,7 +6,7 @@ const FormCreate = ({ estado, cambiarEstdo }) => {
   return (
     <>
       {estado && (
-        <OverLay>
+        <OverLay className="Overlay1">
           <ContainerModalCreate>
             <HeaderCreate>
               Create new product
@@ -27,24 +27,22 @@ export default FormCreate;
 const OverLay = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
+  background-color: rgba(0, 0, 0, 0.815);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px;
 `;
-
 const ContainerModalCreate = styled.div`
   width: 700px;
   min-height: 200px;
   background-color: white;
   position: relative;
   border-radius: 5px;
-
-  box-shadow: 0px 0px 5px #494949;
+  box-shadow: 0px 0px 10px #494949;
   padding: 20px;
 `;
 

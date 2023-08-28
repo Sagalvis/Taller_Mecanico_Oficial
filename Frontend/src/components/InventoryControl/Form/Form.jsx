@@ -13,6 +13,7 @@ import {
 } from "./StyledForm";
 
 export const Form = () => {
+
 /* const ref = useRef();
 const [onEdit, setonEdit] = useState(null); */
     const [isLoading, setIsLoading] = useState(false);
@@ -29,26 +30,28 @@ const [onEdit, setonEdit] = useState(null); */
         if ((!id_product, !name_product, !quantity, !price, !id_prodtype)) {
         console.log("datos no validos");
         } else {
-        Axios.post("http://localhost:3005/inventory", {
-            id_product: id_product,
-            name_product: name_product,
-            quantity: quantity,
-            price: price,
-            id_prodtype: id_prodtype
-
-        }).then((response) => {
-            console.log(response.data);
-        });
+            Axios.post("http://localhost:3005/inventory", {
+                id_product: id_product,
+                name_product: name_product,
+                quantity: quantity,
+                price: price,
+                id_prodtype: id_prodtype
+            }).then((response) => {
+                console.log(response.data);
+                setIsLoading(true);
+                setTimeout(() => {
+                    setIsLoading(false);
+                    setIsSuccess(true);
+                    setTimeout(() => {
+                        setIsSuccess(false);
+                        window.location.reload(); // Recargar la página después de la animación
+                    }, 1000);
+                }, 1000);
+            });
         }
-        setIsLoading(true);
-        setTimeout(() => {
-        setIsLoading(false);
-        setIsSuccess(true);
-        setTimeout(() => {
-            setIsSuccess(false);
-        }, 1000);
-        }, 1000);
     };
+
+
 
     return (
         <FormContainer>
@@ -92,7 +95,7 @@ const [onEdit, setonEdit] = useState(null); */
         {isSuccess ? (
             <SuccessMessageContainer>
             <SuccessMessage>
-                <h3>Creado con exito</h3>
+                <h3>Successfully created</h3>
             </SuccessMessage>
             </SuccessMessageContainer>
         ) : (
