@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ContainerRegister } from "./styles/styledRegister";
+
 
 const FormularioVehiculo = () => {
   const [tipoVehiculo, setTipoVehiculo] = useState("");
@@ -61,6 +63,8 @@ const FormularioVehiculo = () => {
   };
 
   return (
+    <ContainerRegister>
+    <h1>Formulario registro Vehiculos</h1>
     <form onSubmit={handleSubmit}>
       <label>Tipo de vehículo:</label>
       <select
@@ -97,7 +101,7 @@ const FormularioVehiculo = () => {
             required
           />
           <input
-            type="date"
+            type="number"
             placeholder="Modelo carro"
             value={modelo}
             onChange={(e) => setModelo(e.target.value)}
@@ -147,7 +151,7 @@ const FormularioVehiculo = () => {
             required
           />
           <input
-            type="date"
+            type="number"
             placeholder="Modelo moto"
             value={modelo}
             onChange={(e) => setModelo(e.target.value)}
@@ -195,6 +199,7 @@ const FormularioVehiculo = () => {
 
       <button type="submit">Enviar</button>
     </form>
+    </ContainerRegister>
   );
 };
 
