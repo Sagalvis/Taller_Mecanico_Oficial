@@ -36,7 +36,7 @@ import FormCreate from "../Archive/CreateModal";
 const Inventory = () => {
   const [inventory, setInventory] = useState([]);
   const [modalState, setModal] = useState(false);
-
+  const [product, setProduct] = useState([]);
 
   /* const [count, useCount] = useState(0); */
 
@@ -52,6 +52,14 @@ const Inventory = () => {
     }
   };
 
+  const getProduct = async () => {
+    try {
+      const res = await Axios.get("http://localhost:3005/product")
+      setProduct(res.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
   const DeleteInventory = async (item) => {
     try {
       const res = await Axios.delete(
@@ -66,7 +74,8 @@ const Inventory = () => {
 
   useEffect(() => {
     getInventory();
-  }, [setInventory]);
+    getProduct();
+  }, [setInventory, setProduct]);
 
   /* const handleEdit = (item) => {
     setSelectedItem(item)
@@ -74,14 +83,13 @@ const Inventory = () => {
 
   
   const SelectInput = () => {
-    const options = [
-      { value: "option1", label: "Llantas" },
-      { value: "option2", label: "Tuercas" },
-      { value: "option3", label: "Opción 3" },
-    ];
-
+    const options = product.map((item, i) => ({ 
+      value: i, 
+      label: item.product_type, 
+    }));
     return <SelectOption options={options} />;
   };
+
   const Reloj = () => {
     const [time, setTime] = useState(new Date());
 
@@ -152,9 +160,9 @@ const Inventory = () => {
               
               <Price>$ {item.price}</Price>
               <IconAction>
-                <Icon
+              <Icon
                   className="fa-solid fa-pen"
-                  onClick={() => DeleteInventory(item)}
+                  onClick={() => setModal(!modalState)}
                 ></Icon>
                 <Icon
                   className="fa-solid fa-trash"
@@ -163,6 +171,7 @@ const Inventory = () => {
               </IconAction>
 
               {/* <Containerinfo></Containerinfo> */}
+              <ContenedorModal estado2={modalState} cambiarEstdo2={setModal} />
             </Tarjetas>
           ))}
           {modalState &&
