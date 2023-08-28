@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { FormContainer, Input, InputArea, Button, InputContainerForm } from "../Form/StyledForm";
 import { useState, useEffect } from "react";
 import { OverLay, ContainerModalCreate } from "./CreateModal"
@@ -15,21 +16,9 @@ export default function ContenedorModal({ estado2, cambiarEstdo2}) {
             console.log(error)
         }
     };
-    const Update = async (id, updatedItem) => {
+    const Update = async (item) => {
         try {
-          await Axios.patch(`http://localhost:3005/inventory/${id}`, updatedItem);
-          // Actualizar el estado local después de la actualización exitosa
-          setInventory(prevInventory =>
-            prevInventory.map(prevItem => {
-              if (prevItem.id_product === id) {
-                return {
-                    ...prevItem,
-                    ...updatedItem
-                };
-              }
-              return prevItem;
-            })
-          );
+          await Axios.patch(`http://localhost:3005/inventory/${item.id_product}`);
           
         } catch (error) {
           console.log(error);
