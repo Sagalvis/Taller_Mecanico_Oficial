@@ -55,10 +55,10 @@ const RegisterAdvisor = () => {
   return (
     <ContainerRegister>
       <ContainForm>
-        <div style={{ width: "40%", height: "30%", backgroundColor: "#000", justifyContent: 'center'}}>
+        <div>
           <TitleH1>Formulario registro clientes</TitleH1>
         </div>
-        <div>
+        <Form>
           <Input
             type="text"
             placeholder="Nombre"
@@ -104,7 +104,7 @@ const RegisterAdvisor = () => {
           <Button type="submit" onClick={handleSubmit}>
             Enviar
           </Button>
-        </div>
+        </Form>
       </ContainForm>
     </ContainerRegister>
   );
