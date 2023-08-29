@@ -17,6 +17,36 @@ const FormularioVehiculo = () => {
     setTipoVehiculo(e.target.value);
   };
 
+  const add = async (evt) => {
+    if(tipoVehiculo === ''|| placa ==='' || tarjetaPropiedad === '' || marca === '' || modelo === '' || cilindraje === '' || tipoCombustible === '' || color === '' || tipoCarroceria === ''){
+    alert('Todos los campos son obligatorios');
+    
+    evt.preventDefault();
+    }
+    else {
+     try {      
+      await axios.post('http://localhost:3005//registervehicle/register'),{
+        vehicle_type: tipoVehiculo,
+        matricula: placa,
+        tarjetaPropiedad: tarjetaPropiedad,
+        marca: marca,
+        modelo: modelo,
+        cilindraje: cilindraje,
+        id_combustible: tipoCombustible,
+        color: color,
+        id_carroceria: tipoCarroceria
+      }.then((response) =>{
+        console.log(response.data)
+        alert("automovil registrado exitosamente");
+        window.location.reload('http://localhost:5173/registerv');
+        
+      })
+    } catch (error) {
+        alert('no se puedo enviar el package json')
+    }
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí puedes realizar las acciones necesarias con los datos del formulario
@@ -105,6 +135,7 @@ const FormularioVehiculo = () => {
             <option value="diesel">Diesel</option>
             <option value="gasolina">Gasolina</option>
           </select>
+          
         </>
       )}
 
@@ -178,7 +209,7 @@ const FormularioVehiculo = () => {
         <option value="sin_carroceria">Sin carrocería</option>
       </select>
 
-      <button type="submit">Enviar</button>
+      <button type="submit" onClick={add}>Enviar</button>
     </form>
     </ContainerRegister>
   );

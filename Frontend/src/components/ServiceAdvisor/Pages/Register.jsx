@@ -1,40 +1,64 @@
 import { useState } from "react";
-import { ContainForm, ContainerRegister, Form, Input, Button, TitleH1 } from "./styles/styledRegister";
+import {
+  ContainForm,
+  ContainerRegister,
+  Form,
+  Input,
+  Button,
+  TitleH1,
+} from "./styles/styledRegister";
+
+import axios from "axios";
 
 const RegisterAdvisor = () => {
-    const [nombre, setNombre] = useState("");
-    const [apellidos, setApellidos] = useState("");
-    const [correo, setCorreo] = useState("");
-    const [numeroDocumento, setNumeroDocumento] = useState("");
-    const [direccion, setDireccion] = useState("");
-    const [telefono, setTelefono] = useState("");
-    const handleSubmit = (e) => {
+  const [nombre, setNombre] = useState("");
+  const [apellidos, setApellidos] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [numeroDocumento, setNumeroDocumento] = useState("");
+  const [direccion, setDireccion] = useState("");
+  const [telefono, setTelefono] = useState("");
+
+  const handleSubmit = async (e) => {
+    if (
+      nombre === "" ||
+      apellidos === "" ||
+      correo === "" ||
+      numeroDocumento === "" ||
+      direccion === "" ||
+      telefono === ""
+    ) {
       e.preventDefault();
-      // Aquí puedes realizar las acciones necesarias con los datos del formulario
-      console.log("Formulario enviado:", {
-        nombre,
-        apellidos,
-        correo,
-        numeroDocumento,
-        direccion,
-        telefono,
-      });
-      // Limpia los campos del formulario
-      setNombre("");
-      setApellidos("");
-      setCorreo("");
-      setNumeroDocumento("");
-      setDireccion("");
-      setTelefono("");
-    };
+      alert("no se pudo registrar el cliente llena los campos");
+    } else {
+      await axios.post("http://localhost:3005/advisor", {
+          name: nombre,
+          last_name: apellidos,
+          email: correo,
+          identification: numeroDocumento,
+          adress: direccion,
+          phone: telefono,
+        })
+        .then((Response) => {
+          console.log(Response.data);
+          alert("cliente registrado");
+        });
+    }
+    // Limpia los campos del formulario
+    setNombre("");
+    setApellidos("");
+    setCorreo("");
+    setNumeroDocumento("");
+    setDireccion("");
+    setTelefono("");
+  };
+
   return (
     <ContainerRegister>
-
       <ContainForm>
-        <div style={{width: '40%', height: '30%', backgroundColor: '#000'}}>
-      <TitleH1>Formulario registro clientes</TitleH1>
-      </div>
-        <Form onSubmit={handleSubmit}>
+        <div style={{ width: "40%", height: "30%", backgroundColor: "#000", justifyContent: 'center'}}>
+          <TitleH1>Formulario registro clientes</TitleH1>
+        </div>
+        <div>
           <Input
             type="text"
             placeholder="Nombre"
@@ -77,9 +101,10 @@ const RegisterAdvisor = () => {
             onChange={(e) => setTelefono(e.target.value)}
             required
           />
-
-          <Button type="submit">Enviar</Button>
-        </Form>
+          <Button type="submit" onClick={handleSubmit}>
+            Enviar
+          </Button>
+        </div>
       </ContainForm>
     </ContainerRegister>
   );

@@ -15,17 +15,31 @@ export const getEmployes = async (req, res) => {
 export const LoginEmployes = async (req, res) => {
   try {
     const { mail, password } = req.body;
-    let compare = bcrypt.compareSync(password, password)
-    console.log(req.body);
-    const [rows] = await pool.query("SELECT * FROM employed WHERE mail = ? and password = ? ", [ mail, compare ]);
-    if(rows.length === 0) {
-      return res.status(404).json({
-        message: "Not found",
+    console.log(req.body, 'valores');
+
+    const [rows] = await pool.query("SELECT * FROM employed WHERE mail = ? ", [ mail ]);
+
+    if (rows.length > 0) {
+      const matchPassword = await bcrypt.compare(password, rows[0].password);
+      console.log(rows[0].password);
+      if (matchPassword) {
+        res.status(200).json({
+          message: rows[0],
+        });
+      } else {
+        console.log("Password comparison failed");
+        res.status(404).json({
+          message: "Password incorrect",
+        });
+      }
+    } else {
+      console.log("Mail not found");
+      res.status(404).json({
+        message: "Mail incorrect",
       });
     }
-    const user = rows[0];
-    res.send( user );
   } catch (error) {
+    console.error("Error:", error);
     return res.status(500).json({
       message: "Internal server error",
     });
@@ -36,7 +50,8 @@ export const LoginEmployes = async (req, res) => {
 export const CreateEmployes = async (req, res) => {
   try {
     const { num_employed, name_employed,lastname_employed, imgEmployed, mail, password, phone, id_rol } = req.body;
-    const hashPassword = await bcrypt.hash(password,10)
+    const hashPassword = await bcrypt.hash(password,12)
+    console.log(hashPassword);
     const [rows] = await pool.query(
       "INSERT INTO employed (num_employed, name_employed, lastname_employed, imgEmployed, mail, password, phone, id_rol) values(?,?,?,?,?,?,?,?)",
       [num_employed, name_employed,lastname_employed, imgEmployed, mail, hashPassword, phone, id_rol]
@@ -51,6 +66,7 @@ export const CreateEmployes = async (req, res) => {
       phone, 
       id_rol
     }));
+    console.log(res.send);
   } catch (error) {
     return res.status(404).json({
       message: "error  😔😔😔",
