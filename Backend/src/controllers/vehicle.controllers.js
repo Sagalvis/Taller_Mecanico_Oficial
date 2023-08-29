@@ -11,28 +11,31 @@ export const getVehicle = async (req, res) => {
 
 export const selectCarroceria = async (req, res) => {
   try {
-    const id_carroceria = req.params.id_carroceria;
-    const result = await pool.query('SELECT carroceria_type FROM carroceria WHERE id_carroceria = ?',[id_carroceria]);
-    if (result.rows.length === 0) {
-      res.status(404).json({ message:'error cannot find the carroceria' });
-    console.log(result)
-    } else {
-      res.status(200).json(result);
-    }
+    const [row] = await pool.query('SELECT from carroceria');
+    res.json(row);
   } catch (error) {
     res.status(500).json({ message:'error cannot find the carroceria' });
   }
 }
 
 
+export const selectOil = async (req, res) => {
+  try {
+    const [row] = await pool.query('SELECT * from combustible');
+    res.json(row);
+  } catch (error) {
+    
+  }
+}
+
 export const createVehicle = async (req, res) => {
   try{
-      const { matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, identification, id_carroceria, id_combustible } = req.body;
+      const { matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, num_motor, kilometraje, identification, id_carroceria, id_combustible } = req.body;
    
       console.log(req.body);
    
       const [rows] = await pool.query(
-       'INSERT INTO vehicle (matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, identification, id_carroceria, id_combustible) VALUES (?,?,?,?,?,?,?,?,?,?)',[matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, identification, id_carroceria, id_combustible]);   
+       'INSERT INTO vehicle (matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, num_motor, kilometraje, identification, id_carroceria, id_combustible) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',[matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, num_motor, kilometraje,identification, id_carroceria, id_combustible]);   
       console.log(rows);   
       res.status(201).json({
        matricula, 
@@ -42,6 +45,8 @@ export const createVehicle = async (req, res) => {
        cylinder_cm, 
        vehicle_type, 
        color, 
+       num_motor, 
+       kilometraje,
        identification, 
        id_carroceria, 
        id_combustible
