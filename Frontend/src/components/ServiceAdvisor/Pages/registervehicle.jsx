@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ContainerRegister } from "./styles/styledRegister";
 
 
+
 const FormularioVehiculo = () => {
   const [tipoVehiculo, setTipoVehiculo] = useState("");
   const [placa, setPlaca] = useState("");
@@ -45,6 +46,9 @@ const FormularioVehiculo = () => {
 
   return (
     <ContainerRegister>
+      
+
+      
     <h1>Formulario registro Vehiculos</h1>
     <form onSubmit={handleSubmit}>
       <label>Tipo de vehículo:</label>
