@@ -41,7 +41,7 @@ export const CreatingAdvisor = async (req, res) => {
     }));
   } catch (error) {
     console.log(error)
-    return res.status(404).json({
+    return res.status(500).json({
       message: "ah! hay un error 😔😔",
     });
   }

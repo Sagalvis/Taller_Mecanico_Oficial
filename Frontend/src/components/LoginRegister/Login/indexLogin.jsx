@@ -8,6 +8,7 @@ import {
   Message,
 } from "./styledLogin";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
   const [mail, setEmail] = useState("");
@@ -17,7 +18,7 @@ const Login = () => {
   const Log = async (evt) => {
     evt.preventDefault();
     setError(null);
-    if (mail && password) {
+    if (mail  && password) {
       try {
         const response = await Axios.post(
           "http://localhost:3005/employed/login",
@@ -27,26 +28,25 @@ const Login = () => {
           }
         ).then((response) => {
           const user = response.data;
-          console.log(user);
+           console.log(user); 
           if (!user) {
             alert("El usuario no existe");
           } else {
-            const {id_rol: rol} = user;
-            console.log(rol);
+            const rol = user.id_rol;
+             console.log(user.id_rol);
+            /*console.log(rol); */
             switch (rol) {
               case 1 :
                 window.location.href = "http://localhost:5173/advisor";
                 break;
               case 2 :
+              case 3 :
                 window.location.href = "http://localhost:5173/admin";
-                break;
-              case 3:
+                break;              
+              case 4 :
                 window.location.href = "http://localhost:5173/inventory";
                 break;
-              case 4:
-                window.location.href = "http://localhost:5173/inventory";
-                break;
-              case 5:
+              case 5 :
                 window.location.href = "http://localhost:5173/admin";
                 break;
               default:

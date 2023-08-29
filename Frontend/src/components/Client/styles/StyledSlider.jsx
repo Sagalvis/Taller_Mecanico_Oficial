@@ -2,17 +2,23 @@ import styled from 'styled-components';
 
 export const ContentMain = styled.div`
   width: 100%;
-  height: 65vh;
+  height: 65vh; // 65vh
   position: relative;
+  overflow: hidden;
+  @media (min-width: 460px) {
+    height: 60vh;
+  }
 `;
 
 export const SliderContent = styled.div`
   position: relative;
+  overflow: hidden;
 `;
 
 export const ContentImg = styled.div`
   display: flex;
   flex-wrap: nowrap;
+  
 `;
 
 export const SlideImg = styled.img`
@@ -24,6 +30,9 @@ export const SlideImg = styled.img`
   position: relative;
   overflow: hidden;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.555);
+  @media (max-width: 1024px) {
+    height: 57vh;
+  }
 `;
 
 export const Controls = styled.div`

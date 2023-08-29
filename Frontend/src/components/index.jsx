@@ -7,7 +7,6 @@ import Login from './LoginRegister/Login/indexLogin';
 import Register from './LoginRegister/Register/indexRegister';
 import ServiceAdvisor from "./ServiceAdvisor/indexAdvisor"
 
-import RegisterVehicle from './ServiceAdvisor/Pages/registervehicle';
 
 const Main = () => {
   return (
@@ -21,7 +20,6 @@ const Main = () => {
           <Route path='/employes/login' element={<Login />} />
           <Route path='/employes/register' element={<Register />} />
           
-          <Route path='/registerv' element={<RegisterVehicle />} />
         </Routes>
 
       </ContainerMain>
