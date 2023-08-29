@@ -15,9 +15,23 @@ export const ContainerSidebarAdvisor = styled.div`
 
 export const SidebarButtonAdvisor = styled.button`
   position: absolute;
-  top: ${({ $isopen }) => ($isopen ? `88px` : `95px`)};
+  top: ${({ $isopen }) => ($isopen ? `80px` : `80px`)};
   right: ${({ $isopen }) => ($isopen ? `-16px` : `-16px`)};
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  border: none ;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  transform: ${({$isopen}) => (!$isopen ? `rotate(180deg)` : `initial`)};
 `;
+
 
 export const ContainerLogo = styled.div`
   height: 10%;
@@ -71,7 +85,7 @@ export const ContainerPerfilAdvisor = styled.div`
 export const PefiLAdvisor = styled.div`
   background-color: blue;
   height: 100px;
-  width: ${({$isopen}) => ($isopen ? `100px`: `100px` ) };
+  width: ${({ $isopen }) => ($isopen ? `100px` : `100px`)};
   border-radius: 50%;
 `;
 
@@ -122,7 +136,6 @@ export const NavLabel = styled.div`
   color: black;
   font-size: 18px;
   display: flex;
-  justify-content: center;
   align-items: center;
 `;
 
