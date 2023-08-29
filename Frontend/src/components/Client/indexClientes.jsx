@@ -35,31 +35,23 @@ const HomeClient = () => {
       </ContainSer> */}
 
       <ContainService>
-        <div className="services" onClick={() => handleClick('/paint')}>
         <Services img={paint}
         type="serv. de pintura"/>
-        </div>
 
-        <div className="services" onClick={() => handleClick('/laminate')}>
         <Services img={lamina}
         type="serv. de laminacion" />
-        </div>
-        <div className="services" onClick={() => handleClick('/electric')}>
+        
         <Services img={electric}
         type="serv. electrico" />
-        </div>
-        <div className="services" onClick={() => handleClick('/air-conditioning')}>
+
         <Services img={aire}
         type="serv. de aire acondicionado" />
-        </div>
-        <div className="services" onClick={() => handleClick('/general')}>
+
         <Services img={mecGeneral}
         type="Mecanica General" />
-        </div>
-        <div className="services" onClick={() => handleClick('/cita')}>
+
         <Services img={otro}
         type="Otro" />
-        </div>
       </ContainService>
 
       <Containabout>

@@ -3,15 +3,15 @@ import styled from 'styled-components';
 
 export const Service = styled.div`
   display: flex;
+  width: 100%;
+  height: 23vh;
+  background-color: #f5f4f4; //f5f4f4
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f5f4f4; //f5f4f4
-  width: 95%;
-  height: 23vh;
-  margin: 1.5rem .5rem;
+  margin: 2.5rem 1rem;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .25);
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   &:hover {
@@ -20,7 +20,6 @@ export const Service = styled.div`
 `;
 
 export const ServiceImg = styled.img`
-  /* object-fit: cover; */
   overflow: hidden;
   width: 100%;
   height: 100%;
