@@ -6,6 +6,7 @@ import {
   InfoDates,
   InfoStatusContain,
   InfoText,
+  InfoText2,
   InfoVehicle,
   Registers,
   Statustext,
@@ -66,15 +67,15 @@ function VehicleRegister() {
             
             <ContainInfo>
               <Title2>Motivo de ingreso: </Title2>
-              <InfoText>[bd]</InfoText>
+              <InfoText2>[bd]</InfoText2>
             </ContainInfo>
             <ContainInfo>
               <Title2>Info mecanico: </Title2>
-              <InfoText>[bd]</InfoText>
+              <InfoText2>[bd]</InfoText2>
             </ContainInfo>
             <ContainInfo>
               <Title2>Mecanico responsable: </Title2>
-              <InfoText>[bd]</InfoText>
+              <InfoText2>[bd]</InfoText2>
             </ContainInfo>
             </InfoVehicle>
           </Registers>
