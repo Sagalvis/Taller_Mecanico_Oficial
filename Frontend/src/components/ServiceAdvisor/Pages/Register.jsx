@@ -6,6 +6,9 @@ import {
   Input,
   Button,
   TitleH1,
+  ContainTitle,
+  ContainH2,
+  TitleH2,
 } from "./styles/styledRegister";
 
 import axios from "axios";
@@ -55,10 +58,14 @@ const RegisterAdvisor = () => {
   return (
     <ContainerRegister>
       <ContainForm>
-        <div>
-          <TitleH1>Formulario registro clientes</TitleH1>
-        </div>
+        <ContainTitle>
+          <TitleH1>Registra nuevo cliente</TitleH1>
+        </ContainTitle>
+
         <Form>
+          <ContainH2>
+          <TitleH2>Datos</TitleH2>
+          </ContainH2>
           <Input
             type="text"
             placeholder="Nombre"
