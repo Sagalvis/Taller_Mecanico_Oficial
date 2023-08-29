@@ -23,18 +23,21 @@ export const Login = async (req, res) => {
     });
   }
 };
-//--------------------------------//
+//---------------Crear un cliente-----------------//
 export const CreatingAdvisor = async (req, res) => {
   try {
-    const { identification,name_customer,propierty_card } = req.body;
+    const { identification, name, last_name, email, adress, phone } = req.body;
     const [rows] = await pool.query(
-      "INSERT INTO customer (identification, name_customer, propierty_card ) VALUES(?,?,?)",
-      [identification,name_customer,propierty_card] 
+      "INSERT INTO customer (identification, name, last_name , email, adress, phone ) VALUES(?,?,?,?,?,?)",
+      [identification,name,last_name,email,adress,phone] 
     );
     res.send(({
       identification,
-      name_customer,
-      propierty_card
+      name,
+      last_name,
+      email,
+      adress,
+      phone
     }));
   } catch (error) {
     console.log(error)
@@ -42,8 +45,8 @@ export const CreatingAdvisor = async (req, res) => {
       message: "ah! hay un error 😔😔",
     });
   }
-};
-//--------------------------------//
+}; 
+//---------------------------------------------------------//
 export const updateUsers = async (req, res) => {
   try {
   } catch (error) {
