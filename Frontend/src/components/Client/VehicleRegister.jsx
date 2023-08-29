@@ -3,12 +3,15 @@ import {
   ContainInfo,
   ContainRegisters,
   ContainerVReg,
-  InfoStatus,
+  InfoDates,
+  InfoStatusContain,
   InfoText,
   InfoVehicle,
   Registers,
   Statustext,
-  Title,
+
+  Title1,
+  Title2,
 } from "./styles/StyledVehicleRegister";
 
 function VehicleRegister() {
@@ -19,47 +22,59 @@ function VehicleRegister() {
         <ContainRegisters>
           <h2>Registros del vehículo</h2>
           <Registers>
-            <InfoStatus>
-              <Statustext>Estado: En proceso</Statustext>
-              <Statustext>Entrada: 28/08/2023</Statustext>
-              <Statustext>Salida: 00/00/0000</Statustext>
-            </InfoStatus>
+
+            <InfoStatusContain>
+              <InfoDates>
+                <Title1>Estado: </Title1>
+                <Statustext>[bd]</Statustext>
+              </InfoDates>
+
+              <InfoDates>
+                <Title1>Entada: </Title1>
+                <Statustext>[bd]</Statustext>
+              </InfoDates>
+
+              <InfoDates>
+                <Title1>Salida: </Title1>
+                <Statustext>[bd]</Statustext>
+              </InfoDates>
+            </InfoStatusContain>
 
             <InfoVehicle>
               <div className="info">
             <ContainInfo>
-              <Title>Nombre(s): </Title>
-              <InfoText>JOHAN DAVID DÍAZ QUINTERO</InfoText>
+              <Title2>Nombre(s): </Title2>
+              <InfoText>[bd]</InfoText>
             </ContainInfo>
             <ContainInfo>
-              <Title>Documento: </Title>
-              <InfoText>1143168571</InfoText>
+              <Title2>Documento: </Title2>
+              <InfoText>[bd]</InfoText>
             </ContainInfo>
             <ContainInfo>
-              <Title>Placa: </Title>
-              <InfoText>AEP41G</InfoText>
+              <Title2>Placa: </Title2>
+              <InfoText>[bd]</InfoText>
             </ContainInfo>
             <ContainInfo>
-              <Title>Marca: </Title>
-              <InfoText>BOXER</InfoText>
+              <Title2>Marca: </Title2>
+              <InfoText>[bd]</InfoText>
             </ContainInfo>
             <ContainInfo>
-              <Title>Modelo: </Title>
-              <InfoText>CT 102 KS 2022</InfoText>
+              <Title2>Modelo: </Title2>
+              <InfoText>[bd]</InfoText>
             </ContainInfo>
             </div>
             
             <ContainInfo>
-              <Title>Motivo de ingreso: </Title>
-              <InfoText>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores possimus ducimus eligendi eos molestiae vitae consequatur adipisci impedit corrupti expedita.</InfoText>
+              <Title2>Motivo de ingreso: </Title2>
+              <InfoText>[bd]</InfoText>
             </ContainInfo>
             <ContainInfo>
-              <Title>Info mecanico: </Title>
-              <InfoText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, tenetur.</InfoText>
+              <Title2>Info mecanico: </Title2>
+              <InfoText>[bd]</InfoText>
             </ContainInfo>
             <ContainInfo>
-              <Title>Mecanico responsable: </Title>
-              <InfoText>Sergio Galvis</InfoText>
+              <Title2>Mecanico responsable: </Title2>
+              <InfoText>[bd]</InfoText>
             </ContainInfo>
             </InfoVehicle>
           </Registers>

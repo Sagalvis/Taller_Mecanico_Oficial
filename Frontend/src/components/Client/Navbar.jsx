@@ -7,7 +7,7 @@ import {
   NavMenuLi
 } from "./styles/StyledNavbar";
 import { MenuOptions } from "./archive/MenuOptions"
-import { useState, useEffect} from "react";
+import { useState } from "react";
 import logo from '../../assets/svg/transforCars-01.svg'
 import {Link} from "react-router-dom"
 
