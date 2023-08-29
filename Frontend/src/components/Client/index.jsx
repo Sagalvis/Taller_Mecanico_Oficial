@@ -9,6 +9,9 @@ import LaminateService from "./LaminateService"
 import ElectricService from "./ElectricService"
 import AirService from "./AirService"
 import GeneralService from "./GeneralService"
+// import VehicleRegistration from "./VehicleRegister";
+import VehicleRegister from "./VehicleRegister";
+
 // import OtherService from "./OtherService"
 
 const Clientesss = () => {
@@ -20,6 +23,7 @@ const Clientesss = () => {
         <Route path="/vehicle" element={<Vehicle/>}/>
         <Route path="/cita" element={<Schedule />}/>
         <Route path="/checkvehicle" element={<CheckVehicle />}/>
+        <Route path="/vehicleregister" element={<VehicleRegister/>}/>
 
         {/* Cards de servicios */}
         <Route path="/paint" element={<PaintService />}/>
