@@ -6,7 +6,7 @@ import Inventory from './InventoryControl/indexInventory';
 import Login from './LoginRegister/Login/indexLogin';
 import Register from './LoginRegister/Register/indexRegister';
 import ServiceAdvisor from "./ServiceAdvisor/indexAdvisor"
-import RegisterAdvisor from './ServiceAdvisor/Pages/Register';
+
 import RegisterVehicle from './ServiceAdvisor/Pages/registervehicle';
 
 const Main = () => {
@@ -20,7 +20,7 @@ const Main = () => {
           <Route path='/advisor/*' element={<ServiceAdvisor />} />
           <Route path='/employes/login' element={<Login />} />
           <Route path='/employes/register' element={<Register />} />
-          <Route path='/registerc' element={<RegisterAdvisor />} />
+          
           <Route path='/registerv' element={<RegisterVehicle />} />
         </Routes>
 
