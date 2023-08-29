@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ContainerRegister } from "./styles/styledRegister";
+import axios from "axios";
 
 const RegisterAdvisor = () => {
 
@@ -10,17 +11,25 @@ const RegisterAdvisor = () => {
     const [numeroDocumento, setNumeroDocumento] = useState("");
     const [direccion, setDireccion] = useState("");
     const [telefono, setTelefono] = useState("");
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      // Aquí puedes realizar las acciones necesarias con los datos del formulario
-      console.log("Formulario enviado:", {
-        nombre,
-        apellidos,
-        correo,
-        numeroDocumento,
-        direccion,
-        telefono
+
+
+    const handleSubmit = async (e) => {
+      if (nombre === '' || apellidos === '' || correo === '' || numeroDocumento === '' || direccion  === ''|| telefono === ''){
+        e.preventDefault();
+        alert('no se pudo registrar el cliente llena los campos');
+      } else{
+          await axios.post('http://localhost:3005/advisor',{
+              name :nombre,
+              last_name :apellidos,
+              email :correo,
+              identification  :numeroDocumento,
+              adress :direccion,
+              phone  :telefono
+      }).then(Response =>{
+        console.log(Response.data)
+        alert("cliente registrado")
       });
+      }
       // Limpia los campos del formulario
       setNombre("");
       setApellidos("");
@@ -31,7 +40,7 @@ const RegisterAdvisor = () => {
     };
 
     return (
-      <form onSubmit={handleSubmit}>
+      <form>
         <input
           type="text"
           placeholder="Nombre"
@@ -74,8 +83,7 @@ const RegisterAdvisor = () => {
             onChange={(e) => setTelefono(e.target.value)}
             required
           />
-        
-        <button type="submit">Enviar</button>
+        <button type="submit" onClick={handleSubmit}>Enviar</button>
       </form>
     );
   };
