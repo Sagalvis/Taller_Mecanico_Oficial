@@ -78,15 +78,15 @@ const HomeClient = () => {
       </Containabout>
 
       <InfoUsPage
-        title="Mision"
+        title="Misión"
         text="Nuestra misión es proporcionar a nuestros clientes servicios de reparación mecánica automotriz excepcionales que garanticen la seguridad, confiabilidad y rendimiento óptimo de sus vehículos. Nos esforzamos por ofrecer diagnósticos precisos, soluciones efectivas y un servicio personalizado que exceda las expectativas de nuestros clientes. Buscamos mantenernos a la vanguardia de las últimas tecnologías y técnicas en la industria para brindar soluciones innovadoras y de alta calidad que prolonguen la vida útil de los vehículos de nuestros clientes."
         img1={mision}
         img2={mision2}
       />
 
       <InfoUsPage2
-        title="Vision"
-        text="Nuestra misión es proporcionar a nuestros clientes servicios de reparación mecánica automotriz excepcionales que garanticen la seguridad, confiabilidad y rendimiento óptimo de sus vehículos. Nos esforzamos por ofrecer diagnósticos precisos, soluciones efectivas y un servicio personalizado que exceda las expectativas de nuestros clientes. Buscamos mantenernos a la vanguardia de las últimas tecnologías y técnicas en la industria para brindar soluciones innovadoras y de alta calidad que prolonguen la vida útil de los vehículos de nuestros clientes."
+        title="Visión"
+        text="Ser la opción confiable y líder en el sector de la mecánica automotriz, brindando servicios de calidad y soluciones eficientes para nuestros clientes. Nos esforzamos por establecer relaciones duraderas, ofreciendo un entorno de trabajo seguro y motivador para nuestro equipo. Nuestro compromiso con la excelencia y la sostenibilidad nos impulsa a ser la referencia en la industria, proporcionando satisfacción y confianza a cada cliente."
         img1={vision}
         img2={vision2}
       />
