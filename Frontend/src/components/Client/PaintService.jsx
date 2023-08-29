@@ -1,5 +1,5 @@
 import { ContainerPaint, ContainerText, Imgp, PaintH2, Paintimg, Paintp } from "./styles/StyledPaintService";
-import paint from '../../assets/slider/pintura.jpg'
+import paint from '../../assets/services/pintura.jpg'
 
 
 export default function PaintService() {

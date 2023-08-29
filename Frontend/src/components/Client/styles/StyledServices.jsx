@@ -20,7 +20,7 @@ export const Service = styled.div`
 `;
 
 export const ServiceImg = styled.img`
-  object-fit: cover;
+  /* object-fit: cover; */
   overflow: hidden;
   width: 100%;
   height: 100%;

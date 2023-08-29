@@ -36,8 +36,8 @@ export const Registers = styled.div`
   box-shadow: 9px 17px 22px -24px rgba(0,0,0,0.79);
 `;
 
-export const InfoStatus = styled.div`
-  /* background-color: #fff; */
+export const InfoStatusContain = styled.div`
+  /* background-color: red; */
   width: 100%;
   height: 15%;
   display: flex;
@@ -47,16 +47,26 @@ export const InfoStatus = styled.div`
   
 `;
 
+export const InfoDates = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-right: 1rem;
+`;
+
+export const Title1 = styled.p`
+  margin: 0;
+`;
 export const Statustext = styled.p`
   margin: 0;
 `;
 
 export const InfoVehicle = styled.div`
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   .info {
     display: flex;
     margin-bottom: 1rem;
+    overflow: hidden;
   }
 `;
 
@@ -67,7 +77,7 @@ export const ContainInfo = styled.div`
   width: 100%;
 `;
 
-export const Title = styled.p`
+export const Title2 = styled.p`
   font-weight: 500;
   margin: 0 6.4rem 0 0;
 `;
