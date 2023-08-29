@@ -1,20 +1,18 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 export const ContainerSidebarAdvisor = styled.div`
-position: relative;
-  width : ${({$isopen})=> (!$isopen ? `160px`: `350px`)};
+  position: relative;
+  width: ${({ $isopen }) => (!$isopen ? `160px` : `22rem`)};
   transition: width 0.5s ease;
   height: 100%;
   box-shadow: 0 0 7px 2px gray;
-
 `;
 
 export const SidebarButtonAdvisor = styled.button`
-    position: absolute  ;
-    top: ${({ $isopen }) => ($isopen ? `88px` : `95px`)};
-    right: ${({ $isopen }) => ($isopen ? `-16px` : `-16px`)};
-    
+  position: absolute;
+  top: ${({ $isopen }) => ($isopen ? `88px` : `95px`)};
+  right: ${({ $isopen }) => ($isopen ? `-16px` : `-16px`)};
 `;
 
 export const LogoAdvisor = styled.div`
@@ -33,32 +31,31 @@ export const LogoAdvisor2 = styled.img`
   width: 100%;
   animation: acelerate 1s forwards;
   @keyframes acelerate {
-    from{
+    from {
       transform: translateX(-500px);
     }
-    to{
+    to {
       transform: translateX(2px);
     }
   }
 `;
 
 export const DividerSidebar = styled.div`
-    height: 1px;
-    width: 100%;
-    background: #d8d5d5;
-    
+  height: 1px;
+  width: 100%;
+  background: #d8d5d5;
 `;
 
 export const ContainerPerfilAdvisor = styled.div`
   width: 100%;
   height: 20%;
   display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 `;
 
-export const PefiLAdvisor  = styled.div`
+export const PefiLAdvisor = styled.div`
   background-color: blue;
   height: 50%;
   width: 30%;
@@ -76,33 +73,61 @@ export const PerfilName = styled.h3`
 `;
 
 export const NavContainer = styled.div`
-
-`;
-
-export const NavLink = styled(Link)`
+  margin-top: 10px;
+  width: 100%;
+  height: 5%;
+  display: flex;
+  align-items: center;
+  background-color: aqua;
+  &:hover{
+    background-color: ${({$isactive}) => ($isactive ? `gray` : `gray  `)};
+  }
   
 `;
 
+export const NavLink = styled(Link)`
+  text-decoration: none;
+  display: flex;
+  padding: 2%;
+  align-items: center;
+  width: 100%;
+`;
 
+export const NavLabel = styled.div`
+  width: 70%;
+  color: black;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const NavIcon = styled.div`
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: black;
+`;
 
 export const NavbarAdvisor1 = [
   {
-    id:"1",
-    label:"Home",
+    id: "1",
+    label: "Home",
     icon: <i className="fa-solid fa-house"></i>,
-    to:"/admin"
+    to: "/admin",
   },
   {
-    id:"2",
-    label:"Registro clientes",
+    id: "2",
+    label: "Registro clientes",
     icon: <i className="fa-solid fa-user"></i>,
-    to:"/admin/client"
+    to: "/admin/client",
   },
   {
-    id:"3",
-    label:"Registro vehiculos",
+    id: "3",
+    label: "Registro vehiculos",
     icon: <i className="fa-solid fa-car"></i>,
-    to:"/admin/vehicles"
+    to: "/admin/vehicles",
   },
-
 ];

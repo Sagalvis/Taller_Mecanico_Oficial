@@ -8,6 +8,7 @@ import Register from './LoginRegister/Register/indexRegister';
 import ServiceAdvisor from "./ServiceAdvisor/indexAdvisor"
 import RegisterAdvisor from './ServiceAdvisor/Pages/Register';
 import RegisterVehicle from './ServiceAdvisor/Pages/registervehicle';
+import RegisterHojaV from './ServiceAdvisor/Pages/registerHoja';
 
 
 const Main = () => {
@@ -23,6 +24,7 @@ const Main = () => {
               <Route path='/employes/register' element = {<Register/>}/> 
               <Route path='/registerc' element = {<RegisterAdvisor/>}/>
               <Route path='/registerv' element = {<RegisterVehicle/>}/>
+              <Route path='/registerh' element = {<RegisterHojaV/>}/>
             </Routes>
           
         </ContainerMain>
