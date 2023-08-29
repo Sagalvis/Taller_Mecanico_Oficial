@@ -1,29 +1,7 @@
 // ---------------------------------------------- CRUD HOJA DE VIDA ---------------------------------------------------------------------
 import { pool } from "../dbconfig.js";
 
-/* export const postHojavida = async (req, res) => {
-    try {
-        const { identification } = req.body;
-        const [rows] = await pool.query(
-            "SELECT customer.identification, vehicle.matricula, vehicle.cylinder_cm, vehicle.model FROM vehicle INNER JOIN customer ON customer.identification = ?",
-            [identification]
-        );
-        res.send({
-            identification,
-            matricula,
-            cylincer_cm,
-            model
-        });
-    } catch (error) {
-        return res.status(401).json({
-            message: "Database was not updated, error in the data types enteredtttt",
-        });
-    }
-};
- */
-//----------------------------PRUEBA---------------------------------------------------------------
-
-export const postHojavida = async (req, res) => { 
+export const getHojavida = async (req, res) => { 
     try { 
         const { identification } = req.body; 
         const [rows] = await pool.query( 
@@ -45,9 +23,9 @@ export const postHojavida = async (req, res) => {
 };
 
 
-export const getHojavida = async (req, res) => {
+/* export const postHojavida = async (req, res) => {
     try {
-        const [rows] = await pool.query("SELECT * FROM inventory");
+        const [rows] = await pool.query("INSERT INTO hoja_de_vida");
         res.json(rows);
     } catch (error) {
         return res.status(404).json({
@@ -89,3 +67,4 @@ export const deleteHojavida = async (req, res) => {
         });
     }
 };
+ */

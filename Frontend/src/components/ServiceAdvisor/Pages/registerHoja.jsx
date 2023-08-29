@@ -1,14 +1,31 @@
 import { useState } from 'react';
 import { ContainerRegister } from './styles/styledRegister';
 import styled from 'styled-components';
+import Axios from "axios";
 
 const RegisterHojaV = () => {
-  const [cedula, setCedula] = useState('');
+  const [identification, setCedula] = useState('');
   const [placa, setPlaca] = useState('');
   const [estadoIngreso, setEstadoIngreso] = useState('');
   const [cilindraje, setCilindraje] = useState('');
   const [motor, setMotor] = useState('');
   const [descripcionMecanico, setDescripcionMecanico] = useState('');
+
+  const add = () => {
+    if(identification){
+        Axios.post("http://localhost:3005/datos",{
+          identification: identification
+      }).then((datos) => {
+        console.log(datos.data)
+      })
+    }
+    
+    /* setPlaca(datos.matricula) */
+    
+  }
+
+
+
 
   return (
     <ContainerRegister>
@@ -18,7 +35,7 @@ const RegisterHojaV = () => {
       <input
         type="number"
         placeholder="Cédula"
-        value={cedula}
+        value={identification}
         onChange={(e) => setCedula(e.target.value)}
       />
       <input
@@ -57,7 +74,7 @@ const RegisterHojaV = () => {
       />
     </form>
 
-    <button type="submit">Enviar</button>
+    <button type="submit" onClick={add}>Enviar</button>
     </ContainerRegister>
   );
 };
