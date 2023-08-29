@@ -5,8 +5,9 @@ import {colors} from "../styles/Theme.jsx"
 /* SideBar Init */
 export const SidebarContainer = styled.div`
   width: ${({ $isopen }) => (!$isopen ? `150px` : `350px`)};
+  transition: width 0.5s ease;
   background: ${colors.sd};
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -16,7 +17,6 @@ export const SidebarContainer = styled.div`
 `;
 
 export const SidebarButton = styled.button`
-    
     position: absolute;
     top: ${({ $isopen }) => ($isopen ? `88px` : `95px`)};
     right: ${({ $isopen }) => ($isopen ? `-16px` : `-16px`)};
@@ -128,7 +128,6 @@ export const LinkContainer = styled.div`
     border-radius: 10px;
   }
 `;
-
 
 export const NavLink = styled(Link)`
   display: flex;
