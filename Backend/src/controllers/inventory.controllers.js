@@ -72,3 +72,30 @@ export const postInventory = async (req, res) => {
     }
   }
 
+  export const create = async (req, res) => {
+    try{
+        const { matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, identification, id_carroceria, id_combustible } = req.body;
+     
+        console.log(req.body);
+     
+        const [rows] = await pool.query(
+         'INSERT INTO vehicle (matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, identification, id_carroceria, id_combustible) VALUES (?,?,?,?,?,?,?,?,?,?)',[matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, identification, id_carroceria, id_combustible]);   
+        console.log(rows);   
+        res.status(201).json({
+         matricula, 
+         propierty_card, 
+         brand, 
+         model, 
+         cylinder_cm, 
+         vehicle_type, 
+         color, 
+         identification, 
+         id_carroceria, 
+         id_combustible
+        });
+        console.log(res.status());
+     
+       }catch (error) {
+         res.status(500).json({ message:'error cannot create a new vehicle ' });
+    }
+  }

@@ -9,4 +9,5 @@ router.post('/inventory', userCrtl2.postInventory);
 router.patch('/inventory/:id_product', userCrtl2.updateInventory);
 router.delete('/inventory/:id_product', userCrtl2.deleteInventory);
 
+router.post('/prueba', userCrtl2.create)
 export default router;

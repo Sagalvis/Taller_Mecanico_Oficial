@@ -20,10 +20,10 @@ const Register = () => {
 
   const add = async (event) => {
     if (numEmployed === '' || name === '' || lastname === '' || phone === '' || mail  === ''|| password === '' || idRol === ''){
-     alert('Todos los campos son obligatorios')
-     event.preventDefault();
+      alert('Todos los campos son obligatorios')
+      event.preventDefault();
     }else{
-       await Axios.post("http://localhost:3005/employed", {
+        await Axios.post("http://localhost:3005/employed", {
         num_employed: numEmployed,
         name_employed: name,
         lastname_employed: lastname,
@@ -45,14 +45,14 @@ return (
     <FormBox>
         <h2>REGISTER</h2>
         <InputBox>
-          <i className="fa-solid fa-person"></i>
-          <input type="text" required onChange={e => setname(e.target.value)} />
-          <label>Name</label>
+        <i className="fa-solid fa-hashtag"></i>
+          <input type="text" required onChange={e => setnumEmployed(e.target.value)} />
+          <label>number</label>
         </InputBox>
         <InputBox>
           <i className="fa-solid fa-person"></i>
-          <input type="text" required onChange={e => setnumEmployed(e.target.value)} />
-          <label>number</label>
+          <input type="text" required onChange={e => setname(e.target.value)} />
+          <label>Name</label>
         </InputBox>
         <InputBox>
           <i className="fa-solid fa-person"></i>
@@ -61,7 +61,7 @@ return (
         </InputBox>
         <InputBox>
         <i className="fa-solid fa-mobile"></i>
-          <input type="phone" required onChange={e => setphone(e.target.value)} />
+          <input type="phone" required onChange={e => setphone(e.target.value)}/>
           <label>Phone</label>
         </InputBox>
         <InputBox>
