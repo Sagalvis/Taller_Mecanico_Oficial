@@ -84,4 +84,9 @@ export const Title2 = styled.p`
 
 export const InfoText = styled.p`
   margin: 0;
+  text-transform: uppercase;
+`;
+
+export const InfoText2 = styled.p`
+  margin: 0;
 `;

@@ -64,7 +64,7 @@ const RegisterAdvisor = () => {
 
         <Form>
           <ContainH2>
-          <TitleH2>Datos</TitleH2>
+          <TitleH2>Datos del cliente</TitleH2>
           </ContainH2>
           <Input
             type="text"
