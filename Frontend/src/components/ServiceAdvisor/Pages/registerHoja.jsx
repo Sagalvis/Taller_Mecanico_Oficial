@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ContainerRegister } from "./styles/styledRegister";
-import { ContainerRegisterH, TextArea, TitleRegisterH } from "./styles/styledRegisterH";
+import { ContainerHeaderRegisterH, ContainerRegisterH, TextArea, TitleRegisterH } from "./styles/styledRegisterH";
 
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
@@ -13,10 +13,13 @@ const RegisterHojaV = () => {
   return (
     <ContainerRegister>
       <ContainerRegisterH>
+        <ContainerHeaderRegisterH>
+
         <TitleRegisterH>
 
         <h1>Formulario registro hoja de vida</h1>
         </TitleRegisterH>
+        </ContainerHeaderRegisterH>
         <form>
           <input
             type="number"
