@@ -9,9 +9,21 @@ export const ContainerRegister = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const ContainTitle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #000;
+  width: 350px;
+  height: 100%;
+  border-radius: 8px;
+`;
+
 export const TitleH1 = styled.h1`
   margin-bottom: 2rem;
-  text-align: center;
+  /* text-align: center; */
   color: #fff;
 `;
 
@@ -26,6 +38,19 @@ export const ContainForm = styled.div`
   height: 60%;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
+`;
+
+export const ContainH2 = styled.div`
+  background-color: #000;
+  color: #fff;
+  width: 84%;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
+`;
+
+export const TitleH2 = styled.h2`
+  display: flex;
+  justify-content: center;
 `;
 
 export const Form = styled.form`
