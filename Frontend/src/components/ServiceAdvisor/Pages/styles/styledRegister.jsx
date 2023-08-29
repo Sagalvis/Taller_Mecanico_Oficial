@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ContainerRegister = styled.div`
-  width: 100%;
+  width: 97%;
   height: 100%;
   background-color: beige;
 `;
