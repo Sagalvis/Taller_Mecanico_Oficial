@@ -8,7 +8,6 @@ const Layout = ({children}) => {
     <ContainerLayout>
       <Sidebar/>
       <ContainerPages>{children}</ContainerPages>
-      
     </ContainerLayout>
   );
 }

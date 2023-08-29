@@ -1,9 +1,19 @@
 
+import LayoutAdvisor from "./Layout/layoutAdvisor";
+import RoutesAdvisor from "./Routes/index.routes";
+import { ContainerAdvisor } from "./styledAdvisor";
+
 const ServiceAdvisor = () => {
+
+
+
+  
   return (
-    <div>
-      <h1>advisor</h1>
-    </div>
+    <ContainerAdvisor>
+      <LayoutAdvisor>
+        <RoutesAdvisor/>
+      </LayoutAdvisor>
+    </ContainerAdvisor>
   );
 };
 

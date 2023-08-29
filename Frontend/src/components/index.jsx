@@ -7,22 +7,24 @@ import Login from './LoginRegister/Login/indexLogin';
 import Register from './LoginRegister/Register/indexRegister';
 import ServiceAdvisor from "./ServiceAdvisor/indexAdvisor"
 
+import RegisterVehicle from './ServiceAdvisor/Pages/registervehicle';
 
 const Main = () => {
-  return ( 
+  return (
     <div>
-        <ContainerMain>
-            <Routes>
-              <Route path='*' element = {<HomeClient/>}/>
-              <Route path='/admin/*' element = {<Dashboard/>}/>
-              <Route path='/inventory/*' element = {<Inventory/>} />
-              <Route path='/advisor/*' element={<ServiceAdvisor/>}/>
-              <Route path='/employes/login' element = {<Login/>} />
-              <Route path='/employes/register' element = {<Register/>}/> 
-              
-            </Routes>
+      <ContainerMain>
+        <Routes>
+          <Route path='*' element={<HomeClient />} />
+          <Route path='/admin/*' element={<Dashboard />} />
+          <Route path='/inventory/*' element={<Inventory />} />
+          <Route path='/advisor/*' element={<ServiceAdvisor />} />
+          <Route path='/employes/login' element={<Login />} />
+          <Route path='/employes/register' element={<Register />} />
           
-        </ContainerMain>
+          <Route path='/registerv' element={<RegisterVehicle />} />
+        </Routes>
+
+      </ContainerMain>
     </div>
   );
 }

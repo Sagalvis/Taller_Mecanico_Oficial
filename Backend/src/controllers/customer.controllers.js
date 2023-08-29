@@ -23,30 +23,30 @@ export const Login = async (req, res) => {
     });
   }
 };
-
-export const postUsers = async (req, res) => {
+//---------------Crear un cliente-----------------//
+export const CreatingAdvisor = async (req, res) => {
   try {
-    const { name, lastname, email, password, date, phone } = req.body;
+    const { identification, name, last_name, email, adress, phone } = req.body;
     const [rows] = await pool.query(
-      "INSERT INTO customer (name, lastname, email, password, date, phone) VALUES(?,?,?,?,?,?)",
-      [name, lastname, email, password, date, phone]
+      "INSERT INTO customer (identification, name, last_name , email, adress, phone ) VALUES(?,?,?,?,?,?)",
+      [identification,name,last_name,email,adress,phone] 
     );
-    res.send({
-      id: rows.insertId,
+    res.send(({
+      identification,
       name,
-      lastname,
+      last_name,
       email,
-      password,
-      date,
-      phone,
-    });
+      adress,
+      phone
+    }));
   } catch (error) {
-    return res.status(401).json({
-      message: "Database was not updated, error in the data types entered",
+    console.log(error)
+    return res.status(404).json({
+      message: "ah! hay un error 😔😔",
     });
   }
-};
-
+}; 
+//---------------------------------------------------------//
 export const updateUsers = async (req, res) => {
   try {
   } catch (error) {

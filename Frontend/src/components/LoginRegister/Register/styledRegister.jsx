@@ -95,7 +95,6 @@ export const LoginButton = styled.button`
   font-size: 23px;
   font-weight: 600;
   cursor: pointer;
-
 `;
 
 
