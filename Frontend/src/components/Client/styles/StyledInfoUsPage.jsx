@@ -9,7 +9,6 @@ export const Segundocontenedor = styled.div`
   margin: 4rem 2rem;
   display: flex;
   justify-content: space-around;
-  
 `;
 
 export const Contenedortext = styled.div`
@@ -19,9 +18,9 @@ export const Contenedortext = styled.div`
 `;
 
 export const Aquih2 = styled.h2`
-font-size: 2.2rem;
-font-weight: 400;
-letter-spacing: 1px;
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
   padding-bottom: 1rem;
 `;
 
@@ -42,12 +41,11 @@ export const Contenedorimg = styled.div`
   display: flex;
   justify-content: space-between;
   /* z-index: 1; */
-  
 `;
 
 export const Aquimg = styled.img`
   width: 49%;
-  height: 300px;
+  height: 280px;
   /* object-fit: cover; */
   border-radius: 6px;
   box-shadow: -1px 1px 62px -18px rgba(0, 0, 0, 0.19);

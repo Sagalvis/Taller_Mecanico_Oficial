@@ -50,7 +50,7 @@ function CheckVehicle() {
                   <Td>CC</Td>
                   <Td>1143168571</Td>
                   <Td>JOHAN DAVID DIAZ QUINTERO</Td>
-                  <Td><a href="/vehicle">AEP41G</a></Td>
+                  <Td><a href="/vehicleregister">AEP41G</a></Td>
                 </Tr>
               </Tbody>
             </Table>
