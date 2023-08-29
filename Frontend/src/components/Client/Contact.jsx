@@ -19,7 +19,7 @@ import {
   Wall,
   WallContact,
 } from "./styles/StyledContact";
-import wallc from "../../assets/img/CONTACT-WALL.jpg";
+import wallc from "../../assets/contact/CONTACT-WALL-01.jpg";
 
 const Contact = () => {
   function acceptNum(evt) {
@@ -91,7 +91,7 @@ const Contact = () => {
                   <Parraf>transforcars@mailto.com</Parraf>
                 </ContainText>
                 <Icon>
-                <i class="fa-solid fa-phone-volume"></i>
+                <i className="fa-solid fa-phone-volume"></i>
               </Icon>
                 <TextTitle>Teléfono</TextTitle>
                 <ContainText>
