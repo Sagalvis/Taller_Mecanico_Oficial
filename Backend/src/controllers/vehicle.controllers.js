@@ -9,24 +9,49 @@ export const getVehicle = async (req, res) => {
   }
 }
 
+export const selectCarroceria = async (req, res) => {
+  try {
+    const id_carroceria = req.params.id_carroceria;
+    const result = await pool.query('SELECT carroceria_type FROM carroceria WHERE id_carroceria = ?',[id_carroceria]);
+    if (result.rows.length === 0) {
+      res.status(404).json({ message:'error cannot find the carroceria' });
+    console.log(result)
+    } else {
+      res.status(200).json(result);
+    }
+  } catch (error) {
+    res.status(500).json({ message:'error cannot find the carroceria' });
+  }
+}
+
 
 export const createVehicle = async (req, res) => {
   try{
-   const { matricula, property_card, brand, model, cylinder_cm, vehicle_type, color, identification, id_carroceria, id_combustible } = req.body;
-   const type = req.body.vehicle_type
-   if(type !== 'Carro'|| type !== 'Moto'){
-    res.status(400).json({ message:'error vehicle_type must be Carro or Moto' });
-   }
-   const combustible = req.body.id_combustible
-   if(combustible !== 1 || combustible !== 2){
-    res.status(400).json({ message:'error id_combustible must be 1 or 2' });
-   }
-   const [rows] = await pool.query('INSERT INTO vehicle (matricula, property_card, brand, model, cylinder_cm, vehicle_type, color, identification, id_carroceria, id_combustible) VALUES (?,?,?,?,?,?,?,?,?,?)')
-  }catch (error) {
-    res.status(500).json({ message:'error cannot create a new vehicle' });
+      const { matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, identification, id_carroceria, id_combustible } = req.body;
+   
+      console.log(req.body);
+   
+      const [rows] = await pool.query(
+       'INSERT INTO vehicle (matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, identification, id_carroceria, id_combustible) VALUES (?,?,?,?,?,?,?,?,?,?)',[matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, identification, id_carroceria, id_combustible]);   
+      console.log(rows);   
+      res.status(201).json({
+       matricula, 
+       propierty_card, 
+       brand, 
+       model, 
+       cylinder_cm, 
+       vehicle_type, 
+       color, 
+       identification, 
+       id_carroceria, 
+       id_combustible
+      });
+      console.log(res.status());
+   
+     }catch (error) {
+       res.status(500).json({ message:'error cannot create a new vehicle'});
   }
-};
-
+}
 
 export const deleteVehicle = async (req, res) => { 
   try {
