@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  DividerSidebar,
   ContainerSidebarAdvisor,
   LogoAdvisor,
   LogoAdvisor1,
@@ -15,6 +14,10 @@ import {
   NavLink,
   NavIcon,
   NavLabel,
+  ContainerNav,
+  ContainerNav2,
+  ContainerLogo,
+  ContainerPerfilNavbar,
 } from "./styledSidebarAdvisor";
 import { AiOutlineLeft } from "react-icons/ai";
 import LogoCarro from "../../../assets/svg/transforCars(carro).svg";
@@ -24,7 +27,7 @@ import { useLocation } from "react-router-dom";
 
 const SidebarAdvisor = () => {
   const [sideAdvisorOpne, setSideAdvisorOpne] = useState(true);
-  const {locations} = useLocation()
+  const { pathname } = useLocation();
 
   const LogosFuntion = () => {
     if (!sideAdvisorOpne) {
@@ -37,7 +40,7 @@ const SidebarAdvisor = () => {
   const PerfilFuntion = () => {
     if (!sideAdvisorOpne) {
       return (
-        <PefiLAdvisor style={{ width: "80px", height: "80px" }}>
+        <PefiLAdvisor $isopen={sideAdvisorOpne} >
           <PerfilImg src={perfil1} alt="perfil" />
         </PefiLAdvisor>
       );
@@ -54,6 +57,42 @@ const SidebarAdvisor = () => {
     }
   };
 
+  const NavFuntion = () => {
+    if(!sideAdvisorOpne){
+      return(
+        NavbarAdvisor1.map(({ id, icon, to }) => {
+          if (id !== 5) {
+            return (
+              <NavContainer key={id} $isasctive={pathname === to}>
+                <NavLink to={to} style={!sideAdvisorOpne ?{ display:"flex", justifyContent:"center"}: {}}>
+                  <NavIcon>{icon}</NavIcon>
+                </NavLink>
+              </NavContainer>
+            );
+          }
+        })
+      )
+    }else{
+      return (
+        NavbarAdvisor1.map(({ id, label, icon, to }) => {
+          if (id !== 5) {
+            return (
+              <NavContainer key={id} $isasctive={pathname === to}>
+                <NavLink to={to}>
+                  <NavIcon>{icon}</NavIcon>
+                  {SidebarAdvisor && (
+                    <>
+                      <NavLabel>{label}</NavLabel>
+                    </>
+                  )}
+                </NavLink>
+              </NavContainer>
+            );
+          }
+        })
+      )
+    }
+  }
   return (
     <ContainerSidebarAdvisor $isopen={sideAdvisorOpne}>
       <SidebarButtonAdvisor
@@ -62,30 +101,40 @@ const SidebarAdvisor = () => {
       >
         <AiOutlineLeft />
       </SidebarButtonAdvisor>
-      <LogoAdvisor>
-        <LogosFuntion />
-      </LogoAdvisor>
+      <ContainerLogo>
+        <LogoAdvisor>
+          <LogosFuntion />
+        </LogoAdvisor>
+      </ContainerLogo>
 
-      <DividerSidebar />
+      <ContainerPerfilNavbar>
+        <ContainerPerfilAdvisor>
+          <PerfilFuntion />
+        </ContainerPerfilAdvisor>
 
-      <ContainerPerfilAdvisor>
-        <PerfilFuntion />
-      </ContainerPerfilAdvisor>
+        <ContainerNav>
+          <NavFuntion/>
+        </ContainerNav>
+      </ContainerPerfilNavbar>
 
-      <DividerSidebar />
-
-      {NavbarAdvisor1.map(({ id, label, icon, to }) => (
-        <NavContainer key={id} $isasctive={locations === to}>
-          <NavLink to={to}>
-            <NavIcon>{icon}</NavIcon>
-            {SidebarAdvisor && (
-              <>
-                <NavLabel>{label}</NavLabel>
-              </>
-            )}
-          </NavLink>
-        </NavContainer>
-      ))}
+      <ContainerNav2>
+        {NavbarAdvisor1.map(({ id, label, icon, to }) => {
+          if (id === 5) {
+            return (
+              <NavContainer key={id} $isasctive={pathname === to}>
+                <NavLink to={to}>
+                  <NavIcon>{icon}</NavIcon>
+                  {SidebarAdvisor && (
+                    <>
+                      <NavLabel>{label}</NavLabel>
+                    </>
+                  )}
+                </NavLink>
+              </NavContainer>
+            );
+          }
+        })}
+      </ContainerNav2>
     </ContainerSidebarAdvisor>
   );
 };

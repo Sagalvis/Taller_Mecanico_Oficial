@@ -3,6 +3,10 @@ import styled from "styled-components";
 
 export const ContainerSidebarAdvisor = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: ${({ $isopen }) => (!$isopen ? `160px` : `22rem`)};
   transition: width 0.5s ease;
   height: 100%;
@@ -15,8 +19,16 @@ export const SidebarButtonAdvisor = styled.button`
   right: ${({ $isopen }) => ($isopen ? `-16px` : `-16px`)};
 `;
 
-export const LogoAdvisor = styled.div`
+export const ContainerLogo = styled.div`
   height: 10%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid #d8d5d5;
+`;
+export const LogoAdvisor = styled.div`
+  height: 100%;
   margin: 0;
   padding: 0;
 `;
@@ -40,15 +52,16 @@ export const LogoAdvisor2 = styled.img`
   }
 `;
 
-export const DividerSidebar = styled.div`
-  height: 1px;
-  width: 100%;
-  background: #d8d5d5;
+export const ContainerPerfilNavbar = styled.div`
+  height: 78%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ContainerPerfilAdvisor = styled.div`
   width: 100%;
-  height: 20%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -57,8 +70,8 @@ export const ContainerPerfilAdvisor = styled.div`
 
 export const PefiLAdvisor = styled.div`
   background-color: blue;
-  height: 50%;
-  width: 30%;
+  height: 100px;
+  width: ${({$isopen}) => ($isopen ? `100px`: `100px` ) };
   border-radius: 50%;
 `;
 
@@ -72,17 +85,27 @@ export const PerfilName = styled.h3`
   margin: 0;
 `;
 
-export const NavContainer = styled.div`
-  margin-top: 10px;
+export const ContainerNav = styled.div`
+  height: 50%;
   width: 100%;
-  height: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const NavContainer = styled.div`
+  width: 95%;
+  height: 13%;
   display: flex;
   align-items: center;
-  background-color: aqua;
-  &:hover{
-    background-color: ${({$isactive}) => ($isactive ? `gray` : `gray  `)};
+  justify-content: space-around;
+  background: ${({ $isasctive }) => (!$isasctive ? `transparent` : `#b9b8b8 `)};
+  border-radius: 15px;
+  &:hover {
+    background-color: ${({ $isasctive }) =>
+      $isasctive ? `#b9b8b8 ` : `#b9b8b8  `};
   }
-  
 `;
 
 export const NavLink = styled(Link)`
@@ -91,6 +114,7 @@ export const NavLink = styled(Link)`
   padding: 2%;
   align-items: center;
   width: 100%;
+  height: 100%;
 `;
 
 export const NavLabel = styled.div`
@@ -111,23 +135,47 @@ export const NavIcon = styled.div`
   color: black;
 `;
 
+export const ContainerNav2 = styled.div`
+  height: 10%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  :hover {
+    background-color: transparent;
+  }
+  border-top: 1px solid #d8d5d5;
+`;
+
 export const NavbarAdvisor1 = [
   {
-    id: "1",
+    id: 1,
     label: "Home",
     icon: <i className="fa-solid fa-house"></i>,
-    to: "/admin",
+    to: "",
   },
   {
-    id: "2",
+    id: 2,
     label: "Registro clientes",
     icon: <i className="fa-solid fa-user"></i>,
-    to: "/admin/client",
+    to: "/advisor/registerclient",
   },
   {
-    id: "3",
+    id: 3,
     label: "Registro vehiculos",
     icon: <i className="fa-solid fa-car"></i>,
-    to: "/admin/vehicles",
+    to: "/advisor/registervehicle",
+  },
+  {
+    id: 4,
+    label: "Registro hoja de vida ",
+    icon: <i className="fa-solid fa-sheet-plastic"></i>,
+    to: "/advisor/registerhojav",
+  },
+  {
+    id: 5,
+    label: "Logout",
+    icon: <i className="fa-solid fa-right-from-bracket"></i>,
+    to: "/employes/login",
   },
 ];
