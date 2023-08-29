@@ -97,7 +97,7 @@ const SidebarAdvisor = () => {
     <ContainerSidebarAdvisor $isopen={sideAdvisorOpne}>
       <SidebarButtonAdvisor
         $isopen={sideAdvisorOpne}
-        onClick={() => setSideAdvisorOpne(!sideAdvisorOpne)}
+        onClick={() => setSideAdvisorOpne((p) => !p)}
       >
         <AiOutlineLeft />
       </SidebarButtonAdvisor>
