@@ -31,16 +31,16 @@ const RegisterHojaV = () => {
       <ContainerRegisterH>
         <ContainerFormH>
           <TitleRegisterH>
-            <h2>Formulario registro entrada vehículos</h2>
+            <h2>Formulario entrada de vehículos</h2>
           </TitleRegisterH>
 
           <Form>
             <ContainH2>
-              <TitleH2>Datos del vehículo</TitleH2>
+              <TitleH2>Datos de entrada</TitleH2>
             </ContainH2>
             <Input
               type="text"
-              placeholder="Cédula"
+              placeholder="Identificación"
               value={cedula}
               onInput={(evt) => acceptNum(evt)}
               maxLength={15}
