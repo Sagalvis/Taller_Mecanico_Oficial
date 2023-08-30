@@ -61,6 +61,32 @@ export const Form = styled.form`
   background-color: salmon;
 `;
 
+export const ContainCC = styled.div`
+  display: flex;
+`;
+
+export const InputCC = styled.input`
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #eee;
+  color: #222;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
+  transition: box-shadow 0.3s ease;
+  &:focus {
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  }
+  &::placeholder {
+    color: #999;
+    font-family: 'Outfit', sans-serif;
+    font-size: .9rem;
+  }
+`;
+
 export const Input = styled.input`
   width: 80%  ;
   padding: 12px;
@@ -106,6 +132,9 @@ export const Button = styled.button`
 
   &:active {
     transform: translateY(1px);
+  }
+  .fa-magnifying-glass {
+    font-size: 14px;
   }
 `;
 

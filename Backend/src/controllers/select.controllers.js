@@ -22,19 +22,6 @@ export const getSelectCombustible = async (req, res) => {
   }
 }
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-=======
 export const getSelectCarroceria = async (req, res) => {
   try{
     const [row] = await pool.query('SELECT * FROM carroceria')
@@ -45,4 +32,3 @@ export const getSelectCarroceria = async (req, res) => {
     });
   }
 }
->>>>>>> 796b74bad57aa4ce93fc0f593d3f2a7f21a23dd1

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Button,
   ContainH2,
@@ -11,22 +11,39 @@ import {
   ContainInventarioAuto,
   ContainH2Bike,
   TitleH2Auto,
-  ContainH2Auto
+  ContainH2Auto,
+  ContainCC,
+  InputCC,
   // TitleRegisterH,
 } from "./styles/styledRegisterH";
+import { ContainLabel, ContainLablSelect, ContainSelect, Label, SelectInputV } from "./styles/styledRegisterV";
 
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
-  const [placa, setPlaca] = useState("");
+  const [placa, setPlaca] = useState([]);
   const [estadoIngreso, setEstadoIngreso] = useState("");
   const [cilindraje, setCilindraje] = useState("");
-  const [motor, setMotor] = useState("");
-  const [descripcionMecanico, setDescripcionMecanico] = useState("");
 
   function acceptNum(evt) {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
   }
+
+  const getPlaca = async () => {
+    const res = await Axios.get('http://localhost:3005/route');
+  };
+
+  const SelectInputPlaca = () => {
+    const options = placa.map((item, i) => ({
+      value: i,
+      label: item.matricula
+    })); 
+    return <SelectInputV options={options} />
+  };
+
+  useEffect(() => {
+    getPlaca();
+  }, [setPlaca])
 
   return (
     <ContainerEntrada>
@@ -39,46 +56,41 @@ const RegisterHojaV = () => {
           <ContainH2>
           <TitleH2>Datos del vehículo</TitleH2>
           </ContainH2>
-          <Input
+
+          <ContainCC>
+          <InputCC
             type="text"
             placeholder="Cedula"
             value={cedula}
+            onInput={(evt) => acceptNum(evt)}
+            maxLength={15}
             onChange={(e) => setCedula(e.target.value)}
             required
           />
+          <Button><i className="fa-solid fa-magnifying-glass"></i></Button>
+          </ContainCC>
+
+          <ContainLablSelect>
+            <ContainLabel>
+              <Label>Placa del vehículo:</Label>
+            </ContainLabel>
+            <ContainSelect>
+              {/* <SelectInputPlaca /> */}
+            </ContainSelect>
+          </ContainLablSelect>
+
           <Input
-            type="text"
-            placeholder="Placa"
-            value={placa}
-            onChange={(e) => setPlaca(e.target.value)}
-            required
-          />
-          <Input
-            type="email"
-            placeholder="Estado de ingreso"
+            type="date"
+            placeholder="Entrada"
             value={estadoIngreso}
             onChange={(e) => setEstadoIngreso(e.target.value)}
             required
           />
           <Input
             type="text"
-            placeholder="Cilindraje"
+            placeholder="Motivo de ingreso"
             value={cilindraje}
             onChange={(e) => setCilindraje(e.target.value)}
-            required
-          />
-          <Input
-            type="number"
-            placeholder="Motor"
-            value={motor}
-            onChange={(e) => setMotor(e.target.value)}
-            required
-          />
-          <Input
-            type="phone"
-            placeholder="Descripcion de mecanico"
-            value={descripcionMecanico}
-            onChange={(e) => setDescripcionMecanico(e.target.value)}
             required
           />
           <Button type="submit">
@@ -90,15 +102,20 @@ const RegisterHojaV = () => {
         <ContainH2Bike>
           <TitleH2>Inventario de MOTO</TitleH2>
         </ContainH2Bike>
-
-        <h1>Bike</h1>
+        <div style={{display: 'flex'}}>
+          <p>Espejos X4</p>
+          <input type="radio" />
+          <input type="radio" />
+          <input type="radio" />
+        </div>
       </ContainInventarioBike>
 
       <ContainInventarioAuto>
       <ContainH2Auto>
           <TitleH2Auto>Inventario de AUTO</TitleH2Auto>
+
         </ContainH2Auto>
-      <h1>Auto</h1>
+        <></>
       </ContainInventarioAuto>
 
 
