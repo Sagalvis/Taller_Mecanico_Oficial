@@ -17,33 +17,28 @@ import {
   // TitleRegisterH,
 } from "./styles/styledRegisterH";
 import { ContainLabel, ContainLablSelect, ContainSelect, Label, SelectInputV } from "./styles/styledRegisterV";
-
+import Axios from "axios"
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
   const [placa, setPlaca] = useState([]);
   const [estadoIngreso, setEstadoIngreso] = useState("");
   const [cilindraje, setCilindraje] = useState("");
 
-/*   const add = () => {
-    if(identification){
+  const add = () => {
+    if(cedula){
         Axios.post("http://localhost:3005/datos",{
-          identification: identification
+          identification: cedula
       }).then((datos) => {
-        console.log(datos.data)
-      })
+        console.log("consola",datos.data.matricula)
+        setPlaca(datos.data.matricula)
+      }) 
     }
-    
-    setPlaca(datos.matricula) 
-    
-  } */
+  }
 /*   function acceptNum(evt) {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
   } */
 
-  const getPlaca = async () => {
-    const res = await Axios.get('http://localhost:3005/route');
-  };
 
   const SelectInputPlaca = () => {
     const options = placa.map((item, i) => ({
@@ -54,7 +49,7 @@ const RegisterHojaV = () => {
   };
 
   useEffect(() => {
-    getPlaca();
+    
   }, [setPlaca])
 
   return (
@@ -74,12 +69,10 @@ const RegisterHojaV = () => {
             type="text"
             placeholder="Cedula"
             value={cedula}
-            onInput={(evt) => acceptNum(evt)}
-            maxLength={15}
             onChange={(e) => setCedula(e.target.value)}
             required
           />
-          <Button><i className="fa-solid fa-magnifying-glass"></i></Button>
+          <Button onClick={add}><i className="fa-solid fa-magnifying-glass"></i></Button>
           </ContainCC>
 
           <ContainLablSelect>
@@ -87,7 +80,7 @@ const RegisterHojaV = () => {
               <Label>Placa del vehículo:</Label>
             </ContainLabel>
             <ContainSelect>
-              {/* <SelectInputPlaca /> */}
+              <SelectInputPlaca /> 
             </ContainSelect>
           </ContainLablSelect>
 
@@ -105,7 +98,7 @@ const RegisterHojaV = () => {
             onChange={(e) => setCilindraje(e.target.value)}
             required
           />
-          <Button type="submit">
+          <Button type="submit"> 
             Enviar
           </Button>
         </Form>
