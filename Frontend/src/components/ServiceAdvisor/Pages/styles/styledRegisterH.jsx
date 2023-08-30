@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Select from 'react-select'
+
 export const ContainerRegisterH = styled.div`
   height: 100%;
   width: 100%;
@@ -53,4 +55,8 @@ export const TextArea = styled.textarea`
     font-size: 0.9rem;
   }
   resize: none;
+`;
+
+export const SelectEntrada = styled(Select)`
+  
 `;

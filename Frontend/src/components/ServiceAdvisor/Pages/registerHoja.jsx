@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   ContainH2,
@@ -10,13 +10,14 @@ import {
 import {
   ContainerFormH,
   ContainerRegisterH,
+  SelectEntrada,
   TextArea,
   TitleRegisterH,
 } from "./styles/styledRegisterH";
+import Axios from 'axios'
 
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
-  const [placa, setPlaca] = useState("");
   const [estadoIngreso, setEstadoIngreso] = useState("");
   const [cilindraje, setCilindraje] = useState("");
   const [motor, setMotor] = useState("");
@@ -26,6 +27,7 @@ const RegisterHojaV = () => {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
   }
+
   return (
     <ContainerRegister>
       <ContainerRegisterH>
@@ -46,12 +48,7 @@ const RegisterHojaV = () => {
               maxLength={15}
               onChange={(e) => setCedula(e.target.value)}
             />
-            <Input
-              type="text"
-              placeholder="Placa"
-              value={placa}
-              onChange={(e) => setPlaca(e.target.value)}
-            />
+            <SelectInputMatricula />
             <TextArea
               type="text"
               rows={6}
