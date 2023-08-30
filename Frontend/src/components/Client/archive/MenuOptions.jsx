@@ -43,7 +43,7 @@ export const MenuOptions = [
   },
   {
     id:7,
-    title: 'Employed',
+    title: 'Entrar',
     path: '/employes/login',
     class: 'nav-links-mobile'
   },

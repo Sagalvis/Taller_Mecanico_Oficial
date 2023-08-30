@@ -21,9 +21,11 @@ function Navbar() {
     <>
       <NavbarContent>
         <NavLogo src={logo} alt="image-logo"/>
+
         <MenuIcons onClick={ () => ChangeClick()}>
           <i className="fas fa-bars"></i>
         </MenuIcons>
+
         <NavMenuUl click={click}>
           {MenuOptions.map((item, i) => {
               return (
@@ -36,7 +38,7 @@ function Navbar() {
             })}
         </NavMenuUl>
         {MenuOptions.find((item) => item.id === 7) && (
-          <NavMenuLi style={{listStyle:"none"}}>
+          <NavMenuLi className="signin" style={{listStyle:"none"}}>
             <Link className={MenuOptions.find((item) => item.id === 7).class}
               to={MenuOptions.find((item) => item.id === 7).path}
             >

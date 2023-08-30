@@ -6,7 +6,7 @@ const router = Router()
 router.get('/customer', userCrtl.getUsers)
 
 
-router.post('/customer', userCrtl.postUsers )
+router.post('/advisor', userCrtl.CreatingAdvisor)
 
 router.post('/login', userCrtl.Login )
 

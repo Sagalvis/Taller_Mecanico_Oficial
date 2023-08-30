@@ -15,21 +15,35 @@ export const NavbarContent = styled.div`
   /* left: 50%;
   transform: translate(-50%); */
   /* z-index: 1; */
-  
+  overflow: hidden;
+  @media (max-width: 1030px) {
+    justify-content: space-between;
+  }
 `;
 
 export const NavLogo = styled.img`
   /* color: #eee; // #.222 */
   font-weight: 900;
   /* font-size: 2rem; */
-  width: 12%;
+  width: 200px;
+  height: 200px;
   cursor: pointer;
-  /* font-family: ;  */
-  
+  overflow: hidden;
+  @media (max-width: 375px) {
+    width: 170px;
+    height: 170px;
+  }
 `;
 
 export const MenuIcons = styled.div`
   display: none;
+  overflow: hidden;
+  @media (max-width: 1030px) {
+    display: block;
+    color: #fff;
+    font-size: 28px;
+    margin-right: 10px;
+  }
 `;
 
 export const NavMenuUl = styled.ul`
@@ -37,6 +51,7 @@ export const NavMenuUl = styled.ul`
   grid-gap: 10px;
   list-style: none;
   align-items: center;
+  overflow: hidden;
 
   .nav-links {
     text-decoration: none;
@@ -62,8 +77,8 @@ export const NavMenuUl = styled.ul`
     display: none;
   }
 
-  @media (max-width: 850px) {   // responsive menu
-    background-color: #eee; //#.fff;
+  @media (max-width: 1030px) {   // responsive menu
+    /* background-color: #eee; //#.fff;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -76,17 +91,27 @@ export const NavMenuUl = styled.ul`
     opacity: 1;
     z-index: -1;
     left: ${({click}) => click ? 0 : '-110%'};   //-110%
-    transition: .5s all ease-in;
+    transition: .5s all ease-in; */
+    display: none;
+    justify-content: space-between;
   }
 `;
 
 export const NavMenuLi = styled.li`
-  @media (max-width: 850px) {
+  /* @media (max-width: 850px) {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     height: 70px;
+  } */
+  &.signin {
+    display: block;
+    @media (max-width: 1030px) {
+    display: none;
+    color: #fff;
+    font-size: 28px
+  }
   }
 `;
 
