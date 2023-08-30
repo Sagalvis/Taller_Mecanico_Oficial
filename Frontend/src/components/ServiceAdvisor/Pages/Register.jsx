@@ -33,7 +33,8 @@ const RegisterAdvisor = () => {
       e.preventDefault();
       alert("no se pudo registrar el cliente llena los campos");
     } else {
-      await axios.post("http://localhost:3005/advisor", {
+      await axios
+        .post("http://localhost:3005/advisor", {
           name: nombre,
           last_name: apellidos,
           email: correo,
@@ -64,7 +65,7 @@ const RegisterAdvisor = () => {
 
         <Form>
           <ContainH2>
-          <TitleH2>Datos del cliente</TitleH2>
+            <TitleH2>Datos del cliente</TitleH2>
           </ContainH2>
           <Input
             type="text"

@@ -181,7 +181,7 @@ export const NavbarAdvisor1 = [
   },
   {
     id: 4,
-    label: "Registro hoja de vida ",
+    label: "Registro entrada vehiculos ",
     icon: <i className="fa-solid fa-sheet-plastic"></i>,
     to: "/advisor/registerhojav",
   },
