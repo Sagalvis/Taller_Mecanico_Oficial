@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   ContainForm,
@@ -15,16 +15,20 @@ import {
 } from "./styles/styledRegisterV";
 /* import axios from "axios"; */
 
+import { SelectOption } from "../../InventoryControl/Pages/style/styleInventory";
+import Axios from "axios";
+
 const FormularioVehiculo = () => {
-  const [tipoVehiculo, setTipoVehiculo] = useState("");
+  const [tipoVehiculo, setTipoVehiculo] = useState([]);
+  const [tipoCarroceria, setTipoCarroceria] = useState([]);
+  const [tipoCombustible, setTipoCombustible] = useState([]);
   const [placa, setPlaca] = useState("");
   const [tarjetaPropiedad, setTarjetaPropiedad] = useState("");
   const [marca, setMarca] = useState("");
   const [modelo, setModelo] = useState("");
   const [cilindraje, setCilindraje] = useState("");
-  const [tipoCombustible, setTipoCombustible] = useState("");
   const [color, setColor] = useState("");
-  const [tipoCarroceria, setTipoCarroceria] = useState("");
+  
 
   /*   const add = async (evt) => {
     if(tipoVehiculo === ''|| placa ==='' || tarjetaPropiedad === '' || marca === '' || modelo === '' || cilindraje === '' || tipoCombustible === '' || color === '' || tipoCarroceria === ''){
@@ -82,6 +86,52 @@ const FormularioVehiculo = () => {
     setTipoCarroceria("");
   };
 
+
+  const getTypeVehicle = async () => {
+    const res = await Axios.get("http://localhost:3005/selectvechicle");
+    setTipoVehiculo(res.data);
+  };
+  
+  const SelectInputVehicle = () => {
+    const options = tipoVehiculo.map((item, i) => ({
+      value: i,
+      label: item.type_vehicle,
+    }));
+    return <SelectOption options={options} />;
+  };
+  
+  useEffect(() => {
+    getTypeVehicle();
+    getTypeCombustible();
+    getTypeCarroceria();
+  }, [setTipoVehiculo,setTipoCombustible, setTipoCarroceria]);
+
+  const getTypeCombustible = async () => {
+    const res = await Axios.get("http://localhost:3005/selectcombustible");
+    setTipoCombustible(res.data);
+  };
+  
+  const SelectInputCombustible = () => {
+    const options = tipoCombustible.map((item, i) => ({
+      value: i,
+      label: item.combustible_type,
+    }));
+    return <SelectOption options={options} />;
+  };
+  const getTypeCarroceria = async () => {
+    const res = await Axios.get("http://localhost:3005/selectcombustible");
+    setTipoCarroceria(res.data);
+  };
+  
+  const SelectInputCarroceria = () => {
+    const options = tipoCarroceria.map((item, i) => ({
+      value: i,
+      label: item.combustible_type,
+    }));
+    return <SelectOption options={options} />;
+  };
+
+
   return (
     <ContainerRegister>
       <ContainForm>
@@ -89,13 +139,7 @@ const FormularioVehiculo = () => {
           <TitleH1>Formulario registro Vehiculos</TitleH1>
         </ContainTitle>
         <Form onSubmit={handleSubmit}>
-          <Input
-            type="text"
-            placeholder="Tipo de vehiculo"
-            value={tipoVehiculo}
-            onChange={(e) => setPlaca(e.target.value)}
-            required
-          />
+          <SelectInputVehicle/>
           <Input
             type="text"
             placeholder="Placa carro"
@@ -141,29 +185,12 @@ const FormularioVehiculo = () => {
           <ContainSelect>
             <ContainLablSelect>
               <Label>Tipo de combustible:</Label>
-
-              <select
-                value={tipoCombustible}
-                onChange={(e) => setTipoCombustible(e.target.value)}
-                required
-              >
-                <option value="">Selecciona una opción</option>
-                <option value="diesel">Diesel</option>
-                <option value="gasolina">Gasolina</option>
-              </select>
+                <SelectInputCombustible/>
+              
             </ContainLablSelect>
             <ContainLablSelect>
               <Label>Tipo de carrocería:</Label>
-              <select
-                value={tipoCarroceria}
-                onChange={(e) => setTipoCarroceria(e.target.value)}
-                required
-              >
-                <option value="">Selecciona una opción</option>
-                <option value="sedan">Sedan</option>
-                <option value="coupe">Coupe</option>
-                <option value="sin_carroceria">Sin carrocería</option>
-              </select>
+              <SelectInputCarroceria/>
             </ContainLablSelect>
           </ContainSelect>
 
