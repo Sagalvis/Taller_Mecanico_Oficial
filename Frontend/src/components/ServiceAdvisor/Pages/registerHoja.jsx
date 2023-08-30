@@ -31,7 +31,7 @@ const RegisterHojaV = () => {
       <ContainerRegisterH>
         <ContainerFormH>
           <TitleRegisterH>
-            <h2>Formulario registro hoja de vida vehículos</h2>
+            <h2>Formulario registro entrada vehículos</h2>
           </TitleRegisterH>
 
           <Form>
