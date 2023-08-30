@@ -54,7 +54,7 @@ const RegisterHojaV = () => {
             />
             <TextArea
               type="text"
-              rows={10}
+              rows={6}
               cols={50}
               placeholder="Estado ingreso vehículo"
               value={estadoIngreso}
@@ -85,7 +85,7 @@ const RegisterHojaV = () => {
             />
             <TextArea
               type="text"
-              rows={10}
+              rows={6}
               cols={50}
               placeholder="Descripción mecánico"
               value={descripcionMecanico}

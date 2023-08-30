@@ -1,7 +1,19 @@
 import { useState } from "react";
-import { ContainerRegister } from "./styles/styledRegister";
-
-
+import {
+  Button,
+  ContainForm,
+  ContainTitle,
+  ContainerRegister,
+  Form,
+  Input,
+  TitleH1,
+} from "./styles/styledRegister";
+import {
+  ContainLablSelect,
+  ContainSelect,
+  Label,
+} from "./styles/styledRegisterV";
+/* import axios from "axios"; */
 
 const FormularioVehiculo = () => {
   const [tipoVehiculo, setTipoVehiculo] = useState("");
@@ -14,18 +26,14 @@ const FormularioVehiculo = () => {
   const [color, setColor] = useState("");
   const [tipoCarroceria, setTipoCarroceria] = useState("");
 
-  const handleTipoVehiculoChange = (e) => {
-    setTipoVehiculo(e.target.value);
-  };
-
-  const add = async (evt) => {
+  /*   const add = async (evt) => {
     if(tipoVehiculo === ''|| placa ==='' || tarjetaPropiedad === '' || marca === '' || modelo === '' || cilindraje === '' || tipoCombustible === '' || color === '' || tipoCarroceria === ''){
     alert('Todos los campos son obligatorios');
     
     evt.preventDefault();
     }
     else {
-     try {      
+      try {      
       await axios.post('http://localhost:3005//registervehicle/register'),{
         vehicle_type: tipoVehiculo,
         matricula: placa,
@@ -46,7 +54,7 @@ const FormularioVehiculo = () => {
         alert('no se puedo enviar el package json')
     }
     }
-  }
+  } */
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -60,7 +68,7 @@ const FormularioVehiculo = () => {
       cilindraje,
       tipoCombustible,
       color,
-      tipoCarroceria
+      tipoCarroceria,
     });
     // Limpia los campos del formulario
     setTipoVehiculo("");
@@ -76,145 +84,92 @@ const FormularioVehiculo = () => {
 
   return (
     <ContainerRegister>
-      
-
-      
-    <h1>Formulario registro Vehiculos</h1>
-    <form onSubmit={handleSubmit}>
-      <label>Tipo de vehículo:</label>
-      <select
-        value={tipoVehiculo}
-        onChange={handleTipoVehiculoChange}
-        required
-      >
-        <option value="">Selecciona una opción</option>
-        <option value="carro">Carro</option>
-        <option value="moto">Moto</option>
-      </select>
-
-      {tipoVehiculo === "carro" && (
-        <>
-          <input
+      <ContainForm>
+        <ContainTitle>
+          <TitleH1>Formulario registro Vehiculos</TitleH1>
+        </ContainTitle>
+        <Form onSubmit={handleSubmit}>
+          <Input
+            type="text"
+            placeholder="Tipo de vehiculo"
+            value={tipoVehiculo}
+            onChange={(e) => setPlaca(e.target.value)}
+            required
+          />
+          <Input
             type="text"
             placeholder="Placa carro"
             value={placa}
             onChange={(e) => setPlaca(e.target.value)}
             required
           />
-          <input
+          <Input
             type="number"
             placeholder="Tarjeta de propiedad carro"
             value={tarjetaPropiedad}
             onChange={(e) => setTarjetaPropiedad(e.target.value)}
             required
           />
-          <input
+          <Input
             type="text"
             placeholder="Marca carro"
             value={marca}
             onChange={(e) => setMarca(e.target.value)}
             required
           />
-          <input
+          <Input
             type="number"
             placeholder="Modelo carro"
             value={modelo}
             onChange={(e) => setModelo(e.target.value)}
             required
           />
-          <input
+          <Input
             type="number"
             placeholder="Cilindraje carro"
             value={cilindraje}
             onChange={(e) => setCilindraje(e.target.value)}
             required
           />
-          <label>Tipo de combustible:</label>
-          <select
-            value={tipoCombustible}
-            onChange={(e) => setTipoCombustible(e.target.value)}
-            required
-          >
-            <option value="">Selecciona una opción</option>
-            <option value="diesel">Diesel</option>
-            <option value="gasolina">Gasolina</option>
-          </select>
-          
-        </>
-      )}
-
-      {tipoVehiculo === "moto" && (
-        <>
-          <input
+          <Input
             type="text"
-            placeholder="Placa moto"
-            value={placa}
-            onChange={(e) => setPlaca(e.target.value)}
+            placeholder="Color"
+            value={color}
+            onChange={(e) => setColor(e.target.value)}
             required
           />
-          <input
-            type="number"
-            placeholder="Tarjeta de propiedad moto"
-            value={tarjetaPropiedad}
-            onChange={(e) => setTarjetaPropiedad(e.target.value)}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Marca moto"
-            value={marca}
-            onChange={(e) => setMarca(e.target.value)}
-            required
-          />
-          <input
-            type="number"
-            placeholder="Modelo moto"
-            value={modelo}
-            onChange={(e) => setModelo(e.target.value)}
-            required
-          />
-          <input
-            type="number"
-            placeholder="Cilindraje moto"
-            value={cilindraje}
-            onChange={(e) => setCilindraje(e.target.value)}
-            required
-          />
-          <label>Tipo de combustible:</label>
-          <select
-            value={tipoCombustible}
-            onChange={(e) => setTipoCombustible(e.target.value)}
-            required
-          >
-            <option value="">Selecciona una opción</option>
-            <option value="gasolina">Gasolina</option>
-            <option value="diesel">Diesel</option>
-          </select>
-        </>
-      )}
+          <ContainSelect>
+            <ContainLablSelect>
+              <Label>Tipo de combustible:</Label>
 
-      <input
-        type="text"
-        placeholder="Color"
-        value={color}
-        onChange={(e) => setColor(e.target.value)}
-        required
-      />
+              <select
+                value={tipoCombustible}
+                onChange={(e) => setTipoCombustible(e.target.value)}
+                required
+              >
+                <option value="">Selecciona una opción</option>
+                <option value="diesel">Diesel</option>
+                <option value="gasolina">Gasolina</option>
+              </select>
+            </ContainLablSelect>
+            <ContainLablSelect>
+              <Label>Tipo de carrocería:</Label>
+              <select
+                value={tipoCarroceria}
+                onChange={(e) => setTipoCarroceria(e.target.value)}
+                required
+              >
+                <option value="">Selecciona una opción</option>
+                <option value="sedan">Sedan</option>
+                <option value="coupe">Coupe</option>
+                <option value="sin_carroceria">Sin carrocería</option>
+              </select>
+            </ContainLablSelect>
+          </ContainSelect>
 
-      <label>Tipo de carrocería:</label>
-      <select
-        value={tipoCarroceria}
-        onChange={(e) => setTipoCarroceria(e.target.value)}
-        required
-      >
-        <option value="">Selecciona una opción</option>
-        <option value="sedan">Sedan</option>
-        <option value="coupe">Coupe</option>
-        <option value="sin_carroceria">Sin carrocería</option>
-      </select>
-
-      <button type="submit" onClick={add}>Enviar</button>
-    </form>
+          <Button type="submit">Enviar</Button>
+        </Form>
+      </ContainForm>
     </ContainerRegister>
   );
 };
