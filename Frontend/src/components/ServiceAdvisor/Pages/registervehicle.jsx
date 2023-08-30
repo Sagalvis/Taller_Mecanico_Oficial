@@ -1,21 +1,24 @@
 import { useEffect, useState } from "react";
 import {
   Button,
-  ContainForm,
+  ContainH2,
   ContainTitle,
-  ContainerRegister,
-  Form,
   Input,
   TitleH1,
+  TitleH2,
 } from "./styles/styledRegister";
 import {
+  ContainFormV,
+  ContainLabel,
   ContainLablSelect,
   ContainSelect,
+  ContainerRegisterV,
+  FormV,
   Label,
+  SelectInputV,
 } from "./styles/styledRegisterV";
 /* import axios from "axios"; */
 
-import { SelectOption } from "../../InventoryControl/Pages/style/styleInventory";
 import Axios from "axios";
 
 const FormularioVehiculo = () => {
@@ -28,7 +31,6 @@ const FormularioVehiculo = () => {
   const [modelo, setModelo] = useState("");
   const [cilindraje, setCilindraje] = useState("");
   const [color, setColor] = useState("");
-  
 
   /*   const add = async (evt) => {
     if(tipoVehiculo === ''|| placa ==='' || tarjetaPropiedad === '' || marca === '' || modelo === '' || cilindraje === '' || tipoCombustible === '' || color === '' || tipoCarroceria === ''){
@@ -60,6 +62,11 @@ const FormularioVehiculo = () => {
     }
   } */
 
+  function acceptNum(evt) {
+    const input = evt.target.value;
+    evt.target.value = input.replace(/[^\d]/g, "");
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí puedes realizar las acciones necesarias con los datos del formulario
@@ -86,118 +93,135 @@ const FormularioVehiculo = () => {
     setTipoCarroceria("");
   };
 
-
   const getTypeVehicle = async () => {
     const res = await Axios.get("http://localhost:3005/selectvechicle");
     setTipoVehiculo(res.data);
   };
-  
+
   const SelectInputVehicle = () => {
     const options = tipoVehiculo.map((item, i) => ({
       value: i,
       label: item.type_vehicle,
     }));
-    return <SelectOption options={options} />;
+    return <SelectInputV options={options} />;
   };
-  
+
   useEffect(() => {
     getTypeVehicle();
     getTypeCombustible();
     getTypeCarroceria();
-  }, [setTipoVehiculo,setTipoCombustible, setTipoCarroceria]);
+  }, [setTipoVehiculo, setTipoCombustible, setTipoCarroceria]);
 
   const getTypeCombustible = async () => {
     const res = await Axios.get("http://localhost:3005/selectcombustible");
     setTipoCombustible(res.data);
   };
-  
+
   const SelectInputCombustible = () => {
     const options = tipoCombustible.map((item, i) => ({
       value: i,
       label: item.combustible_type,
     }));
-    return <SelectOption options={options} />;
+    return <SelectInputV options={options} />;
   };
   const getTypeCarroceria = async () => {
-    const res = await Axios.get("http://localhost:3005/selectcombustible");
+    const res = await Axios.get("http://localhost:3005/selectcarroceria");
     setTipoCarroceria(res.data);
   };
-  
+
   const SelectInputCarroceria = () => {
     const options = tipoCarroceria.map((item, i) => ({
       value: i,
-      label: item.combustible_type,
+      label: item.carroceria_type,
     }));
-    return <SelectOption options={options} />;
+    return <SelectInputV options={options} />;
   };
 
-
   return (
-    <ContainerRegister>
-      <ContainForm>
+    <ContainerRegisterV>
+      <ContainFormV>
         <ContainTitle>
           <TitleH1>Formulario registro Vehiculos</TitleH1>
         </ContainTitle>
-        <Form onSubmit={handleSubmit}>
-          <SelectInputVehicle/>
+        <FormV onSubmit={handleSubmit}>
+          <ContainH2>
+            <TitleH2>Datos del vehiculo</TitleH2>
+          </ContainH2>
+
+          <ContainLablSelect>
+            <ContainLabel>
+              <Label>Tipo de vehiculo:</Label>
+            </ContainLabel>
+            <ContainSelect>
+              <SelectInputVehicle />
+            </ContainSelect>
+          </ContainLablSelect>
+
           <Input
             type="text"
             placeholder="Placa carro"
-            value={placa}
             onChange={(e) => setPlaca(e.target.value)}
             required
           />
           <Input
-            type="number"
+            type="text"
             placeholder="Tarjeta de propiedad carro"
-            value={tarjetaPropiedad}
             onChange={(e) => setTarjetaPropiedad(e.target.value)}
             required
+            onInput={(evt) => acceptNum(evt)}
+            maxLength={15}
           />
           <Input
             type="text"
             placeholder="Marca carro"
-            value={marca}
             onChange={(e) => setMarca(e.target.value)}
             required
           />
           <Input
-            type="number"
+            type="text"
             placeholder="Modelo carro"
             value={modelo}
             onChange={(e) => setModelo(e.target.value)}
+            onInput={(evt) => acceptNum(evt)}
+            maxLength={10}
             required
           />
           <Input
-            type="number"
+            type="text"
             placeholder="Cilindraje carro"
-            value={cilindraje}
             onChange={(e) => setCilindraje(e.target.value)}
+            onInput={(evt) => acceptNum(evt)}
+            maxLength={15}
             required
           />
           <Input
             type="text"
             placeholder="Color"
-            value={color}
             onChange={(e) => setColor(e.target.value)}
             required
           />
-          <ContainSelect>
-            <ContainLablSelect>
+
+          <ContainLablSelect>
+            <ContainLabel>
               <Label>Tipo de combustible:</Label>
-                <SelectInputCombustible/>
-              
-            </ContainLablSelect>
-            <ContainLablSelect>
+            </ContainLabel>
+            <ContainSelect>
+              <SelectInputCombustible />
+            </ContainSelect>
+          </ContainLablSelect>
+          <ContainLablSelect style={{ marginTop: "10px" }}>
+            <ContainLabel>
               <Label>Tipo de carrocería:</Label>
-              <SelectInputCarroceria/>
-            </ContainLablSelect>
-          </ContainSelect>
+            </ContainLabel>
+            <ContainSelect>
+              <SelectInputCarroceria />
+            </ContainSelect>
+          </ContainLablSelect>
 
           <Button type="submit">Enviar</Button>
-        </Form>
-      </ContainForm>
-    </ContainerRegister>
+        </FormV>
+      </ContainFormV>
+    </ContainerRegisterV>
   );
 };
 
