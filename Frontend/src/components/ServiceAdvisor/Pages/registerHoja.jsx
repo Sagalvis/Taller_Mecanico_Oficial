@@ -24,14 +24,13 @@ const RegisterHojaV = () => {
   const [estadoIngreso, setEstadoIngreso] = useState("");
   const [cilindraje, setCilindraje] = useState("");
 
-  const add = () => {
+  const add1 = async () => {
     if(cedula){
-        Axios.post("http://localhost:3005/datos",{
-          identification: cedula
-      }).then((datos) => {
-        console.log("consola",datos.data.matricula)
-        setPlaca(datos.data.matricula)
-      }) 
+      const res = await Axios.post("http://localhost:3005/datos",{
+        identification: cedula
+      })
+      console.log(res.data)
+      setPlaca(res.data)
     }
   }
 /*   function acceptNum(evt) {
@@ -39,18 +38,25 @@ const RegisterHojaV = () => {
     evt.target.value = input.replace(/[^\d]/g, "");
   } */
 
-
+  useEffect(() => {
+    add1();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  
   const SelectInputPlaca = () => {
+    if (placa.length === 0) {
+      return null; // No hay datos para mostrar
+    }
+
     const options = placa.map((item, i) => ({
       value: i,
-      label: item.matricula
-    })); 
-    return <SelectInputV options={options} />
+      label: item.matricula,
+    }));
+    return <SelectInputV options={options} />;
   };
 
-  useEffect(() => {
-    
-  }, [setPlaca])
+
+
 
   return (
     <ContainerEntrada>
@@ -72,7 +78,7 @@ const RegisterHojaV = () => {
             onChange={(e) => setCedula(e.target.value)}
             required
           />
-          <Button onClick={add}><i className="fa-solid fa-magnifying-glass"></i></Button>
+          <Button onClick={add1}><i className="fa-solid fa-magnifying-glass"></i></Button>
           </ContainCC>
 
           <ContainLablSelect>

@@ -14,7 +14,7 @@ export const getformEntrada = async (req, res) => {
             matricula
         }); 
     } catch (error) { 
-        return res.status(401).json({ 
+        return res.status(500).json({ 
             message: "No se pudo obtener los datos", 
         }); 
     } 
