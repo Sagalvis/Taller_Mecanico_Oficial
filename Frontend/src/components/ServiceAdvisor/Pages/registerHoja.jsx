@@ -18,6 +18,7 @@ import {
 } from "./styles/styledRegisterH";
 import { ContainLabel, ContainLablSelect, ContainSelect, Label, SelectInputV } from "./styles/styledRegisterV";
 
+
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
   const [placa, setPlaca] = useState([]);
