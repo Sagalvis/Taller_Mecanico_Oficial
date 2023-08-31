@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import {
   Button,
   ContainH2,
@@ -20,8 +21,7 @@ import {
   Td,
   Tbody,
   Thead,
-  SelectEstado
-  // TitleRegisterH,
+  SelectEstado,
 } from "./styles/styledRegisterH";
 import {
   ContainLabel,
@@ -30,7 +30,6 @@ import {
   Label,
   SelectInputV,
 } from "./styles/styledRegisterV";
-import Axios from "axios";
 
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
@@ -38,10 +37,21 @@ const RegisterHojaV = () => {
   const [estadoIngreso, setEstadoIngreso] = useState([]);
   const [cilindraje, setCilindraje] = useState("");
 
+  //funcion que permite solo escribir numeros en el input.
   function acceptNum(evt) {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
   }
+
+  const add1 = async () => {
+    if (cedula) {
+      const res = await Axios.post("http://localhost:3005/datos", {
+        identification: cedula,
+      });
+      console.log(res.data);
+      setPlaca(res.data);
+    }
+  };
 
   const getPlaca = async () => {
     const res = await Axios.get("http://localhost:3005/route");
@@ -49,7 +59,7 @@ const RegisterHojaV = () => {
 
   const getEstadoIngreso = async () => {
     const res = await Axios.get("http://localhost:3005/selectestadoingreso");
-    setEstadoIngreso(res.data)
+    setEstadoIngreso(res.data);
   };
 
   const SelectInputPlaca = () => {
@@ -71,28 +81,21 @@ const RegisterHojaV = () => {
   useEffect(() => {
     getPlaca();
     getEstadoIngreso();
-  }, [setPlaca, setEstadoIngreso]);
-
-
+  }, []);
 
   return (
     <ContainerEntrada>
       <ContainForm>
-        {/* <ContainTitle>
-<TitleH1>Registra nuevo cliente</TitleH1>
-</ContainTitle> */}
-
         <Form>
           <ContainH2>
             <TitleH2>Datos del vehículo</TitleH2>
           </ContainH2>
-
           <ContainCC>
             <InputCC
               type="text"
               placeholder="Cedula"
               value={cedula}
-              onInput={(evt) => acceptNum(evt)}
+              onInput={acceptNum}
               maxLength={15}
               onChange={(e) => setCedula(e.target.value)}
               required
@@ -101,14 +104,14 @@ const RegisterHojaV = () => {
               <i className="fa-solid fa-magnifying-glass"></i>
             </Button>
           </ContainCC>
-
           <ContainLablSelect>
             <ContainLabel>
               <Label>Placa del vehículo:</Label>
             </ContainLabel>
-            <ContainSelect>{/* <SelectInputPlaca /> */}</ContainSelect>
+            <ContainSelect>
+              <SelectInputPlaca />
+            </ContainSelect>
           </ContainLablSelect>
-
           <Input
             type="date"
             placeholder="Entrada"
@@ -125,12 +128,10 @@ const RegisterHojaV = () => {
           />
           <Button type="submit">Enviar</Button>
         </Form>
-
         <ContainInventarioBike>
           <ContainH2Bike>
             <TitleH2>Inventario de MOTO</TitleH2>
           </ContainH2Bike>
-
           <Table>
             <Thead>
               <Tr>
@@ -147,49 +148,35 @@ const RegisterHojaV = () => {
               </Tr>
               <Tr>
                 <Td>Espejos X4</Td>
-                <Td>
-                  <></>
-                </Td>
+                <Td></Td>
               </Tr>
               <Tr>
                 <Td>Espejos X4</Td>
-                <Td>
-                  <></>
-                </Td>
+                <Td></Td>
               </Tr>
               <Tr>
                 <Td>Espejos X4</Td>
-                <Td>
-                  <></>
-                </Td>
+                <Td></Td>
               </Tr>
               <Tr>
                 <Td>Espejos X4</Td>
-                <Td>
-                  <></>
-                </Td>
+                <Td></Td>
               </Tr>
               <Tr>
                 <Td>Espejos X4</Td>
-                <Td>
-                  <></>
-                </Td>
+                <Td></Td>
               </Tr>
               <Tr>
                 <Td>Espejos X4</Td>
-                <Td>
-                  <></>
-                </Td>
+                <Td></Td>
               </Tr>
             </Tbody>
           </Table>
         </ContainInventarioBike>
-
         <ContainInventarioAuto>
           <ContainH2Auto>
             <TitleH2Auto>Inventario de AUTO</TitleH2Auto>
           </ContainH2Auto>
-          <></>
         </ContainInventarioAuto>
       </ContainForm>
     </ContainerEntrada>
