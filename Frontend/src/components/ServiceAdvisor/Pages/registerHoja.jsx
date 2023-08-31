@@ -30,6 +30,8 @@ import {
   Label,
   SelectInputV,
 } from "./styles/styledRegisterV";
+import { OptionsSelectBike } from '../Pages/archive/OptionsSelect'
+import { OptionsSelectCar } from '../Pages/archive/OptionsSelect'
 
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
@@ -90,6 +92,7 @@ const RegisterHojaV = () => {
     getEstadoIngreso();
   }, []);
 
+
   return (
     <ContainerEntrada>
       <ContainForm>
@@ -147,36 +150,12 @@ const RegisterHojaV = () => {
               </Tr>
             </Thead>
             <Tbody>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td>
-                  <SelectInputEstado />
-                </Td>
+              {OptionsSelectBike.map((item, index) =>(
+              <Tr key={index}>
+                <Td>{item.nombre}</Td>
+                <Td>{item.estado}</Td>
               </Tr>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td></Td>
-              </Tr>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td></Td>
-              </Tr>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td></Td>
-              </Tr>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td></Td>
-              </Tr>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td></Td>
-              </Tr>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td></Td>
-              </Tr>
+              ))}
             </Tbody>
           </Table>
         </ContainInventarioBike>
@@ -184,6 +163,22 @@ const RegisterHojaV = () => {
           <ContainH2Auto>
             <TitleH2Auto>Inventario de AUTO</TitleH2Auto>
           </ContainH2Auto>
+          <Table>
+            <Thead>
+              <Tr>
+                <Th>Check</Th>
+                <Th>Estado</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {OptionsSelectCar.map((item, index) =>(
+              <Tr key={index}>
+                <Td>{item.nombre}</Td>
+                <Td>{item.estado}</Td>
+              </Tr>
+              ))}
+            </Tbody>
+          </Table>
         </ContainInventarioAuto>
       </ContainForm>
     </ContainerEntrada>
