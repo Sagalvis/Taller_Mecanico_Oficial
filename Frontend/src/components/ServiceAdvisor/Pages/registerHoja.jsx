@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import {
   Button,
@@ -28,7 +28,7 @@ import {
   ContainLablSelect,
   ContainSelect,
   Label,
-  SelectInputV,
+  SelectInputV
 } from "./styles/styledRegisterV";
 import { OptionsSelectBike } from '../Pages/archive/OptionsSelect'
 import { OptionsSelectCar } from '../Pages/archive/OptionsSelect'
@@ -70,14 +70,6 @@ const RegisterHojaV = () => {
       label: item.matricula,
     }));
     return <SelectInputV options={options} />;
-  };
-
-  const SelectInputEstado = () => {
-    const options = estadoIngreso.map((item, i) => ({
-      value: i,
-      label: item.estado,
-    }));
-    return <SelectEstado options={options} />;
   };
 
   useEffect(() => {
