@@ -37,19 +37,11 @@ const RegisterHojaV = () => {
   const [estadoIngreso, setEstadoIngreso] = useState([]);
   const [cilindraje, setCilindraje] = useState("");
 
-  const add1 = async () => {
-    
-      const res = await Axios.post("http://localhost:3005/datos",{
-        identification: cedula
-      })
-      console.log(res.data.matriculas)
-      setPlaca(res.data)
-    
-  }
-/*   function acceptNum(evt) {
+
+  function acceptNum(evt) {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
-  }*/
+  }
 
   const add1 = async () => {
     if (cedula) {
@@ -115,7 +107,7 @@ const RegisterHojaV = () => {
               onChange={(e) => setCedula(e.target.value)}
               required
             />
-            <Button>
+            <Button onClick={add1}>
               <i className="fa-solid fa-magnifying-glass"></i>
             </Button>
           </ContainCC>
