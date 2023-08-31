@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import {
   Button,
@@ -20,8 +20,7 @@ import {
   Th,
   Td,
   Tbody,
-  Thead,
-  SelectEstado,
+  Thead
 } from "./styles/styledRegisterH";
 import {
   ContainLabel,
@@ -36,7 +35,6 @@ import { OptionsSelectCar } from '../Pages/archive/OptionsSelect'
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
   const [placa, setPlaca] = useState([]);
-  const [estadoIngreso, setEstadoIngreso] = useState([]);
   const [cilindraje, setCilindraje] = useState("");
 
 
@@ -59,11 +57,6 @@ const RegisterHojaV = () => {
     const res = await Axios.get("http://localhost:3005/route");
   };
 
-  const getEstadoIngreso = async () => {
-    const res = await Axios.get("http://localhost:3005/selectestadoingreso");
-    setEstadoIngreso(res.data);
-  };
-
   const SelectInputPlaca = () => {
     if (placa.length < 0){
       console.log("error")
@@ -79,17 +72,9 @@ const RegisterHojaV = () => {
     
   };
 
-  const SelectInputEstado = () => {
-    const options = estadoIngreso.map((item, i) => ({
-      value: i,
-      label: item.estado,
-    }));
-    return <SelectEstado options={options} />;
-  };
 
   useEffect(() => {
     getPlaca();
-    getEstadoIngreso();
   }, []);
 
 
@@ -125,8 +110,8 @@ const RegisterHojaV = () => {
           <Input
             type="date"
             placeholder="Entrada"
-            value={estadoIngreso}
-            onChange={(e) => setEstadoIngreso(e.target.value)}
+            /* value={estadoIngreso} */
+            /* onChange={(e) => setEstadoIngreso(e.target.value)} */
             required
           />
           <Input
