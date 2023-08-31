@@ -56,11 +56,17 @@ const RegisterAdvisor = () => {
     setTelefono("");
   };
 
+  //funcion que permite solo escribir numeros en el input.
+  function acceptNum(evt) {
+    const input = evt.target.value;
+    evt.target.value = input.replace(/[^\d]/g, "");
+  }
+
   return (
     <ContainerRegister>
       <ContainForm>
         <ContainTitle>
-          <TitleH1>Registra nuevo cliente</TitleH1>
+          <TitleH1>Registro nuevo cliente</TitleH1>
         </ContainTitle>
 
         <Form>
@@ -96,10 +102,12 @@ const RegisterAdvisor = () => {
             required
           />
           <Input
-            type="number"
+            type="text"
             placeholder="Número de documento"
             value={numeroDocumento}
             onChange={(e) => setNumeroDocumento(e.target.value)}
+            onInput={(evt) => acceptNum(evt)}
+            maxLength={15}
             required
           />
           <Input
@@ -107,6 +115,8 @@ const RegisterAdvisor = () => {
             placeholder="Telefono"
             value={telefono}
             onChange={(e) => setTelefono(e.target.value)}
+            onInput={(evt) => acceptNum(evt)}
+            maxLength={10}
             required
           />
           <Button type="submit" onClick={handleSubmit}>
