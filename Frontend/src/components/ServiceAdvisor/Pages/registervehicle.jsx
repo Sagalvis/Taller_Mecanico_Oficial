@@ -141,7 +141,7 @@ const FormularioVehiculo = () => {
     <ContainerRegisterV>
       <ContainFormV>
         <ContainTitle>
-          <TitleH1>Formulario registro Vehiculos</TitleH1>
+          <TitleH1>Registro de vehículos</TitleH1>
         </ContainTitle>
         <FormV onSubmit={handleSubmit}>
           <ContainH2>
@@ -159,39 +159,39 @@ const FormularioVehiculo = () => {
 
           <Input
             type="text"
-            placeholder="Placa carro"
+            placeholder="Placa"
             onChange={(e) => setPlaca(e.target.value)}
             required
           />
           <Input
             type="text"
-            placeholder="Tarjeta de propiedad carro"
+            placeholder="Tarjeta de propiedad"
             onChange={(e) => setTarjetaPropiedad(e.target.value)}
             required
             onInput={(evt) => acceptNum(evt)}
-            maxLength={15}
+            maxLength={12}
           />
           <Input
             type="text"
-            placeholder="Marca carro"
+            placeholder="Marca"
             onChange={(e) => setMarca(e.target.value)}
             required
           />
           <Input
             type="text"
-            placeholder="Modelo carro"
+            placeholder="Modelo"
             value={modelo}
             onChange={(e) => setModelo(e.target.value)}
             onInput={(evt) => acceptNum(evt)}
-            maxLength={10}
+            maxLength={4}
             required
           />
           <Input
             type="text"
-            placeholder="Cilindraje carro"
+            placeholder="Cilindraje"
             onChange={(e) => setCilindraje(e.target.value)}
             onInput={(evt) => acceptNum(evt)}
-            maxLength={15}
+            maxLength={5}
             required
           />
           <Input
@@ -203,7 +203,7 @@ const FormularioVehiculo = () => {
 
           <ContainLablSelect>
             <ContainLabel>
-              <Label>Tipo de combustible:</Label>
+              <Label>Tipo de combustible: </Label>
             </ContainLabel>
             <ContainSelect>
               <SelectInputCombustible />
@@ -211,7 +211,7 @@ const FormularioVehiculo = () => {
           </ContainLablSelect>
           <ContainLablSelect style={{ marginTop: "10px" }}>
             <ContainLabel>
-              <Label>Tipo de carrocería:</Label>
+              <Label>Tipo de carrocería: </Label>
             </ContainLabel>
             <ContainSelect>
               <SelectInputCarroceria />
