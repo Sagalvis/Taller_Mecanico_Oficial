@@ -75,12 +75,13 @@ export const TitleOrderContainLogo = styled.div`
   }
 `;
 export const OrderConte = styled.div`
-  /* background-color: red; */
+  
   height: 68%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  
 `;
 export const TextArea = styled.textarea`
   width: 90%;
@@ -117,13 +118,35 @@ export const Productos = styled.div`
   flex-direction: column;
 `;
 export const ConteProductos = styled.div`
-  height: 90%;
+  height: 94%;
   padding: 12px;
   border-radius: 4px;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
   overflow-y: scroll;
 `;
+
+export const InputMeca = styled.div`
+  width: 90%;
+  height: 20%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #eee;
+  color: #222;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
+  transition: box-shadow 0.3s ease;
+  &:focus {
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  &::placeholder {
+    color: #999;
+    font-family: "Outfit", sans-serif;
+    font-size: 0.9rem;
+  }
+`
 export const OrderFirma = styled.div`
   background-color: #2182d6;
   border-radius: 15px;

@@ -4,6 +4,7 @@ import {
   ContainOrder,
   ConteProductos,
   HistorialMain,
+  InputMeca,
   OrderConte,
   OrderFirma,
   OrderMain,
@@ -16,6 +17,7 @@ import {
   TittleOrderParagraf,
 } from "./styles/styledOrder";
 import Logo from "../../../assets/svg/transforCars.svg";
+import InputAdd from "./archive/OptionsService";
 
 const OrderService = () => {
   return (
@@ -42,9 +44,12 @@ const OrderService = () => {
               <Productos>
                 <h3>Productos</h3>
                 <ConteProductos>
-                  
+                  <InputAdd/>
                 </ConteProductos>
+                
               </Productos>
+
+                
             </OrderConte>
             <OrderFirma></OrderFirma>
           </OrderMain>
