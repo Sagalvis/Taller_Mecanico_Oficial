@@ -32,3 +32,14 @@ export const getSelectCarroceria = async (req, res) => {
     });
   }
 }
+
+export const getSelectEstadoIngreso = async (req, res) => {
+  try{
+    const [row] = await pool.query('SELECT * FROM estado_ingreso')
+    res.json(row)
+  }catch (error){
+    return res.status(404).json({       
+      message: "Register in database was not found",
+    });
+  }
+}
