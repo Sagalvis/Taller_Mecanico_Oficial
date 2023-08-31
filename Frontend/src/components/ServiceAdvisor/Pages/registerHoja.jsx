@@ -20,8 +20,7 @@ import {
   Th,
   Td,
   Tbody,
-  Thead,
-  SelectEstado,
+  Thead
 } from "./styles/styledRegisterH";
 import {
   ContainLabel,
@@ -36,10 +35,9 @@ import { OptionsSelectCar } from '../Pages/archive/OptionsSelect'
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
   const [placa, setPlaca] = useState([]);
-  const [estadoIngreso, setEstadoIngreso] = useState([]);
   const [cilindraje, setCilindraje] = useState("");
 
-  //funcion que permite solo escribir numeros en el input.
+
   function acceptNum(evt) {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
@@ -59,22 +57,24 @@ const RegisterHojaV = () => {
     const res = await Axios.get("http://localhost:3005/route");
   };
 
-  const getEstadoIngreso = async () => {
-    const res = await Axios.get("http://localhost:3005/selectestadoingreso");
-    setEstadoIngreso(res.data);
+  const SelectInputPlaca = () => {
+    if (placa.length < 0){
+      console.log("error")
+    }else{
+      const options = placa.map((item, i) => ({
+        value: i,
+        label: item.matriculas
+      }));
+      console.log("resultado de la variable options:",options)
+      return <SelectInputV options={options} />;
+    }
+    
+    
   };
 
-  const SelectInputPlaca = () => {
-    const options = placa.map((item, i) => ({
-      value: i,
-      label: item.matricula,
-    }));
-    return <SelectInputV options={options} />;
-  };
 
   useEffect(() => {
     getPlaca();
-    getEstadoIngreso();
   }, []);
 
 
@@ -95,7 +95,7 @@ const RegisterHojaV = () => {
               onChange={(e) => setCedula(e.target.value)}
               required
             />
-            <Button>
+            <Button onClick={add1}>
               <i className="fa-solid fa-magnifying-glass"></i>
             </Button>
           </ContainCC>
@@ -110,8 +110,8 @@ const RegisterHojaV = () => {
           <Input
             type="date"
             placeholder="Entrada"
-            value={estadoIngreso}
-            onChange={(e) => setEstadoIngreso(e.target.value)}
+            /* value={estadoIngreso} */
+            /* onChange={(e) => setEstadoIngreso(e.target.value)} */
             required
           />
           <Input
