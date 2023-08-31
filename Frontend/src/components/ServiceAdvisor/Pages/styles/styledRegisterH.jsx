@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Select from 'react-select'
 
 export const ContainerEntrada = styled.div`
   width: 97%;
@@ -29,7 +30,7 @@ export const TitleH1 = styled.h1`
 
 export const ContainForm = styled.div`
   display: flex;
-  background-color: red;
+  background-color: #fff;
   gap: .4rem;
   padding: 1rem;
   width: 80%;
@@ -55,7 +56,7 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 38%;
   flex-direction: column;
   gap: 1rem;
   background-color: salmon;
@@ -141,7 +142,7 @@ export const Button = styled.button`
 //ESTILOS DEL INVENTARIO DE LOS VEHICULOS
 // INVENTARIO DE MOTOS
 export const ContainInventarioBike = styled.div`
-  width: 25%;
+  width: 31%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -162,10 +163,41 @@ export const TitleH2Bike = styled.h2`
   justify-content: center;
 `;
 
+export const Table = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  box-shadow: 9px 17px 22px -24px rgba(0,0,0,0.79);
+`;
+
+export const Thead = styled.thead`
+`;
+
+export const Tr = styled.tr`
+  
+`;
+
+export const Th = styled.th`
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  background-color: #e0e0e0;
+`;
+
+export const Tbody = styled.tbody`
+  font-size:.9rem;
+`;
+
+export const Td = styled.td`
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+`;
+
 
 // INVENTARIO DE AUTOS
 export const ContainInventarioAuto = styled.div`
-  width: 25%;
+  width: 31%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -184,4 +216,9 @@ export const ContainH2Auto = styled.div`
 export const TitleH2Auto = styled.h2`
   display: flex;
   justify-content: center;
+`;
+
+export const SelectEstado = styled(Select)`
+  width: 50%;
+  height: 20%;
 `;

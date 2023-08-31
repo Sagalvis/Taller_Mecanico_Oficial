@@ -33,32 +33,32 @@ export const createVehicle = async (req, res) => {
       brand,
       model,
       cylinder_cm,
-      vehicle_type,
       color,
       num_motor,
       kilometraje,
       identification,
       id_carroceria,
       id_combustible,
+      idtype_vehicle
     } = req.body;
 
     console.log(req.body);
 
     const [rows] = await pool.query(
-      "INSERT INTO vehicle (matricula, propierty_card, brand, model, cylinder_cm, vehicle_type, color, num_motor, kilometraje, identification, id_carroceria, id_combustible) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+      "INSERT INTO vehicle (matricula, propierty_card, brand, model, cylinder_cm, color, num_motor, kilometraje, identification, id_carroceria, id_combustible, idtype_vehicle) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
       [
         matricula,
         propierty_card,
         brand,
         model,
         cylinder_cm,
-        vehicle_type,
         color,
         num_motor,
         kilometraje,
         identification,
         id_carroceria,
         id_combustible,
+        idtype_vehicle
       ]
     );
     console.log(rows);
@@ -68,13 +68,13 @@ export const createVehicle = async (req, res) => {
       brand,
       model,
       cylinder_cm,
-      vehicle_type,
       color,
       num_motor,
       kilometraje,
       identification,
       id_carroceria,
       id_combustible,
+      idtype_vehicle
     });
     console.log(res.status());
   } catch (error) {

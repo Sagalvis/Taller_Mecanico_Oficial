@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import {
   Button,
   ContainH2,
@@ -14,14 +15,26 @@ import {
   ContainH2Auto,
   ContainCC,
   InputCC,
-  // TitleRegisterH,
+  Table,
+  Tr,
+  Th,
+  Td,
+  Tbody,
+  Thead,
+  SelectEstado,
 } from "./styles/styledRegisterH";
-import { ContainLabel, ContainLablSelect, ContainSelect, Label, SelectInputV } from "./styles/styledRegisterV";
-import Axios from "axios"
+import {
+  ContainLabel,
+  ContainLablSelect,
+  ContainSelect,
+  Label,
+  SelectInputV,
+} from "./styles/styledRegisterV";
+
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
   const [placa, setPlaca] = useState([]);
-  const [estadoIngreso, setEstadoIngreso] = useState("");
+  const [estadoIngreso, setEstadoIngreso] = useState([]);
   const [cilindraje, setCilindraje] = useState("");
 
   const add1 = async () => {
@@ -36,14 +49,27 @@ const RegisterHojaV = () => {
 /*   function acceptNum(evt) {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
-  } */
+  }*/
 
-  useEffect(() => {
-    /* add1 (); */
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setPlaca]);
-  
-  
+  const add1 = async () => {
+    if (cedula) {
+      const res = await Axios.post("http://localhost:3005/datos", {
+        identification: cedula,
+      });
+      console.log(res.data);
+      setPlaca(res.data);
+    }
+  };
+
+  const getPlaca = async () => {
+    const res = await Axios.get("http://localhost:3005/route");
+  };
+
+  const getEstadoIngreso = async () => {
+    const res = await Axios.get("http://localhost:3005/selectestadoingreso");
+    setEstadoIngreso(res.data);
+  };
+
   const SelectInputPlaca = () => {
     if (placa.length < 0){
       console.log("error")
@@ -59,32 +85,40 @@ const RegisterHojaV = () => {
     
   };
 
+  const SelectInputEstado = () => {
+    const options = estadoIngreso.map((item, i) => ({
+      value: i,
+      label: item.estado,
+    }));
+    return <SelectEstado options={options} />;
+  };
 
-
+  useEffect(() => {
+    getPlaca();
+    getEstadoIngreso();
+  }, []);
 
   return (
     <ContainerEntrada>
       <ContainForm>
-        {/* <ContainTitle>
-          <TitleH1>Registra nuevo cliente</TitleH1>
-        </ContainTitle> */}
-
         <Form>
           <ContainH2>
-          <TitleH2>Datos del vehículo</TitleH2>
+            <TitleH2>Datos del vehículo</TitleH2>
           </ContainH2>
-
           <ContainCC>
-          <InputCC
-            type="text"
-            placeholder="Cedula"
-            value={cedula}
-            onChange={(e) => setCedula(e.target.value)}
-            required
-          />
-          <Button onClick={add1}><i className="fa-solid fa-magnifying-glass"></i></Button>
+            <InputCC
+              type="text"
+              placeholder="Cedula"
+              value={cedula}
+              onInput={acceptNum}
+              maxLength={15}
+              onChange={(e) => setCedula(e.target.value)}
+              required
+            />
+            <Button>
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </Button>
           </ContainCC>
-
           <ContainLablSelect>
             <ContainLabel>
               <Label>Placa del vehículo:</Label>
@@ -93,7 +127,6 @@ const RegisterHojaV = () => {
               <SelectInputPlaca />
             </ContainSelect>
           </ContainLablSelect>
-
           <Input
             type="date"
             placeholder="Entrada"
@@ -108,35 +141,61 @@ const RegisterHojaV = () => {
             onChange={(e) => setCilindraje(e.target.value)}
             required
           />
-          <Button type="submit"> 
-            Enviar
-          </Button>
+          <Button type="submit">Enviar</Button>
         </Form>
-
-      <ContainInventarioBike>
-        <ContainH2Bike>
-          <TitleH2>Inventario de MOTO</TitleH2>
-        </ContainH2Bike>
-        <div style={{display: 'flex'}}>
-          <p>Espejos X4</p>
-          <input type="radio" />
-          <input type="radio" />
-          <input type="radio" />
-        </div>
-      </ContainInventarioBike>
-
-      <ContainInventarioAuto>
-      <ContainH2Auto>
-          <TitleH2Auto>Inventario de AUTO</TitleH2Auto>
-
-        </ContainH2Auto>
-        <></>
-      </ContainInventarioAuto>
-
-
+        <ContainInventarioBike>
+          <ContainH2Bike>
+            <TitleH2>Inventario de MOTO</TitleH2>
+          </ContainH2Bike>
+          <Table>
+            <Thead>
+              <Tr>
+                <Th>Check</Th>
+                <Th>Estado</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              <Tr>
+                <Td>Espejos X4</Td>
+                <Td>
+                  <SelectInputEstado />
+                </Td>
+              </Tr>
+              <Tr>
+                <Td>Espejos X4</Td>
+                <Td></Td>
+              </Tr>
+              <Tr>
+                <Td>Espejos X4</Td>
+                <Td></Td>
+              </Tr>
+              <Tr>
+                <Td>Espejos X4</Td>
+                <Td></Td>
+              </Tr>
+              <Tr>
+                <Td>Espejos X4</Td>
+                <Td></Td>
+              </Tr>
+              <Tr>
+                <Td>Espejos X4</Td>
+                <Td></Td>
+              </Tr>
+              <Tr>
+                <Td>Espejos X4</Td>
+                <Td></Td>
+              </Tr>
+            </Tbody>
+          </Table>
+        </ContainInventarioBike>
+        <ContainInventarioAuto>
+          <ContainH2Auto>
+            <TitleH2Auto>Inventario de AUTO</TitleH2Auto>
+          </ContainH2Auto>
+        </ContainInventarioAuto>
       </ContainForm>
     </ContainerEntrada>
   );
 };
 
-export default RegisterHojaV
+export default RegisterHojaV;
