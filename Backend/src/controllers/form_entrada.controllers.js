@@ -5,13 +5,13 @@ export const getformEntrada = async (req, res) => {
     try { 
         const { identification } = req.body; 
         const [rows] = await pool.query( 
-            "SELECT customer.identification, vehicle.matricula FROM vehicle INNER JOIN customer ON customer.identification = ?", 
+            "SELECT customer.name, vehicle.matricula FROM vehicle INNER JOIN customer ON vehicle.identification = customer.identification where customer.identification = ?", 
             [identification] 
         ); 
-        const { matricula } = rows[0]; // Se extraen los valores de la fila obtenida 
+        const matriculas = rows.map((row) => row.matricula); // Se extraen los valores de la fila obtenida 
         res.send({ 
             identification, 
-            matricula
+            matriculas
         }); 
     } catch (error) { 
         return res.status(500).json({ 

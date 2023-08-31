@@ -25,13 +25,13 @@ const RegisterHojaV = () => {
   const [cilindraje, setCilindraje] = useState("");
 
   const add1 = async () => {
-    if(cedula){
+    
       const res = await Axios.post("http://localhost:3005/datos",{
         identification: cedula
       })
-      console.log(res.data)
+      console.log(res.data.matriculas)
       setPlaca(res.data)
-    }
+    
   }
 /*   function acceptNum(evt) {
     const input = evt.target.value;
@@ -39,20 +39,24 @@ const RegisterHojaV = () => {
   } */
 
   useEffect(() => {
-    add1();
+    /* add1 (); */
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [setPlaca]);
+  
   
   const SelectInputPlaca = () => {
-    if (placa.length === 0) {
-      return null; // No hay datos para mostrar
+    if (placa.length < 0){
+      console.log("error")
+    }else{
+      const options = placa.map((item, i) => ({
+        value: i,
+        label: item.matriculas
+      }));
+      console.log("resultado de la variable options:",options)
+      return <SelectInputV options={options} />;
     }
-
-    const options = placa.map((item, i) => ({
-      value: i,
-      label: item.matricula,
-    }));
-    return <SelectInputV options={options} />;
+    
+    
   };
 
 
@@ -86,7 +90,7 @@ const RegisterHojaV = () => {
               <Label>Placa del vehículo:</Label>
             </ContainLabel>
             <ContainSelect>
-              <SelectInputPlaca /> 
+              <SelectInputPlaca />
             </ContainSelect>
           </ContainLablSelect>
 
