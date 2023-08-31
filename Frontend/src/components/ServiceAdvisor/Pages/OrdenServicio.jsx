@@ -4,7 +4,6 @@ import {
   ContainOrder,
   ConteProductos,
   HistorialMain,
-  InputMeca,
   OrderConte,
   OrderFirma,
   OrderMain,
