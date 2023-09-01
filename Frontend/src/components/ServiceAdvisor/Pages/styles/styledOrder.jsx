@@ -49,14 +49,15 @@ export const ContainTextArea = styled.div`
   display: flex;
   /* flex-direction: column; */
   gap: 10px;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 `;
 
 export const ContainProducts = styled.div`
-  background-color: yellow;
+  background-color: #eee;
   padding: 10px;
-  height: 30%;
+  height: 40%;
   overflow-y: scroll;
+  margin-bottom: 1rem;
 `;
 
 export const ContainH2 = styled.div`
@@ -69,7 +70,9 @@ export const TitleH2 = styled.h2`
 `;
 
 export const ContainInput = styled.div`
-  
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const Input = styled.input`
@@ -96,6 +99,38 @@ export const Input = styled.input`
   }
 `;
 
+export const ContainButtons = styled.div`
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+`;
+
+export const Button = styled.button`
+  display: inline-block;
+  padding: 4px;
+  background-color: #222;
+  color: white;
+  width: 20%;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: white;
+    color: #222;
+  }
+  
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+`;
+
 export const HistoryOrder = styled.div`
     background-color: #fff;
   width: 40%;
@@ -107,6 +142,7 @@ export const HistoryOrder = styled.div`
 export const TextArea = styled.textarea`
   width: 90%;
   border: none;
+  padding: 10px;
   border-radius: 4px;
   font-size: 1rem;
   background-color: #eee;

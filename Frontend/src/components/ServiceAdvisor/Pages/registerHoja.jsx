@@ -60,6 +60,7 @@ const RegisterHojaV = () => {
 
   const getPlaca = async () => {
     const res = await Axios.get("http://localhost:3005/route");
+    console.log(res)
   };
 
   const SelectInputPlaca = () => {

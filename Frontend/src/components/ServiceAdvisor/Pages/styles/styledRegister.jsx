@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ContainerRegister = styled.div`
   width: 97%;
   height: 100%;
-  background-color: green;
+  /* background-color: green; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,6 +67,7 @@ export const Input = styled.input`
   border: none;
   border-radius: 4px;
   font-size: 1rem;
+  text-transform: uppercase;
   font-family: 'Consolas';
   background-color: #eee;
   color: #222;
@@ -80,6 +81,7 @@ export const Input = styled.input`
   &::placeholder {
     color: #999;
     font-family: 'Consolas';
+    text-transform: capitalize;
     font-size: .9rem;
   }
 `;
