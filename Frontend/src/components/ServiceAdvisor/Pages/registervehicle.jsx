@@ -34,15 +34,15 @@ const FormularioVehiculo = () => {
   const [color, setColor] = useState("");
   const [kilometraje, setKilometraje] = useState("");
   const [motor, setMotor] = useState("");
-  const [selectedTipoVehiculo, setSelectedTipoVehiculo] = useState([]);
-  const [selectedTipoCombustible, setSelectedTipoCombustible] = useState([]);
-  const [selectedTipoCarroceria, setSelectedTipoCarroceria] = useState([]);
+  const [option1, setOption1] = useState([]);
+  const [option2, setOption2] = useState([]);
+  const [option3, setOption3] = useState([]);
 
   function acceptNum(evt) {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
   }
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí puedes realizar las acciones necesarias con los datos del formulario
@@ -58,7 +58,10 @@ const FormularioVehiculo = () => {
       color,
       tipoCarroceria,
       motor,
-      kilometraje
+      kilometraje,
+      option1,
+      option2,
+      option3,
     });
     // Limpia los campos del formulario
     setTipoVehiculo("");
@@ -84,13 +87,24 @@ const FormularioVehiculo = () => {
 
   const SelectInputVehicle = () => {
     const options = tipoVehiculo.map((item, i) => ({
-      value: item.value,
+      value: i,
       label: item.type_vehicle,   
 
     }));
     console.log("variable option vehicle:", options)
     return <SelectInputV options={options} />;
+
   };
+
+  const SelectIdVehicle = () => {
+    const options = tipoVehiculo.map((item, i) => ({
+      value: i,
+      label: item.idtype_vehicle,
+  }))
+   return setOption1(SelectIdVehicle(options))
+}
+  console.log(option1)
+ 
   
   // label para el combustible
   const getTypeCombustible = async () => {
@@ -105,8 +119,13 @@ const FormularioVehiculo = () => {
     }));
     return <SelectInputV options={options} />;
   };
-
-
+  const SelectIdCombustible = () => {
+    const options = tipoCombustible.map((item, i) => ({
+      value: i,
+      label: item.id_combustible,
+  }))
+   return setOption2(SelectIdCombustible(options))
+ }
   // label para el carroceria
   const getTypeCarroceria = async () => {
     const res = await Axios.get("http://localhost:3005/selectcarroceria");
@@ -121,6 +140,15 @@ const FormularioVehiculo = () => {
     
     return <SelectInputV options={options} />;
   };
+
+  const SelectIdCarroceria = () => {
+    const options = tipoCombustible.map((item, i) => ({
+      value: i,
+      label: item.id_combustible,
+  }))
+   return setOption3(SelectIdCarroceria(options))
+ }
+ console.log(option3);
 
   useEffect(() => {
     getTypeVehicle();
@@ -153,20 +181,20 @@ const FormularioVehiculo = () => {
           "http://localhost:3005/registervehicle/register",
           {
             identification: cedula,
-            idtype_vehicle: selectedTipoVehiculo,
+            idtype_vehicle: option1,
             matricula: placa,
             propierty_card: tarjetaPropiedad,
             brand: marca,
             model: modelo,
             cylinder_cm: cilindraje,
-            id_combustible: selectedTipoCombustible,
+            id_combustible: option2,
             color: color,
-            id_carroceria: selectedTipoCarroceria,
+            id_carroceria: option3,
             num_motor: motor,
             kilometraje: kilometraje,
           }
+          
         );
-        console.log(response.data.idtype_vehicle);
         console.log(response.data);
         alert("Automóvil registrado exitosamente");
         window.location.reload();
@@ -258,7 +286,7 @@ const FormularioVehiculo = () => {
           <Input
             type="text"
             placeholder="kilometraje"
-            onChange={(e) => setKilometraje(e.target.value).toUpperCase()}
+            onChange={(e) => setKilometraje(e.target.value)}
             onInput={(evt) => acceptNum(evt)}
             maxLength={30}
             required
@@ -276,7 +304,7 @@ const FormularioVehiculo = () => {
               <Label>Tipo de carrocería: </Label>
             </ContainLabel>
             <ContainSelect>
-              <SelectInputCarroceria />
+              <SelectInputCarroceria  />
             </ContainSelect>
           </ContainLablSelect>
 

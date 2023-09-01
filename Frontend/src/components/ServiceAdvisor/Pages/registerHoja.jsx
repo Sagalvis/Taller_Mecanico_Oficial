@@ -32,6 +32,7 @@ import {
 import { OptionsSelectBike } from "../Pages/archive/OptionsSelect";
 import { OptionsSelectCar } from "../Pages/archive/OptionsSelect";
 
+
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
   const [placa, setPlaca] = useState([]);
