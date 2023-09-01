@@ -23,9 +23,9 @@ import Axios from "axios";
 
 const FormularioVehiculo = () => {
   const [tipoVehiculo, setTipoVehiculo] = useState([]);
-  const [cedula, setCedula] = useState([]);
   const [tipoCarroceria, setTipoCarroceria] = useState([]);
   const [tipoCombustible, setTipoCombustible] = useState([]);
+  const [documentoIdentidad, setDocumentoIdentidad] = useState("");
   const [placa, setPlaca] = useState("");
   const [tarjetaPropiedad, setTarjetaPropiedad] = useState("");
   const [marca, setMarca] = useState("");
@@ -34,9 +34,6 @@ const FormularioVehiculo = () => {
   const [color, setColor] = useState("");
   const [kilometraje, setKilometraje] = useState("");
   const [motor, setMotor] = useState("");
-  const [selectedTipoVehiculo, setSelectedTipoVehiculo] = useState([]);
-  const [selectedTipoCombustible, setSelectedTipoCombustible] = useState([]);
-  const [selectedTipoCarroceria, setSelectedTipoCarroceria] = useState([]);
 
   function acceptNum(evt) {
     const input = evt.target.value;
@@ -47,22 +44,11 @@ const FormularioVehiculo = () => {
     e.preventDefault();
     // Aquí puedes realizar las acciones necesarias con los datos del formulario
     console.log("Formulario enviado:", {
-      tipoVehiculo,
-      cedula,
-      placa,
-      tarjetaPropiedad,
-      marca,
-      modelo,
-      cilindraje,
-      tipoCombustible,
-      color,
-      tipoCarroceria,
-      motor,
-      kilometraje
+      documentoIdentidad
     });
     // Limpia los campos del formulario
+    setDocumentoIdentidad("")
     setTipoVehiculo("");
-    setCedula("");
     setPlaca("");
     setTarjetaPropiedad("");
     setMarca("");
@@ -75,7 +61,6 @@ const FormularioVehiculo = () => {
     setKilometraje("");
   };
 
-
   // label para el  tipo de vehiculo
   const getTypeVehicle = async () => {
     const res = await Axios.get("http://localhost:3005/selectvechicle");
@@ -83,15 +68,14 @@ const FormularioVehiculo = () => {
   };
 
   const SelectInputVehicle = () => {
-    const options = tipoVehiculo.map((item, i) => ({
+    const options = tipoVehiculo.map((item) => ({
       value: item.value,
-      label: item.type_vehicle,   
-
+      label: item.type_vehicle,
     }));
-    console.log("variable option vehicle:", options)
+    console.log("variable option vehicle:", options);
     return <SelectInputV options={options} />;
   };
-  
+
   // label para el combustible
   const getTypeCombustible = async () => {
     const res = await Axios.get("http://localhost:3005/selectcombustible");
@@ -106,7 +90,6 @@ const FormularioVehiculo = () => {
     return <SelectInputV options={options} />;
   };
 
-
   // label para el carroceria
   const getTypeCarroceria = async () => {
     const res = await Axios.get("http://localhost:3005/selectcarroceria");
@@ -118,7 +101,7 @@ const FormularioVehiculo = () => {
       value: i,
       label: item.carroceria_type,
     }));
-    
+
     return <SelectInputV options={options} />;
   };
 
@@ -130,10 +113,10 @@ const FormularioVehiculo = () => {
 
   const add = async (evt) => {
     evt.preventDefault();
-  
+
     if (
+      documentoIdentidad === "" ||
       tipoVehiculo === "" ||
-      cedula === "" ||
       placa === "" ||
       tarjetaPropiedad === "" ||
       marca === "" ||
@@ -152,16 +135,13 @@ const FormularioVehiculo = () => {
         const response = await Axios.post(
           "http://localhost:3005/registervehicle/register",
           {
-            identification: cedula,
-            idtype_vehicle: selectedTipoVehiculo,
+            identification: documentoIdentidad,
             matricula: placa,
             propierty_card: tarjetaPropiedad,
             brand: marca,
             model: modelo,
             cylinder_cm: cilindraje,
-            id_combustible: selectedTipoCombustible,
             color: color,
-            id_carroceria: selectedTipoCarroceria,
             num_motor: motor,
             kilometraje: kilometraje,
           }
@@ -199,7 +179,9 @@ const FormularioVehiculo = () => {
           <Input
             type="text"
             placeholder="Documento de identidad"
-            onChange={(e) => setCedula(e.target.value)}
+            name="documentoIdentidad"
+            value={documentoIdentidad}
+            onChange={(e) => setDocumentoIdentidad(e.target.value)}
             required
             onInput={(evt) => acceptNum(evt)}
             maxLength={15}
@@ -254,15 +236,15 @@ const FormularioVehiculo = () => {
             onChange={(e) => setMotor(e.target.value)}
             maxLength={15}
             required
-          />  
+          />
           <Input
             type="text"
             placeholder="kilometraje"
-            onChange={(e) => setKilometraje(e.target.value).toUpperCase()}
+            onChange={(e) => setKilometraje(e.target.value.toUpperCase())}
             onInput={(evt) => acceptNum(evt)}
             maxLength={30}
             required
-          />  
+          />
           <ContainLablSelect>
             <ContainLabel>
               <Label>Tipo de combustible: </Label>
@@ -280,7 +262,9 @@ const FormularioVehiculo = () => {
             </ContainSelect>
           </ContainLablSelect>
 
-          <Button type="submit" onClick={add}>Enviar</Button>
+          <Button type="submit" onClick={add}>
+            Enviar
+          </Button>
         </FormV>
       </ContainFormV>
     </ContainerRegisterV>
