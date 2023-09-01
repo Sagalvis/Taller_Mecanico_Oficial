@@ -81,7 +81,7 @@ export const Input = styled.input`
   &::placeholder {
     color: #999;
     font-family: 'Consolas';
-    text-transform: capitalize;
+    text-transform: lowercase;
     font-size: .9rem;
   }
 `;
