@@ -31,6 +31,7 @@ import {
 } from "./styles/styledRegisterV";
 import { OptionsSelectBike } from "../Pages/archive/OptionsSelect";
 import { OptionsSelectCar } from "../Pages/archive/OptionsSelect";
+import { TextArea } from "./styles/styledOrder";
 
 
 const RegisterHojaV = () => {
@@ -113,8 +114,9 @@ const RegisterHojaV = () => {
             /* onChange={(e) => setEstadoIngreso(e.target.value)} */
             required
           />
-          <Input
-            type="text"
+          <TextArea
+            rows={6}
+            cols={50}
             placeholder="Motivo de ingreso"
             required
           />
