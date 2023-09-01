@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import {
   Button,
@@ -20,8 +20,7 @@ import {
   Th,
   Td,
   Tbody,
-  Thead,
-  SelectEstado,
+  Thead
 } from "./styles/styledRegisterH";
 import {
   ContainLabel,
@@ -30,14 +29,16 @@ import {
   Label,
   SelectInputV,
 } from "./styles/styledRegisterV";
+import { OptionsSelectBike } from '../Pages/archive/OptionsSelect'
+import { OptionsSelectCar } from '../Pages/archive/OptionsSelect'
+
 
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
   const [placa, setPlaca] = useState([]);
-  const [estadoIngreso, setEstadoIngreso] = useState([]);
   const [cilindraje, setCilindraje] = useState("");
 
-  //funcion que permite solo escribir numeros en el input.
+
   function acceptNum(evt) {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
@@ -57,31 +58,26 @@ const RegisterHojaV = () => {
     const res = await Axios.get("http://localhost:3005/route");
   };
 
-  const getEstadoIngreso = async () => {
-    const res = await Axios.get("http://localhost:3005/selectestadoingreso");
-    setEstadoIngreso(res.data);
-  };
-
   const SelectInputPlaca = () => {
-    const options = placa.map((item, i) => ({
-      value: i,
-      label: item.matricula,
-    }));
-    return <SelectInputV options={options} />;
+    if (placa.length < 0){
+      console.log("error")
+    }else{
+      const options = placa.map((item, i) => ({
+        value: i,
+        label: item.matriculas
+      }));
+      console.log("resultado de la variable options:",options)
+      return <SelectInputV options={options} />;
+    }
+    
+    
   };
 
-  const SelectInputEstado = () => {
-    const options = estadoIngreso.map((item, i) => ({
-      value: i,
-      label: item.estado,
-    }));
-    return <SelectEstado options={options} />;
-  };
 
   useEffect(() => {
     getPlaca();
-    getEstadoIngreso();
   }, []);
+
 
   return (
     <ContainerEntrada>
@@ -100,7 +96,7 @@ const RegisterHojaV = () => {
               onChange={(e) => setCedula(e.target.value)}
               required
             />
-            <Button>
+            <Button onClick={add1}>
               <i className="fa-solid fa-magnifying-glass"></i>
             </Button>
           </ContainCC>
@@ -115,8 +111,8 @@ const RegisterHojaV = () => {
           <Input
             type="date"
             placeholder="Entrada"
-            value={estadoIngreso}
-            onChange={(e) => setEstadoIngreso(e.target.value)}
+            /* value={estadoIngreso} */
+            /* onChange={(e) => setEstadoIngreso(e.target.value)} */
             required
           />
           <Input
@@ -140,36 +136,12 @@ const RegisterHojaV = () => {
               </Tr>
             </Thead>
             <Tbody>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td>
-                  <SelectInputEstado />
-                </Td>
+              {OptionsSelectBike.map((item, index) =>(
+              <Tr key={index}>
+                <Td>{item.nombre}</Td>
+                <Td>{item.estado}</Td>
               </Tr>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td></Td>
-              </Tr>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td></Td>
-              </Tr>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td></Td>
-              </Tr>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td></Td>
-              </Tr>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td></Td>
-              </Tr>
-              <Tr>
-                <Td>Espejos X4</Td>
-                <Td></Td>
-              </Tr>
+              ))}
             </Tbody>
           </Table>
         </ContainInventarioBike>
@@ -177,6 +149,22 @@ const RegisterHojaV = () => {
           <ContainH2Auto>
             <TitleH2Auto>Inventario de AUTO</TitleH2Auto>
           </ContainH2Auto>
+          <Table>
+            <Thead>
+              <Tr>
+                <Th>Check</Th>
+                <Th>Estado</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {OptionsSelectCar.map((item, index) =>(
+              <Tr key={index}>
+                <Td>{item.nombre}</Td>
+                <Td>{item.estado}</Td>
+              </Tr>
+              ))}
+            </Tbody>
+          </Table>
         </ContainInventarioAuto>
       </ContainForm>
     </ContainerEntrada>

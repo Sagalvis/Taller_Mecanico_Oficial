@@ -91,6 +91,7 @@ const FormularioVehiculo = () => {
       label: item.type_vehicle,   
 
     }));
+    console.log("variable option vehicle:", options)
     return <SelectInputV options={options} />;
 
   };

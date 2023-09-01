@@ -4,7 +4,7 @@ import Select from 'react-select'
 export const ContainerEntrada = styled.div`
   width: 97%;
   height: 100%;
-  background-color: green;
+  /* background-color: green; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,7 +59,7 @@ export const Form = styled.form`
   width: 38%;
   flex-direction: column;
   gap: 1rem;
-  background-color: salmon;
+  /* background-color: salmon; */
 `;
 
 export const ContainCC = styled.div`
@@ -147,7 +147,10 @@ export const ContainInventarioBike = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-  background-color: beige;
+  overflow-y: scroll;
+  background-color: #dcdcdc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
+
 `;
 
 export const ContainH2Bike = styled.div`
@@ -181,17 +184,20 @@ export const Th = styled.th`
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
-  background-color: #e0e0e0;
+  background-color: #fff;
+  border-radius: 4px;
 `;
 
 export const Tbody = styled.tbody`
-  font-size:.9rem;
+  font-size:.8rem;
 `;
 
 export const Td = styled.td`
-  padding: 8px;
+  padding: 5.4px;
+  text-transform: uppercase;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  
 `;
 
 
@@ -202,7 +208,10 @@ export const ContainInventarioAuto = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-  background-color: orange;
+  overflow-y: scroll;
+  background-color: #dcdcdc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
+
 `;
 
 export const ContainH2Auto = styled.div`
@@ -219,6 +228,6 @@ export const TitleH2Auto = styled.h2`
 `;
 
 export const SelectEstado = styled(Select)`
-  width: 50%;
+  width: 100%;
   height: 20%;
 `;
