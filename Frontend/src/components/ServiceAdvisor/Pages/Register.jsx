@@ -47,7 +47,7 @@ const RegisterAdvisor = () => {
           alert("cliente registrado");
         });
     }
-    // Limpia los campos del formulario
+    
     setNombre("");
     setApellidos("");
     setCorreo("");
