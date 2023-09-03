@@ -22,12 +22,12 @@ export const getformEntrada = async (req, res) => {
 
 export const postformEntrada = async (req, res) => {
     try {
-        const { fecha_entrada, motivo } = req.body
-        const [rows] = await pool.query("INSERT INTO formulario_entrada () VALUES ()", []);
+        const { fecha_entrada, motivo, identification, matricula } = req.body
+        const [rows] = await pool.query("INSERT INTO formulario_entrada (fecha_entrada, motivo, identification, matricula) VALUES (?,?,?,?)", [fecha_entrada, motivo, identification, matricula]);
         res.json(rows);
     } catch (error) {
         return res.status(404).json({
-            message: "Not found",
+            message: "no se pudo insertar datos",
         });
     }
 };
