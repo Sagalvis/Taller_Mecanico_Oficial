@@ -123,7 +123,7 @@ const FormularioVehiculo = () => {
           </ContainH2>
           <ContainLablSelect>
             <ContainLabel>
-              <Label>Tipo de vehiculo:</Label>
+              <Label>Tipo de vehiculos:</Label>
             </ContainLabel>
             <ContainSelect>
               <select
