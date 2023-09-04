@@ -67,7 +67,7 @@ const Input = styled.input`
   border: none;
   border-radius: 4px;
   font-size: 1rem;
-  background-color: #eee;
+  background-color: #fff;
   color: #222;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
   transition: box-shadow 0.3s ease;
@@ -83,8 +83,7 @@ const Input = styled.input`
 `
 
 const Button = styled.button`
-width: 5rem;
-margin-bottom: 10px;
+  width: 40px;
   border-radius: 4px;
   background-color: #000000;
   color: #ffffff;

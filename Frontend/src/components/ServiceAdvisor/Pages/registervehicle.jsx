@@ -31,10 +31,10 @@ const FormularioVehiculo = () => {
   const [modelo, setModelo] = useState();
   const [cilindraje, setCilindraje] = useState();
   const [motor, setMotor] = useState("");
-  const [kilometraje, setKilometraje] = useState();
+  const [kilometraje, setKilometraje] = useState(0);
   const [selectedTipoVehicle, setSelectedTipoVehicle] = useState(0);
   const [selectedTipoCombustible, setSelectedTipoCombustible] = useState(0);
-  const [selectedTipoCarroceria, setSelectedTipoCarroceria] = useState(0);
+  const [selectedTipoCarroceria, setSelectedTipoCarroceria] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -93,15 +93,15 @@ const FormularioVehiculo = () => {
     }
 
     // Limpia los campos del formulario
-    setDocumentoIdentidad();
+    setDocumentoIdentidad(0);
     setPlaca("");
     setMarca("");
-    setTarjetaProdiedad();
+    setTarjetaProdiedad(0);
     setColor("");
-    setModelo();
-    setCilindraje();
+    setModelo(0);
+    setCilindraje(0);
     setMotor(""); // Cambiado a string
-    setKilometraje();
+    setKilometraje(0);
     setSelectedTipoVehicle(0);
     setSelectedTipoCombustible(0);
     setSelectedTipoCarroceria(0);
@@ -124,7 +124,7 @@ const FormularioVehiculo = () => {
           </ContainH2>
           <ContainLablSelect>
             <ContainLabel>
-              <Label>Tipo de vehiculo:</Label>
+              <Label>Tipo de vehiculos:</Label>
             </ContainLabel>
             <ContainSelect>
               <SelectInputV
@@ -157,6 +157,7 @@ const FormularioVehiculo = () => {
             placeholder="Placa"
             value={placa}
             onChange={(e) => setPlaca(e.target.value)}
+            maxLength={6}
             required
           />
           <Input
@@ -165,13 +166,14 @@ const FormularioVehiculo = () => {
             value={kilometraje}
             onChange={(e) => setKilometraje(parseInt(e.target.value))}
             onInput={acceptNum}
-            maxLength={30}
+            maxLength={7}
             required
           />
           <Input
             type="text"
             placeholder="Marca"
             value={marca}
+            maxLength={15}
             onChange={(e) => {
               setMarca(e.target.value);
             }}
@@ -179,7 +181,7 @@ const FormularioVehiculo = () => {
           />
           <Input
             type="text"
-            placeholder="Tarjeta de propiedad carro"
+            placeholder="Tarjeta de propiedad"
             value={tarjetaProdiedad}
             onChange={(e) => setTarjetaProdiedad(parseInt(e.target.value))}
             onInput={acceptNum}
@@ -215,7 +217,7 @@ const FormularioVehiculo = () => {
             placeholder="Número del motor"
             value={motor}
             onChange={(e) => setMotor(e.target.value)}
-            maxLength={15}
+            maxLength={12}
             required
           />
           <ContainLablSelect>

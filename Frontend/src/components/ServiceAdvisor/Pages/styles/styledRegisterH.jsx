@@ -110,6 +110,10 @@ export const Input = styled.input`
   }
 `;
 
+export const TextArea = styled.textarea`
+  
+`;
+
 export const Button = styled.button`
   display: inline-block;
   padding: 10px 20px;

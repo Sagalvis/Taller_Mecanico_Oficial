@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import Sidebar from "../Sidebar/indexSidebar";
-import { ContainerLayout, ContainerPages } from "./styledRuter";
+import { ContainerLayout, ContainerPages, Dividier } from "./styledRuter";
 
 
 const Layout = ({children}) => {
   return ( 
     <ContainerLayout>
       <Sidebar/>
+      <Dividier/>
       <ContainerPages>{children}</ContainerPages>
     </ContainerLayout>
   );

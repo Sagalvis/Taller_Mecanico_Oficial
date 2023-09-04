@@ -67,6 +67,8 @@ export const Input = styled.input`
   border: none;
   border-radius: 4px;
   font-size: 1rem;
+  text-transform: uppercase;
+  font-family: 'Consolas';
   background-color: #eee;
   color: #222;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
@@ -78,7 +80,8 @@ export const Input = styled.input`
   }
   &::placeholder {
     color: #999;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Consolas';
+    text-transform: lowercase;
     font-size: .9rem;
   }
 `;
