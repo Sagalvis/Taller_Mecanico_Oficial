@@ -83,7 +83,7 @@ export const InputCC = styled.input`
   }
   &::placeholder {
     color: #999;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'consolas';
     font-size: .9rem;
   }
 `;

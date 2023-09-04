@@ -99,6 +99,7 @@ const RegisterHojaV = () => {
               </select>
             </ContainSelect>
           </ContainLablSelect>
+          <label htmlFor="">espejos</label>
           <Input
             type="date"
             placeholder="Entrada"
@@ -123,7 +124,7 @@ const RegisterHojaV = () => {
             <Thead>
               <Tr>
                 <Th>Check</Th>
-                <Th>Estado</Th>
+                <Th>Estado (OK - R - M)</Th>
               </Tr>
             </Thead>
             <Tbody>
