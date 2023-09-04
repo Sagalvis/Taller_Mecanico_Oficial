@@ -1,140 +1,148 @@
 import { useState } from "react";
 import {
   ContainerSidebarAdvisor,
-  LogoAdvisor,
-  LogoAdvisor1,
-  LogoAdvisor2,
-  SidebarButtonAdvisor,
-  ContainerPerfilAdvisor,
-  PerfilImg,
-  PerfilName,
-  PefiLAdvisor,
+  LinkContainerBack,
   NavbarAdvisor1,
-  NavContainer,
-  NavLink,
-  NavIcon,
-  NavLabel,
-  ContainerNav,
-  ContainerNav2,
-  ContainerLogo,
-  ContainerPerfilNavbar,
+  NavbarAdvisor2,
 } from "./styledSidebarAdvisor";
-import { AiOutlineLeft } from "react-icons/ai";
-import LogoCarro from "../../../assets/svg/transforCars(carro).svg";
-import Logodash from "../../../assets/svg/transforCars.svg";
+
 import perfil1 from "../../../assets/img/Perfil.png";
 import { useLocation } from "react-router-dom";
+import {
+  ContainNameP,
+  ContainNav,
+  ContainerButton,
+  ContainerPerfilName,
+  DividerSidebar,
+  Icon1,
+  ImgP,
+  LinkContainer,
+  LinkIcon,
+  NameP,
+  Perfil,
+  SidebarButton,
+  NavLink,
+  LinkLabel,
+} from "../../Admin/Sidebar/styledSidebar";
 
 const SidebarAdvisor = () => {
-  const [sideAdvisorOpne, setSideAdvisorOpne] = useState(true);
+  const [sideAdvisorOpne, setSideAdvisorOpne] = useState(false);
   const { pathname } = useLocation();
-
-  const LogosFuntion = () => {
-    if (!sideAdvisorOpne) {
-      return <LogoAdvisor2 src={LogoCarro} alt="logo2" />;
-    } else {
-      return <LogoAdvisor1 src={Logodash} alt="logo1" />;
-    }
-  };
 
   const PerfilFuntion = () => {
     if (!sideAdvisorOpne) {
       return (
-        <PefiLAdvisor $isopen={sideAdvisorOpne} >
-          <PerfilImg src={perfil1} alt="perfil" />
-        </PefiLAdvisor>
+        <Perfil style={{ width: "35px", height: "35px" }}>
+          <ImgP src={perfil1} alt="perfil" />
+        </Perfil>
       );
     } else {
       return (
         <>
-          <PefiLAdvisor>
-            <PerfilImg src={perfil1} alt="perfil" />
-          </PefiLAdvisor>
-          <PerfilName> Registro</PerfilName>
-          <PerfilName>Roy Polo Duarte</PerfilName>
+          <Perfil>
+            <ImgP src={perfil1} alt="perfil" />
+          </Perfil>
+          <ContainNameP $isopen={sideAdvisorOpne}>
+            <NameP>
+              <h3>Sergio Andrés Galvis Smith</h3>
+            </NameP>
+            <NameP> Admin</NameP>
+          </ContainNameP>
         </>
       );
     }
   };
 
-  const NavFuntion = () => {
-    if(!sideAdvisorOpne){
-      return(
-        NavbarAdvisor1.map(({ id, icon, to }) => {
-          if (id !== 10) {
-            return (
-              <NavContainer key={id} $isasctive={pathname === to}>
-                <NavLink to={to} style={!sideAdvisorOpne ?{ display:"flex", justifyContent:"center"}: {}}>
-                  <NavIcon>{icon}</NavIcon>
-                </NavLink>
-              </NavContainer>
-            );
-          }
-        })
-      )
-    }else{
+  const ButtonFuntion = () => {
+    if (!sideAdvisorOpne) {
       return (
-        NavbarAdvisor1.map(({ id, label, icon, to }) => {
-          if (id !== 10) {
-            return (
-              <NavContainer key={id} $isasctive={pathname === to}>
-                <NavLink to={to}>
-                  <NavIcon>{icon}</NavIcon>
-                  {SidebarAdvisor && (
-                    <>
-                      <NavLabel>{label}</NavLabel>
-                    </>
-                  )}
-                </NavLink>
-              </NavContainer>
-            );
-          }
-        })
-      )
+        <>
+          <SidebarButton
+            $isopen={sideAdvisorOpne}
+            onClick={() => setSideAdvisorOpne((p) => !p)}
+          >
+            <Icon1 className="fa-solid fa-bars"></Icon1>
+          </SidebarButton>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <SidebarButton
+            $isopen={sideAdvisorOpne}
+            onClick={() => setSideAdvisorOpne((p) => !p)}
+          >
+            <Icon1 className="fa-solid fa-x"></Icon1>
+          </SidebarButton>
+        </>
+      );
     }
-  }
+  };
   return (
     <ContainerSidebarAdvisor $isopen={sideAdvisorOpne}>
-      <SidebarButtonAdvisor
-        $isopen={sideAdvisorOpne}
-        onClick={() => setSideAdvisorOpne((p) => !p)}
-      >
-        <AiOutlineLeft />
-      </SidebarButtonAdvisor>
-      <ContainerLogo>
-        <LogoAdvisor>
-          <LogosFuntion />
-        </LogoAdvisor>
-      </ContainerLogo>
+      <ContainerButton $isopen={sideAdvisorOpne}>
+        <ButtonFuntion />
+      </ContainerButton>
 
-      <ContainerPerfilNavbar>
-        <ContainerPerfilAdvisor>
-          <PerfilFuntion />
-        </ContainerPerfilAdvisor>
+      <ContainerPerfilName $isopen={sideAdvisorOpne}>
+        <PerfilFuntion />
+      </ContainerPerfilName>
 
-        <ContainerNav>
-          <NavFuntion/>
-        </ContainerNav>
-      </ContainerPerfilNavbar>
+      <DividerSidebar />
 
-      <ContainerNav2>
-        {NavbarAdvisor1.map(({ id, label, icon, to }) => {
-          if (id === 10) {
-            return (
-              <NavContainer key={id} $isasctive={pathname === to}>
-                <NavLink to={to}>
-                  <NavIcon>{icon}</NavIcon>
-                  {SidebarAdvisor && (
-                    <>
-                      <NavLabel>{label}</NavLabel>
-                    </>
-                  )}
-                </NavLink>
-              </NavContainer>
-            );
-          }
-        })}
-      </ContainerNav2>
+      <ContainNav>
+        {NavbarAdvisor1.map(({ id, label, icon, to }) => (
+          <LinkContainer
+            key={id}
+            $isactive={pathname === to}
+            style={!sideAdvisorOpne ? { width: `80%` } : {}}
+          >
+            <NavLink
+              to={to}
+              style={
+                !sideAdvisorOpne
+                  ? { display: "flex", justifyContent: "flex-start" }
+                  : {}
+              }
+            >
+              <LinkIcon>{icon}</LinkIcon>
+              {sideAdvisorOpne && (
+                <>
+                  <LinkLabel>{label}</LinkLabel>
+                </>
+              )}
+            </NavLink>
+          </LinkContainer>
+        ))}
+      </ContainNav>
+
+      <DividerSidebar />
+
+      <ContainNav style={{height:"10%"}}>
+        {NavbarAdvisor2.map(({ id, label, icon, to }) => (
+          <LinkContainerBack
+            key={id}
+            $isactive={pathname === to}
+            style={!sideAdvisorOpne ? { width: `80%` } : {border:"none" }}
+          >
+            <NavLink
+              to={to}
+              style={
+                !sideAdvisorOpne
+                  ? { display: "flex", justifyContent: "flex-start" }
+                  : {}
+              }
+            >
+              <LinkIcon>{icon}</LinkIcon>
+              {sideAdvisorOpne && (
+                <>
+                  <LinkLabel>{label}</LinkLabel>
+                </>
+              )}
+            </NavLink>
+          </LinkContainerBack>
+        ))}
+      </ContainNav>
     </ContainerSidebarAdvisor>
   );
 };

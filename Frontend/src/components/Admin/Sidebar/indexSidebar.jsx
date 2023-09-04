@@ -21,6 +21,7 @@ import {
 import { useLocation } from "react-router-dom";
 /* import LogoCarro from "../../../assets/svg/transforCars(carro).svg"; */
 import perfil1 from "../../../assets/img/Perfil.png";
+import { LinkContainerBack } from "../../ServiceAdvisor/SidebarAdvisor/styledSidebarAdvisor";
 /* import Logodash from "../../../assets/svg/transforCars.svg"; */
 const Sidebard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -118,7 +119,7 @@ const Sidebard = () => {
 
 
       {Navbar2.map(({ id, label, icon, to }) => (
-        <LinkContainer
+        <LinkContainerBack
           key={id}
           $isactive={pathname === to}
           style={!sidebarOpen ? { width: `80%` ,border:"none" } : {border:"none"}}
@@ -133,7 +134,7 @@ const Sidebard = () => {
               </>
             )}
           </NavLink>
-        </LinkContainer>
+        </LinkContainerBack>
       ))}
       </ContainNav>
     </SidebarContainer>
