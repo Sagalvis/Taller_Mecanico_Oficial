@@ -37,8 +37,6 @@ const RegisterHojaV = () => {
   const [fecha, setFecha] = useState("");
   const [motivo, setMotivo] = useState("");
   const [placa, setPlaca] = useState([]);
-  const [fecha, setFecha] = useState("")
-  const [motivo, setMotivo] = useState("")
   const [selectPlaca, setSelectPlaca] = useState(null)
 
   function acceptNum(evt) {
