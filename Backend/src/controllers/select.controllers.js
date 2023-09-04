@@ -13,7 +13,7 @@ export const getSelectVechicle = async (req, res) => {
 
 export const getSelectCombustible = async (req, res) => {
   try{
-    const [row] = await pool.query('SELECT * FROM combustible')
+    const [row] = await pool.query('SELECT * FROM fuel')
     res.json(row)
   }catch (error){
     return res.status(404).json({       
@@ -24,7 +24,7 @@ export const getSelectCombustible = async (req, res) => {
 
 export const getSelectCarroceria = async (req, res) => {
   try{
-    const [row] = await pool.query('SELECT * FROM carroceria')
+    const [row] = await pool.query('SELECT * FROM chassis')
     res.json(row)
   }catch (error){
     return res.status(404).json({       
@@ -35,7 +35,7 @@ export const getSelectCarroceria = async (req, res) => {
 
 export const getSelectEstadoIngreso = async (req, res) => {
   try{
-    const [row] = await pool.query('SELECT * FROM estado_ingreso')
+    const [row] = await pool.query('SELECT * FROM status_entry')
     res.json(row)
   }catch (error){
     return res.status(404).json({       
