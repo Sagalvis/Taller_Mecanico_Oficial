@@ -15,6 +15,7 @@ import {
   ContainerRegisterV,
   FormV,
   Label,
+  SelectInputV
 } from "./styles/styledRegisterV";
 import Axios from "axios";
 
@@ -22,15 +23,15 @@ const FormularioVehiculo = () => {
   const [tipoVehicle, setTipoVehicle] = useState([]);
   const [tipoCombustible, setTipoCombustible] = useState([]);
   const [tipoCarroceria, setTipoCarroceria] = useState([]);
-  const [documentoIdentidad, setDocumentoIdentidad] = useState(0);
+  const [documentoIdentidad, setDocumentoIdentidad] = useState();
   const [placa, setPlaca] = useState("");
   const [marca, setMarca] = useState("");
   const [tarjetaProdiedad, setTarjetaProdiedad] = useState("");
   const [color, setColor] = useState("");
-  const [modelo, setModelo] = useState(0);
-  const [cilindraje, setCilindraje] = useState(0);
+  const [modelo, setModelo] = useState();
+  const [cilindraje, setCilindraje] = useState();
   const [motor, setMotor] = useState("");
-  const [kilometraje, setKilometraje] = useState(0);
+  const [kilometraje, setKilometraje] = useState();
   const [selectedTipoVehicle, setSelectedTipoVehicle] = useState(0);
   const [selectedTipoCombustible, setSelectedTipoCombustible] = useState(0);
   const [selectedTipoCarroceria, setSelectedTipoCarroceria] = useState(0);
@@ -92,15 +93,15 @@ const FormularioVehiculo = () => {
     }
 
     // Limpia los campos del formulario
-    setDocumentoIdentidad(0);
+    setDocumentoIdentidad();
     setPlaca("");
     setMarca("");
-    setTarjetaProdiedad(0);
+    setTarjetaProdiedad();
     setColor("");
-    setModelo(0);
-    setCilindraje(0);
+    setModelo();
+    setCilindraje();
     setMotor(""); // Cambiado a string
-    setKilometraje(0);
+    setKilometraje();
     setSelectedTipoVehicle(0);
     setSelectedTipoCombustible(0);
     setSelectedTipoCarroceria(0);
@@ -126,7 +127,7 @@ const FormularioVehiculo = () => {
               <Label>Tipo de vehiculo:</Label>
             </ContainLabel>
             <ContainSelect>
-              <select
+              <SelectInputV
                 value={selectedTipoVehicle}
                 onChange={(e) => setSelectedTipoVehicle(parseInt(e.target.value))}
               >
@@ -139,7 +140,7 @@ const FormularioVehiculo = () => {
                     {item.type_vehicle}
                   </option>
                 ))}
-              </select>
+              </SelectInputV>
             </ContainSelect>
           </ContainLablSelect>
           <Input
@@ -222,7 +223,7 @@ const FormularioVehiculo = () => {
               <Label>Tipo de combustible: </Label>
             </ContainLabel>
             <ContainSelect>
-              <select
+              <SelectInputV
                 value={selectedTipoCombustible}
                 onChange={(e) => setSelectedTipoCombustible(parseInt(e.target.value))}
               >
@@ -235,7 +236,7 @@ const FormularioVehiculo = () => {
                     {item.combustible_type}
                   </option>
                 ))}
-              </select>
+              </SelectInputV>
             </ContainSelect>
           </ContainLablSelect>
           <ContainLablSelect style={{ marginTop: "10px" }}>
@@ -243,7 +244,7 @@ const FormularioVehiculo = () => {
               <Label>Tipo de carrocería: </Label>
             </ContainLabel>
             <ContainSelect>
-              <select
+              <SelectInputV
                 value={selectedTipoCarroceria}
                 onChange={(e) => setSelectedTipoCarroceria(parseInt(e.target.value))}
               >
@@ -256,7 +257,7 @@ const FormularioVehiculo = () => {
                     {item.carroceria_type}
                   </option>
                 ))}
-              </select>
+              </SelectInputV>
             </ContainSelect>
           </ContainLablSelect>
           <Button type="submit" onClick={handleSumit}>
@@ -268,4 +269,4 @@ const FormularioVehiculo = () => {
   );
 };
 
-export default FormularioVehiculo;
+export default FormularioVehiculo
