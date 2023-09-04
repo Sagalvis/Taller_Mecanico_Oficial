@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Axios from "axios";
 import {
   Button,
@@ -26,18 +26,18 @@ import {
   ContainLabel,
   ContainLablSelect,
   ContainSelect,
-  Label,
-  SelectInputV,
+  Label
 } from "./styles/styledRegisterV";
 import { OptionsSelectBike } from "../Pages/archive/OptionsSelect";
 import { OptionsSelectCar } from "../Pages/archive/OptionsSelect";
 import { TextArea } from "./styles/styledOrder";
 
-
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
   const [placa, setPlaca] = useState([]);
-  const [showSelectPlaca, setShowSelectPlaca] = useState(false);
+  const [fecha, setFecha] = useState("")
+  const [motivo, setMotivo] = useState("")
+  const [selectPlaca, setSelectPlaca] = useState(null)
 
   function acceptNum(evt) {
     const input = evt.target.value;
@@ -50,35 +50,22 @@ const RegisterHojaV = () => {
         identification: cedula,
       });
       console.log(res.data);
-      setPlaca(res.data);
-      setShowSelectPlaca(true); // Mostrar el componente SelectInputPlaca
+      setPlaca(res.data.matriculas);
     } catch (error) {
       console.log("Error al obtener la información por cédula:", error);
-      setShowSelectPlaca(false); // Ocultar el componente SelectInputPlaca
     }
   };
 
-  const getPlaca = async () => {
-    const res = await Axios.get("http://localhost:3005/route");
-    console.log(res)
+  const postFormulario = async () => {
+    const res = await Axios.post("http://localhost:3005/send",{
+      fecha_entrada: fecha,
+      motivo: motivo,
+      identification: cedula,
+      matricula: selectPlaca
+    });
+    console.log(res.data)
   };
-
-  const SelectInputPlaca = () => {
-    let options = [];
-    if (Array.isArray(placa)) {
-      options = placa.map((item, i) => ({
-        value: i,
-        label: item.matriculas,
-      }));
-    }
-    console.log("resultado de la variable options:", options);
-    return <SelectInputV options={options} />;
-  };
-
-  useEffect(() => {
-    getPlaca();
-  }, []);
-
+  
   return (
     <ContainerEntrada>
       <ContainForm>
@@ -105,23 +92,28 @@ const RegisterHojaV = () => {
               <Label>Placa del vehículo:</Label>
             </ContainLabel>
             <ContainSelect>
-          {showSelectPlaca && <SelectInputPlaca />}
-        </ContainSelect>
+              <select onChange={(e) => setSelectPlaca(e.target.value)}>
+                {placa.map((item, i) => (
+                  <option key={i} value={item}>{item}</option>
+                ))}
+              </select>
+            </ContainSelect>
           </ContainLablSelect>
           <Input
             type="date"
             placeholder="Entrada"
             /* value={estadoIngreso} */
-            /* onChange={(e) => setEstadoIngreso(e.target.value)} */
+            onChange={(e) => setFecha(e.target.value)}
             required
           />
           <TextArea
             rows={6}
             cols={50}
             placeholder="Motivo de ingreso"
+            onChange={(e) => setMotivo(e.target.value)}
             required
           />
-          <Button type="submit">Enviar</Button>
+          <Button type="submit" onClick={postFormulario}>Enviar</Button>
         </Form>
         <ContainInventarioBike>
           <ContainH2Bike>

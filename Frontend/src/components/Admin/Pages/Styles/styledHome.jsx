@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
 export const ContainerHome = styled.div`
-  width: 97%;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `;
 export const ContainerHeader = styled.div`
-  width: 100%;
+  width: 95%;
   height: 5%;
 `;
 export const Header = styled.div`
