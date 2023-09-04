@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import {
   Button,
@@ -26,10 +26,9 @@ import {
   ContainLabel,
   ContainLablSelect,
   ContainSelect,
-  Label
+  Label,
+  SelectInputV,
 } from "./styles/styledRegisterV";
-import { OptionsSelectBike } from "../Pages/archive/OptionsSelect";
-import { OptionsSelectCar } from "../Pages/archive/OptionsSelect";
 import { TextArea } from "./styles/styledOrder";
 
 const RegisterHojaV = () => {
@@ -37,7 +36,15 @@ const RegisterHojaV = () => {
   const [fecha, setFecha] = useState("");
   const [motivo, setMotivo] = useState("");
   const [placa, setPlaca] = useState([]);
-  const [selectPlaca, setSelectPlaca] = useState(null)
+  const [selectPlaca, setSelectPlaca] = useState(null);
+  // VARIABLES DE ESTADO PARA INVENTARIO DE VEHICULO
+  const [status, setStatus] = useState(0);
+  const [bike, setBike] = useState(0);
+  const [car, setCar] = useState(0);
+  // VARIABLES DE ESTADO PARA INVENTARIO DE VEHICULO EN MODO ARRAY
+  const [typeStatus, setTypeStatus] = useState([]);
+  const [typeBike, setTypeBike] = useState([]);
+  const [typeCar, setTypeCar] = useState([]);
 
   function acceptNum(evt) {
     const input = evt.target.value;
@@ -57,18 +64,35 @@ const RegisterHojaV = () => {
   };
 
   const postFormulario = async () => {
-    const res = await Axios.post("http://localhost:3005/send",{
+    const res = await Axios.post("http://localhost:3005/send", {
       fecha_entrada: fecha,
       motivo: motivo,
       identification: cedula,
-      matricula: selectPlaca
+      matricula: selectPlaca,
     });
-    console.log(res.data)
+    console.log(res.data);
   };
-  
+
+  //  GET PARA INVENTARIO DE MOTOS Y AUTOS
+  useEffect(() => {
+    const fetchData = async () => {
+      const getStatus = await Axios.get("http://localhost:3005/selectstatus");
+      setTypeStatus(getStatus.data);
+      const getCheckBike = await Axios.get(
+        "http://localhost:3005/selectcheckbike"
+      );
+      setTypeBike(getCheckBike.data);
+      const getCheckCar = await Axios.get(
+        "http://localhost:3005/selectcheckcar"
+      );
+      setTypeCar(getCheckCar.data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <ContainerEntrada>
-      <ContainForm className="opacity">
+      <ContainForm>
         <Form>
           <ContainH2>
             <TitleH2>Datos del vehículo</TitleH2>
@@ -94,12 +118,13 @@ const RegisterHojaV = () => {
             <ContainSelect>
               <select onChange={(e) => setSelectPlaca(e.target.value)}>
                 {placa.map((item, i) => (
-                  <option key={i} value={item}>{item}</option>
+                  <option key={i} value={item}>
+                    {item}
+                  </option>
                 ))}
               </select>
             </ContainSelect>
           </ContainLablSelect>
-          <label htmlFor="">espejos</label>
           <Input
             type="date"
             placeholder="Entrada"
@@ -114,7 +139,9 @@ const RegisterHojaV = () => {
             onChange={(e) => setMotivo(e.target.value)}
             required
           />
-          <Button type="submit" onClick={postFormulario}>Enviar</Button>
+          <Button type="submit" onClick={postFormulario}>
+            Enviar
+          </Button>
         </Form>
         <ContainInventarioBike>
           <ContainH2Bike>
@@ -128,11 +155,27 @@ const RegisterHojaV = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {OptionsSelectBike.map((item, index) => (
-                <Tr key={index}>
-                  <Td>{item.nombre}</Td>
-                  <Td>{item.estado}</Td>
-                </Tr>
+              {typeBike.map((item) => (
+                <p key={item.id_check_bike} style={{textTransform: 'uppercase'}}>
+                  {item.part_bike}
+
+                  <SelectInputV
+                    name=""
+                    id=""
+                    value={status}
+                    onChange={(e) => setStatus(parseInt(e.target.value))}
+                  >
+                    <option value={0}>...</option>
+                    {typeStatus.map((item) => (
+                      <option
+                        key={item.id_status_entry}
+                        value={item.id_status_entry}
+                      >
+                        {item.status}
+                      </option>
+                    ))}
+                  </SelectInputV>
+                </p>
               ))}
             </Tbody>
           </Table>
@@ -149,12 +192,7 @@ const RegisterHojaV = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {OptionsSelectCar.map((item, index) => (
-                <Tr key={index}>
-                  <Td>{item.nombre}</Td>
-                  <Td>{item.estado}</Td>
-                </Tr>
-              ))}
+              <></>
             </Tbody>
           </Table>
         </ContainInventarioAuto>
