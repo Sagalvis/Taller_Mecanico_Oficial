@@ -31,7 +31,7 @@ const FormularioVehiculo = () => {
   const [modelo, setModelo] = useState();
   const [cilindraje, setCilindraje] = useState();
   const [motor, setMotor] = useState("");
-  const [kilometraje, setKilometraje] = useState(0);
+  const [kilometraje, setKilometraje] = useState();
   const [selectedTipoVehicle, setSelectedTipoVehicle] = useState(0);
   const [selectedTipoCombustible, setSelectedTipoCombustible] = useState(0);
   const [selectedTipoCarroceria, setSelectedTipoCarroceria] = useState();
@@ -232,10 +232,10 @@ const FormularioVehiculo = () => {
                 <option value={0}>Seleccione un tipo de combustible</option>
                 {tipoCombustible.map((item) => (
                   <option
-                    key={item.id_combustible}
-                    value={item.id_combustible}
+                    key={item.id_fuel}
+                    value={item.id_fuel}
                   >
-                    {item.combustible_type}
+                    {item.fuel_type}
                   </option>
                 ))}
               </SelectInputV>
@@ -253,10 +253,10 @@ const FormularioVehiculo = () => {
                 <option value={0}>Seleccione un tipo de carrocería</option>
                 {tipoCarroceria.map((item) => (
                   <option
-                    key={item.id_carroceria}
-                    value={item.id_carroceria}
+                    key={item.id_chassis}
+                    value={item.id_chassis}
                   >
-                    {item.carroceria_type}
+                    {item.chassis_type}
                   </option>
                 ))}
               </SelectInputV>
