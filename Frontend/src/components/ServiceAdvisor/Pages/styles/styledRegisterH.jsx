@@ -30,7 +30,7 @@ export const TitleH1 = styled.h1`
 
 export const ContainForm = styled.div`
   display: flex;
-  background-color: red;
+  background-color: #ffffffb7;
   gap: .4rem;
   padding: 1rem;
   width: 80%;

@@ -34,7 +34,7 @@ export const ContainForm = styled.div`
   /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: #ffffff9d;
   padding: 1rem;
   width: 60%;
   height: 60%;
