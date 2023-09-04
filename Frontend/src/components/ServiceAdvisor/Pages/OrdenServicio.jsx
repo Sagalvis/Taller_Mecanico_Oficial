@@ -41,8 +41,7 @@ const OrderService = () => {
         </ContainProducts>
 
         <ContainButtons>
-        <Button>Realizar pago</Button>
-        <Button>Imprimir recibido</Button>
+        <Button>Realizar cotización</Button>
         </ContainButtons>
 
       </OrderContain>
