@@ -1,7 +1,7 @@
 // ---------------------------------------------- CRUD FORMULARIO ENTRADA ---------------------------------------------------------------------
 import { pool } from "../dbconfig.js";
 
-export const getformEntrada = async (req, res) => { 
+export const getformEntry = async (req, res) => { 
     try { 
         const { identification } = req.body; 
         const [rows] = await pool.query( 
@@ -20,14 +20,14 @@ export const getformEntrada = async (req, res) => {
     } 
 };
 
-export const postformEntrada = async (req, res) => {
+export const postformEntry = async (req, res) => {
     try {
-        const { fecha_entrada, motivo } = req.body
-        const [rows] = await pool.query("INSERT INTO formulario_entrada () VALUES ()", []);
+        const { date_entry, reason, identification, matricula } = req.body
+        const [rows] = await pool.query("INSERT INTO form_entry (date_entry, reason, identification, matricula) VALUES (?,?,?,?)", [date_entry, reason, identification, matricula]);
         res.json(rows);
     } catch (error) {
         return res.status(404).json({
-            message: "Not found",
+            message: "No se pudo insertar los datos",
         });
     }
 };

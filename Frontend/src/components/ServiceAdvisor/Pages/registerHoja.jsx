@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Axios from "axios";
 import {
   Button,
@@ -34,8 +34,11 @@ import { OptionsSelectCar } from '../Pages/archive/OptionsSelect'
 
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
+  const [fecha, setFecha] = useState("");
+  const [motivo, setMotivo] = useState("");
   const [placa, setPlaca] = useState([]);
-  const [cilindraje, setCilindraje] = useState("");
+  
+  /* const [cilindraje, setCilindraje] = useState(""); */
 
 
   function acceptNum(evt) {
@@ -43,39 +46,33 @@ const RegisterHojaV = () => {
     evt.target.value = input.replace(/[^\d]/g, "");
   }
 
-  const add1 = async () => {
+  const getPlaca = async () => {
     if (cedula) {
       const res = await Axios.post("http://localhost:3005/datos", {
         identification: cedula,
       });
       console.log(res.data);
-      setPlaca(res.data);
+      setPlaca(res.data.matriculas);
     }
   };
 
-  const getPlaca = async () => {
-    const res = await Axios.get("http://localhost:3005/route");
-  };
+  const postFormulario = () => {
+    const res = Axios.post("http://localhost:3005/send",{
+      date_entry: fecha,
+      reason: motivo,
+      identification: cedula,
+      matricula: placa
+    })
+    console.log(res.data)
+  }
 
   const SelectInputPlaca = () => {
-    if (placa.length < 0){
-      console.log("error")
-    }else{
       const options = placa.map((item, i) => ({
         value: i,
-        label: item.matriculas
+        label: item
       }));
-      console.log("resultado de la variable options:",options)
-      return <SelectInputV options={options} />;
-    }
-    
-    
+      return <SelectInputV options={options}/>; 
   };
-
-
-  useEffect(() => {
-    getPlaca();
-  }, []);
 
 
   return (
@@ -95,7 +92,7 @@ const RegisterHojaV = () => {
               onChange={(e) => setCedula(e.target.value)}
               required
             />
-            <Button onClick={add1}>
+            <Button onClick={getPlaca}>
               <i className="fa-solid fa-magnifying-glass"></i>
             </Button>
           </ContainCC>
@@ -111,17 +108,16 @@ const RegisterHojaV = () => {
             type="date"
             placeholder="Entrada"
             /* value={estadoIngreso} */
-            /* onChange={(e) => setEstadoIngreso(e.target.value)} */
+            onChange={(e) => setFecha(e.target.value)}
             required
           />
           <Input
             type="text"
             placeholder="Motivo de ingreso"
-            value={cilindraje}
-            onChange={(e) => setCilindraje(e.target.value)}
+            onChange={(e) => setMotivo(e.target.value)}
             required
           />
-          <Button type="submit">Enviar</Button>
+          <Button type="submit" onClick={postFormulario}>Enviar</Button>
         </Form>
         <ContainInventarioBike>
           <ContainH2Bike>
