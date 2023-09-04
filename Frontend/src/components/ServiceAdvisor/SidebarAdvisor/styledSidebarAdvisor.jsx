@@ -59,7 +59,7 @@ export const NavbarAdvisor1 = [
   {
     id: 6,
     label: "Registro de salida vehiculos ",
-    icon: <i className="fa-solid fa-clipboard-list"></i>,
+    icon: <i className="fa-solid fa-right-from-bracket"></i>,
     to: "/advisor/registrosalida"
   },
 ];
@@ -69,7 +69,7 @@ export const NavbarAdvisor2 = [
   {
     id: 1,
     label: "Logout",
-    icon: <i className="fa-solid fa-right-from-bracket"></i>,
+    icon: <i className="fa-solid fa-power-off"></i>,
     to: "/employes/login"
   }
 ]

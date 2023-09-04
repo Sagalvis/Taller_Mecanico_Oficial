@@ -183,7 +183,7 @@ export const Navbar2 = [
   {
     id: "1",
     label: "Logout",
-    icon: <i className="fa-solid fa-right-from-bracket"></i>,
+    icon: <i className="fa-solid fa-power-off"></i>,
     to:"/employes/login"
   }
 ]
