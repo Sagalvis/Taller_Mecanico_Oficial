@@ -156,7 +156,7 @@ export const TextArea = styled.textarea`
   }
   &::placeholder {
     color: #999;
-    font-family: "Outfit", sans-serif;
+    font-family: 'consolas';
     font-size: 0.9rem;
   }
 `;
