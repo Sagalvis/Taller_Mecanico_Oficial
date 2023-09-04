@@ -16,7 +16,7 @@ export const ContainFormV = styled.div`
   /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: #ffffff9d;
   padding: 1rem;
   width: 70%;
   height: 93%;

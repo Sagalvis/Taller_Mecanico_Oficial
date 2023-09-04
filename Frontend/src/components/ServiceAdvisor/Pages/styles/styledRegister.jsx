@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
+
 export const ContainerRegister = styled.div`
   width: 97%;
   height: 100%;
   /* background-color: green; */
-  background-image: url('');
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,7 +34,7 @@ export const ContainForm = styled.div`
   /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: #ffffff9d;
   padding: 1rem;
   width: 60%;
   height: 60%;

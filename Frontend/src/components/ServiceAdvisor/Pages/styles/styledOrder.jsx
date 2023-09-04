@@ -11,7 +11,7 @@ export const ContainMain = styled.div`
 `;
 
 export const OrderContain = styled.div`
-  background-color: #fff;
+  background-color: #ffffff9d;
   width: 40%;
   height: 90%;
   border-radius: 4px;

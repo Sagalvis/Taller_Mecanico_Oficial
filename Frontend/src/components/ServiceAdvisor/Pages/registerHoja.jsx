@@ -68,7 +68,7 @@ const RegisterHojaV = () => {
   
   return (
     <ContainerEntrada>
-      <ContainForm>
+      <ContainForm className="opacity">
         <Form>
           <ContainH2>
             <TitleH2>Datos del vehículo</TitleH2>
