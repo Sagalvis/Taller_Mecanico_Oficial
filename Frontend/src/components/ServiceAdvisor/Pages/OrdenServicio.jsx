@@ -42,8 +42,13 @@ const OrderService = () => {
           <h2 style={{ textAlign: "center", padding: "1.5rem 0" }}>
             ORDEN DE SERVICIO
           </h2>
+
+          <ContainInput>
+          <Input type="text" placeholder="Cedula"/>
+          <Input type="text" placeholder="Placa"/>
+          </ContainInput>
+
           <ContainTextArea>
-            <TextArea placeholder="¿Motivo de ingreso?" rows={6} cols={50} />
             <TextArea
               placeholder="¿Info mecanico? (Opcional)"
               rows={6}
