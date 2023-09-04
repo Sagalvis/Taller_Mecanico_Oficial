@@ -1,6 +1,8 @@
 
 import Logo from "../../../assets/svg/transforCars.svg";
+import InputAdd from "./archive/OptionsService";
 // import InputAdd from "./archive/OptionsService";
+import OptionsService from './archive/OptionsService';
 
 import {  Button, ContainButtons, ContainH2, ContainInfo, ContainInput, ContainMain, ContainProducts, ContainTextArea, HistoryOrder, Info, InfoH1, InfoP, Input, OrderContain, TextArea, ThisLogo, TitleH2 } from "./styles/styledOrder";
 
@@ -32,8 +34,9 @@ const OrderService = () => {
           </ContainH2>
 
           <ContainInput>
-            <Input type="text"/>
-            <button style={{height: '50%'}}><i className="fa-solid fa-plus"></i></button>
+            {/* <Input type="text"/>
+            <button style={{height: '50%'}}><i className="fa-solid fa-plus"></i></button> */}
+            {InputAdd()}
           </ContainInput>
         </ContainProducts>
 
