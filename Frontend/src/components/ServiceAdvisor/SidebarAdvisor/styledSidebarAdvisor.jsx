@@ -4,12 +4,13 @@ import {colors} from "../../Admin/styles/Theme"
 export const ContainerSidebarAdvisor = styled.div`
   width: ${({ $isopen }) => (!$isopen ? `70px` : `325px`)};
   transition: width 0.3s;
-  background: ${colors.sd};
+  background: #041737;
   height: 100%;
   display: flex;
   flex-direction: column;
   position: fixed;
   box-shadow: 0 0 7px 2px gray;
+
 `;
 
 export const LinkContainerBack = styled.div`
