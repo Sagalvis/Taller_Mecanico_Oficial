@@ -68,7 +68,7 @@ export const OptionsSelectBike = [
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "pito X1",
+    nombre: "claxon X1",
     estado: <SelectInputEstado />,
   },
   {
@@ -97,75 +97,83 @@ export const OptionsSelectBike = [
 
 export const OptionsSelectCar = [
   {
-    nombre: "espejos X2",
+    nombre: "espejos",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "direccionales X4",
+    nombre: "direccionales",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "luz delantera X2",
+    nombre: "luz delantera",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "luz trasera X2",
+    nombre: "luz trasera",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "puertas X4",
+    nombre: "puertas",
     estado: <SelectInputEstado />,
   }, 
   {
-    nombre: "asientos delanteros X2",
+    nombre: "asientos delanteros",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "asientos traseros X1",
+    nombre: "asientos traseros",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "reposapies X4",
+    nombre: "cubresol",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "mandos X2",
+    nombre: "parabrisas",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "tapa tanque X1",
+    nombre: "claxon",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "parrilla X1",
+    nombre: "parabrisas",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "luz delantera X1",
+    nombre: "gato",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "pito X1",
+    nombre: "llanta de refacción",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "bateria X1",
+    nombre: "tapa de gasolina",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "tacometro X1",
+    nombre: "placas",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "herramientas X1",
+    nombre: "tapetes",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "tanque X1",
+    nombre: "kit de carretera",
     estado: <SelectInputEstado />,
   },
   {
-    nombre: "llantas X4",
+    nombre: "tacometro",
     estado: <SelectInputEstado />,
-  }
+  },
+  {
+    nombre: "llantas",
+    estado: <SelectInputEstado />,
+  },
+  {
+    nombre: "pintura carroceria",
+    estado: <SelectInputEstado />,
+  },
 ];

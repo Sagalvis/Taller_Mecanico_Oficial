@@ -4,109 +4,77 @@ import {colors} from "../styles/Theme.jsx"
 
 /* SideBar Init */
 export const SidebarContainer = styled.div`
-  width: ${({ $isopen }) => (!$isopen ? `150px` : `350px`)};
-  transition: width 0.5s ease;
+  width: ${({ $isopen }) => (!$isopen ? `70px` : `325px`)};
+  transition: width 0.3s;
   background: ${colors.sd};
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
+  position: fixed;
   box-shadow: 0 0 7px 2px gray;
 `;
 
+export const ContainerButton = styled.div`
+  height: 7%;
+  /* background-color: red; */
+  width: ${({ $isopen }) => (!$isopen ? `70px` : `320px`)};
+  transition: width 0.3s;
+  display: flex;
+  justify-content: ${({ $isopen }) => (!$isopen ? `center` : `flex-end`)};
+  align-items: center;
+`
 export const SidebarButton = styled.button`
-    position: absolute;
-    top: ${({ $isopen }) => ($isopen ? `88px` : `95px`)};
-    right: ${({ $isopen }) => ($isopen ? `-16px` : `-16px`)};
+position: absolute;
     width: 32px;
     height: 32px;
-    border-radius: 50%;
-    background: ${colors.ic};
     display: flex;
+    background-color: transparent;
     align-items: center;
     justify-content: center;
-    color: white;
+    border: none;
+    color: #000000;
+    font-size: 25px;
     cursor: pointer;
-    transform: ${({ $isopen }) => (!$isopen ? `rotate(180deg)` : `initial`)};
 `;
 
-/* Inicio contenedor logo y nombre  */
-export const ContainerLogoName = styled.div`
-  width: 90%;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-`;
-
-export const Logo1 = styled.img`
-  height: auto;
-  width: 100%;
-`;
-
-export const Logo2 = styled.img`
-  height: auto;
-  width: 100px;
-`;
-/* Final contenedor logo y nombre */
+export const Icon1 = styled.div`
+`
 
 /* Inicio contenedor Search y Perfil Sidebar */
 export const ContainerPerfilName = styled.div`
-  width: 90%;
-  height: auto;
+width: ${({ $isopen }) => (!$isopen ? `70px` : `325px`)};
+
+  height: 10%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
 
+export const ContainNameP = styled.div`
+  width: ${({ $isopen }) => (!$isopen ? `70px` : `250px`)};
+  transition: width 0.3s;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+`
 export const Perfil = styled.div`
   background-color: blue;
-  width: 100px;
-  height: 94px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
+
 export const ImgP = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 50%;
 `;
-export const NameP = styled.h3`
+export const NameP = styled.div`
+font-weight: 500;
   margin: 0;
-`;
-export const ContainerSearch = styled.div`
-  width: 90%;
-  margin: 0;
-`;
-export const Search = styled.div`
-    input {
-        font-family: inherit;
-        letter-spacing: inherit;
-        font-size: 16px;
-        width: 100%;
-        outline: none;
-        border: 1px solid black;
-        color: inherit;
-    }
-    display: flex;
-`;
-
-export const SearchIcon = styled.button`
-  border: 1px solid black;
-  width: 50px;
-  padding: 0;
-  height: 40px;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
 `;
 /* Final contenedor Search y Perfil Sidebar */
 
@@ -117,14 +85,24 @@ export const DividerSidebar = styled.div`
 `;
 
 /* Inicio contenedor Navbar Sidebar */
+export const ContainNav = styled.div`
+width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+`
+
 export const LinkContainer = styled.div`
   width: 90%;
   height: 5%;
-  background: ${({ $isactive }) => (!$isactive ? `transparent` : `${colors.to}`)};
+  border-bottom: ${({ $isactive }) => ($isactive ? `none` : `2px solid ${colors.to}`)};
+  background-color: ${({$isactive}) => ($isactive ? `${colors.to}` : 'transparent')};
   border-radius: 10px;
-  display:flex;
-  :hover{
-    background:${({$isactive})=>($isactive?`${colors.to}`:`${colors.dv}`)};
+  display: flex;
+  :hover {
+    background-color: ${({$isactive}) => ($isactive ? 'transparent' : `${colors.to}`)};
     border-radius: 10px;
   }
 `;
