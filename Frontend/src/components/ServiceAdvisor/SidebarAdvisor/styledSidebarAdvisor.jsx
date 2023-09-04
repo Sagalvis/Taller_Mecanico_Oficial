@@ -187,6 +187,18 @@ export const NavbarAdvisor1 = [
   },
   {
     id: 5,
+    label: "Orden del servicio ",
+    icon: <i className="fa-solid fa-clipboard-list"></i>,
+    to: "/advisor/orderservice",
+  },
+  {
+    id: 6,
+    label: "Registro de salida vehiculos ",
+    icon: <i className="fa-solid fa-clipboard-list"></i>,
+    to: "/advisor/registrosalida",
+  },
+  {
+    id: 10,
     label: "Logout",
     icon: <i className="fa-solid fa-right-from-bracket"></i>,
     to: "/employes/login",

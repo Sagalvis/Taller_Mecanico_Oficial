@@ -61,7 +61,7 @@ const SidebarAdvisor = () => {
     if(!sideAdvisorOpne){
       return(
         NavbarAdvisor1.map(({ id, icon, to }) => {
-          if (id !== 5) {
+          if (id !== 10) {
             return (
               <NavContainer key={id} $isasctive={pathname === to}>
                 <NavLink to={to} style={!sideAdvisorOpne ?{ display:"flex", justifyContent:"center"}: {}}>
@@ -75,7 +75,7 @@ const SidebarAdvisor = () => {
     }else{
       return (
         NavbarAdvisor1.map(({ id, label, icon, to }) => {
-          if (id !== 5) {
+          if (id !== 10) {
             return (
               <NavContainer key={id} $isasctive={pathname === to}>
                 <NavLink to={to}>
@@ -119,7 +119,7 @@ const SidebarAdvisor = () => {
 
       <ContainerNav2>
         {NavbarAdvisor1.map(({ id, label, icon, to }) => {
-          if (id === 5) {
+          if (id === 10) {
             return (
               <NavContainer key={id} $isasctive={pathname === to}>
                 <NavLink to={to}>

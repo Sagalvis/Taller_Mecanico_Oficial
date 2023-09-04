@@ -1,115 +1,106 @@
 import { useState } from "react";
 import {
-  ContainerLogoName,
+  ContainNameP,
+  ContainNav,
+  ContainerButton,
   ContainerPerfilName,
-  ContainerSearch,
   DividerSidebar,
+  Icon1,
   ImgP,
   LinkContainer,
   LinkIcon,
   LinkLabel,
-  Logo1,
-  Logo2,
   NameP,
   NavLink,
   Navbar1,
   Navbar2,
   Perfil,
-  Search,
-  SearchIcon,
   SidebarButton,
   SidebarContainer,
 } from "./styledSidebar";
-import { AiOutlineLeft } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
-import LogoCarro from "../../../assets/svg/transforCars(carro).svg"
+/* import LogoCarro from "../../../assets/svg/transforCars(carro).svg"; */
 import perfil1 from "../../../assets/img/Perfil.png";
-import Logodash from "../../../assets/svg/transforCars.svg"
+/* import Logodash from "../../../assets/svg/transforCars.svg"; */
 const Sidebard = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const { pathname } = useLocation();
-  const searchClickHandler = () => {
-    if (!sidebarOpen) {
-      setSidebarOpen(true);
-    } else {
-      // search functionality
-    }
-  };
-  const LogosFuntion = () => {
-    if (!sidebarOpen) {
-      return <Logo2 src={LogoCarro} alt="logo2" style={{width:"120px"}} />;
-    } else {
-      return <Logo1 src={Logodash} alt="logo1" />;
-    }
-  };
-  const SearchFuntion = () => {
-    if (!sidebarOpen) {
-      return (
-        <SearchIcon style={{width:"70px", borderRadius:"10px"}}>
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </SearchIcon>
-      );
-    } else {
-      return (
-        <Search>
-          <SearchIcon>
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </SearchIcon>
-          <input
-            placeholder="Search..."
-          />
-        </Search>
-      );
-    }
-  };
+
   const PerfilFuntion = () => {
     if (!sidebarOpen) {
       return (
-        <Perfil style={{width:"80px", height:"80px"}}>
+        <Perfil style={{ width: "35px", height: "35px" }}>
           <ImgP src={perfil1} alt="perfil" />
         </Perfil>
-      )
+      );
     } else {
       return (
         <>
           <Perfil>
             <ImgP src={perfil1} alt="perfil" />
           </Perfil>
+          <ContainNameP $isopen={sidebarOpen}>
+          <NameP><h3>Sergio Andrés Galvis Smith</h3></NameP>
           <NameP> Admin</NameP>
-          <NameP>Sergio Andrés Galvis Smith</NameP>
+          </ContainNameP>
+        </>
+      );
+    }
+  };
+  const ButtonFuntion = () => {
+    if (!sidebarOpen) {
+      return (
+        <>
+          <SidebarButton
+            $isopen={sidebarOpen}
+            onClick={() => setSidebarOpen((p) => !p)}
+          >
+            <Icon1 className="fa-solid fa-bars"></Icon1>
+          </SidebarButton>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <SidebarButton
+            $isopen={sidebarOpen}
+            onClick={() => setSidebarOpen((p) => !p)}
+          >
+            <Icon1 className="fa-solid fa-x"></Icon1>
+          </SidebarButton>
         </>
       );
     }
   };
   return (
     <SidebarContainer $isopen={sidebarOpen}>
-      <SidebarButton
-        $isopen={sidebarOpen}
-        onClick={() => setSidebarOpen((p) => !p)}
-      >
-        <AiOutlineLeft />
-      </SidebarButton>
-      <ContainerLogoName style={!sidebarOpen ? { width: `auto` } : {}}>
-        <LogosFuntion />
-      </ContainerLogoName>
+      <ContainerButton $isopen={sidebarOpen}>
+        <ButtonFuntion />
+      </ContainerButton>
 
-      <DividerSidebar />
+      
 
-      <ContainerPerfilName>
-        <PerfilFuntion/>
+      <ContainerPerfilName $isopen={sidebarOpen}>
+        <PerfilFuntion />
       </ContainerPerfilName>
-      <ContainerSearch
-        style={!sidebarOpen ? { width: `auto`} : {}}
-        onClick={searchClickHandler}
-      >
-        <SearchFuntion />
-      </ContainerSearch>
+
 
       <DividerSidebar />
+
+      <ContainNav>
 
       {Navbar1.map(({ id, label, icon, to }) => (
-        <LinkContainer key={id} $isactive={pathname === to} style={!sidebarOpen ? { width: `80%`} : {}}>
-          <NavLink to={to} style={!sidebarOpen ? { display:"flex",justifyContent:"center" } : {}}>
+        <LinkContainer
+        key={id}
+        $isactive={pathname === to}
+        style={!sidebarOpen ? { width: `80%` } : {}}
+        >
+          <NavLink
+            to={to}
+            style={
+              !sidebarOpen ? { display: "flex", justifyContent: "flex-start" } : {}
+            }
+            >
             <LinkIcon>{icon}</LinkIcon>
             {sidebarOpen && (
               <>
@@ -119,12 +110,22 @@ const Sidebard = () => {
           </NavLink>
         </LinkContainer>
       ))}
+      </ContainNav>
 
       <DividerSidebar />
 
+<ContainNav style={{height:"10%"}}>
+
+
       {Navbar2.map(({ id, label, icon, to }) => (
-        <LinkContainer key={id} $isactive={pathname === to} style={!sidebarOpen ? { width: `80%`} : {}}>
-          <NavLink to={to} style={!sidebarOpen ? { marginLeft:"15px" } : {}}>
+        <LinkContainer
+          key={id}
+          $isactive={pathname === to}
+          style={!sidebarOpen ? { width: `80%` ,border:"none" } : {border:"none"}}
+        >
+          <NavLink to={to} style={
+              !sidebarOpen ? { display: "flex", justifyContent: "flex-start" } : {}
+            }>
             <LinkIcon>{icon}</LinkIcon>
             {sidebarOpen && (
               <>
@@ -134,6 +135,7 @@ const Sidebard = () => {
           </NavLink>
         </LinkContainer>
       ))}
+      </ContainNav>
     </SidebarContainer>
   );
 };

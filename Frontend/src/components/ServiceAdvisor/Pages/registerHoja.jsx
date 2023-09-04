@@ -20,61 +20,54 @@ import {
   Th,
   Td,
   Tbody,
-  Thead
+  Thead,
 } from "./styles/styledRegisterH";
 import {
   ContainLabel,
   ContainLablSelect,
   ContainSelect,
-  Label,
-  SelectInputV,
+  Label
 } from "./styles/styledRegisterV";
-import { OptionsSelectBike } from '../Pages/archive/OptionsSelect'
-import { OptionsSelectCar } from '../Pages/archive/OptionsSelect'
+import { OptionsSelectBike } from "../Pages/archive/OptionsSelect";
+import { OptionsSelectCar } from "../Pages/archive/OptionsSelect";
+import { TextArea } from "./styles/styledOrder";
 
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
   const [fecha, setFecha] = useState("");
   const [motivo, setMotivo] = useState("");
   const [placa, setPlaca] = useState([]);
-  
-  /* const [cilindraje, setCilindraje] = useState(""); */
-
+  const [fecha, setFecha] = useState("")
+  const [motivo, setMotivo] = useState("")
+  const [selectPlaca, setSelectPlaca] = useState(null)
 
   function acceptNum(evt) {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
   }
 
-  const getPlaca = async () => {
-    if (cedula) {
+  const getInfoByCedula = async () => {
+    try {
       const res = await Axios.post("http://localhost:3005/datos", {
         identification: cedula,
       });
       console.log(res.data);
       setPlaca(res.data.matriculas);
+    } catch (error) {
+      console.log("Error al obtener la información por cédula:", error);
     }
   };
 
-  const postFormulario = () => {
-    const res = Axios.post("http://localhost:3005/send",{
-      date_entry: fecha,
-      reason: motivo,
+  const postFormulario = async () => {
+    const res = await Axios.post("http://localhost:3005/send",{
+      fecha_entrada: fecha,
+      motivo: motivo,
       identification: cedula,
-      matricula: placa
-    })
+      matricula: selectPlaca
+    });
     console.log(res.data)
-  }
-
-  const SelectInputPlaca = () => {
-      const options = placa.map((item, i) => ({
-        value: i,
-        label: item
-      }));
-      return <SelectInputV options={options}/>; 
   };
-
-
+  
   return (
     <ContainerEntrada>
       <ContainForm>
@@ -92,7 +85,7 @@ const RegisterHojaV = () => {
               onChange={(e) => setCedula(e.target.value)}
               required
             />
-            <Button onClick={getPlaca}>
+            <Button onClick={getInfoByCedula}>
               <i className="fa-solid fa-magnifying-glass"></i>
             </Button>
           </ContainCC>
@@ -101,7 +94,11 @@ const RegisterHojaV = () => {
               <Label>Placa del vehículo:</Label>
             </ContainLabel>
             <ContainSelect>
-              <SelectInputPlaca />
+              <select onChange={(e) => setSelectPlaca(e.target.value)}>
+                {placa.map((item, i) => (
+                  <option key={i} value={item}>{item}</option>
+                ))}
+              </select>
             </ContainSelect>
           </ContainLablSelect>
           <Input
@@ -111,8 +108,9 @@ const RegisterHojaV = () => {
             onChange={(e) => setFecha(e.target.value)}
             required
           />
-          <Input
-            type="text"
+          <TextArea
+            rows={6}
+            cols={50}
             placeholder="Motivo de ingreso"
             onChange={(e) => setMotivo(e.target.value)}
             required
@@ -131,11 +129,11 @@ const RegisterHojaV = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {OptionsSelectBike.map((item, index) =>(
-              <Tr key={index}>
-                <Td>{item.nombre}</Td>
-                <Td>{item.estado}</Td>
-              </Tr>
+              {OptionsSelectBike.map((item, index) => (
+                <Tr key={index}>
+                  <Td>{item.nombre}</Td>
+                  <Td>{item.estado}</Td>
+                </Tr>
               ))}
             </Tbody>
           </Table>
@@ -152,11 +150,11 @@ const RegisterHojaV = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {OptionsSelectCar.map((item, index) =>(
-              <Tr key={index}>
-                <Td>{item.nombre}</Td>
-                <Td>{item.estado}</Td>
-              </Tr>
+              {OptionsSelectCar.map((item, index) => (
+                <Tr key={index}>
+                  <Td>{item.nombre}</Td>
+                  <Td>{item.estado}</Td>
+                </Tr>
               ))}
             </Tbody>
           </Table>

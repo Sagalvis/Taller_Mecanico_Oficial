@@ -15,167 +15,101 @@ import {
   ContainerRegisterV,
   FormV,
   Label,
-  SelectInputV,
 } from "./styles/styledRegisterV";
-/* import axios from "axios"; */
-
 import Axios from "axios";
 
 const FormularioVehiculo = () => {
-  const [tipoVehiculo, setTipoVehiculo] = useState([]);
-  const [cedula, setCedula] = useState([]);
-  const [tipoCarroceria, setTipoCarroceria] = useState([]);
+  const [tipoVehicle, setTipoVehicle] = useState([]);
   const [tipoCombustible, setTipoCombustible] = useState([]);
+  const [tipoCarroceria, setTipoCarroceria] = useState([]);
+  const [documentoIdentidad, setDocumentoIdentidad] = useState();
   const [placa, setPlaca] = useState("");
-  const [tarjetaPropiedad, setTarjetaPropiedad] = useState("");
   const [marca, setMarca] = useState("");
-  const [modelo, setModelo] = useState("");
-  const [cilindraje, setCilindraje] = useState("");
+  const [tarjetaProdiedad, setTarjetaProdiedad] = useState("");
   const [color, setColor] = useState("");
-  const [kilometraje, setKilometraje] = useState("");
+  const [modelo, setModelo] = useState();
+  const [cilindraje, setCilindraje] = useState();
   const [motor, setMotor] = useState("");
-  const [selectedTipoVehiculo, setSelectedTipoVehiculo] = useState([]);
-  const [selectedTipoCombustible, setSelectedTipoCombustible] = useState([]);
-  const [selectedTipoCarroceria, setSelectedTipoCarroceria] = useState([]);
+  const [kilometraje, setKilometraje] = useState();
+  const [selectedTipoVehicle, setSelectedTipoVehicle] = useState();
+  const [selectedTipoCombustible, setSelectedTipoCombustible] = useState(0);
+  const [selectedTipoCarroceria, setSelectedTipoCarroceria] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const responseVehicle = await Axios.get(
+        "http://localhost:3005/selectvechicle"
+      );
+      setTipoVehicle(responseVehicle.data);
+      const responseCombustible = await Axios.get(
+        "http://localhost:3005/selectcombustible"
+      );
+      setTipoCombustible(responseCombustible.data);
+      const responseCarroceria = await Axios.get(
+        "http://localhost:3005/selectcarroceria"
+      );
+      setTipoCarroceria(responseCarroceria.data);
+    };
+    fetchData();
+  }, []);
+
+  const handleSumit = async (e) => {
+    e.preventDefault();
+
+    if (
+      documentoIdentidad === 0 ||
+      placa === "" ||
+      color === "" ||
+      marca === "" ||
+      tarjetaProdiedad === 0 ||
+      modelo === 0 ||
+      cilindraje === 0 ||
+      motor === "" || // Cambiado a string
+      kilometraje === 0 ||
+      selectedTipoVehicle === 0 ||
+      selectedTipoCombustible === 0 ||
+      selectedTipoCarroceria === 0
+    ) {
+      alert("No se pudo registrar, llena todos los campos");
+    } else {
+      await Axios.post("http://localhost:3005/crearvehicle", {
+        matricula: placa,
+        propierty_card: tarjetaProdiedad,
+        brand: marca,
+        model: modelo,
+        cylinder_cm: cilindraje,
+        color: color,
+        num_motor: motor, // Cambiado a string
+        kilometraje: kilometraje,
+        identification: documentoIdentidad,
+        id_carroceria: selectedTipoCarroceria,
+        id_combustible: selectedTipoCombustible,
+        idtype_vehicle: selectedTipoVehicle,
+      }).then((Response) => {
+        console.log(Response.data);
+        alert("Vehiculo registrado");
+      });
+    }
+
+    // Limpia los campos del formulario
+    setDocumentoIdentidad("");
+    setPlaca("");
+    setMarca("");
+    setTarjetaProdiedad("");
+    setColor("");
+    setModelo("");
+    setCilindraje("");
+    setMotor(""); // Cambiado a string
+    setKilometraje("");
+    setSelectedTipoVehicle("");
+    setSelectedTipoCombustible("");
+    setSelectedTipoCarroceria("");
+  };
 
   function acceptNum(evt) {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
   }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Aquí puedes realizar las acciones necesarias con los datos del formulario
-    console.log("Formulario enviado:", {
-      tipoVehiculo,
-      cedula,
-      placa,
-      tarjetaPropiedad,
-      marca,
-      modelo,
-      cilindraje,
-      tipoCombustible,
-      color,
-      tipoCarroceria,
-      motor,
-      kilometraje
-    });
-    // Limpia los campos del formulario
-    setTipoVehiculo("");
-    setCedula("");
-    setPlaca("");
-    setTarjetaPropiedad("");
-    setMarca("");
-    setModelo("");
-    setCilindraje("");
-    setTipoCombustible("");
-    setColor("");
-    setTipoCarroceria("");
-    setMotor("");
-    setKilometraje("");
-  };
-
-
-  // label para el  tipo de vehiculo
-  const getTypeVehicle = async () => {
-    const res = await Axios.get("http://localhost:3005/selectvechicle");
-    setTipoVehiculo(res.data);
-  };
-
-  const SelectInputVehicle = () => {
-    const options = tipoVehiculo.map((item, i) => ({
-      value: item.value,
-      label: item.type_vehicle,   
-
-    }));
-    console.log("variable option vehicle:", options)
-    return <SelectInputV options={options} />;
-  };
-  
-  // label para el combustible
-  const getTypeCombustible = async () => {
-    const res = await Axios.get("http://localhost:3005/selectcombustible");
-    setTipoCombustible(res.data);
-  };
-
-  const SelectInputCombustible = () => {
-    const options = tipoCombustible.map((item, i) => ({
-      value: i,
-      label: item.combustible_type,
-    }));
-    return <SelectInputV options={options} />;
-  };
-
-
-  // label para el carroceria
-  const getTypeCarroceria = async () => {
-    const res = await Axios.get("http://localhost:3005/selectcarroceria");
-    setTipoCarroceria(res.data);
-  };
-
-  const SelectInputCarroceria = () => {
-    const options = tipoCarroceria.map((item, i) => ({
-      value: i,
-      label: item.carroceria_type,
-    }));
-    
-    return <SelectInputV options={options} />;
-  };
-
-  useEffect(() => {
-    getTypeVehicle();
-    getTypeCombustible();
-    getTypeCarroceria();
-  }, [setTipoVehiculo, setTipoCombustible, setTipoCarroceria]);
-
-  const add = async (evt) => {
-    evt.preventDefault();
-  
-    if (
-      tipoVehiculo === "" ||
-      cedula === "" ||
-      placa === "" ||
-      tarjetaPropiedad === "" ||
-      marca === "" ||
-      modelo === "" ||
-      cilindraje === "" ||
-      tipoCombustible === "" ||
-      color === "" ||
-      tipoCarroceria === "" ||
-      motor === "" ||
-      kilometraje === ""
-    ) {
-      alert("Todos los campos son obligatorios");
-      return; // Sale de la función si los campos están vacíos
-    } else {
-      try {
-        const response = await Axios.post(
-          "http://localhost:3005/registervehicle/register",
-          {
-            identification: cedula,
-            idtype_vehicle: selectedTipoVehiculo,
-            matricula: placa,
-            propierty_card: tarjetaPropiedad,
-            brand: marca,
-            model: modelo,
-            cylinder_cm: cilindraje,
-            id_combustible: selectedTipoCombustible,
-            color: color,
-            id_carroceria: selectedTipoCarroceria,
-            num_motor: motor,
-            kilometraje: kilometraje,
-          }
-        );
-        console.log(response.data.idtype_vehicle);
-        console.log(response.data);
-        alert("Automóvil registrado exitosamente");
-        window.location.reload();
-      } catch (error) {
-        console.error("Error al enviar el formulario:", error);
-        alert("No se pudo enviar el formulario");
-      }
-    }
-  };
 
   return (
     <ContainerRegisterV>
@@ -183,92 +117,127 @@ const FormularioVehiculo = () => {
         <ContainTitle>
           <TitleH1>Registro de vehículos</TitleH1>
         </ContainTitle>
-        <FormV onSubmit={handleSubmit}>
+        <FormV>
           <ContainH2>
             <TitleH2>Datos del vehiculo</TitleH2>
           </ContainH2>
-
           <ContainLablSelect>
             <ContainLabel>
-              <Label>Tipo de vehiculo:</Label>
+              <Label>Tipo de vehiculos:</Label>
             </ContainLabel>
             <ContainSelect>
-              <SelectInputVehicle />
+              <select
+                value={selectedTipoVehicle}
+                onChange={(e) => setSelectedTipoVehicle(parseInt(e.target.value))}
+              >
+                <option value={0}>Seleccione un tipo de vehiculo</option>
+                {tipoVehicle.map((item) => (
+                  <option
+                    key={item.idtype_vehicle}
+                    value={item.idtype_vehicle}
+                  >
+                    {item.type_vehicle}
+                  </option>
+                ))}
+              </select>
             </ContainSelect>
           </ContainLablSelect>
           <Input
             type="text"
             placeholder="Documento de identidad"
-            onChange={(e) => setCedula(e.target.value)}
-            required
-            onInput={(evt) => acceptNum(evt)}
+            value={documentoIdentidad}
+            onChange={(e) => setDocumentoIdentidad(parseInt(e.target.value))}
+            onInput={acceptNum}
             maxLength={15}
+            required
           />
-
           <Input
             type="text"
             placeholder="Placa"
+            value={placa}
             onChange={(e) => setPlaca(e.target.value)}
+            maxLength={6}
             required
           />
           <Input
             type="text"
-            placeholder="Tarjeta de propiedad carro"
-            onChange={(e) => setTarjetaPropiedad(e.target.value)}
+            placeholder="Kilometraje"
+            value={kilometraje}
+            onChange={(e) => setKilometraje(parseInt(e.target.value))}
+            onInput={acceptNum}
+            maxLength={7}
             required
-            onInput={(evt) => acceptNum(evt)}
-            maxLength={12}
           />
           <Input
             type="text"
             placeholder="Marca"
-            onChange={(e) => setMarca(e.target.value)}
+            value={marca}
+            maxLength={15}
+            onChange={(e) => {
+              setMarca(e.target.value);
+            }}
+            required
+          />
+          <Input
+            type="text"
+            placeholder="Tarjeta de propiedad"
+            value={tarjetaProdiedad}
+            onChange={(e) => setTarjetaProdiedad(parseInt(e.target.value))}
+            onInput={acceptNum}
+            maxLength={12}
+            required
+          />
+          <Input
+            type="text"
+            placeholder="Color"
+            value={color}
+            onChange={(e) => setColor(e.target.value)}
             required
           />
           <Input
             type="text"
             placeholder="Modelo"
             value={modelo}
-            onChange={(e) => setModelo(e.target.value)}
-            onInput={(evt) => acceptNum(evt)}
+            onChange={(e) => setModelo(parseInt(e.target.value))}
+            onInput={acceptNum}
             maxLength={4}
             required
           />
           <Input
             type="text"
             placeholder="Cilindraje"
-            onChange={(e) => setCilindraje(e.target.value)}
-            onInput={(evt) => acceptNum(evt)}
+            value={cilindraje}
+            onChange={(e) => setCilindraje(parseInt(e.target.value))}
+            onInput={acceptNum}
             maxLength={5}
             required
           />
           <Input
-            type="text"
-            placeholder="Color"
-            onChange={(e) => setColor(e.target.value)}
+            placeholder="Número del motor"
+            value={motor}
+            onChange={(e) => setMotor(e.target.value)}
+            maxLength={12}
             required
           />
-          <Input
-            type="text"
-            placeholder="numero del motor"
-            onChange={(e) => setMotor(e.target.value)}
-            maxLength={15}
-            required
-          />  
-          <Input
-            type="text"
-            placeholder="kilometraje"
-            onChange={(e) => setKilometraje(e.target.value).toUpperCase()}
-            onInput={(evt) => acceptNum(evt)}
-            maxLength={30}
-            required
-          />  
           <ContainLablSelect>
             <ContainLabel>
               <Label>Tipo de combustible: </Label>
             </ContainLabel>
             <ContainSelect>
-              <SelectInputCombustible />
+              <select
+                value={selectedTipoCombustible}
+                onChange={(e) => setSelectedTipoCombustible(parseInt(e.target.value))}
+              >
+                <option value={0}>Seleccione un tipo de combustible</option>
+                {tipoCombustible.map((item) => (
+                  <option
+                    key={item.id_combustible}
+                    value={item.id_combustible}
+                  >
+                    {item.combustible_type}
+                  </option>
+                ))}
+              </select>
             </ContainSelect>
           </ContainLablSelect>
           <ContainLablSelect style={{ marginTop: "10px" }}>
@@ -276,11 +245,25 @@ const FormularioVehiculo = () => {
               <Label>Tipo de carrocería: </Label>
             </ContainLabel>
             <ContainSelect>
-              <SelectInputCarroceria />
+              <select
+                value={selectedTipoCarroceria}
+                onChange={(e) => setSelectedTipoCarroceria(parseInt(e.target.value))}
+              >
+                <option value={0}>Seleccione un tipo de carrocería</option>
+                {tipoCarroceria.map((item) => (
+                  <option
+                    key={item.id_carroceria}
+                    value={item.id_carroceria}
+                  >
+                    {item.carroceria_type}
+                  </option>
+                ))}
+              </select>
             </ContainSelect>
           </ContainLablSelect>
-
-          <Button type="submit" onClick={add}>Enviar</Button>
+          <Button type="submit" onClick={handleSumit}>
+            Enviar
+          </Button>
         </FormV>
       </ContainFormV>
     </ContainerRegisterV>
