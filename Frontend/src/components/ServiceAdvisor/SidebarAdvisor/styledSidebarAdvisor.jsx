@@ -58,6 +58,12 @@ export const NavbarAdvisor1 = [
   },
   {
     id: 6,
+    label: "Cotización ",
+    icon: <i className="fa-solid fa-money-check-dollar"></i>,
+    to: "/advisor/cotizacion"
+  },
+  {
+    id: 7,
     label: "Registro de salida vehiculos ",
     icon: <i className="fa-solid fa-right-from-bracket"></i>,
     to: "/advisor/registrosalida"
