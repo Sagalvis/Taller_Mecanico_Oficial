@@ -6,7 +6,7 @@ import {colors} from "../styles/Theme.jsx"
 export const SidebarContainer = styled.div`
   width: ${({ $isopen }) => (!$isopen ? `70px` : `325px`)};
   transition: width 0.3s;
-  background: ${colors.sd};
+  background: #222;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -38,6 +38,7 @@ position: absolute;
 `;
 
 export const Icon1 = styled.div`
+color: white;
 `
 
 /* Inicio contenedor Search y Perfil Sidebar */
@@ -58,7 +59,7 @@ export const ContainNameP = styled.div`
   align-items:center;
 `
 export const Perfil = styled.div`
-  background-color: blue;
+  background-color: #ffffff;
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -71,10 +72,12 @@ export const ImgP = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 50%;
+
 `;
 export const NameP = styled.div`
 font-weight: 500;
   margin: 0;
+  color: white;
 `;
 /* Final contenedor Search y Perfil Sidebar */
 
@@ -92,6 +95,9 @@ width: 100%;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  :hover{
+    color: black;
+  }
 `
 
 export const LinkContainer = styled.div`
@@ -104,6 +110,7 @@ export const LinkContainer = styled.div`
   :hover {
     background-color: ${({$isactive}) => ($isactive ? 'transparent' : `${colors.to}`)};
     border-radius: 10px;
+
   }
 `;
 
@@ -122,7 +129,8 @@ export const LinkIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color:${colors.ic};
+  color:white;
+
 `;
 
 export const LinkLabel = styled.div`
@@ -131,7 +139,7 @@ export const LinkLabel = styled.div`
   display: flex;
   align-items: center;
   border-radius: 10px;
-  color:${colors.text};
+  color:white;
 `;
 
 export const Navbar1 = [
