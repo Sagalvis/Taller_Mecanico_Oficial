@@ -11,7 +11,7 @@ export const getVehicle = async (req, res) => {
 
 export const selectCarroceria = async (req, res) => {
   try {
-    const [row] = await pool.query("SELECT from carroceria");
+    const [row] = await pool.query("SELECT * from chassis");
     res.json(row);
   } catch (error) {
     res.status(500).json({ message: "error cannot find the carroceria" });

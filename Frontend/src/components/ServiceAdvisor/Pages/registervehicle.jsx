@@ -15,6 +15,7 @@ import {
   ContainerRegisterV,
   FormV,
   Label,
+  SelectInputV
 } from "./styles/styledRegisterV";
 import Axios from "axios";
 
@@ -31,7 +32,7 @@ const FormularioVehiculo = () => {
   const [cilindraje, setCilindraje] = useState();
   const [motor, setMotor] = useState("");
   const [kilometraje, setKilometraje] = useState();
-  const [selectedTipoVehicle, setSelectedTipoVehicle] = useState();
+  const [selectedTipoVehicle, setSelectedTipoVehicle] = useState(0);
   const [selectedTipoCombustible, setSelectedTipoCombustible] = useState(0);
   const [selectedTipoCarroceria, setSelectedTipoCarroceria] = useState();
 
@@ -92,18 +93,18 @@ const FormularioVehiculo = () => {
     }
 
     // Limpia los campos del formulario
-    setDocumentoIdentidad("");
+    setDocumentoIdentidad(0);
     setPlaca("");
     setMarca("");
-    setTarjetaProdiedad("");
+    setTarjetaProdiedad(0);
     setColor("");
-    setModelo("");
-    setCilindraje("");
+    setModelo(0);
+    setCilindraje(0);
     setMotor(""); // Cambiado a string
-    setKilometraje("");
-    setSelectedTipoVehicle("");
-    setSelectedTipoCombustible("");
-    setSelectedTipoCarroceria("");
+    setKilometraje(0);
+    setSelectedTipoVehicle(0);
+    setSelectedTipoCombustible(0);
+    setSelectedTipoCarroceria(0);
   };
 
   function acceptNum(evt) {
@@ -126,7 +127,7 @@ const FormularioVehiculo = () => {
               <Label>Tipo de vehiculos:</Label>
             </ContainLabel>
             <ContainSelect>
-              <select
+              <SelectInputV
                 value={selectedTipoVehicle}
                 onChange={(e) => setSelectedTipoVehicle(parseInt(e.target.value))}
               >
@@ -139,7 +140,7 @@ const FormularioVehiculo = () => {
                     {item.type_vehicle}
                   </option>
                 ))}
-              </select>
+              </SelectInputV>
             </ContainSelect>
           </ContainLablSelect>
           <Input
@@ -224,20 +225,20 @@ const FormularioVehiculo = () => {
               <Label>Tipo de combustible: </Label>
             </ContainLabel>
             <ContainSelect>
-              <select
+              <SelectInputV
                 value={selectedTipoCombustible}
                 onChange={(e) => setSelectedTipoCombustible(parseInt(e.target.value))}
               >
                 <option value={0}>Seleccione un tipo de combustible</option>
                 {tipoCombustible.map((item) => (
                   <option
-                    key={item.id_combustible}
-                    value={item.id_combustible}
+                    key={item.id_fuel}
+                    value={item.id_fuel}
                   >
-                    {item.combustible_type}
+                    {item.fuel_type}
                   </option>
                 ))}
-              </select>
+              </SelectInputV>
             </ContainSelect>
           </ContainLablSelect>
           <ContainLablSelect style={{ marginTop: "10px" }}>
@@ -245,20 +246,20 @@ const FormularioVehiculo = () => {
               <Label>Tipo de carrocería: </Label>
             </ContainLabel>
             <ContainSelect>
-              <select
+              <SelectInputV
                 value={selectedTipoCarroceria}
                 onChange={(e) => setSelectedTipoCarroceria(parseInt(e.target.value))}
               >
                 <option value={0}>Seleccione un tipo de carrocería</option>
                 {tipoCarroceria.map((item) => (
                   <option
-                    key={item.id_carroceria}
-                    value={item.id_carroceria}
+                    key={item.id_chassis}
+                    value={item.id_chassis}
                   >
-                    {item.carroceria_type}
+                    {item.chassis_type}
                   </option>
                 ))}
-              </select>
+              </SelectInputV>
             </ContainSelect>
           </ContainLablSelect>
           <Button type="submit" onClick={handleSumit}>
@@ -270,4 +271,4 @@ const FormularioVehiculo = () => {
   );
 };
 
-export default FormularioVehiculo;
+export default FormularioVehiculo

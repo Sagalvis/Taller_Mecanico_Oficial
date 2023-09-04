@@ -64,7 +64,7 @@ export const ContainSelect = styled.div`
   width: 50%;
 `;
 
-export const SelectInputV = styled(Select)`
+export const SelectInputV = styled.select`
   width: 90%;
   border: none;
   border-radius: 4px;

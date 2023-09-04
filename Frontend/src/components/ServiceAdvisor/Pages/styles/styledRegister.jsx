@@ -4,6 +4,7 @@ export const ContainerRegister = styled.div`
   width: 97%;
   height: 100%;
   /* background-color: green; */
+  background-image: url('');
   display: flex;
   flex-direction: column;
   align-items: center;
