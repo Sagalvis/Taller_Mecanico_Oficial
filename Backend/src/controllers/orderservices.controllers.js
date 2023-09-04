@@ -37,3 +37,17 @@ export const deleteProducts = async (req,res) => {
     });
   }
 }
+
+export const createReason = async (req, res) => {
+  try {
+    const { reason } =req.body;
+    const [rows] = await pool.query('INSERT INTO FORM_ENTRY (REASON) VALUES (?)', [reason]);
+    res.send({
+      reason,
+    })
+  } catch (error) {
+    return res.status(404).json({
+
+    })
+  }
+}
