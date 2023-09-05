@@ -1,7 +1,9 @@
 import Logo from "../../../assets/svg/transforCars.svg";
 import InputAdd from "./archive/OptionsService";
+import { useState } from "react"
 // import InputAdd from "./archive/OptionsService";
 import OptionsService from "./archive/OptionsService";
+import axios from "axios";
 
 import {
   Button,
@@ -22,8 +24,29 @@ import {
   ThisLogo,
   TitleH2,
 } from "./styles/styledOrder";
+import React from "react";
 
 const OrderService = () => {
+  const [identification, setIdentification] = useState('')
+  const [matricula, setMatricula] = useState('')
+  const [mechanicReport, setMechanitReport] = useState('')
+
+  const actualizacion = async (e) => {
+    e.preventDefault();
+    
+
+    try {
+      const response = await axios.patch(`https://localhost/products/${identification}/${matricula}`, {
+        mechanic_report: mechanicReport,
+      });
+      console.log(response);
+
+      console.log('Actualización exitosa:', response.data);
+    } catch (error) {
+      console.error('Error al actualizar:', error);
+    }
+  };
+
   return (
     <>
       <ContainMain>
@@ -44,15 +67,16 @@ const OrderService = () => {
           </h2>
 
           <ContainInput>
-          <Input type="text" placeholder="Cedula"/>
-          <Input type="text" placeholder="Placa"/>
+          <Input type="text" placeholder="Cedula" onChange={(e) => setIdentification(e.target.value)}/>
+          <Input type="text" placeholder="Placa" onChange={(e) => setMatricula(e.target.value)}/>
           </ContainInput>
 
           <ContainTextArea>
             <TextArea
-              placeholder="¿Info mecanico? (Opcional)"
+              placeholder="¿Info mecanico? "
               rows={6}
               cols={50}
+              onChange={(e) => setMechanitReport(e.target.value)}
             />
           </ContainTextArea>
 
@@ -69,7 +93,7 @@ const OrderService = () => {
           </ContainProducts>
 
           <ContainButtons>
-            <Button>Realizar cotización</Button>
+            <Button onClick={actualizacion}>Realizar cotización</Button>
           </ContainButtons>
         </OrderContain>
 
