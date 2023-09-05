@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import fondo from '../../../assets/27650278_wangs_61.jpg'
 
 export const ContainerLayoutAdvisor = styled.div`
     height: 100%;
@@ -11,5 +12,9 @@ export const ContainerPagesAdvisor = styled.div`
     height: 100vh;
     display: flex;
     justify-content: center;
-    background-color: #dcdcdc;
+    background-image: url(${fondo});
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 `;

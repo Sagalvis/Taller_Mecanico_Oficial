@@ -3,7 +3,8 @@ import RegisterAdvisor from "../Pages/Register";
 import RegisterVehicle from "../Pages/registervehicle";
 import RegisterHojaV from "../Pages/registerHoja";
 import OrderService from "../Pages/OrdenServicio";
-import RegisterSalida from "../Pages/registerSalida"
+import Factura from "../Pages/registerSalida"
+import Cotizacion from "../Pages/Cotizacion";
 
 const RoutesAdvisor = () => {
   return ( 
@@ -12,7 +13,8 @@ const RoutesAdvisor = () => {
       <Route path="/registervehicle" element={<RegisterVehicle/>} />
       <Route path="/registerhojav" element={<RegisterHojaV/>} />
       <Route path="/orderservice" element={<OrderService/>}/>
-      <Route path="/registrosalida" element={<RegisterSalida/>}/>
+      <Route path="/registrosalida" element={<Factura/>}/>
+      <Route path="/cotizacion" element={<Cotizacion/>}/>
     </Routes>
   );
 }
