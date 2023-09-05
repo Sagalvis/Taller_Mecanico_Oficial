@@ -155,11 +155,16 @@ const RegisterHojaV = () => {
               </Tr>
             </Thead>
             <Tbody>
+              <Tr>
               {typeBike.map((item) => (
                 <p key={item.id_check_bike} style={{textTransform: 'uppercase'}}>
                   {item.part_bike}
-
-                  <SelectInputV
+                  
+                  
+                </p>
+              ))}
+              </Tr>
+            <SelectInputV
                     name=""
                     id=""
                     value={status}
@@ -175,8 +180,9 @@ const RegisterHojaV = () => {
                       </option>
                     ))}
                   </SelectInputV>
-                </p>
-              ))}
+            </Tbody>
+            <Tbody>
+
             </Tbody>
           </Table>
         </ContainInventarioBike>
@@ -192,7 +198,8 @@ const RegisterHojaV = () => {
               </Tr>
             </Thead>
             <Tbody>
-              <></>
+              <Tr>jj</Tr>
+              <Td>jj</Td>
             </Tbody>
           </Table>
         </ContainInventarioAuto>
