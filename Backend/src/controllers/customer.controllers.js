@@ -11,6 +11,16 @@ export const getUsers = async (req, res) => {
   }
 };
 
+export const getId = async (req, res) => {
+  try {
+    const [rows] = await pool.query("SELECT identification FROM customer");
+    res.send(rows);
+  } catch (error) {
+    return res.status(404).json({
+      message: "Not found wawawawaw",
+    });
+  }
+};
 
 export const Login = async (req, res) => {
   try {

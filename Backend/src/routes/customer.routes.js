@@ -5,6 +5,7 @@ const router = Router()
 
 router.get('/customer', userCrtl.getUsers)
 
+router.get('/customer/:id', userCrtl.getId)
 
 router.post('/advisor', userCrtl.CreatingAdvisor)
 
