@@ -18,19 +18,18 @@ import {
   Table,
   Tr,
   Th,
-  Tbody,
   Thead,
   ContainInventario,
   NameInventario,
   ContainerNameSelect,
   SelectInpuHoja,
+  ContainSelectHoja,
 } from "./styles/styledRegisterH";
 import {
   ContainLabel,
   ContainLablSelect,
   ContainSelect,
   Label,
-
 } from "./styles/styledRegisterV";
 import { TextArea } from "./styles/styledOrder";
 
@@ -40,10 +39,7 @@ const RegisterHojaV = () => {
   const [motivo, setMotivo] = useState("");
   const [placa, setPlaca] = useState([]);
   const [selectPlaca, setSelectPlaca] = useState(null);
-  // VARIABLES DE ESTADO PARA INVENTARIO DE VEHICULO
-  const [status, setStatus] = useState(0);
-  const [bike, setBike] = useState(0);
-  const [car, setCar] = useState(0);
+
   // VARIABLES DE ESTADO PARA INVENTARIO DE VEHICULO EN MODO ARRAY
   const [typeStatus, setTypeStatus] = useState([]);
   const [typeBike, setTypeBike] = useState([]);
@@ -76,7 +72,7 @@ const RegisterHojaV = () => {
     console.log(res.data);
   };
 
-  //  GET PARA INVENTARIO DE MOTOS Y AUTOS
+  // GET PARA INVENTARIO DE MOTOS Y AUTOS
   useEffect(() => {
     const fetchData = async () => {
       const getStatus = await Axios.get("http://localhost:3005/selectstatus");
@@ -84,7 +80,7 @@ const RegisterHojaV = () => {
       const getCheckBike = await Axios.get(
         "http://localhost:3005/selectcheckbike"
       );
-      setTypeBike(getCheckBike.data);
+      setTypeBike(getCheckBike.data.map((item) => ({ ...item, status: 0 })));
       const getCheckCar = await Axios.get(
         "http://localhost:3005/selectcheckcar"
       );
@@ -131,7 +127,6 @@ const RegisterHojaV = () => {
           <Input
             type="date"
             placeholder="Entrada"
-            /* value={estadoIngreso} */
             onChange={(e) => setFecha(e.target.value)}
             required
           />
@@ -154,41 +149,41 @@ const RegisterHojaV = () => {
             <Thead>
               <Tr>
                 <Th>Check</Th>
-                
                 <Th>Estado (OK - R - M)</Th>
               </Tr>
-              
             </Thead>
-              </Table>
-            <ContainInventario>
-                {typeBike.map((item) => (
-                  <ContainerNameSelect
-                    key={item.id_check_bike}
-                    style={{ textTransform: "uppercase" }}
+          </Table>
+          <ContainInventario>
+            {typeBike.map((item) => (
+              <ContainerNameSelect key={item.id_check_bike}>
+                <NameInventario>{item.part_bike}</NameInventario>
+                <ContainSelectHoja>
+                  <SelectInpuHoja
+                    value={item.status}
+                    onChange={(e) => {
+                      const updatedTypeBike = typeBike.map((bike) => {
+                        if (bike.id_check_bike === item.id_check_bike) {
+                          return { ...bike, status: parseInt(e.target.value) };
+                        }
+                        return bike;
+                      });
+                      setTypeBike(updatedTypeBike);
+                    }}
                   >
-                    <NameInventario>{item.part_bike}</NameInventario>
-
-                    <SelectInpuHoja
-                      name=""
-                      id=""
-                      value={status}
-                      onChange={(e) => setStatus(parseInt(e.target.value))}
-                    >
-                      <option value={0}>...</option>
-                      {typeStatus.map((item) => (
-                        <option
-                          key={item.id_status_entry}
-                          value={item.id_status_entry}
-                        >
-                          {item.status}
-                        </option>
-                      ))}
-                    </SelectInpuHoja>
-                  </ContainerNameSelect>
-                ))}
-              </ContainInventario>
-              
-            
+                    <option value={0}>...</option>
+                    {typeStatus.map((statusItem) => (
+                      <option
+                        key={statusItem.id_status_entry}
+                        value={statusItem.id_status_entry}
+                      >
+                        {statusItem.status}
+                      </option>
+                    ))}
+                  </SelectInpuHoja>
+                </ContainSelectHoja>
+              </ContainerNameSelect>
+            ))}
+          </ContainInventario>
         </ContainInventarioBike>
         <ContainInventarioAuto>
           <ContainH2Auto>
@@ -198,13 +193,38 @@ const RegisterHojaV = () => {
             <Thead>
               <Tr>
                 <Th>Check</Th>
-                <Th>Estado</Th>
+                <Th>Estado (OK - R - M)</Th>
               </Tr>
             </Thead>
-            <Tbody>
-              <></>
-            </Tbody>
           </Table>
+          <ContainInventario>
+            {typeCar.map((item) => (
+              <ContainerNameSelect key={item.id_check_car}>
+                <NameInventario> {item.part_car}</NameInventario>
+                <ContainSelectHoja>
+                  <SelectInpuHoja value={item.status} onChange={(e)=>{
+                    const updateTypeCar = typeCar.map((car) => {
+                      if (car.id_check_car == item.id_check_car){
+                        return{...car , status :parseInt( e.target.value)} ;
+                      }
+                      return car;
+                    });
+                    setTypeCar(updateTypeCar)
+                  }}>
+                    <option value={0}>...</option>
+                    {typeStatus.map((statusItem) => (
+                      <option key={statusItem.id_status_entry} value={statusItem.id_status_entry}>
+                        {statusItem.status}
+                      </option>
+                    ))
+
+                    }
+                  </SelectInpuHoja>
+                </ContainSelectHoja>
+
+              </ContainerNameSelect>
+            ))}
+          </ContainInventario>
         </ContainInventarioAuto>
       </ContainForm>
     </ContainerEntrada>
