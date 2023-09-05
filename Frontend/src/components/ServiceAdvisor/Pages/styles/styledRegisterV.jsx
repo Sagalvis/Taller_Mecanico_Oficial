@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Select from "react-select";
 
 export const ContainerRegisterV = styled.div`
   width: 97%;
@@ -29,7 +28,7 @@ export const FormV = styled.form`
   width: 100%;
   height: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
 `;
 

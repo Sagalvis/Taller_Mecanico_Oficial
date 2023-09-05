@@ -17,7 +17,7 @@ export const ContainTitle = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #000;
+  background-color: #041737;
   width: 350px;
   height: 100%;
   border-radius: 8px;
@@ -37,13 +37,13 @@ export const ContainForm = styled.div`
   background-color: #ffffff9d;
   padding: 1rem;
   width: 60%;
-  height: 60%;
+  height: 70%;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
 `;
 
 export const ContainH2 = styled.div`
-  background-color: #000;
+  background-color: #041737;
   color: #fff;
   width: 84%;
   border-radius: 4px;
@@ -91,7 +91,7 @@ export const Input = styled.input`
 export const Button = styled.button`
   display: inline-block;
   padding: 10px 20px;
-  background-color: #222;
+  background-color: #041737;
   color: white;
   text-align: center;
   text-decoration: none;
