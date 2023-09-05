@@ -18,16 +18,19 @@ import {
   Table,
   Tr,
   Th,
-  Td,
   Tbody,
   Thead,
+  ContainInventario,
+  NameInventario,
+  ContainerNameSelect,
+  SelectInpuHoja,
 } from "./styles/styledRegisterH";
 import {
   ContainLabel,
   ContainLablSelect,
   ContainSelect,
   Label,
-  SelectInputV,
+
 } from "./styles/styledRegisterV";
 import { TextArea } from "./styles/styledOrder";
 
@@ -151,40 +154,41 @@ const RegisterHojaV = () => {
             <Thead>
               <Tr>
                 <Th>Check</Th>
+                
                 <Th>Estado (OK - R - M)</Th>
               </Tr>
+              
             </Thead>
-            <Tbody>
-              <Tr>
-              {typeBike.map((item) => (
-                <p key={item.id_check_bike} style={{textTransform: 'uppercase'}}>
-                  {item.part_bike}
-                  
-                  
-                </p>
-              ))}
-              </Tr>
-            <SelectInputV
-                    name=""
-                    id=""
-                    value={status}
-                    onChange={(e) => setStatus(parseInt(e.target.value))}
+              </Table>
+            <ContainInventario>
+                {typeBike.map((item) => (
+                  <ContainerNameSelect
+                    key={item.id_check_bike}
+                    style={{ textTransform: "uppercase" }}
                   >
-                    <option value={0}>...</option>
-                    {typeStatus.map((item) => (
-                      <option
-                        key={item.id_status_entry}
-                        value={item.id_status_entry}
-                      >
-                        {item.status}
-                      </option>
-                    ))}
-                  </SelectInputV>
-            </Tbody>
-            <Tbody>
+                    <NameInventario>{item.part_bike}</NameInventario>
 
-            </Tbody>
-          </Table>
+                    <SelectInpuHoja
+                      name=""
+                      id=""
+                      value={status}
+                      onChange={(e) => setStatus(parseInt(e.target.value))}
+                    >
+                      <option value={0}>...</option>
+                      {typeStatus.map((item) => (
+                        <option
+                          key={item.id_status_entry}
+                          value={item.id_status_entry}
+                        >
+                          {item.status}
+                        </option>
+                      ))}
+                    </SelectInpuHoja>
+                  </ContainerNameSelect>
+                ))}
+              </ContainInventario>
+              
+            
         </ContainInventarioBike>
         <ContainInventarioAuto>
           <ContainH2Auto>
@@ -198,8 +202,7 @@ const RegisterHojaV = () => {
               </Tr>
             </Thead>
             <Tbody>
-              <Tr>jj</Tr>
-              <Td>jj</Td>
+              <></>
             </Tbody>
           </Table>
         </ContainInventarioAuto>
