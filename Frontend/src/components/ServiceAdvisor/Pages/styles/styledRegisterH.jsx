@@ -151,6 +151,7 @@ export const ContainInventarioBike = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 1rem;
+  padding: 10px;
   overflow-y: scroll;
   background-color: #dcdcdc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
@@ -215,6 +216,7 @@ export const ContainInventarioAuto = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 1rem;
+  padding: 10px;
   overflow-y: scroll;
   background-color: #dcdcdc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
@@ -235,7 +237,7 @@ export const TitleH2Auto = styled.h2`
 `;
 
 export const SelectInpuHoja = styled.select`
-  width: 60%;
+  width: 95%;
   height: 70%;
   border: none;
   border-radius: 10px;
@@ -250,17 +252,24 @@ export const ContainInventario = styled.div`
 
   height: 100%;
   width: 100%;
+
+  
+`
+export const ContainSelectHoja = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `
 export const ContainerNameSelect = styled.div`
-
 width: 100%;
 height: 7%;
 display: flex;
-justify-content: space-around;
 
 `
 export const NameInventario = styled.div`
 
-  width: 60%;
+  width: 100%;
   height: 100%;
+  
+
 `
