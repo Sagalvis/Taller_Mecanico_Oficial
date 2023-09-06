@@ -74,7 +74,7 @@ const Cotizacion = () => {
           </InfoClient>
           <InfoClient>
             <ContainInfor>
-              <InforP1>Tipop de vehiculo:</InforP1>
+              <InforP1>Tipo de vehiculo:</InforP1>
               <InfoP>[BD]</InfoP>
             </ContainInfor>
             <ContainInfor>
