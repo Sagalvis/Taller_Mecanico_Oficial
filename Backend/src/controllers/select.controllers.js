@@ -65,8 +65,8 @@ export const getSelectCheckBike = async (req, res) => {
     });
   }
 }
-
-export const getSelectCheckCar = async (req, res) => {0
+/* se borro un 0 que estaba asi export const getSelectCheckCar = async (req, res) => {0 */
+export const getSelectCheckCar = async (req, res) => {
   try{
     const [row] = await pool.query('SELECT * FROM check_car')
     res.json(row)
@@ -74,5 +74,19 @@ export const getSelectCheckCar = async (req, res) => {0
     return res.status(404).json({       
       message: "Register in database was not found",
     });
+  }
+}
+
+/* Traer informacion cliente y vehiculo para la factura */
+
+
+export const getClienteFactura = async(req, res) =>{
+  try {
+    const [row] = await pool.query('SELECT * FROM customer')
+    res.json(row)
+  } catch (error) {
+    return res.status(404).json({
+      message: "Register in database was not found"
+    })
   }
 }
