@@ -156,7 +156,7 @@ const RegisterHojaV = () => {
           <ContainInventario>
             {typeBike.map((item) => (
               <ContainerNameSelect key={item.id_check_bike}>
-                <NameInventario>{item.part_bike}</NameInventario>
+                <NameInventario style={{textTransform: 'uppercase'}}>{item.part_bike}</NameInventario>
                 <ContainSelectHoja>
                   <SelectInpuHoja
                     value={item.status}
@@ -200,7 +200,7 @@ const RegisterHojaV = () => {
           <ContainInventario>
             {typeCar.map((item) => (
               <ContainerNameSelect key={item.id_check_car}>
-                <NameInventario> {item.part_car}</NameInventario>
+                <NameInventario style={{textTransform: 'uppercase'}}>{item.part_car}</NameInventario>
                 <ContainSelectHoja>
                   <SelectInpuHoja value={item.status} onChange={(e)=>{
                     const updateTypeCar = typeCar.map((car) => {

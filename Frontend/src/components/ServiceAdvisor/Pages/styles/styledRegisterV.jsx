@@ -17,8 +17,8 @@ export const ContainFormV = styled.div`
   align-items: center;
   background-color: #ffffff9d;
   padding: 1rem;
-  width: 70%;
-  height: 93%;
+  width: 65%;
+  height: 85%;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
 `;
