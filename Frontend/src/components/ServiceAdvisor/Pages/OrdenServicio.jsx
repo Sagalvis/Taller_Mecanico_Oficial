@@ -8,14 +8,14 @@ import axios from "axios";
 import {
   Button,
   ContainButtons,
-  ContainH2,
+  // ContainH2,
   ContainInfo,
   ContainInput,
   ContainMain,
-  ContainProducts,
+  // ContainProducts,
   ContainTextArea,
   DividierOrderFactura,
-  HistoryOrder,
+  // HistoryOrder,
   Info,
   InfoH1,
   InfoP,
@@ -23,7 +23,7 @@ import {
   OrderContain,
   TextArea,
   ThisLogo,
-  TitleH2,
+  // TitleH2,
   TittleInfo,
 } from "./styles/styledOrder";
 
@@ -81,27 +81,25 @@ const OrderService = () => {
               onChange={(e) => setMechanitReport(e.target.value)}
             />
           </ContainTextArea>
-
+{/* 
           <ContainProducts>
             <ContainH2>
               <TitleH2>PRODUCTOS</TitleH2>
             </ContainH2>
 
             <ContainInput>
-              {/* <Input type="text"/>
-            <button style={{height: '50%'}}><i className="fa-solid fa-plus"></i></button> */}
               {InputAdd()}
             </ContainInput>
-          </ContainProducts>
+          </ContainProducts> */}
 
           <ContainButtons>
             <Button onClick={actualizacion}>Realizar cotización</Button>
           </ContainButtons>
         </OrderContain>
 
-        <HistoryOrder>
+        {/* <HistoryOrder>
           <>dd</>
-        </HistoryOrder>
+        </HistoryOrder> */}
       </ContainMain>
     </>
   );
