@@ -64,8 +64,8 @@ const RegisterHojaV = () => {
 
   const postFormulario = async () => {
     const res = await Axios.post("http://localhost:3005/send", {
-      fecha_entrada: fecha,
-      motivo: motivo,
+      date_entry: fecha,
+      reason: motivo,
       identification: cedula,
       matricula: selectPlaca,
     });
