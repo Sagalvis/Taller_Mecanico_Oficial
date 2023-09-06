@@ -14,7 +14,11 @@ const InputAdd = () => {
 
   const handleInputChange = (index, value) => {
     setInputs(inputs.map((input, i) => (i === index ? value : input)));
+
+    localStorage.setItem(`producto-${index}`, value);
   };
+   // se agrega el valor al localstorage
+   
 
   const handleSubmit = (e) => {
     e.preventDefault();

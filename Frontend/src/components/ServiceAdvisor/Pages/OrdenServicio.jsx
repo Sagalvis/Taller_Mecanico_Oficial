@@ -28,31 +28,6 @@ import {
 } from "./styles/styledOrder";
 
 
-/* const OrderService = () => {
-  const [identification, setIdentification] = useState('')
-  const [matricula, setMatricula] = useState('')
-  const [mechanicReport, setMechanitReport] = useState('')
-
-  const actualizacion = async (e) => {
-    e.preventDefault();
-    
-
-    try {
-      const response = await axios.patch(`http://localhost/products/${identification}/${matricula}`, {
-        mechanic_report: mechanicReport,
-      });
-      console.log(response, 'NO SE ENVIA LA INFORMACION');
-
-      console.log('Actualización exitosa:', response.data);
-    } catch (error) {
-      console.error('Error al actualizar:', error);
-      if (error.response){
-        console.error('Respuesta del servidor:', error.response.data)
-      }
-    }
-  };
-   */
-
     const OrderService = () => {
       const [identification, setIdentification] = useState('');
       const [matricula, setMatricula] = useState('');
@@ -66,8 +41,10 @@ import {
           const response = await axios.patch(`http://localhost:3005/products/${identification}/${matricula}`, {
             mechanic_report: mechanicReport,
           })
-          .then((Response)=> {
-            console.log(Response.data);
+          
+
+          .then((response)=> {
+            console.log(response.data);
               
           });   
           

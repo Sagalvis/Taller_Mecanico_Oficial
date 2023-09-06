@@ -74,6 +74,12 @@ const RegisterHojaV = () => {
 
   // GET PARA INVENTARIO DE MOTOS Y AUTOS
   useEffect(() => {
+    const typeBikeString = JSON.stringify.typeBike;
+    const typeCarString = JSON.stringify.typeCar;
+
+    localStorage.setItem(`typeBike`, typeBikeString);
+    localStorage.setItem(`typeCar`, typeCarString);
+    
     const fetchData = async () => {
       const getStatus = await Axios.get("http://localhost:3005/selectstatus");
       setTypeStatus(getStatus.data);
@@ -85,6 +91,7 @@ const RegisterHojaV = () => {
         "http://localhost:3005/selectcheckcar"
       );
       setTypeCar(getCheckCar.data);
+     
     };
     fetchData();
   }, []);
