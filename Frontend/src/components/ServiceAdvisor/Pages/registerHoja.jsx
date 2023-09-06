@@ -44,7 +44,7 @@ const RegisterHojaV = () => {
   const [typeStatus, setTypeStatus] = useState([]);
   const [typeBike, setTypeBike] = useState([]);
   const [typeCar, setTypeCar] = useState([]);
-
+  /* const [capturaBike, setCapBike] = useState([]); */
   function acceptNum(evt) {
     const input = evt.target.value;
     evt.target.value = input.replace(/[^\d]/g, "");
@@ -80,15 +80,20 @@ const RegisterHojaV = () => {
       const getCheckBike = await Axios.get(
         "http://localhost:3005/selectcheckbike"
       );
+      const array = [{date: typeBike}]
       setTypeBike(getCheckBike.data.map((item) => ({ ...item, status: 0 })));
+      console.log(array)
       const getCheckCar = await Axios.get(
         "http://localhost:3005/selectcheckcar"
       );
       setTypeCar(getCheckCar.data);
     };
+      
+    
     fetchData();
   }, []);
 
+  
   return (
     <ContainerEntrada>
       <ContainForm>
