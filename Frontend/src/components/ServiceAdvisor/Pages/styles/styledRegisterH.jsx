@@ -20,10 +20,11 @@ export const TitleH1 = styled.h1`
 
 export const ContainForm = styled.div`
   display: flex;
+  justify-content: center;
   background-color: #ffffffb7;
   gap: .4rem;
   padding: 1rem;
-  width: 80%;
+  width: 65%;
   height: 90%;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
@@ -137,137 +138,16 @@ export const Button = styled.button`
   }
 `;
 
-//ESTILOS DEL INVENTARIO DE LOS VEHICULOS
-// INVENTARIO DE MOTOS
-export const ContainInventarioBike = styled.div`
-  width: 31%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 10px;
-  overflow-y: scroll;
-  background-color: #cfe3fe;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
 
-`;
+// ESTILOS ORDEN DE REPARACION
 
-export const ContainH2Bike = styled.div`
-background: #005AA7;  
-background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);  
-background: linear-gradient(to right,  #005AA7, #79a1df); 
-  color: #fff;
-  width: 100%;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
-`;
+// export const ContainRepair = styled.div`
+//   background-color: green;
+//   padding: 10px;
+//   width: 70%;
+//   height: 100%;
+// `;
 
-export const TitleH2Bike = styled.h2`
-  display: flex;
-  justify-content: center;
-`;
-
-export const Table = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-  box-shadow: 9px 17px 22px -24px rgba(0,0,0,0.79);
-
-`;
-
-export const Thead = styled.thead`
-
-`;
-
-export const Tr = styled.tr`
+// export const H2 = styled.h2`
   
-`;
-
-export const Th = styled.th`
-width: 50%;
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  background-color: #fff;
-  border-radius: 4px;
-`;
-
-export const Tbody = styled.tbody`
-  font-size:.8rem;
-`;
-
-export const Td = styled.td`
-  padding: 5.4px;
-  text-transform: uppercase;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  
-`;
-
-
-// INVENTARIO DE AUTOS
-export const ContainInventarioAuto = styled.div`
-  width: 31%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 10px;
-  overflow-y: scroll;
-  background-color: #cfe3fe;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
-
-`;
-
-export const ContainH2Auto = styled.div`
-background: #005AA7;  
-background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);  
-background: linear-gradient(to right,  #005AA7, #79a1df); 
-  color: #fff;
-  width: 100%;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
-`;
-
-export const TitleH2Auto = styled.h2`
-  display: flex;
-  justify-content: center;
-`;
-
-export const SelectInpuHoja = styled.select`
-  width: 95%;
-  height: 70%;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  background-color: #eee;
-  color: #222;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
-  transition: box-shadow 0.3s ease;
-`
-
-export const ContainInventario = styled.div`
-
-  height: 100%;
-  width: 100%;
-
-  
-`
-export const ContainSelectHoja = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`
-export const ContainerNameSelect = styled.div`
-width: 100%;
-height: 7%;
-display: flex;
-
-`
-export const NameInventario = styled.div`
-
-  width: 100%;
-  height: 100%;
-  
-
-`
+// `;
