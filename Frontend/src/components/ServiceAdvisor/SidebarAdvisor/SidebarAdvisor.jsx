@@ -123,7 +123,7 @@ const SidebarAdvisor = () => {
           <LinkContainerBack
             key={id}
             $isactive={pathname === to}
-            style={!sideAdvisorOpne ? { width: `80%` } : { border: "none" }}
+            style={!sideAdvisorOpne ? { width: `80%`, backgroundColor:"#79a1df" } : { border: "none" , backgroundColor:"#79a1df"}}
           >
             <NavLink
               to={to}

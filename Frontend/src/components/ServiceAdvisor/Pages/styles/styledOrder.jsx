@@ -7,7 +7,7 @@ export const ContainMain = styled.div`
   width: 100%;
   height: 100vh;
   gap: 10px;
-  background-color: green;
+
 `;
 
 export const OrderContain = styled.div`

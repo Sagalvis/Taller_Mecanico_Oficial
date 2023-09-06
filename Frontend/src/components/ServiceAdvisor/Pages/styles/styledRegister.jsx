@@ -17,7 +17,10 @@ export const ContainTitle = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #041737;
+  background: #005AA7;  
+background: -webkit-linear-gradient(to top, #FFFDE4, #005AA7);  
+background: linear-gradient(to top, #79a1df, #005AA7); 
+
   width: 350px;
   height: 100%;
   border-radius: 8px;
@@ -43,7 +46,9 @@ export const ContainForm = styled.div`
 `;
 
 export const ContainH2 = styled.div`
-  background-color: #041737;
+  background: #005AA7;  
+background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);  
+background: linear-gradient(to right,  #005AA7, #79a1df); 
   color: #fff;
   width: 84%;
   border-radius: 4px;
@@ -91,12 +96,14 @@ export const Input = styled.input`
 export const Button = styled.button`
   display: inline-block;
   padding: 10px 20px;
-  background-color: #041737;
-  color: white;
+  background-color: #79a1df;
+  border: 2px solid #005AA7;
+  color: #ffffff;
   text-align: center;
   text-decoration: none;
   border-radius: 3px;
-  border: none;
+  font-size: 13px;
+
   cursor: pointer;
 
   &:hover {
