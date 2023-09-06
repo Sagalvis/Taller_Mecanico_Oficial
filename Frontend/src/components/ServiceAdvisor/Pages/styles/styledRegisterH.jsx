@@ -10,16 +10,7 @@ export const ContainerEntrada = styled.div`
   justify-content: center;
 `;
 
-export const ContainTitle = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: #000;
-  width: 350px;
-  height: 100%;
-  border-radius: 8px;
-`;
+
 
 export const TitleH1 = styled.h1`
   margin-bottom: 2rem;
@@ -40,7 +31,9 @@ export const ContainForm = styled.div`
 `;
 
 export const ContainH2 = styled.div`
-  background-color: #222;
+background: #005AA7;  
+background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);  
+background: linear-gradient(to right,  #005AA7, #79a1df); 
   color: #fff;
   width: 50%;
   border-radius: 4px;
@@ -117,13 +110,14 @@ export const TextArea = styled.textarea`
 export const Button = styled.button`
   display: inline-block;
   padding: 10px 20px;
-  background-color: #222;
-  color: white;
-  width: 25%;
+  background-color: #79a1df;
+  border: 2px solid #005AA7;
+  color: #ffffff;
   text-align: center;
   text-decoration: none;
   border-radius: 3px;
-  border: none;
+  font-size: 13px;
+
   cursor: pointer;
 
   &:hover {
@@ -153,13 +147,15 @@ export const ContainInventarioBike = styled.div`
   gap: 1rem;
   padding: 10px;
   overflow-y: scroll;
-  background-color: #dcdcdc;
+  background-color: #cfe3fe;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
 
 `;
 
 export const ContainH2Bike = styled.div`
-  background-color: #222;
+background: #005AA7;  
+background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);  
+background: linear-gradient(to right,  #005AA7, #79a1df); 
   color: #fff;
   width: 100%;
   border-radius: 4px;
@@ -218,13 +214,15 @@ export const ContainInventarioAuto = styled.div`
   gap: 1rem;
   padding: 10px;
   overflow-y: scroll;
-  background-color: #dcdcdc;
+  background-color: #cfe3fe;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
 
 `;
 
 export const ContainH2Auto = styled.div`
-  background-color: #222;
+background: #005AA7;  
+background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);  
+background: linear-gradient(to right,  #005AA7, #79a1df); 
   color: #fff;
   width: 100%;
   border-radius: 4px;

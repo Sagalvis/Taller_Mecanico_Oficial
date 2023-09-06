@@ -7,7 +7,7 @@ export const ContainMain = styled.div`
   width: 100%;
   height: 100vh;
   gap: 10px;
-  background-color: green;
+
 `;
 
 export const OrderContain = styled.div`
@@ -28,6 +28,7 @@ export const ContainInfo = styled.div`
   /* background-color: yellow; */
 `;
 
+
 export const ThisLogo = styled.img`
   width: 230px;
   height: 200px;
@@ -45,6 +46,17 @@ export const InfoP = styled.p`
   margin: 0;
 `;
 
+export const DividierOrderFactura = styled.div`
+  height: 1px;
+    width: 100%;
+    background: #000000;
+`
+
+export const TittleInfo = styled.h2`
+  text-align: center;
+  padding: 1.5rem 0;
+  margin: 0;
+`
 export const ContainTextArea = styled.div`
   display: flex;
   /* flex-direction: column; */

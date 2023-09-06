@@ -6,7 +6,7 @@ import { colors } from "../styles/Theme.jsx";
 export const SidebarContainer = styled.div`
   width: ${({ $isopen }) => (!$isopen ? `70px` : `325px`)};
   transition: width 0.3s;
-  background: #041737;
+  background: #5a8dd5;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -92,24 +92,22 @@ export const ContainNav = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  :hover {
-    color: black;
-  }
+
 `;
 
 export const LinkContainer = styled.div`
   width: 90%;
   height: 5%;
-  border-bottom: ${({ $isactive }) =>
-    $isactive ? `none` : `2px solid ${colors.to}`};
   background-color: ${({ $isactive }) =>
     $isactive ? `${colors.to}` : "transparent"};
-  border-radius: 10px;
+  border-left: ${({ $isactive }) =>
+    $isactive ? "5px solid #cfe3fe" : "transparent"};
+
   display: flex;
   :hover {
     background-color: ${({ $isactive }) =>
       $isactive ? "transparent" : `${colors.to}`};
-    border-radius: 10px;
+      
   }
 `;
 
@@ -120,7 +118,7 @@ export const NavLink = styled(Link)`
   width: 100%;
   text-decoration: none;
   font-size: 16px;
-  color: black;
+  color: white;
 `;
 
 export const LinkIcon = styled.h4`
@@ -137,6 +135,7 @@ export const LinkLabel = styled.h4`
   display: flex;
   align-items: center;
   border-radius: 10px;
+  font-weight: 300;
 `;
 
 export const Navbar1 = [

@@ -3,7 +3,7 @@ export const colors = {
   sd: "#ffffff",
   text: "#000000",
   ic:"#000000",
-  to: "#e8e8e8",
+  to: "#79a1df",
   primary: "#dcdcdc",
   bgAlpha: "rgba(227, 22, 22, 0.3)",
   bg2: "rgb(98, 198, 32)",
