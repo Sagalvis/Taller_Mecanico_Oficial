@@ -11,7 +11,7 @@ export const ContainMain = styled.div`
 `;
 
 export const OrderContain = styled.div`
-  background-color: #fff;
+  background-color: #ffffff9d;
   width: 40%;
   height: 90%;
   border-radius: 4px;
@@ -55,7 +55,7 @@ export const ContainTextArea = styled.div`
 export const ContainProducts = styled.div`
   background-color: #eee;
   padding: 10px;
-  height: 40%;
+  height: 35%;
   overflow-y: scroll;
   margin-bottom: 1rem;
 `;
@@ -73,6 +73,8 @@ export const ContainInput = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 50%;
+  margin-bottom: 10px;
 `;
 
 export const Input = styled.input`
@@ -96,6 +98,7 @@ export const Input = styled.input`
     color: #999;
     font-family: 'Consolas';
     font-size: .9rem;
+    text-transform: lowercase;
   }
 `;
 
@@ -156,7 +159,7 @@ export const TextArea = styled.textarea`
   }
   &::placeholder {
     color: #999;
-    font-family: "Outfit", sans-serif;
+    font-family: 'consolas';
     font-size: 0.9rem;
   }
 `;

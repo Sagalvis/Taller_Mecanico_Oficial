@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Select from "react-select";
 
 export const ContainerRegisterV = styled.div`
   width: 97%;
@@ -16,10 +15,10 @@ export const ContainFormV = styled.div`
   /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: #ffffff9d;
   padding: 1rem;
-  width: 70%;
-  height: 93%;
+  width: 65%;
+  height: 85%;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
 `;
@@ -29,7 +28,7 @@ export const FormV = styled.form`
   width: 100%;
   height: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
 `;
 
@@ -64,7 +63,7 @@ export const ContainSelect = styled.div`
   width: 50%;
 `;
 
-export const SelectInputV = styled(Select)`
+export const SelectInputV = styled.select`
   width: 90%;
   border: none;
   border-radius: 4px;

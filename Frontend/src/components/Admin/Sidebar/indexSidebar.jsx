@@ -101,8 +101,9 @@ const Sidebard = () => {
             style={
               !sidebarOpen ? { display: "flex", justifyContent: "flex-start" } : {}
             }
+            $isactive={pathname === to}
             >
-            <LinkIcon>{icon}</LinkIcon>
+            <LinkIcon >{icon}</LinkIcon>
             {sidebarOpen && (
               <>
                 <LinkLabel>{label}</LinkLabel>

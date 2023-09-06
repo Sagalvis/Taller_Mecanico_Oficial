@@ -118,12 +118,12 @@ const SidebarAdvisor = () => {
 
       <DividerSidebar />
 
-      <ContainNav style={{height:"10%"}}>
+      <ContainNav style={{ height: "10%" }}>
         {NavbarAdvisor2.map(({ id, label, icon, to }) => (
           <LinkContainerBack
             key={id}
             $isactive={pathname === to}
-            style={!sideAdvisorOpne ? { width: `80%` } : {border:"none" }}
+            style={!sideAdvisorOpne ? { width: `80%` } : { border: "none" }}
           >
             <NavLink
               to={to}

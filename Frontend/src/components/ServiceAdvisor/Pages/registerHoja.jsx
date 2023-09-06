@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import {
   Button,
@@ -18,18 +18,19 @@ import {
   Table,
   Tr,
   Th,
-  Td,
-  Tbody,
   Thead,
+  ContainInventario,
+  NameInventario,
+  ContainerNameSelect,
+  SelectInpuHoja,
+  ContainSelectHoja,
 } from "./styles/styledRegisterH";
 import {
   ContainLabel,
   ContainLablSelect,
   ContainSelect,
-  Label
+  Label,
 } from "./styles/styledRegisterV";
-import { OptionsSelectBike } from "../Pages/archive/OptionsSelect";
-import { OptionsSelectCar } from "../Pages/archive/OptionsSelect";
 import { TextArea } from "./styles/styledOrder";
 
 const RegisterHojaV = () => {
@@ -37,7 +38,12 @@ const RegisterHojaV = () => {
   const [fecha, setFecha] = useState("");
   const [motivo, setMotivo] = useState("");
   const [placa, setPlaca] = useState([]);
-  const [selectPlaca, setSelectPlaca] = useState(null)
+  const [selectPlaca, setSelectPlaca] = useState(null);
+
+  // VARIABLES DE ESTADO PARA INVENTARIO DE VEHICULO EN MODO ARRAY
+  const [typeStatus, setTypeStatus] = useState([]);
+  const [typeBike, setTypeBike] = useState([]);
+  const [typeCar, setTypeCar] = useState([]);
 
   function acceptNum(evt) {
     const input = evt.target.value;
@@ -57,15 +63,32 @@ const RegisterHojaV = () => {
   };
 
   const postFormulario = async () => {
-    const res = await Axios.post("http://localhost:3005/send",{
-      fecha_entrada: fecha,
-      motivo: motivo,
+    const res = await Axios.post("http://localhost:3005/send", {
+      date_entry: fecha,
+      reason: motivo,
       identification: cedula,
-      matricula: selectPlaca
+      matricula: selectPlaca,
     });
-    console.log(res.data)
+    console.log(res.data);
   };
-  
+
+  // GET PARA INVENTARIO DE MOTOS Y AUTOS
+  useEffect(() => {
+    const fetchData = async () => {
+      const getStatus = await Axios.get("http://localhost:3005/selectstatus");
+      setTypeStatus(getStatus.data);
+      const getCheckBike = await Axios.get(
+        "http://localhost:3005/selectcheckbike"
+      );
+      setTypeBike(getCheckBike.data.map((item) => ({ ...item, status: 0 })));
+      const getCheckCar = await Axios.get(
+        "http://localhost:3005/selectcheckcar"
+      );
+      setTypeCar(getCheckCar.data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <ContainerEntrada>
       <ContainForm>
@@ -94,7 +117,9 @@ const RegisterHojaV = () => {
             <ContainSelect>
               <select onChange={(e) => setSelectPlaca(e.target.value)}>
                 {placa.map((item, i) => (
-                  <option key={i} value={item}>{item}</option>
+                  <option key={i} value={item}>
+                    {item}
+                  </option>
                 ))}
               </select>
             </ContainSelect>
@@ -102,7 +127,6 @@ const RegisterHojaV = () => {
           <Input
             type="date"
             placeholder="Entrada"
-            /* value={estadoIngreso} */
             onChange={(e) => setFecha(e.target.value)}
             required
           />
@@ -113,7 +137,9 @@ const RegisterHojaV = () => {
             onChange={(e) => setMotivo(e.target.value)}
             required
           />
-          <Button type="submit" onClick={postFormulario}>Enviar</Button>
+          <Button type="submit" onClick={postFormulario}>
+            Enviar
+          </Button>
         </Form>
         <ContainInventarioBike>
           <ContainH2Bike>
@@ -123,18 +149,41 @@ const RegisterHojaV = () => {
             <Thead>
               <Tr>
                 <Th>Check</Th>
-                <Th>Estado</Th>
+                <Th>Estado (OK - R - M)</Th>
               </Tr>
             </Thead>
-            <Tbody>
-              {OptionsSelectBike.map((item, index) => (
-                <Tr key={index}>
-                  <Td>{item.nombre}</Td>
-                  <Td>{item.estado}</Td>
-                </Tr>
-              ))}
-            </Tbody>
           </Table>
+          <ContainInventario>
+            {typeBike.map((item) => (
+              <ContainerNameSelect key={item.id_check_bike}>
+                <NameInventario style={{textTransform: 'uppercase'}}>{item.part_bike}</NameInventario>
+                <ContainSelectHoja>
+                  <SelectInpuHoja
+                    value={item.status}
+                    onChange={(e) => {
+                      const updatedTypeBike = typeBike.map((bike) => {
+                        if (bike.id_check_bike === item.id_check_bike) {
+                          return { ...bike, status: parseInt(e.target.value) };
+                        }
+                        return bike;
+                      });
+                      setTypeBike(updatedTypeBike);
+                    }}
+                  >
+                    <option value={0}>...</option>
+                    {typeStatus.map((statusItem) => (
+                      <option
+                        key={statusItem.id_status_entry}
+                        value={statusItem.id_status_entry}
+                      >
+                        {statusItem.status}
+                      </option>
+                    ))}
+                  </SelectInpuHoja>
+                </ContainSelectHoja>
+              </ContainerNameSelect>
+            ))}
+          </ContainInventario>
         </ContainInventarioBike>
         <ContainInventarioAuto>
           <ContainH2Auto>
@@ -144,18 +193,38 @@ const RegisterHojaV = () => {
             <Thead>
               <Tr>
                 <Th>Check</Th>
-                <Th>Estado</Th>
+                <Th>Estado (OK - R - M)</Th>
               </Tr>
             </Thead>
-            <Tbody>
-              {OptionsSelectCar.map((item, index) => (
-                <Tr key={index}>
-                  <Td>{item.nombre}</Td>
-                  <Td>{item.estado}</Td>
-                </Tr>
-              ))}
-            </Tbody>
           </Table>
+          <ContainInventario>
+            {typeCar.map((item) => (
+              <ContainerNameSelect key={item.id_check_car}>
+                <NameInventario style={{textTransform: 'uppercase'}}>{item.part_car}</NameInventario>
+                <ContainSelectHoja>
+                  <SelectInpuHoja value={item.status} onChange={(e)=>{
+                    const updateTypeCar = typeCar.map((car) => {
+                      if (car.id_check_car == item.id_check_car){
+                        return{...car , status :parseInt( e.target.value)} ;
+                      }
+                      return car;
+                    });
+                    setTypeCar(updateTypeCar)
+                  }}>
+                    <option value={0}>...</option>
+                    {typeStatus.map((statusItem) => (
+                      <option key={statusItem.id_status_entry} value={statusItem.id_status_entry}>
+                        {statusItem.status}
+                      </option>
+                    ))
+
+                    }
+                  </SelectInpuHoja>
+                </ContainSelectHoja>
+
+              </ContainerNameSelect>
+            ))}
+          </ContainInventario>
         </ContainInventarioAuto>
       </ContainForm>
     </ContainerEntrada>

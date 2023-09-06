@@ -1,14 +1,15 @@
-import { ContainFormV, ContainerRegisterV } from "./styles/styledRegisterV";
+import { ContainFormVS } from "./styles/styledRegisterS";
+import { ContainerRegisterV } from "./styles/styledRegisterV";
 
 
-const RegisterSalida = () => {
+const Factura = () => {
   return ( 
     <ContainerRegisterV>
-      <ContainFormV>
+      <ContainFormVS>
         
-      </ContainFormV>
+      </ContainFormVS>
     </ContainerRegisterV>
   );
 }
 
-export default RegisterSalida;
+export default Factura;
