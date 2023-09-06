@@ -130,7 +130,7 @@ export const ContainerTarjetas = styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  justify-content: s;
+  justify-content: center;
 `;
 
 export const TitleInfo = styled.div`
