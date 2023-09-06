@@ -61,11 +61,14 @@ import React from "react";
     
         try {
           // Realizar la solicitud PATCH solo para actualizar mechanic_report
-          const response = await axios.patch(`http://localhost/products/${identification}/${matricula}`, {
+          const response = await axios.patch(`http://localhost:3005/products/${identification}/${matricula}`, {
             mechanic_report: mechanicReport,
-          });
-    
-          console.log('Actualización exitosa:', response.data);
+          })
+          .then((Response)=> {
+            console.log(Response.data);
+              
+          });   
+          
         } catch (error) {
           console.error('Error al actualizar:', error);
           if (error.response) {
