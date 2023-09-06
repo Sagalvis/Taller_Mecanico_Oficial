@@ -2,7 +2,7 @@ import Logo from "../../../assets/svg/transforCars.svg";
 import InputAdd from "./archive/OptionsService";
 import { useState } from "react"
 // import InputAdd from "./archive/OptionsService";
-import OptionsService from "./archive/OptionsService";
+
 import axios from "axios";
 
 import {
@@ -14,6 +14,7 @@ import {
   ContainMain,
   ContainProducts,
   ContainTextArea,
+  DividierOrderFactura,
   HistoryOrder,
   Info,
   InfoH1,
@@ -23,8 +24,9 @@ import {
   TextArea,
   ThisLogo,
   TitleH2,
+  TittleInfo,
 } from "./styles/styledOrder";
-import React from "react";
+
 
 const OrderService = () => {
   const [identification, setIdentification] = useState('')
@@ -61,10 +63,10 @@ const OrderService = () => {
               <InfoP>N° Orden: [bd]</InfoP>
             </Info>
           </ContainInfo>
-          <hr />
-          <h2 style={{ textAlign: "center", padding: "1.5rem 0" }}>
+          <DividierOrderFactura/>
+          <TittleInfo >
             ORDEN DE SERVICIO
-          </h2>
+          </TittleInfo>
 
           <ContainInput>
           <Input type="text" placeholder="Cedula" onChange={(e) => setIdentification(e.target.value)}/>
@@ -98,7 +100,7 @@ const OrderService = () => {
         </OrderContain>
 
         <HistoryOrder>
-          <></>
+          <>dd</>
         </HistoryOrder>
       </ContainMain>
     </>
