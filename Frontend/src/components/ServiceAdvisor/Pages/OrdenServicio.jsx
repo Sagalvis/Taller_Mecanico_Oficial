@@ -26,7 +26,7 @@ import {
 } from "./styles/styledOrder";
 import React from "react";
 
-const OrderService = () => {
+/* const OrderService = () => {
   const [identification, setIdentification] = useState('')
   const [matricula, setMatricula] = useState('')
   const [mechanicReport, setMechanitReport] = useState('')
@@ -36,16 +36,43 @@ const OrderService = () => {
     
 
     try {
-      const response = await axios.patch(`https://localhost/products/${identification}/${matricula}`, {
+      const response = await axios.patch(`http://localhost/products/${identification}/${matricula}`, {
         mechanic_report: mechanicReport,
       });
-      console.log(response);
+      console.log(response, 'NO SE ENVIA LA INFORMACION');
 
       console.log('Actualización exitosa:', response.data);
     } catch (error) {
       console.error('Error al actualizar:', error);
+      if (error.response){
+        console.error('Respuesta del servidor:', error.response.data)
+      }
     }
   };
+   */
+
+    const OrderService = () => {
+      const [identification, setIdentification] = useState('');
+      const [matricula, setMatricula] = useState('');
+      const [mechanicReport, setMechanicReport] = useState('');
+    
+      const actualizacion = async (e) => {
+        e.preventDefault();
+    
+        try {
+          // Realizar la solicitud PATCH solo para actualizar mechanic_report
+          const response = await axios.patch(`http://localhost/products/${identification}/${matricula}`, {
+            mechanic_report: mechanicReport,
+          });
+    
+          console.log('Actualización exitosa:', response.data);
+        } catch (error) {
+          console.error('Error al actualizar:', error);
+          if (error.response) {
+            console.error('Respuesta del servidor:', error.response.data);
+          }
+        }
+      };
 
   return (
     <>
@@ -68,7 +95,7 @@ const OrderService = () => {
 
           <ContainInput>
           <Input type="text" placeholder="Cedula" onChange={(e) => setIdentification(e.target.value)}/>
-          <Input type="text" placeholder="Placa" onChange={(e) => setMatricula(e.target.value)}/>
+          <Input type="text" placeholder="Placa" onChange={(e) => setMatricula(e.target.value.toUpperCase())}/>
           </ContainInput>
 
           <ContainTextArea>
@@ -76,7 +103,8 @@ const OrderService = () => {
               placeholder="¿Info mecanico? "
               rows={6}
               cols={50}
-              onChange={(e) => setMechanitReport(e.target.value)}
+              value={mechanicReport}
+              onChange={(e) => setMechanicReport(e.target.value)}
             />
           </ContainTextArea>
 

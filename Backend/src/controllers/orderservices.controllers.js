@@ -59,7 +59,7 @@ export const updateReason = async (req, res) => {
     console.log(rows);
     // Verificamos si se encontró una entrada en la base de datos.
     if (rows.length === 0) {
-      return res.status(404).json({ message: "Entry not found" });
+      return res.status(404).json({ message: "Entry not found " });
     }
 
     // Actualizamos la entrada con el nuevo valor de mechanic_report.
