@@ -10,16 +10,26 @@ import {
   ContainForm,
   ContainCC,
   InputCC,
-  // ContainRepair,
-  // H2,
+  ContainRepair,
+  H2,
+  TitleContain,
+  Table,
+  Thead,
+  Tr,
+  Th,
+  Tbody,
+  Td,
+  InfoModal,
+  ContainTable,
 } from "./styles/styledRegisterH";
 import {
   ContainLabel,
   ContainLablSelect,
   ContainSelect,
-  Label
+  Label,
 } from "./styles/styledRegisterV";
 import { TextArea } from "./styles/styledOrder";
+import ThisModal from "./archive/ThisModal";
 
 const RegisterHojaV = () => {
   const [cedula, setCedula] = useState("");
@@ -27,6 +37,13 @@ const RegisterHojaV = () => {
   const [motivo, setMotivo] = useState("");
   const [placa, setPlaca] = useState([]);
   const [selectPlaca, setSelectPlaca] = useState(null);
+  const [modalStatus, setModalStatus] = useState(false);
+  // VARIABLES DE ESTADO PARA LA TABLA ORDEN DE REPARACÍON...
+  const [getStatus, setGetStatus] = useState("");
+  const [getDate, setGetDate] = useState("");
+  const [getOrder, setGetOrder] = useState("");
+  const [getCustomer, setGetCustomer] = useState("");
+  const [getVehicle, setGetVehicle] = useState("");
 
   function acceptNum(evt) {
     const input = evt.target.value;
@@ -36,7 +53,7 @@ const RegisterHojaV = () => {
   const getInfoByCedula = async () => {
     try {
       const res = await Axios.post("http://localhost:3005/datos", {
-        identification: cedula
+        identification: cedula,
       });
       console.log(res.data);
       setPlaca(res.data.matriculas);
@@ -51,7 +68,7 @@ const RegisterHojaV = () => {
         date_entry: fecha,
         reason: motivo,
         identification: cedula,
-        matricula: selectPlaca
+        matricula: selectPlaca,
       });
       console.log(res.data);
       // Aquí puedes agregar lógica adicional si deseas manejar la respuesta de la API
@@ -99,7 +116,9 @@ const RegisterHojaV = () => {
                   ))}
                 </select>
               ) : (
-                <p style={{ color: "red" }}>No hay datos disponibles</p>
+                <p style={{ color: "red", marginLeft: "10px" }}>
+                  No hay datos disponibles
+                </p>
               )}
             </ContainSelect>
           </ContainLablSelect>
@@ -121,11 +140,49 @@ const RegisterHojaV = () => {
           </Button>
         </Form>
 
-      {/* <ContainRepair>
-        <H2>Orden de reparacion</H2>
-      </ContainRepair> */}
+        <ContainRepair>
+          <TitleContain>
+            <H2>Orden de reparación</H2>
+          </TitleContain>
 
+          <></>
+          <ContainTable>
+          <Table>
+            <Thead>
+              <Tr>
+                <Th>Estado</Th>
+                <Th>Fecha</Th>
+                <Th>Orden</Th>
+                <Th>Cliente</Th>
+                <Th>Vehículo</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              <Tr>
+                <Td>[STATUS_BD]</Td>
+                <Td>[DATE_TIME_BD]</Td>
+                <Td>[ORDER_BD]]</Td>
+                <Td>[NAME_BD]</Td>
+                <Td>
+                  <button onClick={() => setModalStatus(!modalStatus)}>
+                    [MATRICULA_BRAND_BD]
+                  </button>
+                </Td>
+              </Tr>
+            </Tbody>
+          </Table>
+          </ContainTable>
+        </ContainRepair>
       </ContainForm>
+      <ThisModal
+        status={modalStatus}
+        changeStatus={setModalStatus}
+        title="Motivo de ingreso"
+      >
+        <InfoModal>
+          <p>[Informacion de la BD] Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel aut veritatis eaque explicabo aliquid quam reprehenderit quae quidem cupiditate earum.</p>
+        </InfoModal>
+      </ThisModal>
     </ContainerEntrada>
   );
 };

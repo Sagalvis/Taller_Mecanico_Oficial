@@ -29,7 +29,7 @@ export const Check = styled.div`
   background-color: #eee;
   padding: 1%;
   width: 45%;
-  height: 30vh;
+  max-height: 30vh;
   border-radius: 4px;
   box-shadow: 9px 17px 22px -24px rgba(0,0,0,0.79);
   overflow-y: scroll;
@@ -39,7 +39,7 @@ export const ContainH2 = styled.div`
   /* background-color: green; */
   display: flex;
   justify-content: center;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 `;
 
 export const ChkH2 = styled.h2`
@@ -53,6 +53,12 @@ export const LogContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+`;
+
+export const ContainTableVehicle = styled.div`
+  width: 100%;
+  max-height: 30%;
+  /* overflow-y: scroll; */
 `;
 
 export const Table = styled.table`
