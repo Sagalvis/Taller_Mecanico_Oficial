@@ -26,12 +26,7 @@ const RegisterHojaV = () => {
   const [fecha, setFecha] = useState("");
   const [motivo, setMotivo] = useState("");
   const [placa, setPlaca] = useState([]);
-  const [selectPlaca, setSelectPlaca] = useState(null);
-
-  // VARIABLES DE ESTADO PARA INVENTARIO DE VEHICULO EN MODO ARRAY
-  const [typeStatus, setTypeStatus] = useState([]);
-  const [typeBike, setTypeBike] = useState([]);
-  const [typeCar, setTypeCar] = useState([]);
+  const [selectPlaca, setSelectPlaca] = useState("");
 
   function acceptNum(evt) {
     const input = evt.target.value;
@@ -66,22 +61,6 @@ const RegisterHojaV = () => {
     }
   };
 
-  // GET PARA INVENTARIO DE MOTOS Y AUTOS
-  useEffect(() => {
-    const fetchData = async () => {
-      const getStatus = await Axios.get("http://localhost:3005/selectstatus");
-      setTypeStatus(getStatus.data);
-      const getCheckBike = await Axios.get(
-        "http://localhost:3005/selectcheckbike"
-      );
-      setTypeBike(getCheckBike.data.map((item) => ({ ...item, status: 0 })));
-      const getCheckCar = await Axios.get(
-        "http://localhost:3005/selectcheckcar"
-      );
-      setTypeCar(getCheckCar.data);
-    };
-    fetchData();
-  }, []);
 
   return (
     <ContainerEntrada>
@@ -111,7 +90,7 @@ const RegisterHojaV = () => {
             <ContainSelect>
               {placa.length > 0 ? (
                 <select
-                  style={{ textTransform: "uppercase" }}
+                  //style={{ textTransform: "uppercase" }}
                   onChange={(e) => setSelectPlaca(e.target.value)}
                 >
                   {placa.map((item, i) => (
