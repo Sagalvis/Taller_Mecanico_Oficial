@@ -10,5 +10,6 @@ router.delete('/registervehicle', userCtr5.deleteVehicle )
 
 router.get('/registervehicle/:id', userCtr5.selectCarroceria )
 
+router.get('registerVehicle/:property_card', userCtr5.getproperty)
 
 export default router;

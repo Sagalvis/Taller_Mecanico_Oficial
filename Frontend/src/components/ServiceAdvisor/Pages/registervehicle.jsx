@@ -56,6 +56,13 @@ const FormularioVehiculo = () => {
 
   const handleSumit = async (e) => {
     e.preventDefault();
+    const getPropertycard = async () => {
+      try {
+        const returnValue = await Axios.get('http://localhost:3005/')
+      } catch (error) {
+        console.log('error al obtener la informacion', error);
+      }
+    }
 
     if (
       documentoIdentidad === 0 ||
