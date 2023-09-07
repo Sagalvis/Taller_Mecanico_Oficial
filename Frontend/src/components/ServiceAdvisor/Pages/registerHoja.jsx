@@ -80,16 +80,12 @@ const RegisterHojaV = () => {
       const getCheckBike = await Axios.get(
         "http://localhost:3005/selectcheckbike"
       );
-      const array = [{date: typeBike}]
       setTypeBike(getCheckBike.data.map((item) => ({ ...item, status: 0 })));
-      console.log(array)
       const getCheckCar = await Axios.get(
         "http://localhost:3005/selectcheckcar"
       );
       setTypeCar(getCheckCar.data);
-    };
-      
-    
+    }; 
     fetchData();
   }, []);
 
