@@ -82,7 +82,7 @@ export const Tbody = styled.tbody`
 `;
 
 export const Td = styled.td`
-  padding: 8px;
+  padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
   a {

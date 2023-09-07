@@ -30,6 +30,7 @@ export const InfoClient = styled.div`
   flex-direction: column;
   justify-content: space-around;
   /* background-color: red; */
+  margin-bottom: 5px;
 `;
 export const ContainInfor = styled.div`
   display:flex ;
@@ -48,4 +49,47 @@ export const InputDoc = styled.input`
 export const InforP1 = styled.p`
   margin: 0;
   font-weight: bold;
+`
+export const ContainProducts = styled.div`
+  /* background-color: red; */
+  margin-top: 5px;
+  width: 100%;
+  height: 59%;
+`
+export const ContainTittlePorductFactura = styled.div`
+  width: 98.6%;
+  height: 40px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+
+`
+export const TittleFacturaProduct = styled.div`
+  color: white;
+  border-right: 2px solid white;
+  width: 30%;
+  display: flex;
+  align-items: center ;
+  justify-content: center;
+  height: 100%;
+
+`
+
+export const ContainProdutSuma = styled.div`
+  width: 99.7%;
+  height: 400px;
+  overflow: auto;
+  /* background-color: green; */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 4px;
+  }
+  `
+export const ContenPorductSuma  = styled.div` 
+  height: auto;
+
 `
