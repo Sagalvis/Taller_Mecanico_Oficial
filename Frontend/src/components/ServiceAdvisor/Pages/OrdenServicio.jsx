@@ -8,14 +8,14 @@ import axios from "axios";
 import {
   Button,
   ContainButtons,
-  // ContainH2,
+  ContainH2,
   ContainInfo,
   ContainInput,
   ContainMain,
-  // ContainProducts,
+  ContainProducts,
   ContainTextArea,
   DividierOrderFactura,
-  // HistoryOrder,
+  HistoryOrder,
   Info,
   InfoH1,
   InfoP,
@@ -23,7 +23,7 @@ import {
   OrderContain,
   TextArea,
   ThisLogo,
-  // TitleH2,
+  TitleH2,
   TittleInfo,
 } from "./styles/styledOrder";
 
@@ -32,8 +32,13 @@ import {
       const [identification, setIdentification] = useState('');
       const [matricula, setMatricula] = useState('');
       const [mechanicReport, setMechanicReport] = useState('');
-    
-      const actualizacion = async (e) => {
+      
+      
+
+      
+         
+       
+      const actualizacion = async (e, inputAddFunction) => {
         e.preventDefault();
     
         try {
@@ -41,11 +46,15 @@ import {
           const response = await axios.patch(`http://localhost:3005/products/${identification}/${matricula}`, {
             mechanic_report: mechanicReport,
           })
+          const inputAddResult = inputAddFunction()
+           const send = await axios.post('http://localhost:3005/products/inventory', {
+            product_name: inputAddResult,
+            matricula: matricula
+          }) 
           
 
           .then((response)=> {
-            console.log(response.data);
-              
+            console.log(response.data);  
           });   
           
         } catch (error) {
@@ -89,25 +98,27 @@ import {
               onChange={(e) => setMechanicReport(e.target.value)}
             />
           </ContainTextArea>
-{/* 
+
           <ContainProducts>
             <ContainH2>
               <TitleH2>PRODUCTOS</TitleH2>
             </ContainH2>
 
             <ContainInput>
+              {/* <Input type="text"/>
+            <button style={{height: '50%'}}><i className="fa-solid fa-plus"></i></button> */}
               {InputAdd()}
             </ContainInput>
-          </ContainProducts> */}
+          </ContainProducts>
 
           <ContainButtons>
-            <Button onClick={actualizacion}>Realizar cotización</Button>
+            <Button onClick={() => actualizacion(e, inputAddFunction)}>Realizar cotización</Button>
           </ContainButtons>
         </OrderContain>
 
-        {/* <HistoryOrder>
+        <HistoryOrder>
           <>dd</>
-        </HistoryOrder> */}
+        </HistoryOrder>
       </ContainMain>
     </>
   );

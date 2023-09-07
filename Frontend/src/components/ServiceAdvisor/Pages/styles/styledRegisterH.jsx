@@ -141,13 +141,71 @@ export const Button = styled.button`
 
 // ESTILOS ORDEN DE REPARACION
 
-// export const ContainRepair = styled.div`
-//   background-color: green;
-//   padding: 10px;
-//   width: 70%;
-//   height: 100%;
-// `;
+export const ContainRepair = styled.div`
+  /* background-color: green; */
+  padding: 10px;
+  width: 70%;
+  height: 100%;
+`;
 
-// export const H2 = styled.h2`
+export const TitleContain = styled.div`
+  margin-bottom: 20px;
+`;
+
+export const H2 = styled.h2`
+  font-weight: 300;
+  font-size: 30px;
+`;
+
+export const ContainTable = styled.div`
+  overflow-y: scroll;
+  max-height: 90%;
+`;
+export const Table = styled.table`
+  width: 100%;
   
-// `;
+  border-collapse: collapse;
+  text-align: center;
+  box-shadow: 9px 17px 22px -24px rgba(0,0,0,0.79);
+  overflow-y: scroll;
+`;
+
+export const Thead = styled.thead`
+  
+`;
+
+export const Tr = styled.tr`
+  
+`;
+
+export const Th = styled.th`
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  background-color: #e0e0e0;
+`;
+
+export const Tbody = styled.tbody`
+  font-size:.9rem;
+`;
+
+export const Td = styled.td`
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+
+  button {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font: inherit;
+    outline: none;
+    padding: 0;
+    font-weight: bold;
+  }
+`;
+
+export const InfoModal = styled.div`
+  
+`;

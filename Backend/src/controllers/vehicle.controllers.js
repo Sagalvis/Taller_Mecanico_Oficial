@@ -9,6 +9,15 @@ export const getVehicle = async (req, res) => {
   }
 };
 
+export const getproperty = async (req, res) => {
+  try{
+    const result = await pool.query("SELECT property_card FROM vehicle WHERE identification = [?]");
+    res.status(200).json(result.rows);
+  }catch{
+    res.status(500).json({ message: "error cannot find any value" });
+  }
+}
+
 export const selectCarroceria = async (req, res) => {
   try {
     const [row] = await pool.query("SELECT * from chassis");
