@@ -53,7 +53,7 @@ export const ContainLabel = styled.div`
 
 export const Label = styled.label`
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   color: black;
 `;
 export const ContainSelect = styled.div`

@@ -22,8 +22,8 @@ export const getformEntry = async (req, res) => {
 
 export const postformEntry = async (req, res) => {
     try {
-        const { date_entry, reason, identification, matricula } = req.body
-        const [rows] = await pool.query("INSERT INTO form_entry (date_entry, reason, identification, matricula) VALUES (?,?,?,?)", [date_entry, reason, identification, matricula]);
+        const { date_entry, reason, identification, matricula, id_status_order } = req.body
+        const [rows] = await pool.query("INSERT INTO form_entry (date_entry, reason, identification, matricula, id_status_order) VALUES (?,?,?,?,?)", [date_entry, reason, identification, matricula, id_status_order]);
         res.json(rows);
     } catch (error) {
         return res.status(404).json({

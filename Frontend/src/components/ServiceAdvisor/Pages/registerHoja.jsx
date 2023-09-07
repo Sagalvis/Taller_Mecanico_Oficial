@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Axios from "axios";
 import {
   Button,
@@ -39,7 +39,7 @@ const RegisterHojaV = () => {
   const [selectPlaca, setSelectPlaca] = useState(null);
   const [modalStatus, setModalStatus] = useState(false);
   // VARIABLES DE ESTADO PARA LA TABLA ORDEN DE REPARACÍON...
-  const [getStatus, setGetStatus] = useState("");
+  const [getStatus, setGetStatus] = useState([]);
   const [getDate, setGetDate] = useState("");
   const [getOrder, setGetOrder] = useState("");
   const [getCustomer, setGetCustomer] = useState("");
@@ -69,6 +69,7 @@ const RegisterHojaV = () => {
         reason: motivo,
         identification: cedula,
         matricula: selectPlaca,
+        id_status_order: 1
       });
       console.log(res.data);
       // Aquí puedes agregar lógica adicional si deseas manejar la respuesta de la API
@@ -78,6 +79,19 @@ const RegisterHojaV = () => {
     }
   };
 
+  const orderService = async () => {
+    const sendPacks = await Axios.post('http://localhost:3005/getstatus',{
+      matricula: selectPlaca
+    })
+    console.log('name', sendPacks.data);
+    setGetStatus(sendPacks.data.order_status);
+  };
+
+  useEffect(() => {
+    if (selectPlaca) {
+      orderService();
+    }
+  }, [selectPlaca])
 
   return (
     <ContainerEntrada>
@@ -161,13 +175,13 @@ const RegisterHojaV = () => {
             </Thead>
             <Tbody>
               <Tr>
-                <Td>[STATUS_BD]</Td>
-                <Td>[DATE_TIME_BD]</Td>
-                <Td>[ORDER_BD]]</Td>
-                <Td>[NAME_BD]</Td>
+                <Td>{getStatus}</Td>
+                <Td>{getDate}</Td>
+                <Td>{getOrder}</Td>
+                <Td>{getCustomer}</Td>
                 <Td>
                   <button onClick={() => setModalStatus(!modalStatus)}>
-                    [MATRICULA_BRAND_BD]
+                    {getVehicle}
                   </button>
                 </Td>
               </Tr>
