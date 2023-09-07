@@ -2,6 +2,7 @@ import {
   Check,
   ChkH2,
   ContainH2,
+  ContainTableVehicle,
   ContainerCheck,
   LogContainer,
   Logo,
@@ -19,7 +20,7 @@ import Navbar from "./Navbar";
 function CheckVehicle() {
   return (
     <>
-    <Navbar />
+      <Navbar />
       <ContainerCheck>
         <LogoCheck>
           <Logo src={ThisLogoCheck} alt="image" />
@@ -30,30 +31,35 @@ function CheckVehicle() {
             <ChkH2>Consulta el registro de tus vehiculos</ChkH2>
           </ContainH2>
 
-
           <LogContainer>
-            <p style={{color: 'red'}}>NOTA: Para consultar tus registros haz un click en la placa de tu vehiculo.</p>
-            
-            <Table>
-              <Thead>
-                <Tr>
-                  <Th>N° de registro</Th>
-                  <Th>Tipo de documento</Th>
-                  <Th>Documento</Th>
-                  <Th>Nombre completo</Th>
-                  <Th>Placa de vehículo</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                <Tr>
-                  <Td>001</Td>
-                  <Td>CC</Td>
-                  <Td>1143168571</Td>
-                  <Td>JOHAN DAVID DIAZ QUINTERO</Td>
-                  <Td><a href="/vehicleregister">AEP41G</a></Td>
-                </Tr>
-              </Tbody>
-            </Table>
+            <p style={{ color: "red" }}>
+              NOTA: Para consultar tus registros haz un click en la placa de tu
+              vehiculo.
+            </p>
+            <ContainTableVehicle>
+              <Table>
+                <Thead>
+                  <Tr>
+                    <Th>N° de registro</Th>
+                    <Th>Tipo de documento</Th>
+                    <Th>Documento</Th>
+                    <Th>Nombre completo</Th>
+                    <Th>Placa de vehículo</Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  <Tr>
+                    <Td>001</Td>
+                    <Td>CC</Td>
+                    <Td>1143168571</Td>
+                    <Td>JOHAN DAVID DIAZ QUINTERO</Td>
+                    <Td>
+                      <a href="/vehicleregister">AEP41G</a>
+                    </Td>
+                  </Tr>
+                </Tbody>
+              </Table>
+            </ContainTableVehicle>
           </LogContainer>
         </Check>
       </ContainerCheck>
