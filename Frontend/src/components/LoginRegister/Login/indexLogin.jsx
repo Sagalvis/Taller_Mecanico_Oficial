@@ -14,6 +14,7 @@ const Login = () => {
   const [mail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [] = useState("");
 
   const Log = async (evt) => {
     evt.preventDefault();
@@ -34,7 +35,7 @@ const Login = () => {
           } else {
             const rol = user.id_rol;
              console.log(user.id_rol);
-            /*console.log(rol); */
+            /*console.log(rol)*/
             switch (rol) {
               case 1 :
                 window.location.href = "http://localhost:5173/advisor";

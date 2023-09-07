@@ -32,7 +32,12 @@ import {
       const [identification, setIdentification] = useState('');
       const [matricula, setMatricula] = useState('');
       const [mechanicReport, setMechanicReport] = useState('');
-    
+      
+      
+
+     
+         
+       
       const actualizacion = async (e) => {
         e.preventDefault();
     
@@ -41,11 +46,13 @@ import {
           const response = await axios.patch(`http://localhost:3005/products/${identification}/${matricula}`, {
             mechanic_report: mechanicReport,
           })
-          
-
+          /* const products = await InputAdd() */
+         /*  const send = await axios.post('http://localhost:3005/products/inventory', {
+            product_name: products,
+            matricula: matricula
+          }) */
           .then((response)=> {
-            console.log(response.data);
-              
+            console.log(response.data);  
           });   
           
         } catch (error) {
