@@ -112,7 +112,7 @@ import {
           </ContainProducts>
 
           <ContainButtons>
-            <Button onClick={() => actualizacion( e, InputAdd)}>Realizar cotización</Button>
+            <Button onClick={() => actualizacion(e, inputAddFunction)}>Realizar cotización</Button>
           </ContainButtons>
         </OrderContain>
 

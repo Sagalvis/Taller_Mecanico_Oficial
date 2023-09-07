@@ -14,7 +14,7 @@ const Login = () => {
   const [mail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [] = useState("");
+  const [] = useState();
 
   const Log = async (evt) => {
     evt.preventDefault();
@@ -29,11 +29,12 @@ const Login = () => {
           }
         ).then((response) => {
           const user = response.data;
-           console.log(user); 
+           console.log(user);
+           console.log(response.data.id_rol); 
           if (!user) {
             alert("El usuario no existe");
           } else {
-            const rol = user.id_rol;
+            
              console.log(user.id_rol);
             /*console.log(rol)*/
             switch (rol) {
