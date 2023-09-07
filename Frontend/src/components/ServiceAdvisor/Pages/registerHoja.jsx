@@ -93,6 +93,7 @@ const RegisterHojaV = () => {
                   //style={{ textTransform: "uppercase" }}
                   onChange={(e) => setSelectPlaca(e.target.value)}
                 >
+                  <option>placas</option>
                   {placa.map((item, i) => (
                     <option key={i} value={item}>
                       {item}
