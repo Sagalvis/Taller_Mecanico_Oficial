@@ -27,7 +27,7 @@ export const postformEntry = async (req, res) => {
         res.json(rows);
     } catch (error) {
         return res.status(404).json({
-            message: "No se pudo insertar los datos",
+            message: "No se pudo insertar los datos"
         });
     }
 };

@@ -11,6 +11,8 @@ router.get("/selectestadoingreso", userCrtl2.getSelectEstadoIngreso);
 router.get("/selectstatus", userCrtl2.getSelectStatus);
 router.get("/selectcheckbike", userCrtl2.getSelectCheckBike);
 router.get("/selectcheckcar", userCrtl2.getSelectCheckCar);
+router.get("./getcliente",userCrtl2.getClienteFactura );
+
 
 
 export default router
