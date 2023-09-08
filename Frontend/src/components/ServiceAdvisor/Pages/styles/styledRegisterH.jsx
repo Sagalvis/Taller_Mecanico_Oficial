@@ -46,7 +46,7 @@ export const TitleH2 = styled.h2`
   justify-content: center;
 `;
 
-export const Form = styled.form`
+export const Form = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,6 +190,7 @@ export const Tbody = styled.tbody`
 `;
 
 export const Td = styled.td`
+  text-transform: uppercase;
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
