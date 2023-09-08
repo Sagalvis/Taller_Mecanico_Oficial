@@ -206,7 +206,7 @@ export const ContenInput = styled.div`
   flex-direction: column;
   gap: 5px;
 `
-export const InputProduct = styled.div`
+export const InputProduct = styled.input`
     width: 70%;
   padding: 12px;
   border: none;

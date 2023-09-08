@@ -62,7 +62,7 @@ const RegisterHojaV = () => {
     }
   };
 
-  const postFormulario = async () => {
+  const postFormulario = async (e) => {
     e.preventDefault();
     try {
       const res = await Axios.post("http://localhost:3005/send", {

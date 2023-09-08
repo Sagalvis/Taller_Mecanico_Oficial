@@ -14,7 +14,7 @@ const Login = () => {
   const [mail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [] = useState();
+  const [] = useState();  
 
   const Log = async (evt) => {
     evt.preventDefault();

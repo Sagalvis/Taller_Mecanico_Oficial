@@ -1,5 +1,5 @@
 import Logo from "../../../assets/svg/transforCars.svg";
-
+import axios from "axios";
 import {
   Button,
   ContainButtons,
@@ -25,32 +25,28 @@ import {
   TittleInfo,
 } from "./styles/styledOrder";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const OrderService = () => {
-  /* estado inicial para los inputs */
-  const [inputs, setInputs] = useState([{ type: "text", value: "" }]);
+  const [identidad, setIdentidad] = useState('');
+  const [matricula, setMatricula] = useState('');
+  const [mechanic, setMechanic] = useState('');
 
-  /* función que maneje la adición de un nuevo input
-  Esta función creará un nuevo objeto input y lo añadirá al estado actual */
-  const handleAddInput = () => {
-    setInputs([...inputs, { type: "text", value: "" }]);
-  };
+  const sendData = async (e) => {
+    e.preventDefault();
+    try {
+      const send = await axios.patch(`http://localhost:3005/products/${identidad}/${matricula}`,{ 
+         mechanic_report: mechanic
+      }
+      ).then((response) =>{
+        console.log(response.data)
+      })
 
-  /* función  eliminará el último input del estado */
-  const handleRemoveInput = () => {
-    const newInputs = [...inputs];
-    newInputs.pop();
-    setInputs(newInputs);
-  };
-
-
-  /* Funcion que actualiza el valor del input en el estado: */
-  const handleInputChange = (e, index) => {
-    const newInputs = [...inputs];
-    newInputs[index].value = e.target.value;
-    setInputs(newInputs);
-  };
+    } catch (error) {
+      console.error("Error al actualizar informacion: ", error)
+    }
+    
+  }
 
   return (
     <>
@@ -69,37 +65,37 @@ const OrderService = () => {
           <DividierOrderFactura />
           <TittleInfo>ORDEN DE SERVICIO</TittleInfo>
 
-          <ContainInput>
-            <Input type="text" placeholder="Cedula" />
-            <Input type="text" placeholder="Placa" />
+        <ContainInput>
+          <Input 
+            type="text" 
+            placeholder="Cedula" 
+            value={identidad} 
+            onChange={(e) => setIdentidad(e.target.value)} 
+            maxLength={10}
+            required
+          />
+          <Input 
+           type="text" 
+           placeholder="Placa" 
+           value={matricula}
+           onChange={(e) => setMatricula(e.target.value).toUpperCase()}
+           maxLength={10}
+           required
+           />
           </ContainInput>
 
           <ContainTextArea>
-            <TextArea placeholder="¿Info mecanico? " rows={6} cols={50} />
+            <TextArea 
+             type="text" 
+             placeholder="¿Info mecanico?" 
+             onChange={(e) => setMechanic(e.target.value)} 
+             rows={6} 
+             cols={50} 
+             required
+            />
           </ContainTextArea>
-
-          <ContainProducts>
-            <ContainH2>
-              <TitleProduct>PRODUCTOS</TitleProduct>
-            </ContainH2>
-            <ContainerInputProduct>
-              <ContenInput>
-                {inputs.map((input, index) => (
-                  <InputProduct
-                    key={index}
-                    type={input.type}
-                    value={input.value}
-                    onChange={(e) => handleInputChange(e, index)}
-                  />
-                ))}
-              </ContenInput>
-              <button onClick={handleAddInput}>Agregar input</button>
-              <button onClick={handleRemoveInput}>Eliminar input</button>
-            </ContainerInputProduct>
-          </ContainProducts>
-
           <ContainButtons>
-            <Button>Realizar cotización</Button>
+            <Button onClick={sendData}>Realizar cotización</Button>
           </ContainButtons>
         </OrderContain>
 
