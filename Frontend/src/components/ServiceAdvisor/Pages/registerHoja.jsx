@@ -64,7 +64,7 @@ const RegisterHojaV = () => {
   };
 
   const postFormulario = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     try {
       const res = await Axios.post("http://localhost:3005/send", {
         date_entry: fecha,
@@ -98,6 +98,7 @@ const RegisterHojaV = () => {
       const sendPacks = await Axios.post("http://localhost:3005/getstatus", {
         matricula: selectPlaca,
       });
+      console.log(sendPacks.data);
       setGetStatus(sendPacks.data[0].order_status);
       setGetDate(sendPacks.data[0].date_entry);
       setGetOrder(sendPacks.data[0].id_form_entry);
@@ -167,7 +168,10 @@ const RegisterHojaV = () => {
             onChange={(e) => setMotivo(e.target.value)}
             required
           />
-          <Button type="submit" onClick={orderService}>
+          <Button type="submit" onClick={() => {
+            orderService();
+            postFormulario();
+          }}>
             Enviar
           </Button>
         </Form>
