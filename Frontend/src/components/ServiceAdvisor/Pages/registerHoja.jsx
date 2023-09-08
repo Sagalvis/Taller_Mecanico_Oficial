@@ -40,10 +40,11 @@ const RegisterHojaV = () => {
   const [modalStatus, setModalStatus] = useState(false);
   // VARIABLES DE ESTADO PARA LA TABLA ORDEN DE REPARACÍON...
   const [getStatus, setGetStatus] = useState([]);
-  const [getDate, setGetDate] = useState("");
+  const [getDate, setGetDate] = useState([]);
   const [getOrder, setGetOrder] = useState("");
   const [getCustomer, setGetCustomer] = useState("");
   const [getVehicle, setGetVehicle] = useState("");
+  const [getReason, setGetReason] = useState("");
 
   function acceptNum(evt) {
     const input = evt.target.value;
@@ -62,7 +63,7 @@ const RegisterHojaV = () => {
     }
   };
 
-  const postFormulario = async () => {
+  const postFormulario = async (e) => {
     e.preventDefault();
     try {
       const res = await Axios.post("http://localhost:3005/send", {
@@ -70,9 +71,21 @@ const RegisterHojaV = () => {
         reason: motivo,
         identification: cedula,
         matricula: selectPlaca,
-        id_status_order: 1
+        id_status_order: 1,
       });
       console.log(res.data);
+      console.log(selectPlaca);
+      if (selectPlaca !== "") {
+        const sendPacks = await Axios.get("http://localhost:3005/getstatus", {
+          params: {
+            matricula: selectPlaca,
+          },
+        });
+        console.log("name", sendPacks.data);
+      } else {
+        console.log("llega vacio");
+      }
+      //setGetStatus(sendPacks.data.order_status);
       // Aquí puedes agregar lógica adicional si deseas manejar la respuesta de la API
     } catch (error) {
       console.log("Error al enviar el formulario:", error);
@@ -82,21 +95,19 @@ const RegisterHojaV = () => {
 
   const orderService = async () => {
     try {
-      const sendPacks = await Axios.post('http://localhost:3005/getstatus', {
-        matricula: selectPlaca
+      const sendPacks = await Axios.post("http://localhost:3005/getstatus", {
+        matricula: selectPlaca,
       });
-      console.log('name', sendPacks.data);
-      setGetStatus(sendPacks.data.order_status);
+      setGetStatus(sendPacks.data[0].order_status);
+      setGetDate(sendPacks.data[0].date_entry);
+      setGetOrder(sendPacks.data[0].id_form_entry);
+      setGetCustomer(sendPacks.data[0].name);
+      setGetVehicle(sendPacks.data[0].matricula);
+      setGetReason(sendPacks.data[0].reason);
     } catch (error) {
-      console.log('Error al obtener el estado:', error);
+      console.log("Error al obtener el estado:", error);
     }
   };
-
-  useEffect(() => {
-    if (selectPlaca) {
-      orderService();
-    }
-  }, [selectPlaca])
 
   return (
     <ContainerEntrada>
@@ -156,7 +167,7 @@ const RegisterHojaV = () => {
             onChange={(e) => setMotivo(e.target.value)}
             required
           />
-          <Button type="submit" onClick={postFormulario}>
+          <Button type="submit" onClick={orderService}>
             Enviar
           </Button>
         </Form>
@@ -168,30 +179,30 @@ const RegisterHojaV = () => {
 
           <></>
           <ContainTable>
-          <Table>
-            <Thead>
-              <Tr>
-                <Th>Estado</Th>
-                <Th>Fecha</Th>
-                <Th>Orden</Th>
-                <Th>Cliente</Th>
-                <Th>Vehículo</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td>{getStatus}</Td>
-                <Td>{getDate}</Td>
-                <Td>{getOrder}</Td>
-                <Td>{getCustomer}</Td>
-                <Td>
-                  <button onClick={() => setModalStatus(!modalStatus)}>
-                    {getVehicle}
-                  </button>
-                </Td>
-              </Tr>
-            </Tbody>
-          </Table>
+            <Table>
+              <Thead>
+                <Tr>
+                  <Th>Estado</Th>
+                  <Th>Fecha</Th>
+                  <Th>Orden</Th>
+                  <Th>Cliente</Th>
+                  <Th>Vehículo</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                <Tr>
+                  <Td>{getStatus}</Td>
+                  <Td>{getDate}</Td>
+                  <Td>{getOrder}</Td>
+                  <Td>{getCustomer}</Td>
+                  <Td>
+                    <button onClick={() => setModalStatus(!modalStatus)}>
+                      {getVehicle}
+                    </button>
+                  </Td>
+                </Tr>
+              </Tbody>
+            </Table>
           </ContainTable>
         </ContainRepair>
       </ContainForm>
@@ -201,7 +212,7 @@ const RegisterHojaV = () => {
         title="Motivo de ingreso"
       >
         <InfoModal>
-          <p>[Informacion de la BD] Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel aut veritatis eaque explicabo aliquid quam reprehenderit quae quidem cupiditate earum.</p>
+          <p>{getReason}</p>
         </InfoModal>
       </ThisModal>
     </ContainerEntrada>
