@@ -63,6 +63,7 @@ const RegisterHojaV = () => {
   };
 
   const postFormulario = async () => {
+    e.preventDefault();
     try {
       const res = await Axios.post("http://localhost:3005/send", {
         date_entry: fecha,
@@ -80,11 +81,15 @@ const RegisterHojaV = () => {
   };
 
   const orderService = async () => {
-    const sendPacks = await Axios.post('http://localhost:3005/getstatus',{
-      matricula: selectPlaca
-    })
-    console.log('name', sendPacks.data);
-    setGetStatus(sendPacks.data.order_status);
+    try {
+      const sendPacks = await Axios.post('http://localhost:3005/getstatus', {
+        matricula: selectPlaca
+      });
+      console.log('name', sendPacks.data);
+      setGetStatus(sendPacks.data.order_status);
+    } catch (error) {
+      console.log('Error al obtener el estado:', error);
+    }
   };
 
   useEffect(() => {

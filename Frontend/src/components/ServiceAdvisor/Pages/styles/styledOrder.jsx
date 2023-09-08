@@ -7,13 +7,12 @@ export const ContainMain = styled.div`
   width: 100%;
   height: 100vh;
   gap: 10px;
-
 `;
 
 export const OrderContain = styled.div`
   background-color: #ffffff9d;
   width: 40%;
-  height: 90%;
+  height: 95%;
   border-radius: 4px;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
@@ -28,19 +27,14 @@ export const ContainInfo = styled.div`
   /* background-color: yellow; */
 `;
 
-
 export const ThisLogo = styled.img`
   width: 230px;
   height: 200px;
 `;
 
-export const Info = styled.div`
-  
-`;
+export const Info = styled.div``;
 
-export const InfoH1 = styled.h1`
-  
-`;
+export const InfoH1 = styled.h1``;
 
 export const InfoP = styled.p`
   margin: 0;
@@ -48,38 +42,23 @@ export const InfoP = styled.p`
 
 export const DividierOrderFactura = styled.div`
   height: 1px;
-    width: 100%;
-    background: #000000;
-`
+  width: 100%;
+  background: #000000;
+`;
 
 export const TittleInfo = styled.h2`
   text-align: center;
   padding: 1.5rem 0;
   margin: 0;
-`
+`;
 export const ContainTextArea = styled.div`
   display: flex;
   /* flex-direction: column; */
   gap: 10px;
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
 `;
 
-export const ContainProducts = styled.div`
-  background-color: #eee;
-  padding: 10px;
-  height: 35%;
-  overflow-y: scroll;
-  margin-bottom: 1rem;
-`;
 
-export const ContainH2 = styled.div`
-  text-align: center;
-  margin-bottom: 10px;
-`;
-
-export const TitleH2 = styled.h2`
-  
-`;
 
 export const ContainInput = styled.div`
   display: flex;
@@ -90,11 +69,11 @@ export const ContainInput = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 70%  ;
+  width: 70%;
   padding: 12px;
   border: none;
   border-radius: 4px;
-  font-family: 'Consolas';
+  font-family: "Consolas";
   text-transform: uppercase;
   font-size: 1rem;
   background-color: #eee;
@@ -104,12 +83,11 @@ export const Input = styled.input`
   &:focus {
     outline: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
   }
   &::placeholder {
     color: #999;
-    font-family: 'Consolas';
-    font-size: .9rem;
+    font-family: "Consolas";
+    font-size: 0.9rem;
     text-transform: lowercase;
   }
 `;
@@ -121,6 +99,7 @@ export const ContainButtons = styled.div`
 `;
 
 export const Button = styled.button`
+  margin-top: 5px;
   display: inline-block;
   padding: 4px;
   background-color: #222;
@@ -136,7 +115,7 @@ export const Button = styled.button`
     background-color: white;
     color: #222;
   }
-  
+
   &:focus {
     outline: none;
   }
@@ -147,7 +126,7 @@ export const Button = styled.button`
 `;
 
 export const HistoryOrder = styled.div`
-    background-color: #fff;
+  background-color: #fff;
   width: 40%;
   height: 90%;
   border-radius: 4px;
@@ -171,8 +150,55 @@ export const TextArea = styled.textarea`
   }
   &::placeholder {
     color: #999;
-    font-family: 'consolas';
+    font-family: "consolas";
     font-size: 0.9rem;
   }
 `;
 
+export const ContainProducts = styled.div`
+  /* background-color: #eee; */
+  height: 40%;
+  width: 100%;
+`;
+
+export const ContainH2 = styled.div`
+  width: 98.6%;
+  height: 40px;
+  /* background-color: black; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const TitleProduct = styled.div`
+  color: #000000;
+  width: 30%;
+  display: flex;
+  align-items: center ;
+  justify-content: center;
+  height: 100%;
+  font-size: 22px;
+  font-weight: bold;
+`;
+export const ContainerInputProduct = styled.div`
+  width: 99.7%;
+  height: 260px;
+  background-color: #eee;
+  color: #222;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
+  transition: box-shadow 0.3s ease;
+  border-radius: 4px;
+  overflow: auto;
+  /* background-color: green; */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 4px;
+  }
+`;
+
+export const ContenInput = styled.div`
+  height: auto;
+`
