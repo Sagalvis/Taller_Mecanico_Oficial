@@ -1,9 +1,4 @@
 import Logo from "../../../assets/svg/transforCars.svg";
-import InputAdd from "./archive/OptionsService";
-import { useState } from "react"
-// import InputAdd from "./archive/OptionsService";
-
-import axios from "axios";
 
 import {
   Button,
@@ -14,6 +9,8 @@ import {
   ContainMain,
   ContainProducts,
   ContainTextArea,
+  ContainerInputProduct,
+  ContenInput,
   DividierOrderFactura,
   HistoryOrder,
   Info,
@@ -23,47 +20,13 @@ import {
   OrderContain,
   TextArea,
   ThisLogo,
-  TitleH2,
+  TitleProduct,
   TittleInfo,
 } from "./styles/styledOrder";
 
 
     const OrderService = () => {
-      const [identification, setIdentification] = useState('');
-      const [matricula, setMatricula] = useState('');
-      const [mechanicReport, setMechanicReport] = useState('');
-      
-      
 
-      
-         
-       
-      const actualizacion = async (e, inputAddFunction) => {
-        e.preventDefault();
-    
-        try {
-          // Realizar la solicitud PATCH solo para actualizar mechanic_report
-          const response = await axios.patch(`http://localhost:3005/products/${identification}/${matricula}`, {
-            mechanic_report: mechanicReport,
-          })
-          const inputAddResult = inputAddFunction()
-           const send = await axios.post('http://localhost:3005/products/inventory', {
-            product_name: inputAddResult,
-            matricula: matricula
-          }) 
-          
-
-          .then((response)=> {
-            console.log(response.data);  
-          });   
-          
-        } catch (error) {
-          console.error('Error al actualizar:', error);
-          if (error.response) {
-            console.error('Respuesta del servidor:', error.response.data);
-          }
-        }
-      };
 
   return (
     <>
@@ -85,8 +48,8 @@ import {
           </TittleInfo>
 
           <ContainInput>
-          <Input type="text" placeholder="Cedula" onChange={(e) => setIdentification(e.target.value)}/>
-          <Input type="text" placeholder="Placa" onChange={(e) => setMatricula(e.target.value.toUpperCase())}/>
+          <Input type="text" placeholder="Cedula" />
+          <Input type="text" placeholder="Placa" />
           </ContainInput>
 
           <ContainTextArea>
@@ -94,25 +57,20 @@ import {
               placeholder="¿Info mecanico? "
               rows={6}
               cols={50}
-              value={mechanicReport}
-              onChange={(e) => setMechanicReport(e.target.value)}
             />
           </ContainTextArea>
 
           <ContainProducts>
             <ContainH2>
-              <TitleH2>PRODUCTOS</TitleH2>
+              <TitleProduct>PRODUCTOS</TitleProduct>
             </ContainH2>
-
-            <ContainInput>
-              {/* <Input type="text"/>
-            <button style={{height: '50%'}}><i className="fa-solid fa-plus"></i></button> */}
-              {InputAdd()}
-            </ContainInput>
+            <ContainerInputProduct>
+              <ContenInput></ContenInput>
+            </ContainerInputProduct>
           </ContainProducts>
 
           <ContainButtons>
-            <Button onClick={() => actualizacion(e, inputAddFunction)}>Realizar cotización</Button>
+            <Button >Realizar cotización</Button>
           </ContainButtons>
         </OrderContain>
 
