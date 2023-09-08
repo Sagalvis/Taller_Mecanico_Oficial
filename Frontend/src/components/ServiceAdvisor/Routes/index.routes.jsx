@@ -9,7 +9,7 @@ import Cotizacion from "../Pages/Cotizacion";
 const RoutesAdvisor = () => {
   return ( 
     <Routes>
-      <Route path="/registerclient" element={<RegisterAdvisor/>} />
+      <Route path="*" element={<RegisterAdvisor/>} />
       <Route path="/registervehicle" element={<RegisterVehicle/>} />
       <Route path="/registerhojav" element={<RegisterHojaV/>} />
       <Route path="/orderservice" element={<OrderService/>}/>
