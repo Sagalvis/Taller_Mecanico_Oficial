@@ -1,9 +1,4 @@
 import Logo from "../../../assets/svg/transforCars.svg";
-import InputAdd from "./archive/OptionsService";
-import { useState } from "react"
-// import InputAdd from "./archive/OptionsService";
-
-import axios from "axios";
 
 import {
   Button,
@@ -14,56 +9,48 @@ import {
   ContainMain,
   ContainProducts,
   ContainTextArea,
+  ContainerInputProduct,
+  ContenInput,
   DividierOrderFactura,
   HistoryOrder,
   Info,
   InfoH1,
   InfoP,
   Input,
+  InputProduct,
   OrderContain,
   TextArea,
   ThisLogo,
-  TitleH2,
+  TitleProduct,
   TittleInfo,
 } from "./styles/styledOrder";
 
+import { useState } from "react";
 
-    const OrderService = () => {
-      const [identification, setIdentification] = useState('');
-      const [matricula, setMatricula] = useState('');
-      const [mechanicReport, setMechanicReport] = useState('');
-      
-      
+const OrderService = () => {
+  /* estado inicial para los inputs */
+  const [inputs, setInputs] = useState([{ type: "text", value: "" }]);
 
-      
-         
-       
-      const actualizacion = async (e, inputAddFunction) => {
-        e.preventDefault();
-    
-        try {
-          // Realizar la solicitud PATCH solo para actualizar mechanic_report
-          const response = await axios.patch(`http://localhost:3005/products/${identification}/${matricula}`, {
-            mechanic_report: mechanicReport,
-          })
-          const inputAddResult = inputAddFunction()
-           const send = await axios.post('http://localhost:3005/products/inventory', {
-            product_name: inputAddResult,
-            matricula: matricula
-          }) 
-          
+  /* función que maneje la adición de un nuevo input
+  Esta función creará un nuevo objeto input y lo añadirá al estado actual */
+  const handleAddInput = () => {
+    setInputs([...inputs, { type: "text", value: "" }]);
+  };
 
-          .then((response)=> {
-            console.log(response.data);  
-          });   
-          
-        } catch (error) {
-          console.error('Error al actualizar:', error);
-          if (error.response) {
-            console.error('Respuesta del servidor:', error.response.data);
-          }
-        }
-      };
+  /* función  eliminará el último input del estado */
+  const handleRemoveInput = () => {
+    const newInputs = [...inputs];
+    newInputs.pop();
+    setInputs(newInputs);
+  };
+
+
+  /* Funcion que actualiza el valor del input en el estado: */
+  const handleInputChange = (e, index) => {
+    const newInputs = [...inputs];
+    newInputs[index].value = e.target.value;
+    setInputs(newInputs);
+  };
 
   return (
     <>
@@ -79,40 +66,40 @@ import {
               <InfoP>N° Orden: [bd]</InfoP>
             </Info>
           </ContainInfo>
-          <DividierOrderFactura/>
-          <TittleInfo >
-            ORDEN DE SERVICIO
-          </TittleInfo>
+          <DividierOrderFactura />
+          <TittleInfo>ORDEN DE SERVICIO</TittleInfo>
 
           <ContainInput>
-          <Input type="text" placeholder="Cedula" onChange={(e) => setIdentification(e.target.value)}/>
-          <Input type="text" placeholder="Placa" onChange={(e) => setMatricula(e.target.value.toUpperCase())}/>
+            <Input type="text" placeholder="Cedula" />
+            <Input type="text" placeholder="Placa" />
           </ContainInput>
 
           <ContainTextArea>
-            <TextArea
-              placeholder="¿Info mecanico? "
-              rows={6}
-              cols={50}
-              value={mechanicReport}
-              onChange={(e) => setMechanicReport(e.target.value)}
-            />
+            <TextArea placeholder="¿Info mecanico? " rows={6} cols={50} />
           </ContainTextArea>
 
           <ContainProducts>
             <ContainH2>
-              <TitleH2>PRODUCTOS</TitleH2>
+              <TitleProduct>PRODUCTOS</TitleProduct>
             </ContainH2>
-
-            <ContainInput>
-              {/* <Input type="text"/>
-            <button style={{height: '50%'}}><i className="fa-solid fa-plus"></i></button> */}
-              {InputAdd()}
-            </ContainInput>
+            <ContainerInputProduct>
+              <ContenInput>
+                {inputs.map((input, index) => (
+                  <InputProduct
+                    key={index}
+                    type={input.type}
+                    value={input.value}
+                    onChange={(e) => handleInputChange(e, index)}
+                  />
+                ))}
+              </ContenInput>
+              <button onClick={handleAddInput}>Agregar input</button>
+              <button onClick={handleRemoveInput}>Eliminar input</button>
+            </ContainerInputProduct>
           </ContainProducts>
 
           <ContainButtons>
-            <Button onClick={() => actualizacion(e, inputAddFunction)}>Realizar cotización</Button>
+            <Button>Realizar cotización</Button>
           </ContainButtons>
         </OrderContain>
 
