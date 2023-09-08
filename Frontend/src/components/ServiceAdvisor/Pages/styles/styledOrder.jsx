@@ -188,6 +188,7 @@ export const ContainerInputProduct = styled.div`
   transition: box-shadow 0.3s ease;
   border-radius: 4px;
   overflow: auto;
+
   /* background-color: green; */
   &::-webkit-scrollbar {
     width: 8px;
@@ -201,4 +202,31 @@ export const ContainerInputProduct = styled.div`
 
 export const ContenInput = styled.div`
   height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`
+export const InputProduct = styled.div`
+    width: 70%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Consolas";
+  text-transform: uppercase;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #222;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.301);
+  transition: box-shadow 0.3s ease;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  &::placeholder {
+    color: #999;
+    font-family: "Consolas";
+    font-size: 0.9rem;
+    text-transform: lowercase;
+  }
 `
